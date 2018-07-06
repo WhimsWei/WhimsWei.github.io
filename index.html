@@ -11,7 +11,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 <meta name="format-detection" content="telephone=no" />
-<meta name="author" content="whims wei" />
+<meta name="author" content="weihc" />
 
 
     
@@ -19,17 +19,17 @@
 
 
 <meta property="og:type" content="website">
-<meta property="og:title" content="whims">
+<meta property="og:title" content="weihc">
 <meta property="og:url" content="http://weihuchao.top/index.html">
-<meta property="og:site_name" content="whims">
+<meta property="og:site_name" content="weihc">
 <meta property="og:locale" content="zh-Hans">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="whims">
+<meta name="twitter:title" content="weihc">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
 
-    <link rel="alternate" href="/atom.xml" title="whims" type="application/atom+xml">
+    <link rel="alternate" href="/atom.xml" title="weihc" type="application/atom+xml">
 
 
 
@@ -58,7 +58,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>whims</title>
+<title>weihc</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -103,7 +103,7 @@
             <img src="/img/avatar.jpg" class="animated zoomIn">
         </a>
         <hgroup>
-          <h1 class="header-author"><a href="/">whims wei</a></h1>
+          <h1 class="header-author"><a href="/">weihc</a></h1>
         </hgroup>
 
         
@@ -167,7 +167,7 @@
       <nav id="mobile-nav">
       <div class="overlay">
           <div class="slider-trigger"></div>
-          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">whims wei</a></h1>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">weihc</a></h1>
       </div>
     <div class="intrude-less">
         <header id="header" class="inner">
@@ -175,7 +175,7 @@
                 <img src="/img/avatar.jpg" class="animated zoomIn">
             </a>
             <hgroup>
-              <h1 class="header-author"><a href="/" title="回到主页">whims wei</a></h1>
+              <h1 class="header-author"><a href="/" title="回到主页">weihc</a></h1>
             </hgroup>
             
             <nav class="header-menu">
@@ -206,6 +206,83 @@
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
       <div class="body-wrap"><!--
+  
+    <article id="post-MongoDB" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/07/07/MongoDB/" class="article-date">
+      <time datetime="2018-07-06T16:00:00.000Z" itemprop="datePublished">2018-07-07</time>
+</a>
+
+ 
+    <a href="/2018/07/07/MongoDB/#comments" title="查看评论">
+        <i class="fa fa-comments-o" aria-hidden="true"></i>
+        <span class="count-comment"></span>
+        
+        
+            <span class="disqus-comment-count" data-disqus-identifier="2018/07/07/MongoDB/"></span>
+        
+    </a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/07/MongoDB/">MongoDB</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h2 id="1-官方文档及相关文档"><a href="#1-官方文档及相关文档" class="headerlink" title="1 官方文档及相关文档"></a>1 官方文档及相关文档</h2><p><a href="https://docs.mongodb.com/" target="_blank" rel="noopener">官方文档</a></p>
+<h2 id="2-部署相关"><a href="#2-部署相关" class="headerlink" title="2 部署相关"></a>2 部署相关</h2><h3 id="1-安装"><a href="#1-安装" class="headerlink" title="1) 安装"></a>1) 安装</h3><p><a href="https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/" target="_blank" rel="noopener">ubuntu安装</a></p>
+<h3 id="2-命令"><a href="#2-命令" class="headerlink" title="2) 命令"></a>2) 命令</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 启动</span><br><span class="line">sudo service mongod stop</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 重启</span><br><span class="line">sudo service mongod restart</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 关闭</span><br><span class="line">sudo service mongod stop</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 移除</span><br><span class="line">sudo apt-get purge mongodb-org*</span><br></pre></td></tr></table></figure>
+<h2 id="3-常用使用"><a href="#3-常用使用" class="headerlink" title="3 常用使用"></a>3 常用使用</h2><h3 id="1）基础使用"><a href="#1）基础使用" class="headerlink" title="1）基础使用"></a>1）基础使用</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 连接数据库</span><br><span class="line">mongo --host 192.168.199.9</span><br><span class="line">mongo --host 127.0.0.1:27017</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 查看当前数据库</span><br><span class="line">db</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 查看所有数据库</span><br><span class="line">show dbs</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 使用数据库</span><br><span class="line">use weihc</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 查看所有文档</span><br><span class="line">show collections</span><br></pre></td></tr></table></figure>
+<h3 id="2）-查询"><a href="#2）-查询" class="headerlink" title="2） 查询"></a>2） 查询</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 基础查询(美化显示)</span><br><span class="line">db.player.find()</span><br><span class="line">db.player.find().pretty()</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 如果collection的名字特殊</span><br><span class="line">db.getCollection("3 test").find()</span><br><span class="line">db.getCollection("3-test").find()</span><br><span class="line">db.getCollection("stats").find()</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 过滤查询</span><br><span class="line">db.player.find(&#123;"_id": 1&#125;).pretty()</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 查询并过滤结果</span><br><span class="line">db.player.find(&#123;"_id": 1&#125;, &#123;"nickname": 1&#125;).pretty()</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 加上判断条件</span><br><span class="line">db.player.find(&#123;"_id": 1, "log_time": &#123;$gt: 1530894156&#125;&#125;, &#123;"nickname": 1&#125;).pretty()</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/Work/">Work</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Database/">Database</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Work/">Work</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/笔记/">笔记</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-Helloworld" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -488,20 +565,20 @@
 
 
   
-    <article id="post-初始化MACOX" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-初始化macOS" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2018/05/20/初始化MACOX/" class="article-date">
+      <a href="/2018/05/20/初始化macOS/" class="article-date">
       <time datetime="2018-05-19T16:00:00.000Z" itemprop="datePublished">2018-05-20</time>
 </a>
 
  
-    <a href="/2018/05/20/初始化MACOX/#comments" title="查看评论">
+    <a href="/2018/05/20/初始化macOS/#comments" title="查看评论">
         <i class="fa fa-comments-o" aria-hidden="true"></i>
         <span class="count-comment"></span>
         
         
-            <span class="disqus-comment-count" data-disqus-identifier="2018/05/20/初始化MACOX/"></span>
+            <span class="disqus-comment-count" data-disqus-identifier="2018/05/20/初始化macOS/"></span>
         
     </a>
 
@@ -516,7 +593,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/05/20/初始化MACOX/">MacOX系统初始化</a>
+      <a class="article-title" href="/2018/05/20/初始化macOS/">MacOS系统初始化</a>
     </h1>
   
 
@@ -550,13 +627,13 @@
 <li><a href="http://xidea.online" target="_blank" rel="noopener">http://xidea.online</a></li>
 </ul>
 </li>
-<li><p>字体大小<br><img src="/img/image-20180526201124712.png" alt="image-20180526201124712"></p>
+<li><p>字体大小<br><img src="/img//image-20180526201124712.png" alt="image-20180526201124712"></p>
 </li>
-<li><p>编辑区的字体和背景<br><img src="/img/image-20180526201217732.png" alt="image-20180526201217732"></p>
+<li><p>编辑区的字体和背景<br><img src="/img//image-20180526201217732.png" alt="image-20180526201217732"></p>
 <p>背景颜色</p>
-<p><img src="/img/image-20180526201314468.png" alt="image-20180526201314468"></p>
+<p><img src="/img//image-20180526201314468.png" alt="image-20180526201314468"></p>
 </li>
-<li><p>设置指定后缀的文件的Editor， 这样就可以轻松提醒和注释等操作了<br><img src="/img/image-20180526201714997.png" alt="image-20180526201714997"></p>
+<li><p>设置指定后缀的文件的Editor， 这样就可以轻松提醒和注释等操作了<br><img src="/img//image-20180526201714997.png" alt="image-20180526201714997"></p>
 </li>
 </ol>
 <h2 id="3-Terminal"><a href="#3-Terminal" class="headerlink" title="3 Terminal"></a>3 Terminal</h2><ol>
@@ -564,7 +641,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | sh</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>创建alias</p>
-<p>配置文件为 ~/.zshrc </p>
+<p>配置文件为 ~/.zshrc</p>
 <p>一些博主推荐的alias</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">alias cls='clear'</span><br><span class="line">alias ll='ls -l'</span><br><span class="line">alias la='ls -a'</span><br><span class="line">alias vi='vim'</span><br><span class="line">alias javac="javac -J-Dfile.encoding=utf8"</span><br><span class="line">alias grep="grep --color=auto"</span><br><span class="line">alias -s html=mate   # 在命令行直接输入后缀为 html 的文件名，会在 TextMate 中打开</span><br><span class="line">alias -s rb=mate     # 在命令行直接输入 ruby 文件，会在 TextMate 中打开</span><br><span class="line">alias -s py=vi       # 在命令行直接输入 python 文件，会用 vim 中打开，以下类似</span><br><span class="line">alias -s js=vi</span><br><span class="line">alias -s c=vi</span><br><span class="line">alias -s java=vi</span><br><span class="line">alias -s txt=vi</span><br><span class="line">alias -s gz='tar -xzvf'</span><br><span class="line">alias -s tgz='tar -xzvf'</span><br><span class="line">alias -s zip='unzip'</span><br><span class="line">alias -s bz2='tar -xjvf'</span><br></pre></td></tr></table></figure>
 </li>
@@ -579,7 +656,7 @@
 <li>Adblock Plus</li>
 <li>Onetab</li>
 <li>谷歌翻译</li>
-<li>手势<br><img src="/img/image-20180526201841525.png" alt="image-20180526201841525"></li>
+<li>手势<br><img src="/img//image-20180526201841525.png" alt="image-20180526201841525"></li>
 </ul>
 <h2 id="5-搜狗输入法"><a href="#5-搜狗输入法" class="headerlink" title="5 搜狗输入法"></a>5 搜狗输入法</h2><ul>
 <li>中英文标点</li>
@@ -633,6 +710,52 @@
           <a href="/archives/2018" class="archive-year">2018</a>
         </div>
         <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+          <div class="article-meta">
+              <a href="/2018/07/07/MongoDB/" class="archive-article-date">
+      <time datetime="2018-07-06T16:00:00.000Z" itemprop="datePublished">07-07</time>
+</a>
+
+ 
+    <a href="/2018/07/07/MongoDB/#comments" title="查看评论">
+        <i class="fa fa-comments-o" aria-hidden="true"></i>
+        <span class="count-comment"></span>
+        
+        
+            <span class="disqus-comment-count" data-disqus-identifier="2018/07/07/MongoDB/"></span>
+        
+    </a>
+
+        </div>
+         
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2018/07/07/MongoDB/">MongoDB</a>
+    </h1>
+  
+
+        <div class="article-info info-on-archive">
+          
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/Work/">Work</a>
+    </div>
+
+
+          
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Database/">Database</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Work/">Work</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/笔记/">笔记</a></li></ul>
+    </div>
+
+        </div>
+        <div class="clearfix"></div>
+    </header>
+  </div>
+</article>
+  
+    
     
     <article class="archive-article archive-type-post">
   <div class="archive-article-inner">
@@ -730,17 +853,17 @@
   <div class="archive-article-inner">
     <header class="archive-article-header">
           <div class="article-meta">
-              <a href="/2018/05/20/初始化MACOX/" class="archive-article-date">
+              <a href="/2018/05/20/初始化macOS/" class="archive-article-date">
       <time datetime="2018-05-19T16:00:00.000Z" itemprop="datePublished">05-20</time>
 </a>
 
  
-    <a href="/2018/05/20/初始化MACOX/#comments" title="查看评论">
+    <a href="/2018/05/20/初始化macOS/#comments" title="查看评论">
         <i class="fa fa-comments-o" aria-hidden="true"></i>
         <span class="count-comment"></span>
         
         
-            <span class="disqus-comment-count" data-disqus-identifier="2018/05/20/初始化MACOX/"></span>
+            <span class="disqus-comment-count" data-disqus-identifier="2018/05/20/初始化macOS/"></span>
         
     </a>
 
@@ -748,7 +871,7 @@
          
   
     <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/05/20/初始化MACOX/">MacOX系统初始化</a>
+      <a class="archive-article-title" href="/2018/05/20/初始化macOS/">MacOS系统初始化</a>
     </h1>
   
 
@@ -782,7 +905,7 @@
         <div id="footer-info">
             <div class="footer-left">
                 <i class="fa fa-copyright"></i>
-                2018 whims wei
+                2017-2018 weihc
             </div>
             <!--<div class="footer-right">-->
                 <!--<a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>-->
