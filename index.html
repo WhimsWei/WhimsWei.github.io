@@ -207,20 +207,20 @@
 </nav>
       <div class="body-wrap"><!--
   
-    <article id="post-千里之外-周杰伦" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-解释器" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2018/07/08/千里之外-周杰伦/" class="article-date">
-      <time datetime="2018-07-07T16:00:00.000Z" itemprop="datePublished">2018-07-08</time>
+      <a href="/2018/09/01/解释器/" class="article-date">
+      <time datetime="2018-08-31T16:00:00.000Z" itemprop="datePublished">2018-09-01</time>
 </a>
 
  
-    <a href="/2018/07/08/千里之外-周杰伦/#comments" title="查看评论">
+    <a href="/2018/09/01/解释器/#comments" title="查看评论">
         <i class="fa fa-comments-o" aria-hidden="true"></i>
         <span class="count-comment"></span>
         
         
-            <span class="disqus-comment-count" data-disqus-identifier="2018/07/08/千里之外-周杰伦/"></span>
+            <span class="disqus-comment-count" data-disqus-identifier="2018/09/01/解释器/"></span>
         
     </a>
 
@@ -235,7 +235,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/08/千里之外-周杰伦/">千里之外-周杰伦</a>
+      <a class="article-title" href="/2018/09/01/解释器/">python解释器</a>
     </h1>
   
 
@@ -245,19 +245,118 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h2 id="歌谱"><a href="#歌谱" class="headerlink" title="歌谱"></a>歌谱</h2><p><img src="/img/千里之外.jpg" alt=""></p>
-<h2 id="歌词"><a href="#歌词" class="headerlink" title="歌词"></a>歌词</h2><h3 id="A"><a href="#A" class="headerlink" title="A"></a>A</h3><p>屋檐如悬崖 风铃如沧海<br>我等燕归来<br>时间被安排 演一场意外<br>你悄然走开</p>
-<p>故事在城外 浓雾散不开<br>看不清对白<br>你听不出来 风声不存在<br>是我在感慨</p>
-<p>梦醒来 是谁在窗台 把结局打开<br>那薄如蝉|翼的未来<br>经不起谁来拆</p>
-<p>我送你离开 千里之外<br>你无声黑白<br>沉默年代 或许不该<br>太遥远的相爱</p>
-<p>我送你离开 天涯之外<br>你是否还在<br>琴声何来 生死难猜<br>用一生去等待</p>
-<h3 id="B"><a href="#B" class="headerlink" title="B"></a>B</h3><p>一身琉璃白 透明着尘埃<br>你无瑕的爱<br>你从雨中来 诗化了悲哀<br>我淋湿现在</p>
-<p>芙蓉水面采 船行影犹在<br>你却不回来<br>被岁月覆盖 你说的花开<br>过去成空白</p>
-<p>梦醒来 是谁在窗台 把结局打开<br>那薄如蝉|翼的未来<br>经不起谁来拆</p>
-<p>我送你离开 千里之外<br>你无声黑白<br>沉默年代 或许不该<br>太遥远的相爱</p>
-<p>我送你离开 天涯之外<br>你是否还在<br>琴声何来 生死难猜<br>用一生 （没有去等待）</p>
-<h2 id="C"><a href="#C" class="headerlink" title="C"></a>C</h2><p>我送你离开 千里之外<br>你无声黑白<br>沉默年代 或许不该<br>太遥远的相爱</p>
-<p>我送你离开 天涯之外<br>你是否还在<br>琴声何来 生死难猜<br>用一生去等待</p>
+        <h2 id="1-Python的常用解释器"><a href="#1-Python的常用解释器" class="headerlink" title="1 Python的常用解释器"></a>1 Python的常用解释器</h2><h3 id="CPython"><a href="#CPython" class="headerlink" title="CPython"></a>CPython</h3><p>官方版本的解释器：CPython。</p>
+<p>这个解释器是用C语言开发的，所以叫CPython。</p>
+<p>默认在命令行下运行python就是启动CPython解释器。</p>
+<p>CPython是使用最广的Python解释器</p>
+<h3 id="IPython"><a href="#IPython" class="headerlink" title="IPython"></a>IPython</h3><p>IPython是基于CPython之上的一个交互式解释器，只是在交互方式上有所增强。</p>
+<p>CPython用<strong>&gt;&gt;&gt;</strong>作为提示符，而IPython用<strong>In [序号]:</strong>作为提示符。</p>
+<h3 id="PyPy"><a href="#PyPy" class="headerlink" title="PyPy"></a>PyPy</h3><p>PyPy是另一个Python解释器，它的目标是执行速度。</p>
+<p>PyPy采用<strong>JIT技术</strong>，对Python代码进行<strong>动态编译</strong>（注意不是解释），所以可以<strong>显著提高Python代码的执行速度</strong>。</p>
+<p>绝大部分Python代码都可以在PyPy下运行，但是PyPy和CPython有一些是不同的，这就导致相同的Python代码在两种解释器下执行可能会有不同的结果。</p>
+<h3 id="Jython"><a href="#Jython" class="headerlink" title="Jython"></a>Jython</h3><p>Jython是运行在Java平台上的Python解释器，可以直接把Python代码编译成Java字节码执行。</p>
+<h3 id="IronPython"><a href="#IronPython" class="headerlink" title="IronPython"></a>IronPython</h3><p>IronPython和Jython类似，只不过IronPython是运行在微软.Net平台上的Python解释器，可以直接把Python代码编译成.Net的字节码。</p>
+<h2 id="2-解释-提前编译-实时编译"><a href="#2-解释-提前编译-实时编译" class="headerlink" title="2 解释 提前编译 实时编译"></a>2 解释 提前编译 实时编译</h2><h3 id="提前（AOT）编译"><a href="#提前（AOT）编译" class="headerlink" title="提前（AOT）编译"></a>提前（AOT）编译</h3><p>编译高级编程语言为对应的机器代码， 以便生成的二进制文件可以本机执行。</p>
+<h3 id="解释"><a href="#解释" class="headerlink" title="解释"></a>解释</h3><p>解释是<strong>直接执行脚本语言</strong>， 而不需要事先将它们编译成机器语言。</p>
+<p>解释器的主要缺点是解释程序通常比编译时运行得<strong>慢</strong>。</p>
+<p>解释器通常使用以下策略之一来执行程序：</p>
+<ul>
+<li><p>解析的源代码，并直接执行其行为;</p>
+</li>
+<li><p>将源代码转换为一些有效的<strong>中间表示</strong>并立即执行此操作;</p>
+</li>
+<li><p>显式执行由编译器生成的存储的预编译代码，编译器是解释器系统的一部分。</p>
+</li>
+</ul>
+<p>术语“ <strong>解释语言</strong> ”或“ <strong>编译语言</strong> ”表示该语言的规范实现分别是<strong>解释器</strong>或<strong>编译器</strong>。</p>
+<h3 id="实时（JIT）编译"><a href="#实时（JIT）编译" class="headerlink" title="实时（JIT）编译"></a>实时（JIT）编译</h3><p>涉及程序执行期间的编译。</p>
+<p>实时编译系统通常的做法是，连续地分析正在执行的代码，并识别代码的一部分，从而得到加速。且编译或重新编译获得的加速比将超过编译该代码的开销。</p>
+<p>JIT编译结合了编译代码的速度和解释的灵活性，以及​解释器的开销和编译的额外开销（而不仅仅是解释）。</p>
+<p>理论上，JIT编译可以比静态编译产生更快的执行速度。</p>
+<h2 id="3-CPython和PyPy之间的差异"><a href="#3-CPython和PyPy之间的差异" class="headerlink" title="3 CPython和PyPy之间的差异"></a>3 CPython和PyPy之间的差异</h2><p><a href="https://pypy.readthedocs.io/en/latest/cpython_differences.html" target="_blank" rel="noopener">详见</a></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/python/">python</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/解释器/">解释器</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-夏之幻-Garnet Crow" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/08/21/夏之幻-Garnet Crow/" class="article-date">
+      <time datetime="2018-08-20T16:00:00.000Z" itemprop="datePublished">2018-08-21</time>
+</a>
+
+ 
+    <a href="/2018/08/21/夏之幻-Garnet Crow/#comments" title="查看评论">
+        <i class="fa fa-comments-o" aria-hidden="true"></i>
+        <span class="count-comment"></span>
+        
+        
+            <span class="disqus-comment-count" data-disqus-identifier="2018/08/21/夏之幻-Garnet Crow/"></span>
+        
+    </a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/08/21/夏之幻-Garnet Crow/">夏の幻-Garnet Crow</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>部屋(へや)の窓(まど)の向(む)こうに<br>へやのまどのむこうに<br>飞行机云(ひこうきぐも)を なぞって<br>ひこうきぐもを なぞって<br>今日(きょう)ケンカした君(きみ)の事(こと)ばかり<br>考(かんが)えてた</p>
+<p>些细(ささい)な事(こと)で戸惑(とまど)って<br>不安定(ふあんてい)で无防备(むぼうび)な<br>あの顷(ころ)のように<br>すぐに电话(でんわ)して<br>笑(わら)い合(あ)えたらいいのにね</p>
+<p>近(ちか)づいて来(く)る 至福(しふく)の时(とき)は<br>痛(いた)みを伴(ともな)いながら足音(あしおと)をたてる<br>考(かんが)えすぎて深(ふか)みにハマる<br>君(きみ)の傍(そば)にいるのに</p>
+<p>夏(なつ)の幻(まぼろし)<br>瞳闭(ひとみと)じて<br>一番最初(いちばんさいしょ)に君(きみ)を思(おも)い出(だ)すよ<br>いつか终(お)わる儚(はかな)い生命(ゆめ)に<br>ただ こみあげる気持(きも)ちい抱(だ)いた</p>
+<p>世界(せかい)は広(ひろ)く<br>知(し)らない事溢(ことあふ)れてて自分(じぶん)さえ见失(みうしな)いそう<br>だけど君(きみ)と生(い)きてゆきたいから<br>とまどいながらでもいい<br>つないだ手(て)を离(はな)さないでね</p>
+<p>强(つよ)いオフショア<br>波(なみ)を待(ま)ってた<br>中途半端(ちゅうとはんぱ)に离(はな)れて<br>流(なが)されてゆくよ<br>进化(しんか)してゆく时代(じだい)の中(なか)で<br>同(おな)じものを求(もと)めて</p>
+<p>夏(なつ)の幻(まぼろし)<br>想(おも)うだけで<br>胸(むね)が热(あつ)くなれた奇迹(きせき)の途中(とちゅう)<br>愿(ねが)うだけじゃ　届(とど)かぬくらい<br>こぼれ落(お)ちそうな気持(きも)ち抱(だ)いた</p>
+<p>どうして二人(ふたり)<br>近(ちか)づく程(ほど)<br>远(とお)く感(かん)じて　不安(ふあん)になるんだろう<br>キョリを超(こ)えた　欲望(よくぼう)があふれて<br>一人(ひとり) 部屋(へや)のなかで<br>君(きみ)の温(ぬく)もり想(おも)う</p>
+<p>どんな日(ひ)にも<br>瞳闭(ひとみと)じて<br>一番最初(いちばんさいしょ)に　君(きみ)を思(おも)い出(だ)すよ<br>いつか终(お)わる儚(はかな)い生命（ゆめ）に<br>ただ こみあげる気持(きも)ち抱(だ)いた</p>
+<p>忘(わす)れないから…<br>消(き)えゆく幻(まぼろし)に<br>君(きみ)と并(なら)んでいたね<br>夏(なつ)の终(お)わり阳射(ひざ)しがゆれてる<br>海(うみ)の底(そこ)のような手(て)のひらの中(なか)の街并(まちなみ)</p>
+<p>I like a dream<br>I’m calling out to you</p>
 
       
     </div>
@@ -292,20 +391,20 @@
 
 
   
-    <article id="post-青花瓷-周杰伦" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-安静-周杰伦" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2018/07/08/青花瓷-周杰伦/" class="article-date">
+      <a href="/2018/07/08/安静-周杰伦/" class="article-date">
       <time datetime="2018-07-07T16:00:00.000Z" itemprop="datePublished">2018-07-08</time>
 </a>
 
  
-    <a href="/2018/07/08/青花瓷-周杰伦/#comments" title="查看评论">
+    <a href="/2018/07/08/安静-周杰伦/#comments" title="查看评论">
         <i class="fa fa-comments-o" aria-hidden="true"></i>
         <span class="count-comment"></span>
         
         
-            <span class="disqus-comment-count" data-disqus-identifier="2018/07/08/青花瓷-周杰伦/"></span>
+            <span class="disqus-comment-count" data-disqus-identifier="2018/07/08/安静-周杰伦/"></span>
         
     </a>
 
@@ -320,7 +419,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/08/青花瓷-周杰伦/">青花瓷-周杰伦</a>
+      <a class="article-title" href="/2018/07/08/安静-周杰伦/">安静-周杰伦</a>
     </h1>
   
 
@@ -330,174 +429,11 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h2 id="歌谱"><a href="#歌谱" class="headerlink" title="歌谱"></a>歌谱</h2><p><img src="/img/青花瓷.jpg" alt=""></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/Music/">Music</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/歌词/">歌词</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/音乐/">音乐</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-e of s-泽野弘之" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2018/07/08/e of s-泽野弘之/" class="article-date">
-      <time datetime="2018-07-07T16:00:00.000Z" itemprop="datePublished">2018-07-08</time>
-</a>
-
- 
-    <a href="/2018/07/08/e of s-泽野弘之/#comments" title="查看评论">
-        <i class="fa fa-comments-o" aria-hidden="true"></i>
-        <span class="count-comment"></span>
-        
-        
-            <span class="disqus-comment-count" data-disqus-identifier="2018/07/08/e of s-泽野弘之/"></span>
-        
-    </a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/08/e of s-泽野弘之/">e of s-泽野弘之</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p>各个平台的歌词都不一样，泽野大大的歌词一向生僻，google到的歌词和听到的总有差异。<br>因此给出两个版本的歌词:<br>一个是我慢放歌一遍一遍听出来的歌词， 纯平假名。<br>一个是我在lyrical-nonsense.com看到的歌词。</p>
-<h2 id="纯平假名听出来的歌词"><a href="#纯平假名听出来的歌词" class="headerlink" title="纯平假名听出来的歌词"></a>纯平假名听出来的歌词</h2><h3 id="A"><a href="#A" class="headerlink" title="A"></a>A</h3><p>ぼくおけしてえ　たつみの　がれのお<br>あらす　ほど　ちのねに　おびえる<br>こだわりのないきばで<br>どこお　とがめても<br>てすりも　つかめやしない<br>いばしょおよ　けいも　とめる<br>さけも　end of sound</p>
-<p>だれもいない<br>さわいだ　げんそに　こたえた　りてのわるど<br>むげんのSTAGEと　いかりだけ<br>ごみかせない　らせんのご　めざめたていこ</p>
-<h3 id="B"><a href="#B" class="headerlink" title="B"></a>B</h3><p>さめたまちの　あかりがと　もしても<br>きずの　いろ　いた　みわ　わからない<br>りくつなぎお　かかげ　ばせいおふらしても<br>あしもと　みず　だらけ<br>ことばの　せいで　きまる<br>こたえない　いない</p>
-<p>だれもいない<br>かわいた　かんじょで　ぎせいなった　ちじょのtears<br>くだいた　そらえ　さけんでも<br>たたかえない　むりょなえ　すなになえいこ</p>
-<h3 id="C"><a href="#C" class="headerlink" title="C"></a>C</h3><p>そこにだれもいない<br>さわいだ　げんそすで　きえてった　りていくのわるど<br>むげんのSTAGEと　いかりだけ<br>ごみかせない　らせんのご　めざめたていこ</p>
-<h2 id="网上的歌词"><a href="#网上的歌词" class="headerlink" title="网上的歌词"></a>网上的歌词</h2><p>「僕」を消して得た「罪逃れの王」<br>荒らすほど地の音に怯える<br>拘りの無い牙で　どこを咎めても<br>手すりも掴めやしない<br>居場所を余計求める<br>叫ぶも　end of sound<br>“boku” o keshite eta “tsumi nogare no ou”<br>arasu hodo chi no oto ni obieru<br>kodawari no nai kiba de doko o togametemo<br>tesuri mo tsukame ya shinai<br>ibasho o yokei motomeru<br>sakebu mo end of sound</p>
-<p>誰もいない<br>騒いだ幻想に答えて得たリテイクのワールド<br>無限のSTAGEと怒りだけ<br>誤魔化せない螺旋の業　目覚めた抵抗<br>daremo inai<br>sawaida gensou ni kotaete eta riteiku no waarudo<br>mugen no STAGE to ikari dake<br>gomakasenai rasen no gou mezameta teikou</p>
-<p>覚めた街の明かりが灯しても<br>傷の色・痛みは解らない<br>理屈な義を掲げ罵声を降らしても<br>足元水だらけ<br>sameta machi no akari ga tomoshitemo<br>kizu no iro ・ itami wa wakaranai<br>rikutsu na gi o kakage basei o furashitemo<br>ashimoto mizu darake</p>
-<p>言葉の精度で決まる<br>答えなどいらない<br>kotoba no seido de kimaru<br>kotae nado iranai</p>
-<p>誰もいない<br>乾いた感情で犠牲になった地上のtears<br>砕いた空へ叫んでも<br>戦えない無力なエゴ　砂になる栄光<br>daremo inai<br>kawaita kanjou de gisei ni natta chijou no tears<br>kudaita sora e sakendemo<br>tatakaenai muryoku na ego suna ni naru eikou</p>
-<p>誰もいない<br>騒いだ幻想を捨て消えてったリテイクのワールド<br>無限のSTAGEと怒りだけ<br>誤魔化せない螺旋の業　目覚めた抵抗<br>daremo inai<br>sawaida gensou o sute kietetta riteiku no waarudo<br>mugen no STAGE to ikari dake<br>gomakasenai rasen no gou mezameta teikou</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/Music/">Music</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/歌词/">歌词</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/音乐/">音乐</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-七里香-周杰伦" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2018/07/08/七里香-周杰伦/" class="article-date">
-      <time datetime="2018-07-07T16:00:00.000Z" itemprop="datePublished">2018-07-08</time>
-</a>
-
- 
-    <a href="/2018/07/08/七里香-周杰伦/#comments" title="查看评论">
-        <i class="fa fa-comments-o" aria-hidden="true"></i>
-        <span class="count-comment"></span>
-        
-        
-            <span class="disqus-comment-count" data-disqus-identifier="2018/07/08/七里香-周杰伦/"></span>
-        
-    </a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/08/七里香-周杰伦/">七里香-周杰伦</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <h2 id="歌词"><a href="#歌词" class="headerlink" title="歌词"></a>歌词</h2><h3 id="A"><a href="#A" class="headerlink" title="A"></a>A</h3><p>窗外的麻雀 在电线杆上多嘴<br>你说这一句 很有夏↓天的感觉<br>手中的铅笔 在纸上来来回回<br>我|用几行字 形容你是我的谁</p>
-<p>秋刀鱼的滋味 猫跟你都想了解<br>初恋的香味 就这样被我^们寻回<br>那温暖的阳光 像刚摘的鲜艳草莓<br>你说你舍不得吃掉 这一种感觉</p>
-<p>雨下整夜 我的爱溢出就像雨水<br>院子落叶 跟我的思念厚厚一叠<br>几句是非 也无法将我的热情冷却<br>你出现在我诗的每一页</p>
-<p>雨下整夜 我的爱溢出就像雨水<br>窗台蝴蝶 像诗里纷飞的美丽章节<br>我接着写 把永远爱你<br>写进诗的结尾<br>你是我唯一想要的了解</p>
-<h3 id="B"><a href="#B" class="headerlink" title="B"></a>B</h3><p>雨下整夜 我的爱溢出就像雨水<br>院子落叶 跟我的思念厚厚一叠<br>几句是非 也无法将我的热情冷却<br>你出现在我诗的每一页</p>
-<p>那饱满的稻穗 幸福了~这个季节<br>而你的脸颊 像田里熟透的蕃茄<br>你突然|对我说 七里香的|名字很美<br>我此刻却只想亲吻你倔强的嘴</p>
-<h3 id="C"><a href="#C" class="headerlink" title="C"></a>C</h3><p>雨下整夜 我的爱溢出就像雨水<br>院子落叶 跟我的思念厚厚一叠<br>几句是非 也无法将我的热情冷却<br>你出现在我诗的每一页</p>
-<p>整夜<br>我的爱溢出就像雨水<br>窗台蝴蝶 像诗里↑纷飞的美丽~章节<br>我接着写 把永远爱你<br>写进诗的结尾<br>你是我唯一想要的了解</p>
-<h2 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h2><p>A（麻雀）<br>B（秋刀鱼）<br>C（院子落叶）<br>C（窗台蝴蝶）</p>
-<p>C（院子落叶）<br>B（稻穗）</p>
-<p>C（院子落叶）<br>C（窗台蝴蝶）</p>
+        <h2 id="歌词"><a href="#歌词" class="headerlink" title="歌词"></a>歌词</h2><h3 id="A"><a href="#A" class="headerlink" title="A"></a>A</h3><p>只剩下钢琴陪我谈了一天<br>睡著的大提琴 安静的旧旧的<br>我想你已表现的非常明白<br>我懂我也知道 你没有舍不得</p>
+<p>你说你也会难过我不相信<br>牵著你陪著我 也只是曾经<br>希望他是真的比我还要爱你<br>我才会逼自己离开</p>
+<h3 id="B"><a href="#B" class="headerlink" title="B"></a>B</h3><p>你要我说多难堪 我根本不想分开<br>为什么还要我用微笑来带过<br>我没有这种天份 包容你也接受他<br>不用担心的太多 我会一直好好过</p>
+<p>你已经远远离开 我也会慢慢走开<br>为什么我连分开都迁就著你<br>我真的没有天份 安（B3两个音）静的没这么快<br>我会学著放弃你 是因为我太爱你</p>
+<h3 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h3><p>AB AB B</p>
 
       
     </div>
@@ -616,20 +552,20 @@
 
 
   
-    <article id="post-安静-周杰伦" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-七里香-周杰伦" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2018/07/08/安静-周杰伦/" class="article-date">
+      <a href="/2018/07/08/七里香-周杰伦/" class="article-date">
       <time datetime="2018-07-07T16:00:00.000Z" itemprop="datePublished">2018-07-08</time>
 </a>
 
  
-    <a href="/2018/07/08/安静-周杰伦/#comments" title="查看评论">
+    <a href="/2018/07/08/七里香-周杰伦/#comments" title="查看评论">
         <i class="fa fa-comments-o" aria-hidden="true"></i>
         <span class="count-comment"></span>
         
         
-            <span class="disqus-comment-count" data-disqus-identifier="2018/07/08/安静-周杰伦/"></span>
+            <span class="disqus-comment-count" data-disqus-identifier="2018/07/08/七里香-周杰伦/"></span>
         
     </a>
 
@@ -644,7 +580,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/08/安静-周杰伦/">安静-周杰伦</a>
+      <a class="article-title" href="/2018/07/08/七里香-周杰伦/">七里香-周杰伦</a>
     </h1>
   
 
@@ -654,11 +590,17 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h2 id="歌词"><a href="#歌词" class="headerlink" title="歌词"></a>歌词</h2><h3 id="A"><a href="#A" class="headerlink" title="A"></a>A</h3><p>只剩下钢琴陪我谈了一天<br>睡著的大提琴 安静的旧旧的<br>我想你已表现的非常明白<br>我懂我也知道 你没有舍不得</p>
-<p>你说你也会难过我不相信<br>牵著你陪著我 也只是曾经<br>希望他是真的比我还要爱你<br>我才会逼自己离开</p>
-<h3 id="B"><a href="#B" class="headerlink" title="B"></a>B</h3><p>你要我说多难堪 我根本不想分开<br>为什么还要我用微笑来带过<br>我没有这种天份 包容你也接受他<br>不用担心的太多 我会一直好好过</p>
-<p>你已经远远离开 我也会慢慢走开<br>为什么我连分开都迁就著你<br>我真的没有天份 安（B3两个音）静的没这么快<br>我会学著放弃你 是因为我太爱你</p>
-<h3 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h3><p>AB AB B</p>
+        <h2 id="歌词"><a href="#歌词" class="headerlink" title="歌词"></a>歌词</h2><h3 id="A"><a href="#A" class="headerlink" title="A"></a>A</h3><p>窗外的麻雀 在电线杆上多嘴<br>你说这一句 很有夏↓天的感觉<br>手中的铅笔 在纸上来来回回<br>我|用几行字 形容你是我的谁</p>
+<p>秋刀鱼的滋味 猫跟你都想了解<br>初恋的香味 就这样被我^们寻回<br>那温暖的阳光 像刚摘的鲜艳草莓<br>你说你舍不得吃掉 这一种感觉</p>
+<p>雨下整夜 我的爱溢出就像雨水<br>院子落叶 跟我的思念厚厚一叠<br>几句是非 也无法将我的热情冷却<br>你出现在我诗的每一页</p>
+<p>雨下整夜 我的爱溢出就像雨水<br>窗台蝴蝶 像诗里纷飞的美丽章节<br>我接着写 把永远爱你<br>写进诗的结尾<br>你是我唯一想要的了解</p>
+<h3 id="B"><a href="#B" class="headerlink" title="B"></a>B</h3><p>雨下整夜 我的爱溢出就像雨水<br>院子落叶 跟我的思念厚厚一叠<br>几句是非 也无法将我的热情冷却<br>你出现在我诗的每一页</p>
+<p>那饱满的稻穗 幸福了~这个季节<br>而你的脸颊 像田里熟透的蕃茄<br>你突然|对我说 七里香的|名字很美<br>我此刻却只想亲吻你倔强的嘴</p>
+<h3 id="C"><a href="#C" class="headerlink" title="C"></a>C</h3><p>雨下整夜 我的爱溢出就像雨水<br>院子落叶 跟我的思念厚厚一叠<br>几句是非 也无法将我的热情冷却<br>你出现在我诗的每一页</p>
+<p>整夜<br>我的爱溢出就像雨水<br>窗台蝴蝶 像诗里↑纷飞的美丽~章节<br>我接着写 把永远爱你<br>写进诗的结尾<br>你是我唯一想要的了解</p>
+<h2 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h2><p>A（麻雀）<br>B（秋刀鱼）<br>C（院子落叶）<br>C（窗台蝴蝶）</p>
+<p>C（院子落叶）<br>B（稻穗）</p>
+<p>C（院子落叶）<br>C（窗台蝴蝶）</p>
 
       
     </div>
@@ -775,20 +717,20 @@
 
 
   
-    <article id="post-大唐玄怪来谒-肥皂菌" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-e of s-泽野弘之" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2018/07/08/大唐玄怪来谒-肥皂菌/" class="article-date">
+      <a href="/2018/07/08/e of s-泽野弘之/" class="article-date">
       <time datetime="2018-07-07T16:00:00.000Z" itemprop="datePublished">2018-07-08</time>
 </a>
 
  
-    <a href="/2018/07/08/大唐玄怪来谒-肥皂菌/#comments" title="查看评论">
+    <a href="/2018/07/08/e of s-泽野弘之/#comments" title="查看评论">
         <i class="fa fa-comments-o" aria-hidden="true"></i>
         <span class="count-comment"></span>
         
         
-            <span class="disqus-comment-count" data-disqus-identifier="2018/07/08/大唐玄怪来谒-肥皂菌/"></span>
+            <span class="disqus-comment-count" data-disqus-identifier="2018/07/08/e of s-泽野弘之/"></span>
         
     </a>
 
@@ -803,7 +745,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/08/大唐玄怪来谒-肥皂菌/">大唐玄怪来谒-肥皂菌</a>
+      <a class="article-title" href="/2018/07/08/e of s-泽野弘之/">e of s-泽野弘之</a>
     </h1>
   
 
@@ -813,11 +755,103 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h2 id="歌词"><a href="#歌词" class="headerlink" title="歌词"></a>歌词</h2><h3 id="A"><a href="#A" class="headerlink" title="A"></a>A</h3><p>文翰初议周隋 再话旧唐<br>以尺墨安定狐媚<br>平生偏好奇诡 又易食髓知味<br>秉夜烛 诗邀神鬼<br>听说落魄书生 杜氏子春<br>虎皮上两世长梦 成仙或为人<br>他已识门道九分 偏情字入骨深</p>
-<p>清夜慎持明烛台 它亦吟得词句入怀<br>大唐遍出诗才 待我坐镇云峰台<br>千里紫霞参拜 引鹤来<br>剑指乌妖一当百 身性刚正<br>怎怕污邪侵害<br>只把酒此生付慷慨 喝完<br>披朱衣再去游炎海</p>
-<h3 id="B"><a href="#B" class="headerlink" title="B"></a>B</h3><p>笔触刺骨几分 毫若青锋<br>如凡俗入骨几寸 最难罢品红尘<br>异事易勾瘾症<br>上酒卮 劳君多论<br>时人文章评批 非不靡丽<br>却可惜殊少骨气 不如拂袖去<br>练绝这一手棋技 普世人桔中戏</p>
-<p>当心红鬼鸣鼓钟<br>提柄长剑叩你颈痛<br>方知善恶有终<br>上元广陵景最浓 由我乘驾天虹 彩云中<br>敢凭纸符救白龙<br>并非是我 醉得太过放纵<br>只爱煞一生逞英雄<br>不叹匆匆 真君子不言怪</p>
-<h3 id="C"><a href="#C" class="headerlink" title="C"></a>C</h3><p>自诩假小人尽可谈的开怀<br>因我解下绣龙裳 世间无人敢自称王<br>犯我半分张狂 挑亮烛光点鬼将<br>推杯豪饮琼浆 祭参商<br>扬手呼童请明皇 突觉喉中<br>酒烈吐出金蟒 吞山河胸胆正开张<br>容我 怒书这一卷说盛唐</p>
+        <p>各个平台的歌词都不一样，泽野大大的歌词一向生僻，google到的歌词和听到的总有差异。<br>因此给出两个版本的歌词:<br>一个是我慢放歌一遍一遍听出来的歌词， 纯平假名。<br>一个是我在lyrical-nonsense.com看到的歌词。</p>
+<h2 id="纯平假名听出来的歌词"><a href="#纯平假名听出来的歌词" class="headerlink" title="纯平假名听出来的歌词"></a>纯平假名听出来的歌词</h2><h3 id="A"><a href="#A" class="headerlink" title="A"></a>A</h3><p>ぼくおけしてえ　たつみの　がれのお<br>あらす　ほど　ちのねに　おびえる<br>こだわりのないきばで<br>どこお　とがめても<br>てすりも　つかめやしない<br>いばしょおよ　けいも　とめる<br>さけも　end of sound</p>
+<p>だれもいない<br>さわいだ　げんそに　こたえた　りてのわるど<br>むげんのSTAGEと　いかりだけ<br>ごみかせない　らせんのご　めざめたていこ</p>
+<h3 id="B"><a href="#B" class="headerlink" title="B"></a>B</h3><p>さめたまちの　あかりがと　もしても<br>きずの　いろ　いた　みわ　わからない<br>りくつなぎお　かかげ　ばせいおふらしても<br>あしもと　みず　だらけ<br>ことばの　せいで　きまる<br>こたえない　いない</p>
+<p>だれもいない<br>かわいた　かんじょで　ぎせいなった　ちじょのtears<br>くだいた　そらえ　さけんでも<br>たたかえない　むりょなえ　すなになえいこ</p>
+<h3 id="C"><a href="#C" class="headerlink" title="C"></a>C</h3><p>そこにだれもいない<br>さわいだ　げんそすで　きえてった　りていくのわるど<br>むげんのSTAGEと　いかりだけ<br>ごみかせない　らせんのご　めざめたていこ</p>
+<h2 id="网上的歌词"><a href="#网上的歌词" class="headerlink" title="网上的歌词"></a>网上的歌词</h2><p>「僕」を消して得た「罪逃れの王」<br>荒らすほど地の音に怯える<br>拘りの無い牙で　どこを咎めても<br>手すりも掴めやしない<br>居場所を余計求める<br>叫ぶも　end of sound<br>“boku” o keshite eta “tsumi nogare no ou”<br>arasu hodo chi no oto ni obieru<br>kodawari no nai kiba de doko o togametemo<br>tesuri mo tsukame ya shinai<br>ibasho o yokei motomeru<br>sakebu mo end of sound</p>
+<p>誰もいない<br>騒いだ幻想に答えて得たリテイクのワールド<br>無限のSTAGEと怒りだけ<br>誤魔化せない螺旋の業　目覚めた抵抗<br>daremo inai<br>sawaida gensou ni kotaete eta riteiku no waarudo<br>mugen no STAGE to ikari dake<br>gomakasenai rasen no gou mezameta teikou</p>
+<p>覚めた街の明かりが灯しても<br>傷の色・痛みは解らない<br>理屈な義を掲げ罵声を降らしても<br>足元水だらけ<br>sameta machi no akari ga tomoshitemo<br>kizu no iro ・ itami wa wakaranai<br>rikutsu na gi o kakage basei o furashitemo<br>ashimoto mizu darake</p>
+<p>言葉の精度で決まる<br>答えなどいらない<br>kotoba no seido de kimaru<br>kotae nado iranai</p>
+<p>誰もいない<br>乾いた感情で犠牲になった地上のtears<br>砕いた空へ叫んでも<br>戦えない無力なエゴ　砂になる栄光<br>daremo inai<br>kawaita kanjou de gisei ni natta chijou no tears<br>kudaita sora e sakendemo<br>tatakaenai muryoku na ego suna ni naru eikou</p>
+<p>誰もいない<br>騒いだ幻想を捨て消えてったリテイクのワールド<br>無限のSTAGEと怒りだけ<br>誤魔化せない螺旋の業　目覚めた抵抗<br>daremo inai<br>sawaida gensou o sute kietetta riteiku no waarudo<br>mugen no STAGE to ikari dake<br>gomakasenai rasen no gou mezameta teikou</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/Music/">Music</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/歌词/">歌词</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/音乐/">音乐</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-千里之外-周杰伦" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/07/08/千里之外-周杰伦/" class="article-date">
+      <time datetime="2018-07-07T16:00:00.000Z" itemprop="datePublished">2018-07-08</time>
+</a>
+
+ 
+    <a href="/2018/07/08/千里之外-周杰伦/#comments" title="查看评论">
+        <i class="fa fa-comments-o" aria-hidden="true"></i>
+        <span class="count-comment"></span>
+        
+        
+            <span class="disqus-comment-count" data-disqus-identifier="2018/07/08/千里之外-周杰伦/"></span>
+        
+    </a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/08/千里之外-周杰伦/">千里之外-周杰伦</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h2 id="歌谱"><a href="#歌谱" class="headerlink" title="歌谱"></a>歌谱</h2><p><img src="/img/blog/千里之外/千里之外.jpg" alt=""></p>
+<h2 id="歌词"><a href="#歌词" class="headerlink" title="歌词"></a>歌词</h2><h3 id="A"><a href="#A" class="headerlink" title="A"></a>A</h3><p>屋檐如悬崖 风铃如沧海<br>我等燕归来<br>时间被安排 演一场意外<br>你悄然走开</p>
+<p>故事在城外 浓雾散不开<br>看不清对白<br>你听不出来 风声不存在<br>是我在感慨</p>
+<p>梦醒来 是谁在窗台 把结局打开<br>那薄如蝉|翼的未来<br>经不起谁来拆</p>
+<p>我送你离开 千里之外<br>你无声黑白<br>沉默年代 或许不该<br>太遥远的相爱</p>
+<p>我送你离开 天涯之外<br>你是否还在<br>琴声何来 生死难猜<br>用一生去等待</p>
+<h3 id="B"><a href="#B" class="headerlink" title="B"></a>B</h3><p>一身琉璃白 透明着尘埃<br>你无瑕的爱<br>你从雨中来 诗化了悲哀<br>我淋湿现在</p>
+<p>芙蓉水面采 船行影犹在<br>你却不回来<br>被岁月覆盖 你说的花开<br>过去成空白</p>
+<p>梦醒来 是谁在窗台 把结局打开<br>那薄如蝉|翼的未来<br>经不起谁来拆</p>
+<p>我送你离开 千里之外<br>你无声黑白<br>沉默年代 或许不该<br>太遥远的相爱</p>
+<p>我送你离开 天涯之外<br>你是否还在<br>琴声何来 生死难猜<br>用一生 （没有去等待）</p>
+<h2 id="C"><a href="#C" class="headerlink" title="C"></a>C</h2><p>我送你离开 千里之外<br>你无声黑白<br>沉默年代 或许不该<br>太遥远的相爱</p>
+<p>我送你离开 天涯之外<br>你是否还在<br>琴声何来 生死难猜<br>用一生去等待</p>
 
       
     </div>
@@ -890,7 +924,7 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h2 id="歌谱"><a href="#歌谱" class="headerlink" title="歌谱"></a>歌谱</h2><p><img src="/img/父亲.jpg" alt=""></p>
+        <h2 id="歌谱"><a href="#歌谱" class="headerlink" title="歌谱"></a>歌谱</h2><p><img src="/img/blog/父亲/父亲.jpg" alt=""></p>
 <h2 id="歌词"><a href="#歌词" class="headerlink" title="歌词"></a>歌词</h2><h3 id="A"><a href="#A" class="headerlink" title="A"></a>A</h3><p>总是向你索取 却不曾说谢谢你<br>直到长大以后 才懂得你不容易<br>每次离开总是 装作轻松的样子<br>微笑着说回去吧 转身泪湿眼底</p>
 <p>多想和从前一样 牵你温暖手掌<br>可是你不在我身旁 托清风捎去安康</p>
 <p>时光时光慢些吧 不要再让你变老了<br>我愿用我一切 换你岁月长留<br>一生要强的爸爸 我能为你做些什么<br>微不足道的关心 收下吧</p>
@@ -934,20 +968,20 @@
 
 
   
-    <article id="post-MongoDB" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-青花瓷-周杰伦" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2018/07/07/MongoDB/" class="article-date">
-      <time datetime="2018-07-06T16:00:00.000Z" itemprop="datePublished">2018-07-07</time>
+      <a href="/2018/07/08/青花瓷-周杰伦/" class="article-date">
+      <time datetime="2018-07-07T16:00:00.000Z" itemprop="datePublished">2018-07-08</time>
 </a>
 
  
-    <a href="/2018/07/07/MongoDB/#comments" title="查看评论">
+    <a href="/2018/07/08/青花瓷-周杰伦/#comments" title="查看评论">
         <i class="fa fa-comments-o" aria-hidden="true"></i>
         <span class="count-comment"></span>
         
         
-            <span class="disqus-comment-count" data-disqus-identifier="2018/07/07/MongoDB/"></span>
+            <span class="disqus-comment-count" data-disqus-identifier="2018/07/08/青花瓷-周杰伦/"></span>
         
     </a>
 
@@ -962,7 +996,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/07/MongoDB/">MongoDB</a>
+      <a class="article-title" href="/2018/07/08/青花瓷-周杰伦/">青花瓷-周杰伦</a>
     </h1>
   
 
@@ -972,11 +1006,7 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h2 id="1-官方文档及相关文档"><a href="#1-官方文档及相关文档" class="headerlink" title="1 官方文档及相关文档"></a>1 官方文档及相关文档</h2><p><a href="https://docs.mongodb.com/" target="_blank" rel="noopener">官方文档</a></p>
-<h2 id="2-部署相关"><a href="#2-部署相关" class="headerlink" title="2 部署相关"></a>2 部署相关</h2><h3 id="1-安装"><a href="#1-安装" class="headerlink" title="1) 安装"></a>1) 安装</h3><p><a href="https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/" target="_blank" rel="noopener">ubuntu安装</a></p>
-<h3 id="2-命令"><a href="#2-命令" class="headerlink" title="2) 命令"></a>2) 命令</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 启动</span><br><span class="line">sudo service mongod stop</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 重启</span><br><span class="line">sudo service mongod restart</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 关闭</span><br><span class="line">sudo service mongod stop</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 移除</span><br><span class="line">sudo apt-get purge mongodb-org*</span><br></pre></td></tr></table></figure>
-<h2 id="3-常用使用"><a href="#3-常用使用" class="headerlink" title="3 常用使用"></a>3 常用使用</h2><h3 id="1）基础使用"><a href="#1）基础使用" class="headerlink" title="1）基础使用"></a>1）基础使用</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 连接数据库</span><br><span class="line">mongo --host 192.168.199.9</span><br><span class="line">mongo --host 127.0.0.1:27017</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 查看当前数据库</span><br><span class="line">db</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 查看所有数据库</span><br><span class="line">show dbs</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 使用数据库</span><br><span class="line">use weihc</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 查看所有文档</span><br><span class="line">show collections</span><br></pre></td></tr></table></figure>
-<h3 id="2）-查询"><a href="#2）-查询" class="headerlink" title="2） 查询"></a>2） 查询</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 基础查询(美化显示)</span><br><span class="line">db.player.find()</span><br><span class="line">db.player.find().pretty()</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 如果collection的名字特殊</span><br><span class="line">db.getCollection("3 test").find()</span><br><span class="line">db.getCollection("3-test").find()</span><br><span class="line">db.getCollection("stats").find()</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 过滤查询</span><br><span class="line">db.player.find(&#123;"_id": 1&#125;).pretty()</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 查询并过滤结果</span><br><span class="line">db.player.find(&#123;"_id": 1&#125;, &#123;"nickname": 1&#125;).pretty()</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 加上判断条件</span><br><span class="line">db.player.find(&#123;"_id": 1, "log_time": &#123;$gt: 1530894156&#125;&#125;, &#123;"nickname": 1&#125;).pretty()</span><br></pre></td></tr></table></figure>
+        <h2 id="歌谱"><a href="#歌谱" class="headerlink" title="歌谱"></a>歌谱</h2><p><img src="/img/blog/青花瓷/青花瓷.jpg" alt=""></p>
 
       
     </div>
@@ -985,13 +1015,13 @@
       
       
     <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/Work/">Work</a>
+    <a class="article-category-link" href="/categories/Music/">Music</a>
     </div>
 
 
       
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Database/">Database</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Work/">Work</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/笔记/">笔记</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/歌词/">歌词</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/音乐/">音乐</a></li></ul>
     </div>
 
       
@@ -1034,17 +1064,17 @@
   <div class="archive-article-inner">
     <header class="archive-article-header">
           <div class="article-meta">
-              <a href="/2018/07/08/千里之外-周杰伦/" class="archive-article-date">
-      <time datetime="2018-07-07T16:00:00.000Z" itemprop="datePublished">07-08</time>
+              <a href="/2018/09/01/解释器/" class="archive-article-date">
+      <time datetime="2018-08-31T16:00:00.000Z" itemprop="datePublished">09-01</time>
 </a>
 
  
-    <a href="/2018/07/08/千里之外-周杰伦/#comments" title="查看评论">
+    <a href="/2018/09/01/解释器/#comments" title="查看评论">
         <i class="fa fa-comments-o" aria-hidden="true"></i>
         <span class="count-comment"></span>
         
         
-            <span class="disqus-comment-count" data-disqus-identifier="2018/07/08/千里之外-周杰伦/"></span>
+            <span class="disqus-comment-count" data-disqus-identifier="2018/09/01/解释器/"></span>
         
     </a>
 
@@ -1052,20 +1082,20 @@
          
   
     <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/08/千里之外-周杰伦/">千里之外-周杰伦</a>
+      <a class="archive-article-title" href="/2018/09/01/解释器/">python解释器</a>
     </h1>
   
 
         <div class="article-info info-on-archive">
           
     <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/Music/">Music</a>
+    <a class="article-category-link" href="/categories/python/">python</a>
     </div>
 
 
           
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/歌词/">歌词</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/音乐/">音乐</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/解释器/">解释器</a></li></ul>
     </div>
 
         </div>
@@ -1080,17 +1110,17 @@
   <div class="archive-article-inner">
     <header class="archive-article-header">
           <div class="article-meta">
-              <a href="/2018/07/08/青花瓷-周杰伦/" class="archive-article-date">
-      <time datetime="2018-07-07T16:00:00.000Z" itemprop="datePublished">07-08</time>
+              <a href="/2018/08/21/夏之幻-Garnet Crow/" class="archive-article-date">
+      <time datetime="2018-08-20T16:00:00.000Z" itemprop="datePublished">08-21</time>
 </a>
 
  
-    <a href="/2018/07/08/青花瓷-周杰伦/#comments" title="查看评论">
+    <a href="/2018/08/21/夏之幻-Garnet Crow/#comments" title="查看评论">
         <i class="fa fa-comments-o" aria-hidden="true"></i>
         <span class="count-comment"></span>
         
         
-            <span class="disqus-comment-count" data-disqus-identifier="2018/07/08/青花瓷-周杰伦/"></span>
+            <span class="disqus-comment-count" data-disqus-identifier="2018/08/21/夏之幻-Garnet Crow/"></span>
         
     </a>
 
@@ -1098,145 +1128,7 @@
          
   
     <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/08/青花瓷-周杰伦/">青花瓷-周杰伦</a>
-    </h1>
-  
-
-        <div class="article-info info-on-archive">
-          
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/Music/">Music</a>
-    </div>
-
-
-          
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/歌词/">歌词</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/音乐/">音乐</a></li></ul>
-    </div>
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/2018/07/08/e of s-泽野弘之/" class="archive-article-date">
-      <time datetime="2018-07-07T16:00:00.000Z" itemprop="datePublished">07-08</time>
-</a>
-
- 
-    <a href="/2018/07/08/e of s-泽野弘之/#comments" title="查看评论">
-        <i class="fa fa-comments-o" aria-hidden="true"></i>
-        <span class="count-comment"></span>
-        
-        
-            <span class="disqus-comment-count" data-disqus-identifier="2018/07/08/e of s-泽野弘之/"></span>
-        
-    </a>
-
-        </div>
-         
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/08/e of s-泽野弘之/">e of s-泽野弘之</a>
-    </h1>
-  
-
-        <div class="article-info info-on-archive">
-          
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/Music/">Music</a>
-    </div>
-
-
-          
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/歌词/">歌词</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/音乐/">音乐</a></li></ul>
-    </div>
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/2018/07/08/七里香-周杰伦/" class="archive-article-date">
-      <time datetime="2018-07-07T16:00:00.000Z" itemprop="datePublished">07-08</time>
-</a>
-
- 
-    <a href="/2018/07/08/七里香-周杰伦/#comments" title="查看评论">
-        <i class="fa fa-comments-o" aria-hidden="true"></i>
-        <span class="count-comment"></span>
-        
-        
-            <span class="disqus-comment-count" data-disqus-identifier="2018/07/08/七里香-周杰伦/"></span>
-        
-    </a>
-
-        </div>
-         
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/08/七里香-周杰伦/">七里香-周杰伦</a>
-    </h1>
-  
-
-        <div class="article-info info-on-archive">
-          
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/Music/">Music</a>
-    </div>
-
-
-          
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/歌词/">歌词</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/音乐/">音乐</a></li></ul>
-    </div>
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/2018/07/08/不朽之罪-双笙/" class="archive-article-date">
-      <time datetime="2018-07-07T16:00:00.000Z" itemprop="datePublished">07-08</time>
-</a>
-
- 
-    <a href="/2018/07/08/不朽之罪-双笙/#comments" title="查看评论">
-        <i class="fa fa-comments-o" aria-hidden="true"></i>
-        <span class="count-comment"></span>
-        
-        
-            <span class="disqus-comment-count" data-disqus-identifier="2018/07/08/不朽之罪-双笙/"></span>
-        
-    </a>
-
-        </div>
-         
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/08/不朽之罪-双笙/">不朽之罪-双笙</a>
+      <a class="archive-article-title" href="/2018/08/21/夏之幻-Garnet Crow/">夏の幻-Garnet Crow</a>
     </h1>
   
 
@@ -1310,6 +1202,98 @@
   <div class="archive-article-inner">
     <header class="archive-article-header">
           <div class="article-meta">
+              <a href="/2018/07/08/不朽之罪-双笙/" class="archive-article-date">
+      <time datetime="2018-07-07T16:00:00.000Z" itemprop="datePublished">07-08</time>
+</a>
+
+ 
+    <a href="/2018/07/08/不朽之罪-双笙/#comments" title="查看评论">
+        <i class="fa fa-comments-o" aria-hidden="true"></i>
+        <span class="count-comment"></span>
+        
+        
+            <span class="disqus-comment-count" data-disqus-identifier="2018/07/08/不朽之罪-双笙/"></span>
+        
+    </a>
+
+        </div>
+         
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2018/07/08/不朽之罪-双笙/">不朽之罪-双笙</a>
+    </h1>
+  
+
+        <div class="article-info info-on-archive">
+          
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/Music/">Music</a>
+    </div>
+
+
+          
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/歌词/">歌词</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/音乐/">音乐</a></li></ul>
+    </div>
+
+        </div>
+        <div class="clearfix"></div>
+    </header>
+  </div>
+</article>
+  
+    
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+          <div class="article-meta">
+              <a href="/2018/07/08/七里香-周杰伦/" class="archive-article-date">
+      <time datetime="2018-07-07T16:00:00.000Z" itemprop="datePublished">07-08</time>
+</a>
+
+ 
+    <a href="/2018/07/08/七里香-周杰伦/#comments" title="查看评论">
+        <i class="fa fa-comments-o" aria-hidden="true"></i>
+        <span class="count-comment"></span>
+        
+        
+            <span class="disqus-comment-count" data-disqus-identifier="2018/07/08/七里香-周杰伦/"></span>
+        
+    </a>
+
+        </div>
+         
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2018/07/08/七里香-周杰伦/">七里香-周杰伦</a>
+    </h1>
+  
+
+        <div class="article-info info-on-archive">
+          
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/Music/">Music</a>
+    </div>
+
+
+          
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/歌词/">歌词</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/音乐/">音乐</a></li></ul>
+    </div>
+
+        </div>
+        <div class="clearfix"></div>
+    </header>
+  </div>
+</article>
+  
+    
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+          <div class="article-meta">
               <a href="/2018/07/08/高飞-张杰/" class="archive-article-date">
       <time datetime="2018-07-07T16:00:00.000Z" itemprop="datePublished">07-08</time>
 </a>
@@ -1356,17 +1340,17 @@
   <div class="archive-article-inner">
     <header class="archive-article-header">
           <div class="article-meta">
-              <a href="/2018/07/08/大唐玄怪来谒-肥皂菌/" class="archive-article-date">
+              <a href="/2018/07/08/e of s-泽野弘之/" class="archive-article-date">
       <time datetime="2018-07-07T16:00:00.000Z" itemprop="datePublished">07-08</time>
 </a>
 
  
-    <a href="/2018/07/08/大唐玄怪来谒-肥皂菌/#comments" title="查看评论">
+    <a href="/2018/07/08/e of s-泽野弘之/#comments" title="查看评论">
         <i class="fa fa-comments-o" aria-hidden="true"></i>
         <span class="count-comment"></span>
         
         
-            <span class="disqus-comment-count" data-disqus-identifier="2018/07/08/大唐玄怪来谒-肥皂菌/"></span>
+            <span class="disqus-comment-count" data-disqus-identifier="2018/07/08/e of s-泽野弘之/"></span>
         
     </a>
 
@@ -1374,7 +1358,53 @@
          
   
     <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/08/大唐玄怪来谒-肥皂菌/">大唐玄怪来谒-肥皂菌</a>
+      <a class="archive-article-title" href="/2018/07/08/e of s-泽野弘之/">e of s-泽野弘之</a>
+    </h1>
+  
+
+        <div class="article-info info-on-archive">
+          
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/Music/">Music</a>
+    </div>
+
+
+          
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/歌词/">歌词</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/音乐/">音乐</a></li></ul>
+    </div>
+
+        </div>
+        <div class="clearfix"></div>
+    </header>
+  </div>
+</article>
+  
+    
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+          <div class="article-meta">
+              <a href="/2018/07/08/千里之外-周杰伦/" class="archive-article-date">
+      <time datetime="2018-07-07T16:00:00.000Z" itemprop="datePublished">07-08</time>
+</a>
+
+ 
+    <a href="/2018/07/08/千里之外-周杰伦/#comments" title="查看评论">
+        <i class="fa fa-comments-o" aria-hidden="true"></i>
+        <span class="count-comment"></span>
+        
+        
+            <span class="disqus-comment-count" data-disqus-identifier="2018/07/08/千里之外-周杰伦/"></span>
+        
+    </a>
+
+        </div>
+         
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2018/07/08/千里之外-周杰伦/">千里之外-周杰伦</a>
     </h1>
   
 
@@ -1448,17 +1478,17 @@
   <div class="archive-article-inner">
     <header class="archive-article-header">
           <div class="article-meta">
-              <a href="/2018/07/07/MongoDB/" class="archive-article-date">
-      <time datetime="2018-07-06T16:00:00.000Z" itemprop="datePublished">07-07</time>
+              <a href="/2018/07/08/青花瓷-周杰伦/" class="archive-article-date">
+      <time datetime="2018-07-07T16:00:00.000Z" itemprop="datePublished">07-08</time>
 </a>
 
  
-    <a href="/2018/07/07/MongoDB/#comments" title="查看评论">
+    <a href="/2018/07/08/青花瓷-周杰伦/#comments" title="查看评论">
         <i class="fa fa-comments-o" aria-hidden="true"></i>
         <span class="count-comment"></span>
         
         
-            <span class="disqus-comment-count" data-disqus-identifier="2018/07/07/MongoDB/"></span>
+            <span class="disqus-comment-count" data-disqus-identifier="2018/07/08/青花瓷-周杰伦/"></span>
         
     </a>
 
@@ -1466,20 +1496,20 @@
          
   
     <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/07/MongoDB/">MongoDB</a>
+      <a class="archive-article-title" href="/2018/07/08/青花瓷-周杰伦/">青花瓷-周杰伦</a>
     </h1>
   
 
         <div class="article-info info-on-archive">
           
     <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/Work/">Work</a>
+    <a class="article-category-link" href="/categories/Music/">Music</a>
     </div>
 
 
           
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Database/">Database</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Work/">Work</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/笔记/">笔记</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/歌词/">歌词</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/音乐/">音乐</a></li></ul>
     </div>
 
         </div>

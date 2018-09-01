@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://weihuchao.top/"/>
-  <updated>2018-07-07T15:03:52.000Z</updated>
+  <updated>2018-09-01T13:46:42.000Z</updated>
   <id>http://weihuchao.top/</id>
   
   <author>
@@ -17,20 +17,47 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>千里之外-周杰伦</title>
-    <link href="http://weihuchao.top/2018/07/08/%E5%8D%83%E9%87%8C%E4%B9%8B%E5%A4%96-%E5%91%A8%E6%9D%B0%E4%BC%A6/"/>
-    <id>http://weihuchao.top/2018/07/08/千里之外-周杰伦/</id>
-    <published>2018-07-07T16:00:00.000Z</published>
-    <updated>2018-07-07T15:03:52.000Z</updated>
+    <title>python解释器</title>
+    <link href="http://weihuchao.top/2018/09/01/%E8%A7%A3%E9%87%8A%E5%99%A8/"/>
+    <id>http://weihuchao.top/2018/09/01/解释器/</id>
+    <published>2018-08-31T16:00:00.000Z</published>
+    <updated>2018-09-01T13:46:42.000Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="歌谱"><a href="#歌谱" class="headerlink" title="歌谱"></a>歌谱</h2><p><img src="/img/千里之外.jpg" alt=""></p><h2 id="歌词"><a href="#歌词" class="headerlink" title="歌词"></a>歌词</h2><h3 id="A"><a href="#A" class="headerlink" title="A"></a>A</h3><p>屋檐如悬崖 风铃如沧海<br>我等燕归来<br>时间被安排 演一场意外<br>你悄然走开</p><p>故事在城外 浓雾散不开<br>看不清对白<br>你听不出来 风声不存在<br>是我在感慨</p><p>梦醒来 是谁在窗台 把结局打开<br>那薄如蝉|翼的未来<br>经不起谁来拆</p><p>我送你离开 千里之外<br>你无声黑白<br>沉默年代 或许不该<br>太遥远的相爱</p><p>我送你离开 天涯之外<br>你是否还在<br>琴声何来 生死难猜<br>用一生去等待</p><h3 id="B"><a href="#B" class="headerlink" title="B"></a>B</h3><p>一身琉璃白 透明着尘埃<br>你无瑕的爱<br>你从雨中来 诗化了悲哀<br>我淋湿现在</p><p>芙蓉水面采 船行影犹在<br>你却不回来<br>被岁月覆盖 你说的花开<br>过去成空白</p><p>梦醒来 是谁在窗台 把结局打开<br>那薄如蝉|翼的未来<br>经不起谁来拆</p><p>我送你离开 千里之外<br>你无声黑白<br>沉默年代 或许不该<br>太遥远的相爱</p><p>我送你离开 天涯之外<br>你是否还在<br>琴声何来 生死难猜<br>用一生 （没有去等待）</p><h2 id="C"><a href="#C" class="headerlink" title="C"></a>C</h2><p>我送你离开 千里之外<br>你无声黑白<br>沉默年代 或许不该<br>太遥远的相爱</p><p>我送你离开 天涯之外<br>你是否还在<br>琴声何来 生死难猜<br>用一生去等待</p>]]></content>
+    <content type="html"><![CDATA[<h2 id="1-Python的常用解释器"><a href="#1-Python的常用解释器" class="headerlink" title="1 Python的常用解释器"></a>1 Python的常用解释器</h2><h3 id="CPython"><a href="#CPython" class="headerlink" title="CPython"></a>CPython</h3><p>官方版本的解释器：CPython。</p><p>这个解释器是用C语言开发的，所以叫CPython。</p><p>默认在命令行下运行python就是启动CPython解释器。</p><p>CPython是使用最广的Python解释器</p><h3 id="IPython"><a href="#IPython" class="headerlink" title="IPython"></a>IPython</h3><p>IPython是基于CPython之上的一个交互式解释器，只是在交互方式上有所增强。</p><p>CPython用<strong>&gt;&gt;&gt;</strong>作为提示符，而IPython用<strong>In [序号]:</strong>作为提示符。</p><h3 id="PyPy"><a href="#PyPy" class="headerlink" title="PyPy"></a>PyPy</h3><p>PyPy是另一个Python解释器，它的目标是执行速度。</p><p>PyPy采用<strong>JIT技术</strong>，对Python代码进行<strong>动态编译</strong>（注意不是解释），所以可以<strong>显著提高Python代码的执行速度</strong>。</p><p>绝大部分Python代码都可以在PyPy下运行，但是PyPy和CPython有一些是不同的，这就导致相同的Python代码在两种解释器下执行可能会有不同的结果。</p><h3 id="Jython"><a href="#Jython" class="headerlink" title="Jython"></a>Jython</h3><p>Jython是运行在Java平台上的Python解释器，可以直接把Python代码编译成Java字节码执行。</p><h3 id="IronPython"><a href="#IronPython" class="headerlink" title="IronPython"></a>IronPython</h3><p>IronPython和Jython类似，只不过IronPython是运行在微软.Net平台上的Python解释器，可以直接把Python代码编译成.Net的字节码。</p><h2 id="2-解释-提前编译-实时编译"><a href="#2-解释-提前编译-实时编译" class="headerlink" title="2 解释 提前编译 实时编译"></a>2 解释 提前编译 实时编译</h2><h3 id="提前（AOT）编译"><a href="#提前（AOT）编译" class="headerlink" title="提前（AOT）编译"></a>提前（AOT）编译</h3><p>编译高级编程语言为对应的机器代码， 以便生成的二进制文件可以本机执行。</p><h3 id="解释"><a href="#解释" class="headerlink" title="解释"></a>解释</h3><p>解释是<strong>直接执行脚本语言</strong>， 而不需要事先将它们编译成机器语言。</p><p>解释器的主要缺点是解释程序通常比编译时运行得<strong>慢</strong>。</p><p>解释器通常使用以下策略之一来执行程序：</p><ul><li><p>解析的源代码，并直接执行其行为;</p></li><li><p>将源代码转换为一些有效的<strong>中间表示</strong>并立即执行此操作;</p></li><li><p>显式执行由编译器生成的存储的预编译代码，编译器是解释器系统的一部分。</p></li></ul><p>术语“ <strong>解释语言</strong> ”或“ <strong>编译语言</strong> ”表示该语言的规范实现分别是<strong>解释器</strong>或<strong>编译器</strong>。</p><h3 id="实时（JIT）编译"><a href="#实时（JIT）编译" class="headerlink" title="实时（JIT）编译"></a>实时（JIT）编译</h3><p>涉及程序执行期间的编译。</p><p>实时编译系统通常的做法是，连续地分析正在执行的代码，并识别代码的一部分，从而得到加速。且编译或重新编译获得的加速比将超过编译该代码的开销。</p><p>JIT编译结合了编译代码的速度和解释的灵活性，以及​解释器的开销和编译的额外开销（而不仅仅是解释）。</p><p>理论上，JIT编译可以比静态编译产生更快的执行速度。</p><h2 id="3-CPython和PyPy之间的差异"><a href="#3-CPython和PyPy之间的差异" class="headerlink" title="3 CPython和PyPy之间的差异"></a>3 CPython和PyPy之间的差异</h2><p><a href="https://pypy.readthedocs.io/en/latest/cpython_differences.html" target="_blank" rel="noopener">详见</a></p>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;h2 id=&quot;歌谱&quot;&gt;&lt;a href=&quot;#歌谱&quot; class=&quot;headerlink&quot; title=&quot;歌谱&quot;&gt;&lt;/a&gt;歌谱&lt;/h2&gt;&lt;p&gt;&lt;img src=&quot;/img/千里之外.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;h2 id=&quot;歌词&quot;&gt;&lt;a href=&quot;#歌词&quot; class=&quot;
+        &lt;h2 id=&quot;1-Python的常用解释器&quot;&gt;&lt;a href=&quot;#1-Python的常用解释器&quot; class=&quot;headerlink&quot; title=&quot;1 Python的常用解释器&quot;&gt;&lt;/a&gt;1 Python的常用解释器&lt;/h2&gt;&lt;h3 id=&quot;CPython&quot;&gt;&lt;a href=
+      
+    
+    </summary>
+    
+      <category term="python" scheme="http://weihuchao.top/categories/python/"/>
+    
+    
+      <category term="python" scheme="http://weihuchao.top/tags/python/"/>
+    
+      <category term="解释器" scheme="http://weihuchao.top/tags/%E8%A7%A3%E9%87%8A%E5%99%A8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>夏の幻-Garnet Crow</title>
+    <link href="http://weihuchao.top/2018/08/21/%E5%A4%8F%E4%B9%8B%E5%B9%BB-Garnet%20Crow/"/>
+    <id>http://weihuchao.top/2018/08/21/夏之幻-Garnet Crow/</id>
+    <published>2018-08-20T16:00:00.000Z</published>
+    <updated>2018-09-01T04:29:18.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>部屋(へや)の窓(まど)の向(む)こうに<br>へやのまどのむこうに<br>飞行机云(ひこうきぐも)を なぞって<br>ひこうきぐもを なぞって<br>今日(きょう)ケンカした君(きみ)の事(こと)ばかり<br>考(かんが)えてた</p><p>些细(ささい)な事(こと)で戸惑(とまど)って<br>不安定(ふあんてい)で无防备(むぼうび)な<br>あの顷(ころ)のように<br>すぐに电话(でんわ)して<br>笑(わら)い合(あ)えたらいいのにね</p><p>近(ちか)づいて来(く)る 至福(しふく)の时(とき)は<br>痛(いた)みを伴(ともな)いながら足音(あしおと)をたてる<br>考(かんが)えすぎて深(ふか)みにハマる<br>君(きみ)の傍(そば)にいるのに</p><p>夏(なつ)の幻(まぼろし)<br>瞳闭(ひとみと)じて<br>一番最初(いちばんさいしょ)に君(きみ)を思(おも)い出(だ)すよ<br>いつか终(お)わる儚(はかな)い生命(ゆめ)に<br>ただ こみあげる気持(きも)ちい抱(だ)いた</p><p>世界(せかい)は広(ひろ)く<br>知(し)らない事溢(ことあふ)れてて自分(じぶん)さえ见失(みうしな)いそう<br>だけど君(きみ)と生(い)きてゆきたいから<br>とまどいながらでもいい<br>つないだ手(て)を离(はな)さないでね</p><p>强(つよ)いオフショア<br>波(なみ)を待(ま)ってた<br>中途半端(ちゅうとはんぱ)に离(はな)れて<br>流(なが)されてゆくよ<br>进化(しんか)してゆく时代(じだい)の中(なか)で<br>同(おな)じものを求(もと)めて</p><p>夏(なつ)の幻(まぼろし)<br>想(おも)うだけで<br>胸(むね)が热(あつ)くなれた奇迹(きせき)の途中(とちゅう)<br>愿(ねが)うだけじゃ　届(とど)かぬくらい<br>こぼれ落(お)ちそうな気持(きも)ち抱(だ)いた</p><p>どうして二人(ふたり)<br>近(ちか)づく程(ほど)<br>远(とお)く感(かん)じて　不安(ふあん)になるんだろう<br>キョリを超(こ)えた　欲望(よくぼう)があふれて<br>一人(ひとり) 部屋(へや)のなかで<br>君(きみ)の温(ぬく)もり想(おも)う</p><p>どんな日(ひ)にも<br>瞳闭(ひとみと)じて<br>一番最初(いちばんさいしょ)に　君(きみ)を思(おも)い出(だ)すよ<br>いつか终(お)わる儚(はかな)い生命（ゆめ）に<br>ただ こみあげる気持(きも)ち抱(だ)いた</p><p>忘(わす)れないから…<br>消(き)えゆく幻(まぼろし)に<br>君(きみ)と并(なら)んでいたね<br>夏(なつ)の终(お)わり阳射(ひざ)しがゆれてる<br>海(うみ)の底(そこ)のような手(て)のひらの中(なか)の街并(まちなみ)</p><p>I like a dream<br>I’m calling out to you</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;部屋(へや)の窓(まど)の向(む)こうに&lt;br&gt;へやのまどのむこうに&lt;br&gt;飞行机云(ひこうきぐも)を なぞって&lt;br&gt;ひこうきぐもを なぞって&lt;br&gt;今日(きょう)ケンカした君(きみ)の事(こと)ばかり&lt;br&gt;考(かんが)えてた&lt;/p&gt;
+&lt;p&gt;些细(ささい)な事(こと)で
       
     
     </summary>
@@ -45,20 +72,100 @@
   </entry>
   
   <entry>
-    <title>青花瓷-周杰伦</title>
-    <link href="http://weihuchao.top/2018/07/08/%E9%9D%92%E8%8A%B1%E7%93%B7-%E5%91%A8%E6%9D%B0%E4%BC%A6/"/>
-    <id>http://weihuchao.top/2018/07/08/青花瓷-周杰伦/</id>
+    <title>安静-周杰伦</title>
+    <link href="http://weihuchao.top/2018/07/08/%E5%AE%89%E9%9D%99-%E5%91%A8%E6%9D%B0%E4%BC%A6/"/>
+    <id>http://weihuchao.top/2018/07/08/安静-周杰伦/</id>
     <published>2018-07-07T16:00:00.000Z</published>
-    <updated>2018-07-07T12:05:00.000Z</updated>
+    <updated>2018-07-07T11:55:22.000Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="歌谱"><a href="#歌谱" class="headerlink" title="歌谱"></a>歌谱</h2><p><img src="/img/青花瓷.jpg" alt=""></p>]]></content>
+    <content type="html"><![CDATA[<h2 id="歌词"><a href="#歌词" class="headerlink" title="歌词"></a>歌词</h2><h3 id="A"><a href="#A" class="headerlink" title="A"></a>A</h3><p>只剩下钢琴陪我谈了一天<br>睡著的大提琴 安静的旧旧的<br>我想你已表现的非常明白<br>我懂我也知道 你没有舍不得</p><p>你说你也会难过我不相信<br>牵著你陪著我 也只是曾经<br>希望他是真的比我还要爱你<br>我才会逼自己离开</p><h3 id="B"><a href="#B" class="headerlink" title="B"></a>B</h3><p>你要我说多难堪 我根本不想分开<br>为什么还要我用微笑来带过<br>我没有这种天份 包容你也接受他<br>不用担心的太多 我会一直好好过</p><p>你已经远远离开 我也会慢慢走开<br>为什么我连分开都迁就著你<br>我真的没有天份 安（B3两个音）静的没这么快<br>我会学著放弃你 是因为我太爱你</p><h3 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h3><p>AB AB B</p>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;h2 id=&quot;歌谱&quot;&gt;&lt;a href=&quot;#歌谱&quot; class=&quot;headerlink&quot; title=&quot;歌谱&quot;&gt;&lt;/a&gt;歌谱&lt;/h2&gt;&lt;p&gt;&lt;img src=&quot;/img/青花瓷.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-
+        &lt;h2 id=&quot;歌词&quot;&gt;&lt;a href=&quot;#歌词&quot; class=&quot;headerlink&quot; title=&quot;歌词&quot;&gt;&lt;/a&gt;歌词&lt;/h2&gt;&lt;h3 id=&quot;A&quot;&gt;&lt;a href=&quot;#A&quot; class=&quot;headerlink&quot; title=&quot;A&quot;&gt;&lt;/a&gt;A&lt;/h3&gt;&lt;p&gt;只剩下钢琴陪我
+      
+    
+    </summary>
+    
+      <category term="Music" scheme="http://weihuchao.top/categories/Music/"/>
+    
+    
+      <category term="歌词" scheme="http://weihuchao.top/tags/%E6%AD%8C%E8%AF%8D/"/>
+    
+      <category term="音乐" scheme="http://weihuchao.top/tags/%E9%9F%B3%E4%B9%90/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>不朽之罪-双笙</title>
+    <link href="http://weihuchao.top/2018/07/08/%E4%B8%8D%E6%9C%BD%E4%B9%8B%E7%BD%AA-%E5%8F%8C%E7%AC%99/"/>
+    <id>http://weihuchao.top/2018/07/08/不朽之罪-双笙/</id>
+    <published>2018-07-07T16:00:00.000Z</published>
+    <updated>2018-07-07T13:13:08.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="歌词"><a href="#歌词" class="headerlink" title="歌词"></a>歌词</h2><h3 id="A"><a href="#A" class="headerlink" title="A"></a>A</h3><p>打乱的骨牌 习惯盲目依赖↑<br>以坦然姿态 等风来→<br>鞋跟下青苔 爬满拖地裙摆→<br>神的福音被隔|绝窗外↑</p><p>天平支点倾斜 自尊将我打败<br>不安的窘态 在作怪<br>我熟知的年代还能区分黑白<br>无需卖弄心|机耍赖</p><p>为谁深陷不知往返的迷恋<br>未曾认清这个世界<br>我听到权力之争彻夜不歇<br>街尾血香|愈显浓烈</p><h3 id="B"><a href="#B" class="headerlink" title="B"></a>B</h3><p>空间接应点 于囚笼中调（diao）配<br>密封的花蕊 正枯萎<br>听断线傀儡 晚安留在句尾<br>僵硬的思维筛选错对</p><p>天平支点倾斜 自尊将我打败<br>不安的窘态 在作怪<br>我熟知的年代 还能区分黑白<br>无需卖弄心|机耍赖</p><p>为谁深陷不知往返的迷恋<br>未曾认清这个世界<br>我听到权力之争彻夜不歇<br>街尾血香|愈显浓烈</p><h3 id="C"><a href="#C" class="headerlink" title="C"></a>C</h3><p>甘愿臣服于谁 立忠诚之碑<br>重叠暗夜又一番教诲<br>结局早已无谓<br>明与灭 滞留病态的美</p><h3 id="D"><a href="#D" class="headerlink" title="D"></a>D</h3><p>为谁深陷不知往返的迷恋<br>为谁认清这个世界<br>我听到权力之争彻夜不歇<br>街尾血香|显浓烈</p><p>打乱的骨牌 习惯盲目依赖<br>（为谁深陷不知往返的迷恋）</p><p>以坦然姿态 等风来<br>（未曾认清这个世界）</p><p>让断线傀儡 晚安留在句尾<br>（我听到权力之争彻夜不歇）</p><p>僵硬的思维筛选错对<br>（街尾血香愈显浓烈)</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;歌词&quot;&gt;&lt;a href=&quot;#歌词&quot; class=&quot;headerlink&quot; title=&quot;歌词&quot;&gt;&lt;/a&gt;歌词&lt;/h2&gt;&lt;h3 id=&quot;A&quot;&gt;&lt;a href=&quot;#A&quot; class=&quot;headerlink&quot; title=&quot;A&quot;&gt;&lt;/a&gt;A&lt;/h3&gt;&lt;p&gt;打乱的骨牌 习
+      
+    
+    </summary>
+    
+      <category term="Music" scheme="http://weihuchao.top/categories/Music/"/>
+    
+    
+      <category term="歌词" scheme="http://weihuchao.top/tags/%E6%AD%8C%E8%AF%8D/"/>
+    
+      <category term="音乐" scheme="http://weihuchao.top/tags/%E9%9F%B3%E4%B9%90/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>七里香-周杰伦</title>
+    <link href="http://weihuchao.top/2018/07/08/%E4%B8%83%E9%87%8C%E9%A6%99-%E5%91%A8%E6%9D%B0%E4%BC%A6/"/>
+    <id>http://weihuchao.top/2018/07/08/七里香-周杰伦/</id>
+    <published>2018-07-07T16:00:00.000Z</published>
+    <updated>2018-07-07T13:27:31.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="歌词"><a href="#歌词" class="headerlink" title="歌词"></a>歌词</h2><h3 id="A"><a href="#A" class="headerlink" title="A"></a>A</h3><p>窗外的麻雀 在电线杆上多嘴<br>你说这一句 很有夏↓天的感觉<br>手中的铅笔 在纸上来来回回<br>我|用几行字 形容你是我的谁</p><p>秋刀鱼的滋味 猫跟你都想了解<br>初恋的香味 就这样被我^们寻回<br>那温暖的阳光 像刚摘的鲜艳草莓<br>你说你舍不得吃掉 这一种感觉</p><p>雨下整夜 我的爱溢出就像雨水<br>院子落叶 跟我的思念厚厚一叠<br>几句是非 也无法将我的热情冷却<br>你出现在我诗的每一页</p><p>雨下整夜 我的爱溢出就像雨水<br>窗台蝴蝶 像诗里纷飞的美丽章节<br>我接着写 把永远爱你<br>写进诗的结尾<br>你是我唯一想要的了解</p><h3 id="B"><a href="#B" class="headerlink" title="B"></a>B</h3><p>雨下整夜 我的爱溢出就像雨水<br>院子落叶 跟我的思念厚厚一叠<br>几句是非 也无法将我的热情冷却<br>你出现在我诗的每一页</p><p>那饱满的稻穗 幸福了~这个季节<br>而你的脸颊 像田里熟透的蕃茄<br>你突然|对我说 七里香的|名字很美<br>我此刻却只想亲吻你倔强的嘴</p><h3 id="C"><a href="#C" class="headerlink" title="C"></a>C</h3><p>雨下整夜 我的爱溢出就像雨水<br>院子落叶 跟我的思念厚厚一叠<br>几句是非 也无法将我的热情冷却<br>你出现在我诗的每一页</p><p>整夜<br>我的爱溢出就像雨水<br>窗台蝴蝶 像诗里↑纷飞的美丽~章节<br>我接着写 把永远爱你<br>写进诗的结尾<br>你是我唯一想要的了解</p><h2 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h2><p>A（麻雀）<br>B（秋刀鱼）<br>C（院子落叶）<br>C（窗台蝴蝶）</p><p>C（院子落叶）<br>B（稻穗）</p><p>C（院子落叶）<br>C（窗台蝴蝶）</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;歌词&quot;&gt;&lt;a href=&quot;#歌词&quot; class=&quot;headerlink&quot; title=&quot;歌词&quot;&gt;&lt;/a&gt;歌词&lt;/h2&gt;&lt;h3 id=&quot;A&quot;&gt;&lt;a href=&quot;#A&quot; class=&quot;headerlink&quot; title=&quot;A&quot;&gt;&lt;/a&gt;A&lt;/h3&gt;&lt;p&gt;窗外的麻雀 在
+      
+    
+    </summary>
+    
+      <category term="Music" scheme="http://weihuchao.top/categories/Music/"/>
+    
+    
+      <category term="歌词" scheme="http://weihuchao.top/tags/%E6%AD%8C%E8%AF%8D/"/>
+    
+      <category term="音乐" scheme="http://weihuchao.top/tags/%E9%9F%B3%E4%B9%90/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>高飞-张杰</title>
+    <link href="http://weihuchao.top/2018/07/08/%E9%AB%98%E9%A3%9E-%E5%BC%A0%E6%9D%B0/"/>
+    <id>http://weihuchao.top/2018/07/08/高飞-张杰/</id>
+    <published>2018-07-07T16:00:00.000Z</published>
+    <updated>2018-07-07T12:52:46.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="歌词"><a href="#歌词" class="headerlink" title="歌词"></a>歌词</h2><h3 id="A"><a href="#A" class="headerlink" title="A"></a>A</h3><p>奔跑穿越无尽的荒原<br>逐梦的脚步突然停歇<br>无边断崖 横在眼前<br>我懂 我要 蜕变</p><p>偶尔想起温暖的昨天<br>为了梦想不再留恋<br>新的起点就在眼前<br>我已做好准备</p><p>我要高飞 到天空的顶点<br>我要飞到<strong>无人</strong>能及的视界<br>飞得再累 不准自己跌坠<br>直到太阳就在我的指尖</p><p>我要高飞 到世界的边缘<br>我要飞越<strong>没人</strong>到达的绝对<br>不到终点 不准流下眼泪<br>要把最震撼的呐喊留在灿烂瞬间</p><h3 id="B"><a href="#B" class="headerlink" title="B"></a>B</h3><p>偶尔想起温暖的昨天<br>为了梦想不再留恋<br>新的起点就在眼前<br>我已做好准备</p><p>我要高飞 到天空的顶点<br>我要飞到<strong>无人</strong>能及的视界<br>飞得再累 不准自己跌坠<br>直到太阳就在我的指尖</p><p>我要高飞 到世界的边缘<br>我要飞越<strong>没人</strong>到达的绝对<br>不到终点 不准流下眼泪<br>要把最震撼的呐喊留在</p><h3 id="C"><a href="#C" class="headerlink" title="C"></a>C</h3><p>我要高飞 到天空的顶点<br>我要飞到<strong>无人</strong>能及的视界<br>飞得再累 不准自己跌坠<br>直到太阳就在我的指尖</p><p>我要高|飞 到世界的边缘<br>我要飞越<strong>没人</strong>到达的绝对<br>不到终|点 不准流下眼泪<br>要把最震撼的呐喊<br>留在灿烂瞬间</p><p>灿烂瞬间</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;歌词&quot;&gt;&lt;a href=&quot;#歌词&quot; class=&quot;headerlink&quot; title=&quot;歌词&quot;&gt;&lt;/a&gt;歌词&lt;/h2&gt;&lt;h3 id=&quot;A&quot;&gt;&lt;a href=&quot;#A&quot; class=&quot;headerlink&quot; title=&quot;A&quot;&gt;&lt;/a&gt;A&lt;/h3&gt;&lt;p&gt;奔跑穿越无尽的
       
     
     </summary>
@@ -101,19 +208,20 @@
   </entry>
   
   <entry>
-    <title>七里香-周杰伦</title>
-    <link href="http://weihuchao.top/2018/07/08/%E4%B8%83%E9%87%8C%E9%A6%99-%E5%91%A8%E6%9D%B0%E4%BC%A6/"/>
-    <id>http://weihuchao.top/2018/07/08/七里香-周杰伦/</id>
+    <title>千里之外-周杰伦</title>
+    <link href="http://weihuchao.top/2018/07/08/%E5%8D%83%E9%87%8C%E4%B9%8B%E5%A4%96-%E5%91%A8%E6%9D%B0%E4%BC%A6/"/>
+    <id>http://weihuchao.top/2018/07/08/千里之外-周杰伦/</id>
     <published>2018-07-07T16:00:00.000Z</published>
-    <updated>2018-07-07T13:27:31.000Z</updated>
+    <updated>2018-09-01T03:55:43.000Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="歌词"><a href="#歌词" class="headerlink" title="歌词"></a>歌词</h2><h3 id="A"><a href="#A" class="headerlink" title="A"></a>A</h3><p>窗外的麻雀 在电线杆上多嘴<br>你说这一句 很有夏↓天的感觉<br>手中的铅笔 在纸上来来回回<br>我|用几行字 形容你是我的谁</p><p>秋刀鱼的滋味 猫跟你都想了解<br>初恋的香味 就这样被我^们寻回<br>那温暖的阳光 像刚摘的鲜艳草莓<br>你说你舍不得吃掉 这一种感觉</p><p>雨下整夜 我的爱溢出就像雨水<br>院子落叶 跟我的思念厚厚一叠<br>几句是非 也无法将我的热情冷却<br>你出现在我诗的每一页</p><p>雨下整夜 我的爱溢出就像雨水<br>窗台蝴蝶 像诗里纷飞的美丽章节<br>我接着写 把永远爱你<br>写进诗的结尾<br>你是我唯一想要的了解</p><h3 id="B"><a href="#B" class="headerlink" title="B"></a>B</h3><p>雨下整夜 我的爱溢出就像雨水<br>院子落叶 跟我的思念厚厚一叠<br>几句是非 也无法将我的热情冷却<br>你出现在我诗的每一页</p><p>那饱满的稻穗 幸福了~这个季节<br>而你的脸颊 像田里熟透的蕃茄<br>你突然|对我说 七里香的|名字很美<br>我此刻却只想亲吻你倔强的嘴</p><h3 id="C"><a href="#C" class="headerlink" title="C"></a>C</h3><p>雨下整夜 我的爱溢出就像雨水<br>院子落叶 跟我的思念厚厚一叠<br>几句是非 也无法将我的热情冷却<br>你出现在我诗的每一页</p><p>整夜<br>我的爱溢出就像雨水<br>窗台蝴蝶 像诗里↑纷飞的美丽~章节<br>我接着写 把永远爱你<br>写进诗的结尾<br>你是我唯一想要的了解</p><h2 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h2><p>A（麻雀）<br>B（秋刀鱼）<br>C（院子落叶）<br>C（窗台蝴蝶）</p><p>C（院子落叶）<br>B（稻穗）</p><p>C（院子落叶）<br>C（窗台蝴蝶）</p>]]></content>
+    <content type="html"><![CDATA[<h2 id="歌谱"><a href="#歌谱" class="headerlink" title="歌谱"></a>歌谱</h2><p><img src="/img/blog/千里之外/千里之外.jpg" alt=""></p><h2 id="歌词"><a href="#歌词" class="headerlink" title="歌词"></a>歌词</h2><h3 id="A"><a href="#A" class="headerlink" title="A"></a>A</h3><p>屋檐如悬崖 风铃如沧海<br>我等燕归来<br>时间被安排 演一场意外<br>你悄然走开</p><p>故事在城外 浓雾散不开<br>看不清对白<br>你听不出来 风声不存在<br>是我在感慨</p><p>梦醒来 是谁在窗台 把结局打开<br>那薄如蝉|翼的未来<br>经不起谁来拆</p><p>我送你离开 千里之外<br>你无声黑白<br>沉默年代 或许不该<br>太遥远的相爱</p><p>我送你离开 天涯之外<br>你是否还在<br>琴声何来 生死难猜<br>用一生去等待</p><h3 id="B"><a href="#B" class="headerlink" title="B"></a>B</h3><p>一身琉璃白 透明着尘埃<br>你无瑕的爱<br>你从雨中来 诗化了悲哀<br>我淋湿现在</p><p>芙蓉水面采 船行影犹在<br>你却不回来<br>被岁月覆盖 你说的花开<br>过去成空白</p><p>梦醒来 是谁在窗台 把结局打开<br>那薄如蝉|翼的未来<br>经不起谁来拆</p><p>我送你离开 千里之外<br>你无声黑白<br>沉默年代 或许不该<br>太遥远的相爱</p><p>我送你离开 天涯之外<br>你是否还在<br>琴声何来 生死难猜<br>用一生 （没有去等待）</p><h2 id="C"><a href="#C" class="headerlink" title="C"></a>C</h2><p>我送你离开 千里之外<br>你无声黑白<br>沉默年代 或许不该<br>太遥远的相爱</p><p>我送你离开 天涯之外<br>你是否还在<br>琴声何来 生死难猜<br>用一生去等待</p>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;h2 id=&quot;歌词&quot;&gt;&lt;a href=&quot;#歌词&quot; class=&quot;headerlink&quot; title=&quot;歌词&quot;&gt;&lt;/a&gt;歌词&lt;/h2&gt;&lt;h3 id=&quot;A&quot;&gt;&lt;a href=&quot;#A&quot; class=&quot;headerlink&quot; title=&quot;A&quot;&gt;&lt;/a&gt;A&lt;/h3&gt;&lt;p&gt;窗外的麻雀 在
+        &lt;h2 id=&quot;歌谱&quot;&gt;&lt;a href=&quot;#歌谱&quot; class=&quot;headerlink&quot; title=&quot;歌谱&quot;&gt;&lt;/a&gt;歌谱&lt;/h2&gt;&lt;p&gt;&lt;img src=&quot;/img/blog/千里之外/千里之外.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;歌词&quot;&gt;&lt;a href=&quot;#歌
       
     
     </summary>
@@ -128,19 +236,20 @@
   </entry>
   
   <entry>
-    <title>不朽之罪-双笙</title>
-    <link href="http://weihuchao.top/2018/07/08/%E4%B8%8D%E6%9C%BD%E4%B9%8B%E7%BD%AA-%E5%8F%8C%E7%AC%99/"/>
-    <id>http://weihuchao.top/2018/07/08/不朽之罪-双笙/</id>
+    <title>父亲-筷子兄弟</title>
+    <link href="http://weihuchao.top/2018/07/08/%E7%88%B6%E4%BA%B2-%E7%AD%B7%E5%AD%90%E5%85%84%E5%BC%9F/"/>
+    <id>http://weihuchao.top/2018/07/08/父亲-筷子兄弟/</id>
     <published>2018-07-07T16:00:00.000Z</published>
-    <updated>2018-07-07T13:13:08.000Z</updated>
+    <updated>2018-09-01T03:55:43.000Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="歌词"><a href="#歌词" class="headerlink" title="歌词"></a>歌词</h2><h3 id="A"><a href="#A" class="headerlink" title="A"></a>A</h3><p>打乱的骨牌 习惯盲目依赖↑<br>以坦然姿态 等风来→<br>鞋跟下青苔 爬满拖地裙摆→<br>神的福音被隔|绝窗外↑</p><p>天平支点倾斜 自尊将我打败<br>不安的窘态 在作怪<br>我熟知的年代还能区分黑白<br>无需卖弄心|机耍赖</p><p>为谁深陷不知往返的迷恋<br>未曾认清这个世界<br>我听到权力之争彻夜不歇<br>街尾血香|愈显浓烈</p><h3 id="B"><a href="#B" class="headerlink" title="B"></a>B</h3><p>空间接应点 于囚笼中调（diao）配<br>密封的花蕊 正枯萎<br>听断线傀儡 晚安留在句尾<br>僵硬的思维筛选错对</p><p>天平支点倾斜 自尊将我打败<br>不安的窘态 在作怪<br>我熟知的年代 还能区分黑白<br>无需卖弄心|机耍赖</p><p>为谁深陷不知往返的迷恋<br>未曾认清这个世界<br>我听到权力之争彻夜不歇<br>街尾血香|愈显浓烈</p><h3 id="C"><a href="#C" class="headerlink" title="C"></a>C</h3><p>甘愿臣服于谁 立忠诚之碑<br>重叠暗夜又一番教诲<br>结局早已无谓<br>明与灭 滞留病态的美</p><h3 id="D"><a href="#D" class="headerlink" title="D"></a>D</h3><p>为谁深陷不知往返的迷恋<br>为谁认清这个世界<br>我听到权力之争彻夜不歇<br>街尾血香|显浓烈</p><p>打乱的骨牌 习惯盲目依赖<br>（为谁深陷不知往返的迷恋）</p><p>以坦然姿态 等风来<br>（未曾认清这个世界）</p><p>让断线傀儡 晚安留在句尾<br>（我听到权力之争彻夜不歇）</p><p>僵硬的思维筛选错对<br>（街尾血香愈显浓烈)</p>]]></content>
+    <content type="html"><![CDATA[<h2 id="歌谱"><a href="#歌谱" class="headerlink" title="歌谱"></a>歌谱</h2><p><img src="/img/blog/父亲/父亲.jpg" alt=""></p><h2 id="歌词"><a href="#歌词" class="headerlink" title="歌词"></a>歌词</h2><h3 id="A"><a href="#A" class="headerlink" title="A"></a>A</h3><p>总是向你索取 却不曾说谢谢你<br>直到长大以后 才懂得你不容易<br>每次离开总是 装作轻松的样子<br>微笑着说回去吧 转身泪湿眼底</p><p>多想和从前一样 牵你温暖手掌<br>可是你不在我身旁 托清风捎去安康</p><p>时光时光慢些吧 不要再让你变老了<br>我愿用我一切 换你岁月长留<br>一生要强的爸爸 我能为你做些什么<br>微不足道的关心 收下吧</p><p>谢谢你做的一切 双手撑起我们的家<br>总是竭尽所有 把最好的给我<br>我是你的骄傲吗 还在为我而担心吗<br>你牵挂的孩子啊 长大啦</p><h3 id="B"><a href="#B" class="headerlink" title="B"></a>B</h3><p>多想和从前一样 牵你温暖手掌<br>可是你不在我身旁 托清风捎去安康</p><p>时光时光慢些吧 不要再让你变老了<br>我愿用我一切 换你岁月长留<br>一生要强的爸爸 我能为你做些什么<br>微不足道的关心 收下吧</p><p>谢谢你做的一切 双手撑起我们的家<br>总是竭尽所有 把最好的给我<br>我是你的骄傲吗 还在为我而担心吗<br>你牵挂的孩子啊 长大啦</p><h3 id="C"><a href="#C" class="headerlink" title="C"></a>C</h3><p>时光时光慢些吧 不要再让你变老啦<br>我愿用我一切 换你岁月长留<br>我是你的骄傲吗 还在为我而担心吗<br>你牵挂的孩子啊 长大啦</p><p>感谢一路上有你</p>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;h2 id=&quot;歌词&quot;&gt;&lt;a href=&quot;#歌词&quot; class=&quot;headerlink&quot; title=&quot;歌词&quot;&gt;&lt;/a&gt;歌词&lt;/h2&gt;&lt;h3 id=&quot;A&quot;&gt;&lt;a href=&quot;#A&quot; class=&quot;headerlink&quot; title=&quot;A&quot;&gt;&lt;/a&gt;A&lt;/h3&gt;&lt;p&gt;打乱的骨牌 习
+        &lt;h2 id=&quot;歌谱&quot;&gt;&lt;a href=&quot;#歌谱&quot; class=&quot;headerlink&quot; title=&quot;歌谱&quot;&gt;&lt;/a&gt;歌谱&lt;/h2&gt;&lt;p&gt;&lt;img src=&quot;/img/blog/父亲/父亲.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;歌词&quot;&gt;&lt;a href=&quot;#歌词&quot; c
       
     
     </summary>
@@ -155,46 +264,20 @@
   </entry>
   
   <entry>
-    <title>安静-周杰伦</title>
-    <link href="http://weihuchao.top/2018/07/08/%E5%AE%89%E9%9D%99-%E5%91%A8%E6%9D%B0%E4%BC%A6/"/>
-    <id>http://weihuchao.top/2018/07/08/安静-周杰伦/</id>
+    <title>青花瓷-周杰伦</title>
+    <link href="http://weihuchao.top/2018/07/08/%E9%9D%92%E8%8A%B1%E7%93%B7-%E5%91%A8%E6%9D%B0%E4%BC%A6/"/>
+    <id>http://weihuchao.top/2018/07/08/青花瓷-周杰伦/</id>
     <published>2018-07-07T16:00:00.000Z</published>
-    <updated>2018-07-07T11:55:22.000Z</updated>
+    <updated>2018-09-01T03:55:43.000Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="歌词"><a href="#歌词" class="headerlink" title="歌词"></a>歌词</h2><h3 id="A"><a href="#A" class="headerlink" title="A"></a>A</h3><p>只剩下钢琴陪我谈了一天<br>睡著的大提琴 安静的旧旧的<br>我想你已表现的非常明白<br>我懂我也知道 你没有舍不得</p><p>你说你也会难过我不相信<br>牵著你陪著我 也只是曾经<br>希望他是真的比我还要爱你<br>我才会逼自己离开</p><h3 id="B"><a href="#B" class="headerlink" title="B"></a>B</h3><p>你要我说多难堪 我根本不想分开<br>为什么还要我用微笑来带过<br>我没有这种天份 包容你也接受他<br>不用担心的太多 我会一直好好过</p><p>你已经远远离开 我也会慢慢走开<br>为什么我连分开都迁就著你<br>我真的没有天份 安（B3两个音）静的没这么快<br>我会学著放弃你 是因为我太爱你</p><h3 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h3><p>AB AB B</p>]]></content>
+    <content type="html"><![CDATA[<h2 id="歌谱"><a href="#歌谱" class="headerlink" title="歌谱"></a>歌谱</h2><p><img src="/img/blog/青花瓷/青花瓷.jpg" alt=""></p>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;h2 id=&quot;歌词&quot;&gt;&lt;a href=&quot;#歌词&quot; class=&quot;headerlink&quot; title=&quot;歌词&quot;&gt;&lt;/a&gt;歌词&lt;/h2&gt;&lt;h3 id=&quot;A&quot;&gt;&lt;a href=&quot;#A&quot; class=&quot;headerlink&quot; title=&quot;A&quot;&gt;&lt;/a&gt;A&lt;/h3&gt;&lt;p&gt;只剩下钢琴陪我
-      
-    
-    </summary>
-    
-      <category term="Music" scheme="http://weihuchao.top/categories/Music/"/>
-    
-    
-      <category term="歌词" scheme="http://weihuchao.top/tags/%E6%AD%8C%E8%AF%8D/"/>
-    
-      <category term="音乐" scheme="http://weihuchao.top/tags/%E9%9F%B3%E4%B9%90/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>高飞-张杰</title>
-    <link href="http://weihuchao.top/2018/07/08/%E9%AB%98%E9%A3%9E-%E5%BC%A0%E6%9D%B0/"/>
-    <id>http://weihuchao.top/2018/07/08/高飞-张杰/</id>
-    <published>2018-07-07T16:00:00.000Z</published>
-    <updated>2018-07-07T12:52:46.000Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="歌词"><a href="#歌词" class="headerlink" title="歌词"></a>歌词</h2><h3 id="A"><a href="#A" class="headerlink" title="A"></a>A</h3><p>奔跑穿越无尽的荒原<br>逐梦的脚步突然停歇<br>无边断崖 横在眼前<br>我懂 我要 蜕变</p><p>偶尔想起温暖的昨天<br>为了梦想不再留恋<br>新的起点就在眼前<br>我已做好准备</p><p>我要高飞 到天空的顶点<br>我要飞到<strong>无人</strong>能及的视界<br>飞得再累 不准自己跌坠<br>直到太阳就在我的指尖</p><p>我要高飞 到世界的边缘<br>我要飞越<strong>没人</strong>到达的绝对<br>不到终点 不准流下眼泪<br>要把最震撼的呐喊留在灿烂瞬间</p><h3 id="B"><a href="#B" class="headerlink" title="B"></a>B</h3><p>偶尔想起温暖的昨天<br>为了梦想不再留恋<br>新的起点就在眼前<br>我已做好准备</p><p>我要高飞 到天空的顶点<br>我要飞到<strong>无人</strong>能及的视界<br>飞得再累 不准自己跌坠<br>直到太阳就在我的指尖</p><p>我要高飞 到世界的边缘<br>我要飞越<strong>没人</strong>到达的绝对<br>不到终点 不准流下眼泪<br>要把最震撼的呐喊留在</p><h3 id="C"><a href="#C" class="headerlink" title="C"></a>C</h3><p>我要高飞 到天空的顶点<br>我要飞到<strong>无人</strong>能及的视界<br>飞得再累 不准自己跌坠<br>直到太阳就在我的指尖</p><p>我要高|飞 到世界的边缘<br>我要飞越<strong>没人</strong>到达的绝对<br>不到终|点 不准流下眼泪<br>要把最震撼的呐喊<br>留在灿烂瞬间</p><p>灿烂瞬间</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;歌词&quot;&gt;&lt;a href=&quot;#歌词&quot; class=&quot;headerlink&quot; title=&quot;歌词&quot;&gt;&lt;/a&gt;歌词&lt;/h2&gt;&lt;h3 id=&quot;A&quot;&gt;&lt;a href=&quot;#A&quot; class=&quot;headerlink&quot; title=&quot;A&quot;&gt;&lt;/a&gt;A&lt;/h3&gt;&lt;p&gt;奔跑穿越无尽的
+        &lt;h2 id=&quot;歌谱&quot;&gt;&lt;a href=&quot;#歌谱&quot; class=&quot;headerlink&quot; title=&quot;歌谱&quot;&gt;&lt;/a&gt;歌谱&lt;/h2&gt;&lt;p&gt;&lt;img src=&quot;/img/blog/青花瓷/青花瓷.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+
       
     
     </summary>
@@ -222,34 +305,6 @@
       
       
         &lt;h2 id=&quot;歌词&quot;&gt;&lt;a href=&quot;#歌词&quot; class=&quot;headerlink&quot; title=&quot;歌词&quot;&gt;&lt;/a&gt;歌词&lt;/h2&gt;&lt;h3 id=&quot;A&quot;&gt;&lt;a href=&quot;#A&quot; class=&quot;headerlink&quot; title=&quot;A&quot;&gt;&lt;/a&gt;A&lt;/h3&gt;&lt;p&gt;文翰初议周隋 
-      
-    
-    </summary>
-    
-      <category term="Music" scheme="http://weihuchao.top/categories/Music/"/>
-    
-    
-      <category term="歌词" scheme="http://weihuchao.top/tags/%E6%AD%8C%E8%AF%8D/"/>
-    
-      <category term="音乐" scheme="http://weihuchao.top/tags/%E9%9F%B3%E4%B9%90/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>父亲-筷子兄弟</title>
-    <link href="http://weihuchao.top/2018/07/08/%E7%88%B6%E4%BA%B2-%E7%AD%B7%E5%AD%90%E5%85%84%E5%BC%9F/"/>
-    <id>http://weihuchao.top/2018/07/08/父亲-筷子兄弟/</id>
-    <published>2018-07-07T16:00:00.000Z</published>
-    <updated>2018-07-07T15:03:52.000Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="歌谱"><a href="#歌谱" class="headerlink" title="歌谱"></a>歌谱</h2><p><img src="/img/父亲.jpg" alt=""></p><h2 id="歌词"><a href="#歌词" class="headerlink" title="歌词"></a>歌词</h2><h3 id="A"><a href="#A" class="headerlink" title="A"></a>A</h3><p>总是向你索取 却不曾说谢谢你<br>直到长大以后 才懂得你不容易<br>每次离开总是 装作轻松的样子<br>微笑着说回去吧 转身泪湿眼底</p><p>多想和从前一样 牵你温暖手掌<br>可是你不在我身旁 托清风捎去安康</p><p>时光时光慢些吧 不要再让你变老了<br>我愿用我一切 换你岁月长留<br>一生要强的爸爸 我能为你做些什么<br>微不足道的关心 收下吧</p><p>谢谢你做的一切 双手撑起我们的家<br>总是竭尽所有 把最好的给我<br>我是你的骄傲吗 还在为我而担心吗<br>你牵挂的孩子啊 长大啦</p><h3 id="B"><a href="#B" class="headerlink" title="B"></a>B</h3><p>多想和从前一样 牵你温暖手掌<br>可是你不在我身旁 托清风捎去安康</p><p>时光时光慢些吧 不要再让你变老了<br>我愿用我一切 换你岁月长留<br>一生要强的爸爸 我能为你做些什么<br>微不足道的关心 收下吧</p><p>谢谢你做的一切 双手撑起我们的家<br>总是竭尽所有 把最好的给我<br>我是你的骄傲吗 还在为我而担心吗<br>你牵挂的孩子啊 长大啦</p><h3 id="C"><a href="#C" class="headerlink" title="C"></a>C</h3><p>时光时光慢些吧 不要再让你变老啦<br>我愿用我一切 换你岁月长留<br>我是你的骄傲吗 还在为我而担心吗<br>你牵挂的孩子啊 长大啦</p><p>感谢一路上有你</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;歌谱&quot;&gt;&lt;a href=&quot;#歌谱&quot; class=&quot;headerlink&quot; title=&quot;歌谱&quot;&gt;&lt;/a&gt;歌谱&lt;/h2&gt;&lt;p&gt;&lt;img src=&quot;/img/父亲.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;h2 id=&quot;歌词&quot;&gt;&lt;a href=&quot;#歌词&quot; class=&quot;he
       
     
     </summary>
@@ -354,9 +409,9 @@
     <link href="http://weihuchao.top/2018/05/20/%E5%88%9D%E5%A7%8B%E5%8C%96macOS/"/>
     <id>http://weihuchao.top/2018/05/20/初始化macOS/</id>
     <published>2018-05-19T16:00:00.000Z</published>
-    <updated>2018-07-06T16:10:21.000Z</updated>
+    <updated>2018-09-01T03:55:43.000Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="1-基础软件"><a href="#1-基础软件" class="headerlink" title="1 基础软件"></a>1 基础软件</h2><ul><li>网易云音乐</li><li>QQ</li><li>Wechat</li><li>为知笔记</li><li>有道词典</li><li>邮箱大师</li><li>BatterZip</li><li>MPlayer</li><li>TotalFinder</li><li>TeamViewer</li><li><a href="https://getlantern.org/zh_CN/" target="_blank" rel="noopener">Lantern</a> &amp; <a href="https://nordvpn.com/zh/download/mac/" target="_blank" rel="noopener">NordVPN</a> (选择下载OpneVPN)</li><li><a href="http://xclient.info/s/vmware-fusion.html?t=cdbf30295617a80c269d392af7ea3fec89df6d04" target="_blank" rel="noopener">VMware</a></li><li><a href="http://xclient.info/s/navicat-premium.html?t=cdbf30295617a80c269d392af7ea3fec89df6d04" target="_blank" rel="noopener">Navicat Premium</a></li><li><a href="http://xclient.info/s/office-for-mac-2016.html?t=cdbf30295617a80c269d392af7ea3fec89df6d04" target="_blank" rel="noopener">Microsoft Office</a></li></ul><h2 id="2-Pycharm"><a href="#2-Pycharm" class="headerlink" title="2 Pycharm"></a>2 Pycharm</h2><ol><li><p>License Server </p><ul><li><a href="http://wolf.3dxtras.com" target="_blank" rel="noopener">http://wolf.3dxtras.com</a></li><li><a href="http://idea.lanyus.com/" target="_blank" rel="noopener">http://idea.lanyus.com/</a></li><li><a href="http://xidea.online" target="_blank" rel="noopener">http://xidea.online</a></li></ul></li><li><p>字体大小<br><img src="/img//image-20180526201124712.png" alt="image-20180526201124712"></p></li><li><p>编辑区的字体和背景<br><img src="/img//image-20180526201217732.png" alt="image-20180526201217732"></p><p>背景颜色</p><p><img src="/img//image-20180526201314468.png" alt="image-20180526201314468"></p></li><li><p>设置指定后缀的文件的Editor， 这样就可以轻松提醒和注释等操作了<br><img src="/img//image-20180526201714997.png" alt="image-20180526201714997"></p></li></ol><h2 id="3-Terminal"><a href="#3-Terminal" class="headerlink" title="3 Terminal"></a>3 Terminal</h2><ol><li><p>安装oh-my-zsh</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | sh</span><br></pre></td></tr></table></figure></li><li><p>创建alias</p><p>配置文件为 ~/.zshrc</p><p>一些博主推荐的alias</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">alias cls='clear'</span><br><span class="line">alias ll='ls -l'</span><br><span class="line">alias la='ls -a'</span><br><span class="line">alias vi='vim'</span><br><span class="line">alias javac="javac -J-Dfile.encoding=utf8"</span><br><span class="line">alias grep="grep --color=auto"</span><br><span class="line">alias -s html=mate   # 在命令行直接输入后缀为 html 的文件名，会在 TextMate 中打开</span><br><span class="line">alias -s rb=mate     # 在命令行直接输入 ruby 文件，会在 TextMate 中打开</span><br><span class="line">alias -s py=vi       # 在命令行直接输入 python 文件，会用 vim 中打开，以下类似</span><br><span class="line">alias -s js=vi</span><br><span class="line">alias -s c=vi</span><br><span class="line">alias -s java=vi</span><br><span class="line">alias -s txt=vi</span><br><span class="line">alias -s gz='tar -xzvf'</span><br><span class="line">alias -s tgz='tar -xzvf'</span><br><span class="line">alias -s zip='unzip'</span><br><span class="line">alias -s bz2='tar -xjvf'</span><br></pre></td></tr></table></figure></li><li><p>设置皮肤</p><p>偏好设置 -&gt; 描述文件 -&gt; Novel -&gt; 字体 -&gt; 更改 -&gt; 默认</p></li><li><p>解决破解软件无法打开的问题</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo spctl --master-disable</span><br></pre></td></tr></table></figure></li></ol><h2 id="4-QQ浏览器"><a href="#4-QQ浏览器" class="headerlink" title="4 QQ浏览器"></a>4 QQ浏览器</h2><ul><li>Adblock Plus</li><li>Onetab</li><li>谷歌翻译</li><li>手势<br><img src="/img//image-20180526201841525.png" alt="image-20180526201841525"></li></ul><h2 id="5-搜狗输入法"><a href="#5-搜狗输入法" class="headerlink" title="5 搜狗输入法"></a>5 搜狗输入法</h2><ul><li>中英文标点</li><li>外观-主题-候选词个数-9</li></ul><h2 id="6-使用Airport同步数据"><a href="#6-使用Airport同步数据" class="headerlink" title="6 使用Airport同步数据"></a>6 使用Airport同步数据</h2>]]></content>
+    <content type="html"><![CDATA[<h2 id="1-基础软件"><a href="#1-基础软件" class="headerlink" title="1 基础软件"></a>1 基础软件</h2><ul><li>网易云音乐</li><li>QQ</li><li>Wechat</li><li>为知笔记</li><li>有道词典</li><li>邮箱大师</li><li>BatterZip</li><li>MPlayer</li><li>TotalFinder</li><li>TeamViewer</li><li><a href="https://getlantern.org/zh_CN/" target="_blank" rel="noopener">Lantern</a> &amp; <a href="https://nordvpn.com/zh/download/mac/" target="_blank" rel="noopener">NordVPN</a> (选择下载OpneVPN)</li><li><a href="http://xclient.info/s/vmware-fusion.html?t=cdbf30295617a80c269d392af7ea3fec89df6d04" target="_blank" rel="noopener">VMware</a></li><li><a href="http://xclient.info/s/navicat-premium.html?t=cdbf30295617a80c269d392af7ea3fec89df6d04" target="_blank" rel="noopener">Navicat Premium</a></li><li><a href="http://xclient.info/s/office-for-mac-2016.html?t=cdbf30295617a80c269d392af7ea3fec89df6d04" target="_blank" rel="noopener">Microsoft Office</a></li></ul><h2 id="2-Pycharm"><a href="#2-Pycharm" class="headerlink" title="2 Pycharm"></a>2 Pycharm</h2><ol><li><p>License Server </p><ul><li><a href="http://wolf.3dxtras.com" target="_blank" rel="noopener">http://wolf.3dxtras.com</a></li><li><a href="http://idea.lanyus.com/" target="_blank" rel="noopener">http://idea.lanyus.com/</a></li><li><a href="http://xidea.online" target="_blank" rel="noopener">http://xidea.online</a></li></ul></li><li><p>字体大小<br><img src="/img/blog/MacOS系统初始化/image-20180526201124712.png" alt="image-20180526201124712"></p></li><li><p>编辑区的字体和背景<br><img src="/img/blog/MacOS系统初始化/image-20180526201217732.png" alt="image-20180526201217732"></p><p>背景颜色</p><p><img src="/img/blog/MacOS系统初始化/image-20180526201314468.png" alt="image-20180526201314468"></p></li><li><p>设置指定后缀的文件的Editor， 这样就可以轻松提醒和注释等操作了<br><img src="/img/blog/MacOS系统初始化/image-20180526201714997.png" alt="image-20180526201714997"></p></li></ol><h2 id="3-Terminal"><a href="#3-Terminal" class="headerlink" title="3 Terminal"></a>3 Terminal</h2><ol><li><p>安装oh-my-zsh</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | sh</span><br></pre></td></tr></table></figure></li><li><p>创建alias</p><p>配置文件为 ~/.zshrc</p><p>一些博主推荐的alias</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">alias cls='clear'</span><br><span class="line">alias ll='ls -l'</span><br><span class="line">alias la='ls -a'</span><br><span class="line">alias vi='vim'</span><br><span class="line">alias javac="javac -J-Dfile.encoding=utf8"</span><br><span class="line">alias grep="grep --color=auto"</span><br><span class="line">alias -s html=mate   # 在命令行直接输入后缀为 html 的文件名，会在 TextMate 中打开</span><br><span class="line">alias -s rb=mate     # 在命令行直接输入 ruby 文件，会在 TextMate 中打开</span><br><span class="line">alias -s py=vi       # 在命令行直接输入 python 文件，会用 vim 中打开，以下类似</span><br><span class="line">alias -s js=vi</span><br><span class="line">alias -s c=vi</span><br><span class="line">alias -s java=vi</span><br><span class="line">alias -s txt=vi</span><br><span class="line">alias -s gz='tar -xzvf'</span><br><span class="line">alias -s tgz='tar -xzvf'</span><br><span class="line">alias -s zip='unzip'</span><br><span class="line">alias -s bz2='tar -xjvf'</span><br></pre></td></tr></table></figure></li><li><p>设置皮肤</p><p>偏好设置 -&gt; 描述文件 -&gt; Novel -&gt; 字体 -&gt; 更改 -&gt; 默认</p></li><li><p>解决破解软件无法打开的问题</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo spctl --master-disable</span><br></pre></td></tr></table></figure></li></ol><h2 id="4-QQ浏览器"><a href="#4-QQ浏览器" class="headerlink" title="4 QQ浏览器"></a>4 QQ浏览器</h2><ul><li>Adblock Plus</li><li>Onetab</li><li>谷歌翻译</li><li>手势<br><img src="/img/blog/MacOS系统初始化/image-20180526201841525.png" alt="image-20180526201841525"></li></ul><h2 id="5-搜狗输入法"><a href="#5-搜狗输入法" class="headerlink" title="5 搜狗输入法"></a>5 搜狗输入法</h2><ul><li>中英文标点</li><li>外观-主题-候选词个数-9</li></ul><h2 id="6-使用Airport同步数据"><a href="#6-使用Airport同步数据" class="headerlink" title="6 使用Airport同步数据"></a>6 使用Airport同步数据</h2>]]></content>
     
     <summary type="html">
     
