@@ -6,16 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://weihuchao.top">
-  <title>Archives | 魏胡超</title>
+  <title>网络编程理论 | 魏胡超</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="keywords" content="weihuchao，blogs，weihc， xuanyetouci">
-<meta property="og:type" content="website">
-<meta property="og:title" content="魏胡超">
-<meta property="og:url" content="http://weihuchao.top/archives/page/2/index.html">
+  <meta name="description" content="1 客户端服务端架构该架构指的是，对于客户端来说，请求服务器得到请求响应的内容，而对于服务端来说就是要不断接受客户端的请求并给予反馈。 2 套接字2.1 基本概念网络化的程序在开始任何通讯之前都需要创建套接字。 是通信端点这一概念在计算机网络的数据结构。 起源于BSD Linux，因此有叫BSD套接字。 一台主机多个应用的通信， 叫做进程间的通信IPC。 2.2 套接字分类套接字有两种：  基于文">
+<meta name="keywords" content="python,网络编程,TCP,UDP,套接字">
+<meta property="og:type" content="article">
+<meta property="og:title" content="网络编程理论">
+<meta property="og:url" content="http://weihuchao.top/2018/09/16/网络编程理论/index.html">
 <meta property="og:site_name" content="魏胡超">
+<meta property="og:description" content="1 客户端服务端架构该架构指的是，对于客户端来说，请求服务器得到请求响应的内容，而对于服务端来说就是要不断接受客户端的请求并给予反馈。 2 套接字2.1 基本概念网络化的程序在开始任何通讯之前都需要创建套接字。 是通信端点这一概念在计算机网络的数据结构。 起源于BSD Linux，因此有叫BSD套接字。 一台主机多个应用的通信， 叫做进程间的通信IPC。 2.2 套接字分类套接字有两种：  基于文">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-09-16T04:01:34.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="魏胡超">
+<meta name="twitter:title" content="网络编程理论">
+<meta name="twitter:description" content="1 客户端服务端架构该架构指的是，对于客户端来说，请求服务器得到请求响应的内容，而对于服务端来说就是要不断接受客户端的请求并给予反馈。 2 套接字2.1 基本概念网络化的程序在开始任何通讯之前都需要创建套接字。 是通信端点这一概念在计算机网络的数据结构。 起源于BSD Linux，因此有叫BSD套接字。 一台主机多个应用的通信， 叫做进程间的通信IPC。 2.2 套接字分类套接字有两种：  基于文">
   
     <link rel="alternative" href="/atom.xml" title="魏胡超" type="application/atom+xml">
   
@@ -145,290 +149,226 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-网络编程理论" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      网络编程理论
+    </h1>
+  
+
+        
+        <a href="/2018/09/16/网络编程理论/" class="archive-article-date">
+  	<time datetime="2018-09-16T04:01:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-16</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="1-客户端服务端架构"><a href="#1-客户端服务端架构" class="headerlink" title="1 客户端服务端架构"></a>1 客户端服务端架构</h2><p>该架构指的是，对于客户端来说，请求服务器得到请求响应的内容，而对于服务端来说就是要不断接受客户端的请求并给予反馈。</p>
+<h2 id="2-套接字"><a href="#2-套接字" class="headerlink" title="2 套接字"></a>2 套接字</h2><h3 id="2-1-基本概念"><a href="#2-1-基本概念" class="headerlink" title="2.1 基本概念"></a>2.1 基本概念</h3><p>网络化的程序在开始任何通讯之前都需要创建套接字。</p>
+<p>是<strong>通信端点</strong>这一概念在计算机网络的数据结构。</p>
+<p>起源于BSD Linux，因此有叫BSD套接字。</p>
+<p>一台主机多个应用的通信， 叫做<strong>进程间的通信IPC</strong>。</p>
+<h3 id="2-2-套接字分类"><a href="#2-2-套接字分类" class="headerlink" title="2.2 套接字分类"></a>2.2 套接字分类</h3><p>套接字有两种：</p>
+<ul>
+<li>基于文件型；</li>
+<li>基于网络型；</li>
+</ul>
+<p>套接字家族。套接字的不同类型的一个集合。有套接字家族名字。</p>
+<p>常见的文件型套接字家族，家族名为<strong>AF_UNIX</strong>。</p>
+<p>常见的网络型套接字家族，家族名为<strong>AF_INET</strong>。</p>
+<h3 id="2-3-套接字的类型"><a href="#2-3-套接字的类型" class="headerlink" title="2.3 套接字的类型"></a>2.3 套接字的类型</h3><p>套接字类型有两种：</p>
+<ul>
+<li>面向连接的套接字</li>
+<li>无连接的套接字</li>
+</ul>
+<p>面向连接的套接字基于TCP，类型为<strong>SOCKET_STREAM</strong>。</p>
+<p>无连接的套接字基于UDP，类型为<strong>SOCKET_DGRAM</strong>（datagram）。</p>
+<p>由于这些套接字通过IP协议来查找主机，因此分别组成系统<strong>TCP/IP</strong>和<strong>UDP/IP</strong>。</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/08/不朽之罪-双笙/" class="archive-article-date">
-  	<time datetime="2018-07-07T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-08</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/08/不朽之罪-双笙/">不朽之罪-双笙</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">歌词</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">音乐</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">网络编程</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">TCP</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">UDP</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">套接字</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/Music//" class="article-tag-list-link color1">Music</a>
+        			<a href="/categories/python//" class="article-tag-list-link color2">python</a>
         		</li>
       		
 		</ul>
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://weihuchao.top/2018/09/16/网络编程理论/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/08/安静-周杰伦/" class="archive-article-date">
-  	<time datetime="2018-07-07T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-08</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2018/09/01/python拾遗/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">python拾遗</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/08/安静-周杰伦/">安静-周杰伦</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">歌词</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">音乐</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Music//" class="article-tag-list-link color1">Music</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-客户端服务端架构"><span class="toc-number">1.</span> <span class="toc-text">1 客户端服务端架构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-套接字"><span class="toc-number">2.</span> <span class="toc-text">2 套接字</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-基本概念"><span class="toc-number">2.1.</span> <span class="toc-text">2.1 基本概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-套接字分类"><span class="toc-number">2.2.</span> <span class="toc-text">2.2 套接字分类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-套接字的类型"><span class="toc-number">2.3.</span> <span class="toc-text">2.3 套接字的类型</span></a></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/08/e of s-泽野弘之/" class="archive-article-date">
-  	<time datetime="2018-07-07T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-08</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/08/e of s-泽野弘之/">e of s-泽野弘之</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">歌词</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">音乐</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Music//" class="article-tag-list-link color1">Music</a>
-        		</li>
-      		
-		</ul>
-	</div>
+        
+    </div>
+</aside>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/08/千里之外-周杰伦/" class="archive-article-date">
-  	<time datetime="2018-07-07T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-08</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/08/千里之外-周杰伦/">千里之外-周杰伦</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">歌词</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">音乐</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Music//" class="article-tag-list-link color1">Music</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/08/父亲-筷子兄弟/" class="archive-article-date">
-  	<time datetime="2018-07-07T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-08</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/08/父亲-筷子兄弟/">父亲-筷子兄弟</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">歌词</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">音乐</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Music//" class="article-tag-list-link color1">Music</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
   
-    </div></section>
   
 
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/">&laquo; Prev</a><a class="page-number" href="/archives/">1</a><span class="page-number current">2</span><a class="page-number" href="/archives/page/3/">3</a><a class="page-number" href="/archives/page/4/">4</a><a class="extend next" rel="next" href="/archives/page/3/">Next &raquo;</a>
-    </nav>
+  
+
+  
+
   
 
 
@@ -452,8 +392,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: true,

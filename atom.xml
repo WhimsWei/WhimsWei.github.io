@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://weihuchao.top/"/>
-  <updated>2018-09-16T01:38:14.000Z</updated>
+  <updated>2018-09-16T04:01:34.000Z</updated>
   <id>http://weihuchao.top/</id>
   
   <author>
@@ -15,6 +15,39 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>网络编程理论</title>
+    <link href="http://weihuchao.top/2018/09/16/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B%E7%90%86%E8%AE%BA/"/>
+    <id>http://weihuchao.top/2018/09/16/网络编程理论/</id>
+    <published>2018-09-16T04:01:15.000Z</published>
+    <updated>2018-09-16T04:01:34.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="1-客户端服务端架构"><a href="#1-客户端服务端架构" class="headerlink" title="1 客户端服务端架构"></a>1 客户端服务端架构</h2><p>该架构指的是，对于客户端来说，请求服务器得到请求响应的内容，而对于服务端来说就是要不断接受客户端的请求并给予反馈。</p><h2 id="2-套接字"><a href="#2-套接字" class="headerlink" title="2 套接字"></a>2 套接字</h2><h3 id="2-1-基本概念"><a href="#2-1-基本概念" class="headerlink" title="2.1 基本概念"></a>2.1 基本概念</h3><p>网络化的程序在开始任何通讯之前都需要创建套接字。</p><p>是<strong>通信端点</strong>这一概念在计算机网络的数据结构。</p><p>起源于BSD Linux，因此有叫BSD套接字。</p><p>一台主机多个应用的通信， 叫做<strong>进程间的通信IPC</strong>。</p><h3 id="2-2-套接字分类"><a href="#2-2-套接字分类" class="headerlink" title="2.2 套接字分类"></a>2.2 套接字分类</h3><p>套接字有两种：</p><ul><li>基于文件型；</li><li>基于网络型；</li></ul><p>套接字家族。套接字的不同类型的一个集合。有套接字家族名字。</p><p>常见的文件型套接字家族，家族名为<strong>AF_UNIX</strong>。</p><p>常见的网络型套接字家族，家族名为<strong>AF_INET</strong>。</p><h3 id="2-3-套接字的类型"><a href="#2-3-套接字的类型" class="headerlink" title="2.3 套接字的类型"></a>2.3 套接字的类型</h3><p>套接字类型有两种：</p><ul><li>面向连接的套接字</li><li>无连接的套接字</li></ul><p>面向连接的套接字基于TCP，类型为<strong>SOCKET_STREAM</strong>。</p><p>无连接的套接字基于UDP，类型为<strong>SOCKET_DGRAM</strong>（datagram）。</p><p>由于这些套接字通过IP协议来查找主机，因此分别组成系统<strong>TCP/IP</strong>和<strong>UDP/IP</strong>。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;1-客户端服务端架构&quot;&gt;&lt;a href=&quot;#1-客户端服务端架构&quot; class=&quot;headerlink&quot; title=&quot;1 客户端服务端架构&quot;&gt;&lt;/a&gt;1 客户端服务端架构&lt;/h2&gt;&lt;p&gt;该架构指的是，对于客户端来说，请求服务器得到请求响应的内容，而对于服务端来说
+      
+    
+    </summary>
+    
+      <category term="python" scheme="http://weihuchao.top/categories/python/"/>
+    
+    
+      <category term="python" scheme="http://weihuchao.top/tags/python/"/>
+    
+      <category term="网络编程" scheme="http://weihuchao.top/tags/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/"/>
+    
+      <category term="TCP" scheme="http://weihuchao.top/tags/TCP/"/>
+    
+      <category term="UDP" scheme="http://weihuchao.top/tags/UDP/"/>
+    
+      <category term="套接字" scheme="http://weihuchao.top/tags/%E5%A5%97%E6%8E%A5%E5%AD%97/"/>
+    
+  </entry>
   
   <entry>
     <title>python拾遗</title>
@@ -100,20 +133,73 @@
   </entry>
   
   <entry>
-    <title>父亲-筷子兄弟</title>
-    <link href="http://weihuchao.top/2018/07/08/%E7%88%B6%E4%BA%B2-%E7%AD%B7%E5%AD%90%E5%85%84%E5%BC%9F/"/>
-    <id>http://weihuchao.top/2018/07/08/父亲-筷子兄弟/</id>
+    <title>七里香-周杰伦</title>
+    <link href="http://weihuchao.top/2018/07/08/%E4%B8%83%E9%87%8C%E9%A6%99-%E5%91%A8%E6%9D%B0%E4%BC%A6/"/>
+    <id>http://weihuchao.top/2018/07/08/七里香-周杰伦/</id>
     <published>2018-07-07T16:00:00.000Z</published>
-    <updated>2018-09-01T03:55:43.000Z</updated>
+    <updated>2018-07-07T13:27:31.000Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="歌谱"><a href="#歌谱" class="headerlink" title="歌谱"></a>歌谱</h2><p><img src="/img/blog/父亲/父亲.jpg" alt=""></p><h2 id="歌词"><a href="#歌词" class="headerlink" title="歌词"></a>歌词</h2><h3 id="A"><a href="#A" class="headerlink" title="A"></a>A</h3><p>总是向你索取 却不曾说谢谢你<br>直到长大以后 才懂得你不容易<br>每次离开总是 装作轻松的样子<br>微笑着说回去吧 转身泪湿眼底</p><p>多想和从前一样 牵你温暖手掌<br>可是你不在我身旁 托清风捎去安康</p><p>时光时光慢些吧 不要再让你变老了<br>我愿用我一切 换你岁月长留<br>一生要强的爸爸 我能为你做些什么<br>微不足道的关心 收下吧</p><p>谢谢你做的一切 双手撑起我们的家<br>总是竭尽所有 把最好的给我<br>我是你的骄傲吗 还在为我而担心吗<br>你牵挂的孩子啊 长大啦</p><h3 id="B"><a href="#B" class="headerlink" title="B"></a>B</h3><p>多想和从前一样 牵你温暖手掌<br>可是你不在我身旁 托清风捎去安康</p><p>时光时光慢些吧 不要再让你变老了<br>我愿用我一切 换你岁月长留<br>一生要强的爸爸 我能为你做些什么<br>微不足道的关心 收下吧</p><p>谢谢你做的一切 双手撑起我们的家<br>总是竭尽所有 把最好的给我<br>我是你的骄傲吗 还在为我而担心吗<br>你牵挂的孩子啊 长大啦</p><h3 id="C"><a href="#C" class="headerlink" title="C"></a>C</h3><p>时光时光慢些吧 不要再让你变老啦<br>我愿用我一切 换你岁月长留<br>我是你的骄傲吗 还在为我而担心吗<br>你牵挂的孩子啊 长大啦</p><p>感谢一路上有你</p>]]></content>
+    <content type="html"><![CDATA[<h2 id="歌词"><a href="#歌词" class="headerlink" title="歌词"></a>歌词</h2><h3 id="A"><a href="#A" class="headerlink" title="A"></a>A</h3><p>窗外的麻雀 在电线杆上多嘴<br>你说这一句 很有夏↓天的感觉<br>手中的铅笔 在纸上来来回回<br>我|用几行字 形容你是我的谁</p><p>秋刀鱼的滋味 猫跟你都想了解<br>初恋的香味 就这样被我^们寻回<br>那温暖的阳光 像刚摘的鲜艳草莓<br>你说你舍不得吃掉 这一种感觉</p><p>雨下整夜 我的爱溢出就像雨水<br>院子落叶 跟我的思念厚厚一叠<br>几句是非 也无法将我的热情冷却<br>你出现在我诗的每一页</p><p>雨下整夜 我的爱溢出就像雨水<br>窗台蝴蝶 像诗里纷飞的美丽章节<br>我接着写 把永远爱你<br>写进诗的结尾<br>你是我唯一想要的了解</p><h3 id="B"><a href="#B" class="headerlink" title="B"></a>B</h3><p>雨下整夜 我的爱溢出就像雨水<br>院子落叶 跟我的思念厚厚一叠<br>几句是非 也无法将我的热情冷却<br>你出现在我诗的每一页</p><p>那饱满的稻穗 幸福了~这个季节<br>而你的脸颊 像田里熟透的蕃茄<br>你突然|对我说 七里香的|名字很美<br>我此刻却只想亲吻你倔强的嘴</p><h3 id="C"><a href="#C" class="headerlink" title="C"></a>C</h3><p>雨下整夜 我的爱溢出就像雨水<br>院子落叶 跟我的思念厚厚一叠<br>几句是非 也无法将我的热情冷却<br>你出现在我诗的每一页</p><p>整夜<br>我的爱溢出就像雨水<br>窗台蝴蝶 像诗里↑纷飞的美丽~章节<br>我接着写 把永远爱你<br>写进诗的结尾<br>你是我唯一想要的了解</p><h2 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h2><p>A（麻雀）<br>B（秋刀鱼）<br>C（院子落叶）<br>C（窗台蝴蝶）</p><p>C（院子落叶）<br>B（稻穗）</p><p>C（院子落叶）<br>C（窗台蝴蝶）</p>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;h2 id=&quot;歌谱&quot;&gt;&lt;a href=&quot;#歌谱&quot; class=&quot;headerlink&quot; title=&quot;歌谱&quot;&gt;&lt;/a&gt;歌谱&lt;/h2&gt;&lt;p&gt;&lt;img src=&quot;/img/blog/父亲/父亲.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;h2 id=&quot;歌词&quot;&gt;&lt;a href=&quot;#歌词&quot; c
+        &lt;h2 id=&quot;歌词&quot;&gt;&lt;a href=&quot;#歌词&quot; class=&quot;headerlink&quot; title=&quot;歌词&quot;&gt;&lt;/a&gt;歌词&lt;/h2&gt;&lt;h3 id=&quot;A&quot;&gt;&lt;a href=&quot;#A&quot; class=&quot;headerlink&quot; title=&quot;A&quot;&gt;&lt;/a&gt;A&lt;/h3&gt;&lt;p&gt;窗外的麻雀 在
+      
+    
+    </summary>
+    
+      <category term="Music" scheme="http://weihuchao.top/categories/Music/"/>
+    
+    
+      <category term="歌词" scheme="http://weihuchao.top/tags/%E6%AD%8C%E8%AF%8D/"/>
+    
+      <category term="音乐" scheme="http://weihuchao.top/tags/%E9%9F%B3%E4%B9%90/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>不朽之罪-双笙</title>
+    <link href="http://weihuchao.top/2018/07/08/%E4%B8%8D%E6%9C%BD%E4%B9%8B%E7%BD%AA-%E5%8F%8C%E7%AC%99/"/>
+    <id>http://weihuchao.top/2018/07/08/不朽之罪-双笙/</id>
+    <published>2018-07-07T16:00:00.000Z</published>
+    <updated>2018-07-07T13:13:08.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="歌词"><a href="#歌词" class="headerlink" title="歌词"></a>歌词</h2><h3 id="A"><a href="#A" class="headerlink" title="A"></a>A</h3><p>打乱的骨牌 习惯盲目依赖↑<br>以坦然姿态 等风来→<br>鞋跟下青苔 爬满拖地裙摆→<br>神的福音被隔|绝窗外↑</p><p>天平支点倾斜 自尊将我打败<br>不安的窘态 在作怪<br>我熟知的年代还能区分黑白<br>无需卖弄心|机耍赖</p><p>为谁深陷不知往返的迷恋<br>未曾认清这个世界<br>我听到权力之争彻夜不歇<br>街尾血香|愈显浓烈</p><h3 id="B"><a href="#B" class="headerlink" title="B"></a>B</h3><p>空间接应点 于囚笼中调（diao）配<br>密封的花蕊 正枯萎<br>听断线傀儡 晚安留在句尾<br>僵硬的思维筛选错对</p><p>天平支点倾斜 自尊将我打败<br>不安的窘态 在作怪<br>我熟知的年代 还能区分黑白<br>无需卖弄心|机耍赖</p><p>为谁深陷不知往返的迷恋<br>未曾认清这个世界<br>我听到权力之争彻夜不歇<br>街尾血香|愈显浓烈</p><h3 id="C"><a href="#C" class="headerlink" title="C"></a>C</h3><p>甘愿臣服于谁 立忠诚之碑<br>重叠暗夜又一番教诲<br>结局早已无谓<br>明与灭 滞留病态的美</p><h3 id="D"><a href="#D" class="headerlink" title="D"></a>D</h3><p>为谁深陷不知往返的迷恋<br>为谁认清这个世界<br>我听到权力之争彻夜不歇<br>街尾血香|显浓烈</p><p>打乱的骨牌 习惯盲目依赖<br>（为谁深陷不知往返的迷恋）</p><p>以坦然姿态 等风来<br>（未曾认清这个世界）</p><p>让断线傀儡 晚安留在句尾<br>（我听到权力之争彻夜不歇）</p><p>僵硬的思维筛选错对<br>（街尾血香愈显浓烈)</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;歌词&quot;&gt;&lt;a href=&quot;#歌词&quot; class=&quot;headerlink&quot; title=&quot;歌词&quot;&gt;&lt;/a&gt;歌词&lt;/h2&gt;&lt;h3 id=&quot;A&quot;&gt;&lt;a href=&quot;#A&quot; class=&quot;headerlink&quot; title=&quot;A&quot;&gt;&lt;/a&gt;A&lt;/h3&gt;&lt;p&gt;打乱的骨牌 习
+      
+    
+    </summary>
+    
+      <category term="Music" scheme="http://weihuchao.top/categories/Music/"/>
+    
+    
+      <category term="歌词" scheme="http://weihuchao.top/tags/%E6%AD%8C%E8%AF%8D/"/>
+    
+      <category term="音乐" scheme="http://weihuchao.top/tags/%E9%9F%B3%E4%B9%90/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>安静-周杰伦</title>
+    <link href="http://weihuchao.top/2018/07/08/%E5%AE%89%E9%9D%99-%E5%91%A8%E6%9D%B0%E4%BC%A6/"/>
+    <id>http://weihuchao.top/2018/07/08/安静-周杰伦/</id>
+    <published>2018-07-07T16:00:00.000Z</published>
+    <updated>2018-07-07T11:55:22.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="歌词"><a href="#歌词" class="headerlink" title="歌词"></a>歌词</h2><h3 id="A"><a href="#A" class="headerlink" title="A"></a>A</h3><p>只剩下钢琴陪我谈了一天<br>睡著的大提琴 安静的旧旧的<br>我想你已表现的非常明白<br>我懂我也知道 你没有舍不得</p><p>你说你也会难过我不相信<br>牵著你陪著我 也只是曾经<br>希望他是真的比我还要爱你<br>我才会逼自己离开</p><h3 id="B"><a href="#B" class="headerlink" title="B"></a>B</h3><p>你要我说多难堪 我根本不想分开<br>为什么还要我用微笑来带过<br>我没有这种天份 包容你也接受他<br>不用担心的太多 我会一直好好过</p><p>你已经远远离开 我也会慢慢走开<br>为什么我连分开都迁就著你<br>我真的没有天份 安（B3两个音）静的没这么快<br>我会学著放弃你 是因为我太爱你</p><h3 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h3><p>AB AB B</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;歌词&quot;&gt;&lt;a href=&quot;#歌词&quot; class=&quot;headerlink&quot; title=&quot;歌词&quot;&gt;&lt;/a&gt;歌词&lt;/h2&gt;&lt;h3 id=&quot;A&quot;&gt;&lt;a href=&quot;#A&quot; class=&quot;headerlink&quot; title=&quot;A&quot;&gt;&lt;/a&gt;A&lt;/h3&gt;&lt;p&gt;只剩下钢琴陪我
       
     
     </summary>
@@ -184,73 +270,20 @@
   </entry>
   
   <entry>
-    <title>大唐玄怪来谒-肥皂菌</title>
-    <link href="http://weihuchao.top/2018/07/08/%E5%A4%A7%E5%94%90%E7%8E%84%E6%80%AA%E6%9D%A5%E8%B0%92-%E8%82%A5%E7%9A%82%E8%8F%8C/"/>
-    <id>http://weihuchao.top/2018/07/08/大唐玄怪来谒-肥皂菌/</id>
+    <title>父亲-筷子兄弟</title>
+    <link href="http://weihuchao.top/2018/07/08/%E7%88%B6%E4%BA%B2-%E7%AD%B7%E5%AD%90%E5%85%84%E5%BC%9F/"/>
+    <id>http://weihuchao.top/2018/07/08/父亲-筷子兄弟/</id>
     <published>2018-07-07T16:00:00.000Z</published>
-    <updated>2018-07-07T11:59:32.000Z</updated>
+    <updated>2018-09-01T03:55:43.000Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="歌词"><a href="#歌词" class="headerlink" title="歌词"></a>歌词</h2><h3 id="A"><a href="#A" class="headerlink" title="A"></a>A</h3><p>文翰初议周隋 再话旧唐<br>以尺墨安定狐媚<br>平生偏好奇诡 又易食髓知味<br>秉夜烛 诗邀神鬼<br>听说落魄书生 杜氏子春<br>虎皮上两世长梦 成仙或为人<br>他已识门道九分 偏情字入骨深</p><p>清夜慎持明烛台 它亦吟得词句入怀<br>大唐遍出诗才 待我坐镇云峰台<br>千里紫霞参拜 引鹤来<br>剑指乌妖一当百 身性刚正<br>怎怕污邪侵害<br>只把酒此生付慷慨 喝完<br>披朱衣再去游炎海</p><h3 id="B"><a href="#B" class="headerlink" title="B"></a>B</h3><p>笔触刺骨几分 毫若青锋<br>如凡俗入骨几寸 最难罢品红尘<br>异事易勾瘾症<br>上酒卮 劳君多论<br>时人文章评批 非不靡丽<br>却可惜殊少骨气 不如拂袖去<br>练绝这一手棋技 普世人桔中戏</p><p>当心红鬼鸣鼓钟<br>提柄长剑叩你颈痛<br>方知善恶有终<br>上元广陵景最浓 由我乘驾天虹 彩云中<br>敢凭纸符救白龙<br>并非是我 醉得太过放纵<br>只爱煞一生逞英雄<br>不叹匆匆 真君子不言怪</p><h3 id="C"><a href="#C" class="headerlink" title="C"></a>C</h3><p>自诩假小人尽可谈的开怀<br>因我解下绣龙裳 世间无人敢自称王<br>犯我半分张狂 挑亮烛光点鬼将<br>推杯豪饮琼浆 祭参商<br>扬手呼童请明皇 突觉喉中<br>酒烈吐出金蟒 吞山河胸胆正开张<br>容我 怒书这一卷说盛唐</p>]]></content>
+    <content type="html"><![CDATA[<h2 id="歌谱"><a href="#歌谱" class="headerlink" title="歌谱"></a>歌谱</h2><p><img src="/img/blog/父亲/父亲.jpg" alt=""></p><h2 id="歌词"><a href="#歌词" class="headerlink" title="歌词"></a>歌词</h2><h3 id="A"><a href="#A" class="headerlink" title="A"></a>A</h3><p>总是向你索取 却不曾说谢谢你<br>直到长大以后 才懂得你不容易<br>每次离开总是 装作轻松的样子<br>微笑着说回去吧 转身泪湿眼底</p><p>多想和从前一样 牵你温暖手掌<br>可是你不在我身旁 托清风捎去安康</p><p>时光时光慢些吧 不要再让你变老了<br>我愿用我一切 换你岁月长留<br>一生要强的爸爸 我能为你做些什么<br>微不足道的关心 收下吧</p><p>谢谢你做的一切 双手撑起我们的家<br>总是竭尽所有 把最好的给我<br>我是你的骄傲吗 还在为我而担心吗<br>你牵挂的孩子啊 长大啦</p><h3 id="B"><a href="#B" class="headerlink" title="B"></a>B</h3><p>多想和从前一样 牵你温暖手掌<br>可是你不在我身旁 托清风捎去安康</p><p>时光时光慢些吧 不要再让你变老了<br>我愿用我一切 换你岁月长留<br>一生要强的爸爸 我能为你做些什么<br>微不足道的关心 收下吧</p><p>谢谢你做的一切 双手撑起我们的家<br>总是竭尽所有 把最好的给我<br>我是你的骄傲吗 还在为我而担心吗<br>你牵挂的孩子啊 长大啦</p><h3 id="C"><a href="#C" class="headerlink" title="C"></a>C</h3><p>时光时光慢些吧 不要再让你变老啦<br>我愿用我一切 换你岁月长留<br>我是你的骄傲吗 还在为我而担心吗<br>你牵挂的孩子啊 长大啦</p><p>感谢一路上有你</p>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;h2 id=&quot;歌词&quot;&gt;&lt;a href=&quot;#歌词&quot; class=&quot;headerlink&quot; title=&quot;歌词&quot;&gt;&lt;/a&gt;歌词&lt;/h2&gt;&lt;h3 id=&quot;A&quot;&gt;&lt;a href=&quot;#A&quot; class=&quot;headerlink&quot; title=&quot;A&quot;&gt;&lt;/a&gt;A&lt;/h3&gt;&lt;p&gt;文翰初议周隋 
-      
-    
-    </summary>
-    
-      <category term="Music" scheme="http://weihuchao.top/categories/Music/"/>
-    
-    
-      <category term="歌词" scheme="http://weihuchao.top/tags/%E6%AD%8C%E8%AF%8D/"/>
-    
-      <category term="音乐" scheme="http://weihuchao.top/tags/%E9%9F%B3%E4%B9%90/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>高飞-张杰</title>
-    <link href="http://weihuchao.top/2018/07/08/%E9%AB%98%E9%A3%9E-%E5%BC%A0%E6%9D%B0/"/>
-    <id>http://weihuchao.top/2018/07/08/高飞-张杰/</id>
-    <published>2018-07-07T16:00:00.000Z</published>
-    <updated>2018-07-07T12:52:46.000Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="歌词"><a href="#歌词" class="headerlink" title="歌词"></a>歌词</h2><h3 id="A"><a href="#A" class="headerlink" title="A"></a>A</h3><p>奔跑穿越无尽的荒原<br>逐梦的脚步突然停歇<br>无边断崖 横在眼前<br>我懂 我要 蜕变</p><p>偶尔想起温暖的昨天<br>为了梦想不再留恋<br>新的起点就在眼前<br>我已做好准备</p><p>我要高飞 到天空的顶点<br>我要飞到<strong>无人</strong>能及的视界<br>飞得再累 不准自己跌坠<br>直到太阳就在我的指尖</p><p>我要高飞 到世界的边缘<br>我要飞越<strong>没人</strong>到达的绝对<br>不到终点 不准流下眼泪<br>要把最震撼的呐喊留在灿烂瞬间</p><h3 id="B"><a href="#B" class="headerlink" title="B"></a>B</h3><p>偶尔想起温暖的昨天<br>为了梦想不再留恋<br>新的起点就在眼前<br>我已做好准备</p><p>我要高飞 到天空的顶点<br>我要飞到<strong>无人</strong>能及的视界<br>飞得再累 不准自己跌坠<br>直到太阳就在我的指尖</p><p>我要高飞 到世界的边缘<br>我要飞越<strong>没人</strong>到达的绝对<br>不到终点 不准流下眼泪<br>要把最震撼的呐喊留在</p><h3 id="C"><a href="#C" class="headerlink" title="C"></a>C</h3><p>我要高飞 到天空的顶点<br>我要飞到<strong>无人</strong>能及的视界<br>飞得再累 不准自己跌坠<br>直到太阳就在我的指尖</p><p>我要高|飞 到世界的边缘<br>我要飞越<strong>没人</strong>到达的绝对<br>不到终|点 不准流下眼泪<br>要把最震撼的呐喊<br>留在灿烂瞬间</p><p>灿烂瞬间</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;歌词&quot;&gt;&lt;a href=&quot;#歌词&quot; class=&quot;headerlink&quot; title=&quot;歌词&quot;&gt;&lt;/a&gt;歌词&lt;/h2&gt;&lt;h3 id=&quot;A&quot;&gt;&lt;a href=&quot;#A&quot; class=&quot;headerlink&quot; title=&quot;A&quot;&gt;&lt;/a&gt;A&lt;/h3&gt;&lt;p&gt;奔跑穿越无尽的
-      
-    
-    </summary>
-    
-      <category term="Music" scheme="http://weihuchao.top/categories/Music/"/>
-    
-    
-      <category term="歌词" scheme="http://weihuchao.top/tags/%E6%AD%8C%E8%AF%8D/"/>
-    
-      <category term="音乐" scheme="http://weihuchao.top/tags/%E9%9F%B3%E4%B9%90/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>安静-周杰伦</title>
-    <link href="http://weihuchao.top/2018/07/08/%E5%AE%89%E9%9D%99-%E5%91%A8%E6%9D%B0%E4%BC%A6/"/>
-    <id>http://weihuchao.top/2018/07/08/安静-周杰伦/</id>
-    <published>2018-07-07T16:00:00.000Z</published>
-    <updated>2018-07-07T11:55:22.000Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="歌词"><a href="#歌词" class="headerlink" title="歌词"></a>歌词</h2><h3 id="A"><a href="#A" class="headerlink" title="A"></a>A</h3><p>只剩下钢琴陪我谈了一天<br>睡著的大提琴 安静的旧旧的<br>我想你已表现的非常明白<br>我懂我也知道 你没有舍不得</p><p>你说你也会难过我不相信<br>牵著你陪著我 也只是曾经<br>希望他是真的比我还要爱你<br>我才会逼自己离开</p><h3 id="B"><a href="#B" class="headerlink" title="B"></a>B</h3><p>你要我说多难堪 我根本不想分开<br>为什么还要我用微笑来带过<br>我没有这种天份 包容你也接受他<br>不用担心的太多 我会一直好好过</p><p>你已经远远离开 我也会慢慢走开<br>为什么我连分开都迁就著你<br>我真的没有天份 安（B3两个音）静的没这么快<br>我会学著放弃你 是因为我太爱你</p><h3 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h3><p>AB AB B</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;歌词&quot;&gt;&lt;a href=&quot;#歌词&quot; class=&quot;headerlink&quot; title=&quot;歌词&quot;&gt;&lt;/a&gt;歌词&lt;/h2&gt;&lt;h3 id=&quot;A&quot;&gt;&lt;a href=&quot;#A&quot; class=&quot;headerlink&quot; title=&quot;A&quot;&gt;&lt;/a&gt;A&lt;/h3&gt;&lt;p&gt;只剩下钢琴陪我
+        &lt;h2 id=&quot;歌谱&quot;&gt;&lt;a href=&quot;#歌谱&quot; class=&quot;headerlink&quot; title=&quot;歌谱&quot;&gt;&lt;/a&gt;歌谱&lt;/h2&gt;&lt;p&gt;&lt;img src=&quot;/img/blog/父亲/父亲.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;歌词&quot;&gt;&lt;a href=&quot;#歌词&quot; c
       
     
     </summary>
@@ -293,19 +326,19 @@
   </entry>
   
   <entry>
-    <title>七里香-周杰伦</title>
-    <link href="http://weihuchao.top/2018/07/08/%E4%B8%83%E9%87%8C%E9%A6%99-%E5%91%A8%E6%9D%B0%E4%BC%A6/"/>
-    <id>http://weihuchao.top/2018/07/08/七里香-周杰伦/</id>
+    <title>大唐玄怪来谒-肥皂菌</title>
+    <link href="http://weihuchao.top/2018/07/08/%E5%A4%A7%E5%94%90%E7%8E%84%E6%80%AA%E6%9D%A5%E8%B0%92-%E8%82%A5%E7%9A%82%E8%8F%8C/"/>
+    <id>http://weihuchao.top/2018/07/08/大唐玄怪来谒-肥皂菌/</id>
     <published>2018-07-07T16:00:00.000Z</published>
-    <updated>2018-07-07T13:27:31.000Z</updated>
+    <updated>2018-07-07T11:59:32.000Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="歌词"><a href="#歌词" class="headerlink" title="歌词"></a>歌词</h2><h3 id="A"><a href="#A" class="headerlink" title="A"></a>A</h3><p>窗外的麻雀 在电线杆上多嘴<br>你说这一句 很有夏↓天的感觉<br>手中的铅笔 在纸上来来回回<br>我|用几行字 形容你是我的谁</p><p>秋刀鱼的滋味 猫跟你都想了解<br>初恋的香味 就这样被我^们寻回<br>那温暖的阳光 像刚摘的鲜艳草莓<br>你说你舍不得吃掉 这一种感觉</p><p>雨下整夜 我的爱溢出就像雨水<br>院子落叶 跟我的思念厚厚一叠<br>几句是非 也无法将我的热情冷却<br>你出现在我诗的每一页</p><p>雨下整夜 我的爱溢出就像雨水<br>窗台蝴蝶 像诗里纷飞的美丽章节<br>我接着写 把永远爱你<br>写进诗的结尾<br>你是我唯一想要的了解</p><h3 id="B"><a href="#B" class="headerlink" title="B"></a>B</h3><p>雨下整夜 我的爱溢出就像雨水<br>院子落叶 跟我的思念厚厚一叠<br>几句是非 也无法将我的热情冷却<br>你出现在我诗的每一页</p><p>那饱满的稻穗 幸福了~这个季节<br>而你的脸颊 像田里熟透的蕃茄<br>你突然|对我说 七里香的|名字很美<br>我此刻却只想亲吻你倔强的嘴</p><h3 id="C"><a href="#C" class="headerlink" title="C"></a>C</h3><p>雨下整夜 我的爱溢出就像雨水<br>院子落叶 跟我的思念厚厚一叠<br>几句是非 也无法将我的热情冷却<br>你出现在我诗的每一页</p><p>整夜<br>我的爱溢出就像雨水<br>窗台蝴蝶 像诗里↑纷飞的美丽~章节<br>我接着写 把永远爱你<br>写进诗的结尾<br>你是我唯一想要的了解</p><h2 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h2><p>A（麻雀）<br>B（秋刀鱼）<br>C（院子落叶）<br>C（窗台蝴蝶）</p><p>C（院子落叶）<br>B（稻穗）</p><p>C（院子落叶）<br>C（窗台蝴蝶）</p>]]></content>
+    <content type="html"><![CDATA[<h2 id="歌词"><a href="#歌词" class="headerlink" title="歌词"></a>歌词</h2><h3 id="A"><a href="#A" class="headerlink" title="A"></a>A</h3><p>文翰初议周隋 再话旧唐<br>以尺墨安定狐媚<br>平生偏好奇诡 又易食髓知味<br>秉夜烛 诗邀神鬼<br>听说落魄书生 杜氏子春<br>虎皮上两世长梦 成仙或为人<br>他已识门道九分 偏情字入骨深</p><p>清夜慎持明烛台 它亦吟得词句入怀<br>大唐遍出诗才 待我坐镇云峰台<br>千里紫霞参拜 引鹤来<br>剑指乌妖一当百 身性刚正<br>怎怕污邪侵害<br>只把酒此生付慷慨 喝完<br>披朱衣再去游炎海</p><h3 id="B"><a href="#B" class="headerlink" title="B"></a>B</h3><p>笔触刺骨几分 毫若青锋<br>如凡俗入骨几寸 最难罢品红尘<br>异事易勾瘾症<br>上酒卮 劳君多论<br>时人文章评批 非不靡丽<br>却可惜殊少骨气 不如拂袖去<br>练绝这一手棋技 普世人桔中戏</p><p>当心红鬼鸣鼓钟<br>提柄长剑叩你颈痛<br>方知善恶有终<br>上元广陵景最浓 由我乘驾天虹 彩云中<br>敢凭纸符救白龙<br>并非是我 醉得太过放纵<br>只爱煞一生逞英雄<br>不叹匆匆 真君子不言怪</p><h3 id="C"><a href="#C" class="headerlink" title="C"></a>C</h3><p>自诩假小人尽可谈的开怀<br>因我解下绣龙裳 世间无人敢自称王<br>犯我半分张狂 挑亮烛光点鬼将<br>推杯豪饮琼浆 祭参商<br>扬手呼童请明皇 突觉喉中<br>酒烈吐出金蟒 吞山河胸胆正开张<br>容我 怒书这一卷说盛唐</p>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;h2 id=&quot;歌词&quot;&gt;&lt;a href=&quot;#歌词&quot; class=&quot;headerlink&quot; title=&quot;歌词&quot;&gt;&lt;/a&gt;歌词&lt;/h2&gt;&lt;h3 id=&quot;A&quot;&gt;&lt;a href=&quot;#A&quot; class=&quot;headerlink&quot; title=&quot;A&quot;&gt;&lt;/a&gt;A&lt;/h3&gt;&lt;p&gt;窗外的麻雀 在
+        &lt;h2 id=&quot;歌词&quot;&gt;&lt;a href=&quot;#歌词&quot; class=&quot;headerlink&quot; title=&quot;歌词&quot;&gt;&lt;/a&gt;歌词&lt;/h2&gt;&lt;h3 id=&quot;A&quot;&gt;&lt;a href=&quot;#A&quot; class=&quot;headerlink&quot; title=&quot;A&quot;&gt;&lt;/a&gt;A&lt;/h3&gt;&lt;p&gt;文翰初议周隋 
       
     
     </summary>
@@ -320,19 +353,19 @@
   </entry>
   
   <entry>
-    <title>不朽之罪-双笙</title>
-    <link href="http://weihuchao.top/2018/07/08/%E4%B8%8D%E6%9C%BD%E4%B9%8B%E7%BD%AA-%E5%8F%8C%E7%AC%99/"/>
-    <id>http://weihuchao.top/2018/07/08/不朽之罪-双笙/</id>
+    <title>高飞-张杰</title>
+    <link href="http://weihuchao.top/2018/07/08/%E9%AB%98%E9%A3%9E-%E5%BC%A0%E6%9D%B0/"/>
+    <id>http://weihuchao.top/2018/07/08/高飞-张杰/</id>
     <published>2018-07-07T16:00:00.000Z</published>
-    <updated>2018-07-07T13:13:08.000Z</updated>
+    <updated>2018-07-07T12:52:46.000Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="歌词"><a href="#歌词" class="headerlink" title="歌词"></a>歌词</h2><h3 id="A"><a href="#A" class="headerlink" title="A"></a>A</h3><p>打乱的骨牌 习惯盲目依赖↑<br>以坦然姿态 等风来→<br>鞋跟下青苔 爬满拖地裙摆→<br>神的福音被隔|绝窗外↑</p><p>天平支点倾斜 自尊将我打败<br>不安的窘态 在作怪<br>我熟知的年代还能区分黑白<br>无需卖弄心|机耍赖</p><p>为谁深陷不知往返的迷恋<br>未曾认清这个世界<br>我听到权力之争彻夜不歇<br>街尾血香|愈显浓烈</p><h3 id="B"><a href="#B" class="headerlink" title="B"></a>B</h3><p>空间接应点 于囚笼中调（diao）配<br>密封的花蕊 正枯萎<br>听断线傀儡 晚安留在句尾<br>僵硬的思维筛选错对</p><p>天平支点倾斜 自尊将我打败<br>不安的窘态 在作怪<br>我熟知的年代 还能区分黑白<br>无需卖弄心|机耍赖</p><p>为谁深陷不知往返的迷恋<br>未曾认清这个世界<br>我听到权力之争彻夜不歇<br>街尾血香|愈显浓烈</p><h3 id="C"><a href="#C" class="headerlink" title="C"></a>C</h3><p>甘愿臣服于谁 立忠诚之碑<br>重叠暗夜又一番教诲<br>结局早已无谓<br>明与灭 滞留病态的美</p><h3 id="D"><a href="#D" class="headerlink" title="D"></a>D</h3><p>为谁深陷不知往返的迷恋<br>为谁认清这个世界<br>我听到权力之争彻夜不歇<br>街尾血香|显浓烈</p><p>打乱的骨牌 习惯盲目依赖<br>（为谁深陷不知往返的迷恋）</p><p>以坦然姿态 等风来<br>（未曾认清这个世界）</p><p>让断线傀儡 晚安留在句尾<br>（我听到权力之争彻夜不歇）</p><p>僵硬的思维筛选错对<br>（街尾血香愈显浓烈)</p>]]></content>
+    <content type="html"><![CDATA[<h2 id="歌词"><a href="#歌词" class="headerlink" title="歌词"></a>歌词</h2><h3 id="A"><a href="#A" class="headerlink" title="A"></a>A</h3><p>奔跑穿越无尽的荒原<br>逐梦的脚步突然停歇<br>无边断崖 横在眼前<br>我懂 我要 蜕变</p><p>偶尔想起温暖的昨天<br>为了梦想不再留恋<br>新的起点就在眼前<br>我已做好准备</p><p>我要高飞 到天空的顶点<br>我要飞到<strong>无人</strong>能及的视界<br>飞得再累 不准自己跌坠<br>直到太阳就在我的指尖</p><p>我要高飞 到世界的边缘<br>我要飞越<strong>没人</strong>到达的绝对<br>不到终点 不准流下眼泪<br>要把最震撼的呐喊留在灿烂瞬间</p><h3 id="B"><a href="#B" class="headerlink" title="B"></a>B</h3><p>偶尔想起温暖的昨天<br>为了梦想不再留恋<br>新的起点就在眼前<br>我已做好准备</p><p>我要高飞 到天空的顶点<br>我要飞到<strong>无人</strong>能及的视界<br>飞得再累 不准自己跌坠<br>直到太阳就在我的指尖</p><p>我要高飞 到世界的边缘<br>我要飞越<strong>没人</strong>到达的绝对<br>不到终点 不准流下眼泪<br>要把最震撼的呐喊留在</p><h3 id="C"><a href="#C" class="headerlink" title="C"></a>C</h3><p>我要高飞 到天空的顶点<br>我要飞到<strong>无人</strong>能及的视界<br>飞得再累 不准自己跌坠<br>直到太阳就在我的指尖</p><p>我要高|飞 到世界的边缘<br>我要飞越<strong>没人</strong>到达的绝对<br>不到终|点 不准流下眼泪<br>要把最震撼的呐喊<br>留在灿烂瞬间</p><p>灿烂瞬间</p>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;h2 id=&quot;歌词&quot;&gt;&lt;a href=&quot;#歌词&quot; class=&quot;headerlink&quot; title=&quot;歌词&quot;&gt;&lt;/a&gt;歌词&lt;/h2&gt;&lt;h3 id=&quot;A&quot;&gt;&lt;a href=&quot;#A&quot; class=&quot;headerlink&quot; title=&quot;A&quot;&gt;&lt;/a&gt;A&lt;/h3&gt;&lt;p&gt;打乱的骨牌 习
+        &lt;h2 id=&quot;歌词&quot;&gt;&lt;a href=&quot;#歌词&quot; class=&quot;headerlink&quot; title=&quot;歌词&quot;&gt;&lt;/a&gt;歌词&lt;/h2&gt;&lt;h3 id=&quot;A&quot;&gt;&lt;a href=&quot;#A&quot; class=&quot;headerlink&quot; title=&quot;A&quot;&gt;&lt;/a&gt;A&lt;/h3&gt;&lt;p&gt;奔跑穿越无尽的
       
     
     </summary>
