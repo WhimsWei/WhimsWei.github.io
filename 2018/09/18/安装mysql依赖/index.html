@@ -6,26 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://weihuchao.top">
-  <title>MacOS系统初始化 | 魏胡超</title>
+  <title>安装mysql依赖 | 魏胡超</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1 基础软件 网易云音乐 QQ Wechat 为知笔记 有道词典 邮箱大师 BatterZip MPlayer TotalFinder TeamViewer Lantern &amp;amp; NordVPN (选择下载OpneVPN) VMware Navicat Premium Microsoft Office  2 Pycharm License Server   http://wolf.3dxtr">
-<meta name="keywords" content="笔记,Mac">
+  <meta name="description" content="在运行Django项目的时候可能会需要mysql环境。 mysqlclient这是用于python3的库。 安装方法： 安装依赖 1brew install mysql-connector-c mac上需要修改 mysql_config123456789101112131415➜  ~ mysql_configUsage: /usr/local/bin/mysql_config [OPTIONS]">
+<meta name="keywords" content="笔记,环境">
 <meta property="og:type" content="article">
-<meta property="og:title" content="MacOS系统初始化">
-<meta property="og:url" content="http://weihuchao.top/2018/05/20/初始化macOS/index.html">
+<meta property="og:title" content="安装mysql依赖">
+<meta property="og:url" content="http://weihuchao.top/2018/09/18/安装mysql依赖/index.html">
 <meta property="og:site_name" content="魏胡超">
-<meta property="og:description" content="1 基础软件 网易云音乐 QQ Wechat 为知笔记 有道词典 邮箱大师 BatterZip MPlayer TotalFinder TeamViewer Lantern &amp;amp; NordVPN (选择下载OpneVPN) VMware Navicat Premium Microsoft Office  2 Pycharm License Server   http://wolf.3dxtr">
+<meta property="og:description" content="在运行Django项目的时候可能会需要mysql环境。 mysqlclient这是用于python3的库。 安装方法： 安装依赖 1brew install mysql-connector-c mac上需要修改 mysql_config123456789101112131415➜  ~ mysql_configUsage: /usr/local/bin/mysql_config [OPTIONS]">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://weihuchao.top/img/blog/MacOS系统初始化/image-20180526201124712.png">
-<meta property="og:image" content="http://weihuchao.top/img/blog/MacOS系统初始化/image-20180526201217732.png">
-<meta property="og:image" content="http://weihuchao.top/img/blog/MacOS系统初始化/image-20180526201314468.png">
-<meta property="og:image" content="http://weihuchao.top/img/blog/MacOS系统初始化/image-20180526201714997.png">
-<meta property="og:image" content="http://weihuchao.top/img/blog/MacOS系统初始化/image-20180526201841525.png">
-<meta property="og:updated_time" content="2018-09-01T03:55:43.000Z">
+<meta property="og:updated_time" content="2018-09-18T11:32:18.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="MacOS系统初始化">
-<meta name="twitter:description" content="1 基础软件 网易云音乐 QQ Wechat 为知笔记 有道词典 邮箱大师 BatterZip MPlayer TotalFinder TeamViewer Lantern &amp;amp; NordVPN (选择下载OpneVPN) VMware Navicat Premium Microsoft Office  2 Pycharm License Server   http://wolf.3dxtr">
-<meta name="twitter:image" content="http://weihuchao.top/img/blog/MacOS系统初始化/image-20180526201124712.png">
+<meta name="twitter:title" content="安装mysql依赖">
+<meta name="twitter:description" content="在运行Django项目的时候可能会需要mysql环境。 mysqlclient这是用于python3的库。 安装方法： 安装依赖 1brew install mysql-connector-c mac上需要修改 mysql_config123456789101112131415➜  ~ mysql_configUsage: /usr/local/bin/mysql_config [OPTIONS]">
   
     <link rel="alternative" href="/atom.xml" title="魏胡超" type="application/atom+xml">
   
@@ -155,86 +149,46 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-初始化macOS" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-安装mysql依赖" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      MacOS系统初始化
+      安装mysql依赖
     </h1>
   
 
         
-        <a href="/2018/05/20/初始化macOS/" class="archive-article-date">
-  	<time datetime="2018-05-19T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-20</time>
+        <a href="/2018/09/18/安装mysql依赖/" class="archive-article-date">
+  	<time datetime="2018-09-18T11:23:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-18</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="1-基础软件"><a href="#1-基础软件" class="headerlink" title="1 基础软件"></a>1 基础软件</h2><ul>
-<li>网易云音乐</li>
-<li>QQ</li>
-<li>Wechat</li>
-<li>为知笔记</li>
-<li>有道词典</li>
-<li>邮箱大师</li>
-<li>BatterZip</li>
-<li>MPlayer</li>
-<li>TotalFinder</li>
-<li>TeamViewer</li>
-<li><a href="https://getlantern.org/zh_CN/" target="_blank" rel="noopener">Lantern</a> &amp; <a href="https://nordvpn.com/zh/download/mac/" target="_blank" rel="noopener">NordVPN</a> (选择下载OpneVPN)</li>
-<li><a href="http://xclient.info/s/vmware-fusion.html?t=cdbf30295617a80c269d392af7ea3fec89df6d04" target="_blank" rel="noopener">VMware</a></li>
-<li><a href="http://xclient.info/s/navicat-premium.html?t=cdbf30295617a80c269d392af7ea3fec89df6d04" target="_blank" rel="noopener">Navicat Premium</a></li>
-<li><a href="http://xclient.info/s/office-for-mac-2016.html?t=cdbf30295617a80c269d392af7ea3fec89df6d04" target="_blank" rel="noopener">Microsoft Office</a></li>
+        <p>在运行Django项目的时候可能会需要mysql环境。</p>
+<h2 id="mysqlclient"><a href="#mysqlclient" class="headerlink" title="mysqlclient"></a>mysqlclient</h2><p>这是用于python3的库。</p>
+<p>安装方法：</p>
+<p>安装依赖</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install mysql-connector-c</span><br></pre></td></tr></table></figure>
+<p>mac上需要修改 mysql_config<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">➜  ~ mysql_config</span><br><span class="line">Usage: /usr/local/bin/mysql_config [OPTIONS]</span><br><span class="line"></span><br><span class="line">➜  ~ ll /usr/local/bin/mysql_config</span><br><span class="line">lrwxr-xr-x  1 weihuchao  admin    51B  9 18 18:10 /usr/local/bin/mysql_config -&gt; ../Cellar/mysql-connector-c/6.1.11/bin/mysql_config</span><br><span class="line"></span><br><span class="line">➜  ~ cd /usr/local/Cellar/mysql-connector-c/6.1.11/bin/</span><br><span class="line"></span><br><span class="line">➜  bin ll</span><br><span class="line">total 14176</span><br><span class="line">-r-xr-xr-x  1 weihuchao  staff   3.4M  9 18 18:10 my_print_defaults</span><br><span class="line">-r-xr-xr-x  1 weihuchao  staff   4.7K  9 18 18:26 mysql_config</span><br><span class="line">-r-xr-xr-x  1 weihuchao  staff   3.5M  9 18 18:10 perror</span><br><span class="line"></span><br><span class="line">➜  bin sudo chmod a+x mysql_config</span><br></pre></td></tr></table></figure></p>
+<p>修改文件112行左右<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># Create options</span><br><span class="line">libs=&quot;-L$pkglibdir&quot;</span><br><span class="line">libs=&quot;$libs -l &quot;</span><br></pre></td></tr></table></figure></p>
+<p>改为</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># Create options</span><br><span class="line">libs=&quot;-L$pkglibdir&quot;</span><br><span class="line">libs=&quot;$libs -lmysqlclient -lssl -lcrypto&quot;</span><br></pre></td></tr></table></figure>
+<p>最后安装<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pip3 install mysqlclient</span><br></pre></td></tr></table></figure></p>
+<h2 id="MySQL-python"><a href="#MySQL-python" class="headerlink" title="MySQL-python"></a>MySQL-python</h2><p>这个主要是用于python2中。</p>
+<p>安装</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pip3 install MySQL-python==1.2.5</span><br></pre></td></tr></table></figure>
+<h2 id="参考地址"><a href="#参考地址" class="headerlink" title="参考地址"></a>参考地址</h2><ul>
+<li><p>mysqlclient <a href="https://pypi.org/project/mysqlclient/" target="_blank" rel="noopener">https://pypi.org/project/mysqlclient/</a></p>
+</li>
+<li><p>MySQL-python <a href="https://pypi.org/project/MySQL-python/1.2.5/" target="_blank" rel="noopener">https://pypi.org/project/MySQL-python/1.2.5/</a></p>
+</li>
 </ul>
-<h2 id="2-Pycharm"><a href="#2-Pycharm" class="headerlink" title="2 Pycharm"></a>2 Pycharm</h2><ol>
-<li><p>License Server </p>
-<ul>
-<li><a href="http://wolf.3dxtras.com" target="_blank" rel="noopener">http://wolf.3dxtras.com</a></li>
-<li><a href="http://idea.lanyus.com/" target="_blank" rel="noopener">http://idea.lanyus.com/</a></li>
-<li><a href="http://xidea.online" target="_blank" rel="noopener">http://xidea.online</a></li>
-</ul>
-</li>
-<li><p>字体大小<br><img src="/img/blog/MacOS系统初始化/image-20180526201124712.png" alt="image-20180526201124712"></p>
-</li>
-<li><p>编辑区的字体和背景<br><img src="/img/blog/MacOS系统初始化/image-20180526201217732.png" alt="image-20180526201217732"></p>
-<p>背景颜色</p>
-<p><img src="/img/blog/MacOS系统初始化/image-20180526201314468.png" alt="image-20180526201314468"></p>
-</li>
-<li><p>设置指定后缀的文件的Editor， 这样就可以轻松提醒和注释等操作了<br><img src="/img/blog/MacOS系统初始化/image-20180526201714997.png" alt="image-20180526201714997"></p>
-</li>
-</ol>
-<h2 id="3-Terminal"><a href="#3-Terminal" class="headerlink" title="3 Terminal"></a>3 Terminal</h2><ol>
-<li><p>安装oh-my-zsh</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | sh</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>创建alias</p>
-<p>配置文件为 ~/.zshrc</p>
-<p>一些博主推荐的alias</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">alias cls='clear'</span><br><span class="line">alias ll='ls -l'</span><br><span class="line">alias la='ls -a'</span><br><span class="line">alias vi='vim'</span><br><span class="line">alias javac="javac -J-Dfile.encoding=utf8"</span><br><span class="line">alias grep="grep --color=auto"</span><br><span class="line">alias -s html=mate   # 在命令行直接输入后缀为 html 的文件名，会在 TextMate 中打开</span><br><span class="line">alias -s rb=mate     # 在命令行直接输入 ruby 文件，会在 TextMate 中打开</span><br><span class="line">alias -s py=vi       # 在命令行直接输入 python 文件，会用 vim 中打开，以下类似</span><br><span class="line">alias -s js=vi</span><br><span class="line">alias -s c=vi</span><br><span class="line">alias -s java=vi</span><br><span class="line">alias -s txt=vi</span><br><span class="line">alias -s gz='tar -xzvf'</span><br><span class="line">alias -s tgz='tar -xzvf'</span><br><span class="line">alias -s zip='unzip'</span><br><span class="line">alias -s bz2='tar -xjvf'</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>设置皮肤</p>
-<p>偏好设置 -&gt; 描述文件 -&gt; Novel -&gt; 字体 -&gt; 更改 -&gt; 默认</p>
-</li>
-<li><p>解决破解软件无法打开的问题</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo spctl --master-disable</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<h2 id="4-QQ浏览器"><a href="#4-QQ浏览器" class="headerlink" title="4 QQ浏览器"></a>4 QQ浏览器</h2><ul>
-<li>Adblock Plus</li>
-<li>Onetab</li>
-<li>谷歌翻译</li>
-<li>手势<br><img src="/img/blog/MacOS系统初始化/image-20180526201841525.png" alt="image-20180526201841525"></li>
-</ul>
-<h2 id="5-搜狗输入法"><a href="#5-搜狗输入法" class="headerlink" title="5 搜狗输入法"></a>5 搜狗输入法</h2><ul>
-<li>中英文标点</li>
-<li>外观-主题-候选词个数-9</li>
-</ul>
-<h2 id="6-使用Airport同步数据"><a href="#6-使用Airport同步数据" class="headerlink" title="6 使用Airport同步数据"></a>6 使用Airport同步数据</h2>
+
       
 
       
@@ -272,7 +226,7 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Mac</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">环境</a>
         		</li>
       		
 		</ul>
@@ -339,7 +293,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://weihuchao.top/2018/05/20/初始化macOS/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://weihuchao.top/2018/09/18/安装mysql依赖/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -353,15 +307,11 @@
   
 <nav id="article-nav">
   
-    <a href="/2018/05/20/Hexo博客的构建/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Hexo博客的构建之路
-        
-      </div>
-    </a>
   
+    <a href="/2018/09/17/amazing trees - 泽野弘之/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">amazing trees-泽野弘之</div>
+      <i class="icon-circle-right"></i>
+    </a>
   
 </nav>
 
@@ -386,7 +336,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-基础软件"><span class="toc-number">1.</span> <span class="toc-text">1 基础软件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Pycharm"><span class="toc-number">2.</span> <span class="toc-text">2 Pycharm</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-Terminal"><span class="toc-number">3.</span> <span class="toc-text">3 Terminal</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-QQ浏览器"><span class="toc-number">4.</span> <span class="toc-text">4 QQ浏览器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-搜狗输入法"><span class="toc-number">5.</span> <span class="toc-text">5 搜狗输入法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-使用Airport同步数据"><span class="toc-number">6.</span> <span class="toc-text">6 使用Airport同步数据</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#mysqlclient"><span class="toc-number">1.</span> <span class="toc-text">mysqlclient</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MySQL-python"><span class="toc-number">2.</span> <span class="toc-text">MySQL-python</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考地址"><span class="toc-number">3.</span> <span class="toc-text">参考地址</span></a></li></ol>
                     </div>
                 </span>
             </div>
