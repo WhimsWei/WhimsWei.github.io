@@ -6,12 +6,12 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://weihuchao.top">
-  <title>魏胡超</title>
+  <title>Tag: 自定义 | 魏胡超</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="keywords" content="weihuchao，blogs，weihc， xuanyetouci">
 <meta property="og:type" content="website">
 <meta property="og:title" content="魏胡超">
-<meta property="og:url" content="http://weihuchao.top/page/3/index.html">
+<meta property="og:url" content="http://weihuchao.top/tags/自定义/index.html">
 <meta property="og:site_name" content="魏胡超">
 <meta property="og:locale" content="zh-Hans">
 <meta name="twitter:card" content="summary">
@@ -147,154 +147,35 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-Hexo博客的构建" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
+  
     
-      <header class="article-header">
-        
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2018" class="archive-year">2018</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2018/09/19/主题自定义/" class="archive-article-date">
+  	<time datetime="2018-09-19T13:39:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-19 21:39:12</time>
+</a>
+
+        </div>
+    	 
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/05/20/Hexo博客的构建/">Hexo博客的构建之路</a>
+      <a class="archive-article-title" href="/2018/09/19/主题自定义/">yilia主题自定义</a>
     </h1>
   
 
-        
-        <a href="/2018/05/20/Hexo博客的构建/" class="archive-article-date">
-  	<time datetime="2018-05-20T03:24:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-20 11:24:53</time>
-</a>
-
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="1-介绍"><a href="#1-介绍" class="headerlink" title="1 介绍"></a>1 介绍</h2><p>hexo是基于node.js的。</p>
-<p>它可用于创建博客， 且操作十分方便。</p>
-<p>也可以和github关联，提交上自动生成的静态文件，配置之后任何人都可以轻松访问创建好的博客了。</p>
-<p>地址不够酷炫没关系，购买一个域名来绑定给我们的博客。</p>
-<p>页面不够酷炫没关系，还有一大波的主题等着我们应用。</p>
-<h2 id="2-安装Hexo"><a href="#2-安装Hexo" class="headerlink" title="2 安装Hexo"></a>2 安装Hexo</h2><ol>
-<li><p>安装node.js</p>
-<p><a href="http://nodejs.cn/" target="_blank" rel="noopener">http://nodejs.cn/</a></p>
-</li>
-</ol>
-<ol start="2">
-<li><p>安装hexo</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>初始化hexo</p>
-<p>注意这会在当前目录下生成hexo所需的内容，所以选定好一个合适的位置</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo init</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<ol start="4">
-<li><p>(可选) 安装hexo的插件</p>
-<p>虽然是可选但是安装完之后不会报一些因为缺插件导致的错误<br>比如缺少<strong>hexo-deployer-git</strong>在<strong>hexo d</strong>的时候就会找不到git</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-generator-index --save</span><br><span class="line">npm install hexo-generator-archive --save</span><br><span class="line">npm install hexo-generator-category --save</span><br><span class="line">npm install hexo-generator-tag --save</span><br><span class="line">npm install hexo-server --save</span><br><span class="line">npm install hexo-deployer-git --save</span><br><span class="line">npm install hexo-deployer-heroku --save</span><br><span class="line">npm install hexo-deployer-rsync --save</span><br><span class="line">npm install hexo-deployer-openshift --save</span><br><span class="line">npm install hexo-renderer-marked@0.2 --save</span><br><span class="line">npm install hexo-renderer-stylus@0.2 --save</span><br><span class="line">npm install hexo-generator-feed@1 --save</span><br><span class="line">npm install hexo-generator-sitemap@1 --save</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<ol start="5">
-<li><p>启动hexo查看效果</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo g</span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure>
-<p>g对应的是generate<br>s对应的是server<br>执行之后就可以访问<strong> <a href="http://localhost:4000/" target="_blank" rel="noopener">http://localhost:4000/</a> </strong>查看效果了</p>
-</li>
-</ol>
-<h2 id="3-添加文章"><a href="#3-添加文章" class="headerlink" title="3 添加文章"></a>3 添加文章</h2><p>可以直接在项目<strong>/source/_posts</strong> 下直接创建需要的md文件即可<br>注意：md文件头部需要有一下信息， 来配置文章的标题、创建时间、tag、分类等内容</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: 我是标题</span><br><span class="line">categories: 我是分类</span><br><span class="line">tags:</span><br><span class="line">	- 我是tag</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
-<h2 id="4-创建关于我"><a href="#4-创建关于我" class="headerlink" title="4 创建关于我"></a>4 创建关于我</h2><ol>
-<li><p>在项目路径下执行</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new page &quot;about&quot;</span><br></pre></td></tr></table></figure>
-<p>实际上就是生成了 <strong>项目/source/about/index.md</strong> 文件</p>
-</li>
-<li><p>编辑index.md文件的内容</p>
-</li>
-<li><p>修改 <strong>项目/themes/next/_config.yml</strong> 文件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">menu:</span><br><span class="line">  home: / || home</span><br><span class="line">  about: /about/ || user        # 去掉这个位置的注释就可以了</span><br><span class="line">#  tags: /tags/ || tags</span><br><span class="line">  categories: /categories/ || th</span><br><span class="line">  archives: /archives/ || archive</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<h2 id="5-创建分类"><a href="#5-创建分类" class="headerlink" title="5 创建分类"></a>5 创建分类</h2><ol>
-<li><p>在项目中执行命令</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new page &quot;categories&quot;</span><br></pre></td></tr></table></figure>
-<p>同样，会创建 <strong>项目/source/categories/index.md</strong> 文件</p>
-</li>
-<li><p>修改index.md文件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: 分类</span><br><span class="line">date: 2018-03-31 16:24:24</span><br><span class="line">type: categories</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
-<p>其中需要title的内容会被显示到页面<br>type必须要加上， 这样Hexo才会自动生成分类的内容</p>
-</li>
-<li>和创建关于我一样，需要修改配置文件</li>
-</ol>
-<h2 id="6-与gitbu关联"><a href="#6-与gitbu关联" class="headerlink" title="6 与gitbu关联"></a>6 与gitbu关联</h2><ol>
-<li><p>获取git账号</p>
-</li>
-<li><p>创建一个repository<br>注意名字必须是<strong> 你的github用户.github.io </strong></p>
-</li>
-<li><p>在本地配置好git</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name &quot;whims&quot;</span><br><span class="line">git config --global user.email &quot;whimswei@163.com&quot;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>创建SSH秘钥</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd ~/.ssh</span><br><span class="line">ssh-keygen -t rsa -C “whimswei@163.com”</span><br><span class="line">cat id_rsa.pub</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<ol start="5">
-<li><p>添加到git上</p>
-<p>头像 -&gt; setting -&gt; SSH and GPG keys  -&gt; new SSH key  -&gt; Title自己定，Key输入id_rsa.pub的内容</p>
-</li>
-<li><p>配置hexo</p>
-<p>配置项目/_config.conf</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: 仓库地址</span><br><span class="line">  branch: 分支（一般是master）</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>推送到git</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo d</span><br></pre></td></tr></table></figure>
-<p>d对应deploy</p>
-</li>
-</ol>
-<h2 id="7-绑定域名"><a href="#7-绑定域名" class="headerlink" title="7 绑定域名"></a>7 绑定域名</h2><ol>
-<li><p>本地项目的修改</p>
-<p>创建文件 /source/CNAME</p>
-<p>内容为域名</p>
-</li>
-<li><p>git上的修改</p>
-<p>头像 -&gt; your profile -&gt; 项目 -&gt; setting -&gt; GitHub Pages -&gt; Custom domain </p>
-<p>输入域名</p>
-</li>
-</ol>
-<h2 id="8-（主题）Favicon"><a href="#8-（主题）Favicon" class="headerlink" title="8 （主题）Favicon"></a>8 （主题）Favicon</h2><ol>
-<li><p>用小篆字体， <a href="http://www.dullr.com/11" target="_blank" rel="noopener">推荐网站</a></p>
-</li>
-<li><p>地址为 /source/favicon.jpg</p>
-</li>
-<li><p>对应主题配置</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">favicon: /favicon.jpg</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<h2 id="9-（主题）Share页面的配置"><a href="#9-（主题）Share页面的配置" class="headerlink" title="9 （主题）Share页面的配置"></a>9 （主题）Share页面的配置</h2><p>文件位置为/layout/_partial/post/share.ejs</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"bdsharebuttonbox"</span>&gt;</span></span><br><span class="line">            <span class="comment">&lt;!--&lt;a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"&gt;&lt;/a&gt;--&gt;</span></span><br><span class="line">            <span class="comment">&lt;!--&lt;a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"&gt;&lt;/a&gt;--&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span> <span class="attr">class</span>=<span class="string">"fa fa-weixin bds_weixin"</span> <span class="attr">data-cmd</span>=<span class="string">"weixin"</span> <span class="attr">title</span>=<span class="string">"生成文章二维码"</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span> <span class="attr">class</span>=<span class="string">"fa fa-qq bds_sqq"</span> <span class="attr">data-cmd</span>=<span class="string">"sqq"</span> <span class="attr">title</span>=<span class="string">"分享给 QQ 好友"</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span> <span class="attr">class</span>=<span class="string">"fa fa fa-envelope-o bds_mail"</span> <span class="attr">data-cmd</span>=<span class="string">"mail"</span> <span class="attr">title</span>=<span class="string">"通过邮件分享"</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span> <span class="attr">class</span>=<span class="string">"fa fa-files-o bds_copy"</span> <span class="attr">data-cmd</span>=<span class="string">"copy"</span> <span class="attr">title</span>=<span class="string">"复制网址"</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">            <span class="comment">&lt;!--&lt;a href="#" class="fa fa-share-alt bds_more" data-cmd="more"&gt;&lt;/i&gt;&lt;/a&gt;--&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h2 id="10-（主题）页底优化"><a href="#10-（主题）页底优化" class="headerlink" title="10 （主题）页底优化"></a>10 （主题）页底优化</h2><p>文件位置/layout/_partial/footer.ejs</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">footer</span> <span class="attr">id</span>=<span class="string">"footer"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"outer"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"footer-info"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"footer-left"</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"fa fa-copyright"</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span></span><br><span class="line">                &lt;% if (theme.since &amp;&amp; !isNaN(theme.since) &amp;&amp; theme.since &lt; date(new Date(), 'YYYY')) &#123; %&gt;&lt;%- theme.since%&gt;-&lt;% &#125; %&gt;&lt;%= date(new Date(), 'YYYY') %&gt; &lt;%= config.author || config.title %&gt;</span><br><span class="line">            <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">            <span class="comment">&lt;!--&lt;div class="footer-right"&gt;--&gt;</span></span><br><span class="line">                <span class="comment">&lt;!--&lt;a href="http://hexo.io/" target="_blank" title="&lt;%= __('tooltip.Hexo') %&gt;"&gt;Hexo&lt;/a&gt;  Theme &lt;a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="&lt;%= __('tooltip.Yelee') %&gt;  v&lt;%= theme.Yelee %&gt;"&gt;Yelee&lt;/a&gt; by MOxFIVE &lt;i class="fa fa-heart animated infinite pulse"&gt;&lt;/i&gt;--&gt;</span></span><br><span class="line">            <span class="comment">&lt;!--&lt;/div&gt;--&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!--&lt;% if (theme.visit_counter.on) &#123; %&gt;--&gt;</span></span><br><span class="line">            <span class="comment">&lt;!--&lt;div class="visit"&gt;--&gt;</span></span><br><span class="line">                <span class="comment">&lt;!--&lt;% if (theme.visit_counter.site_visit) &#123; %&gt;--&gt;</span></span><br><span class="line">                    <span class="comment">&lt;!--&lt;span id="busuanzi_container_site_pv" style='display:none'&gt;--&gt;</span></span><br><span class="line">                        <span class="comment">&lt;!--&lt;span id="site-visit" title="&lt;%= __('visit_counter.site') %&gt;"&gt;&lt;i class="fa fa-user" aria-hidden="true"&gt;&lt;/i&gt;&lt;span id="busuanzi_value_site_uv"&gt;&lt;/span&gt;--&gt;</span></span><br><span class="line">                        <span class="comment">&lt;!--&lt;/span&gt;--&gt;</span></span><br><span class="line">                    <span class="comment">&lt;!--&lt;/span&gt;--&gt;</span></span><br><span class="line">                <span class="comment">&lt;!--&lt;% &#125; %&gt;--&gt;</span></span><br><span class="line">                <span class="comment">&lt;!--&lt;% if (theme.visit_counter.site_visit &amp;&amp; theme.visit_counter.page_visit) &#123; %&gt;--&gt;</span></span><br><span class="line">                    <span class="comment">&lt;!--&lt;span&gt;| &lt;/span&gt;--&gt;</span></span><br><span class="line">                <span class="comment">&lt;!--&lt;% &#125; %&gt;--&gt;</span></span><br><span class="line">                <span class="comment">&lt;!--&lt;% if (theme.visit_counter.page_visit) &#123; %&gt;--&gt;</span></span><br><span class="line">                    <span class="comment">&lt;!--&lt;span id="busuanzi_container_page_pv" style='display:none'&gt;--&gt;</span></span><br><span class="line">                        <span class="comment">&lt;!--&lt;span id="page-visit"  title="&lt;%= __('visit_counter.page') %&gt;"&gt;&lt;i class="fa fa-eye animated infinite pulse" aria-hidden="true"&gt;&lt;/i&gt;&lt;span id="busuanzi_value_page_pv"&gt;&lt;/span&gt;--&gt;</span></span><br><span class="line">                        <span class="comment">&lt;!--&lt;/span&gt;--&gt;</span></span><br><span class="line">                    <span class="comment">&lt;!--&lt;/span&gt;--&gt;</span></span><br><span class="line">                <span class="comment">&lt;!--&lt;% &#125; %&gt;--&gt;</span></span><br><span class="line">            <span class="comment">&lt;!--&lt;/div&gt;--&gt;</span></span><br><span class="line">        <span class="comment">&lt;!--&lt;% &#125; %&gt;--&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">footer</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h2 id="11-更多内容"><a href="#11-更多内容" class="headerlink" title="11 更多内容"></a>11 更多内容</h2><ul>
-<li><a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="noopener">HEXO官方中文文档</a></li>
-<li><a href="https://hexo.io/themes/" target="_blank" rel="noopener">HEXO主题</a></li>
-<li><a href="http://moxfive.xyz/yelee/1.Getting-Started/" target="_blank" rel="noopener">主题文档</a></li>
-<li>推荐主题<ul>
-<li><a href="https://vevlins.github.io/" target="_blank" rel="noopener">https://vevlins.github.io/</a></li>
-<li><a href="https://blog.meiqiu.me/2017/12/18/mysql-tips/" target="_blank" rel="noopener">https://blog.meiqiu.me/2017/12/18/mysql-tips/</a></li>
-<li><a href="http://hejx.space/" target="_blank" rel="noopener">http://hejx.space/</a></li>
-<li><a href="http://www.yujunren.com/blog/" target="_blank" rel="noopener">http://www.yujunren.com/blog/</a></li>
-<li><a href="https://hcyue.me/" target="_blank" rel="noopener">https://hcyue.me/</a></li>
-<li><a href="https://geekplux.com/" target="_blank" rel="noopener">https://geekplux.com/</a></li>
-</ul>
-</li>
-</ul>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>自此就完成了一个可以快捷发表文章，任何人可以通过指定域名访问， 界面美观大方的博客网站。</p>
-<p>接下来就是熟悉Markdown的语法，把文章的布局格式控制的更加精确，还有学习一些前端知识对页面进行改良甚至做成模板供大家使用，最终就是努力学习写出更好的博客内容。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -304,214 +185,40 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">博客</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">主题</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">自定义</a>
         		</li>
       		
 		</ul>
 	</div>
 
-      
+          
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/笔记//" class="article-tag-list-link color3">笔记</a>
+        			<a href="/categories/Hexo//" class="article-tag-list-link color5">Hexo</a>
         		</li>
       		
 		</ul>
 	</div>
 
 
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/05/20/Hexo博客的构建/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
+        </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
   
-    <article id="post-初始化macOS" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
+  
+    </div></section>
+  
+
     
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/05/20/初始化macOS/">MacOS系统初始化</a>
-    </h1>
-  
-
-        
-        <a href="/2018/05/20/初始化macOS/" class="archive-article-date">
-  	<time datetime="2018-05-19T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-20 00:00:00</time>
-</a>
-
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="1-基础软件"><a href="#1-基础软件" class="headerlink" title="1 基础软件"></a>1 基础软件</h2><ul>
-<li>网易云音乐</li>
-<li>QQ</li>
-<li>Wechat</li>
-<li>为知笔记</li>
-<li>有道词典</li>
-<li>邮箱大师</li>
-<li>BatterZip</li>
-<li>MPlayer</li>
-<li>TotalFinder</li>
-<li>TeamViewer</li>
-<li><a href="https://getlantern.org/zh_CN/" target="_blank" rel="noopener">Lantern</a> &amp; <a href="https://nordvpn.com/zh/download/mac/" target="_blank" rel="noopener">NordVPN</a> (选择下载OpneVPN)</li>
-<li><a href="http://xclient.info/s/vmware-fusion.html?t=cdbf30295617a80c269d392af7ea3fec89df6d04" target="_blank" rel="noopener">VMware</a></li>
-<li><a href="http://xclient.info/s/navicat-premium.html?t=cdbf30295617a80c269d392af7ea3fec89df6d04" target="_blank" rel="noopener">Navicat Premium</a></li>
-<li><a href="http://xclient.info/s/office-for-mac-2016.html?t=cdbf30295617a80c269d392af7ea3fec89df6d04" target="_blank" rel="noopener">Microsoft Office</a></li>
-</ul>
-<h2 id="2-Pycharm"><a href="#2-Pycharm" class="headerlink" title="2 Pycharm"></a>2 Pycharm</h2><ol>
-<li><p>License Server </p>
-<ul>
-<li><a href="http://wolf.3dxtras.com" target="_blank" rel="noopener">http://wolf.3dxtras.com</a></li>
-<li><a href="http://idea.lanyus.com/" target="_blank" rel="noopener">http://idea.lanyus.com/</a></li>
-<li><a href="http://xidea.online" target="_blank" rel="noopener">http://xidea.online</a></li>
-</ul>
-</li>
-<li><p>字体大小<br><img src="/img/blog/MacOS系统初始化/image-20180526201124712.png" alt="image-20180526201124712"></p>
-</li>
-<li><p>编辑区的字体和背景<br><img src="/img/blog/MacOS系统初始化/image-20180526201217732.png" alt="image-20180526201217732"></p>
-<p>背景颜色</p>
-<p><img src="/img/blog/MacOS系统初始化/image-20180526201314468.png" alt="image-20180526201314468"></p>
-</li>
-<li><p>设置指定后缀的文件的Editor， 这样就可以轻松提醒和注释等操作了<br><img src="/img/blog/MacOS系统初始化/image-20180526201714997.png" alt="image-20180526201714997"></p>
-</li>
-</ol>
-<h2 id="3-Terminal"><a href="#3-Terminal" class="headerlink" title="3 Terminal"></a>3 Terminal</h2><ol>
-<li><p>安装oh-my-zsh</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | sh</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>创建alias</p>
-<p>配置文件为 ~/.zshrc</p>
-<p>一些博主推荐的alias</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">alias cls='clear'</span><br><span class="line">alias ll='ls -l'</span><br><span class="line">alias la='ls -a'</span><br><span class="line">alias vi='vim'</span><br><span class="line">alias javac="javac -J-Dfile.encoding=utf8"</span><br><span class="line">alias grep="grep --color=auto"</span><br><span class="line">alias -s html=mate   # 在命令行直接输入后缀为 html 的文件名，会在 TextMate 中打开</span><br><span class="line">alias -s rb=mate     # 在命令行直接输入 ruby 文件，会在 TextMate 中打开</span><br><span class="line">alias -s py=vi       # 在命令行直接输入 python 文件，会用 vim 中打开，以下类似</span><br><span class="line">alias -s js=vi</span><br><span class="line">alias -s c=vi</span><br><span class="line">alias -s java=vi</span><br><span class="line">alias -s txt=vi</span><br><span class="line">alias -s gz='tar -xzvf'</span><br><span class="line">alias -s tgz='tar -xzvf'</span><br><span class="line">alias -s zip='unzip'</span><br><span class="line">alias -s bz2='tar -xjvf'</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>设置皮肤</p>
-<p>偏好设置 -&gt; 描述文件 -&gt; Novel -&gt; 字体 -&gt; 更改 -&gt; 默认</p>
-</li>
-<li><p>解决破解软件无法打开的问题</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo spctl --master-disable</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<h2 id="4-QQ浏览器"><a href="#4-QQ浏览器" class="headerlink" title="4 QQ浏览器"></a>4 QQ浏览器</h2><ul>
-<li>Adblock Plus</li>
-<li>Onetab</li>
-<li>谷歌翻译</li>
-<li>手势<br><img src="/img/blog/MacOS系统初始化/image-20180526201841525.png" alt="image-20180526201841525"></li>
-</ul>
-<h2 id="5-搜狗输入法"><a href="#5-搜狗输入法" class="headerlink" title="5 搜狗输入法"></a>5 搜狗输入法</h2><ul>
-<li>中英文标点</li>
-<li>外观-主题-候选词个数-9</li>
-</ul>
-<h2 id="6-使用Airport同步数据"><a href="#6-使用Airport同步数据" class="headerlink" title="6 使用Airport同步数据"></a>6 使用Airport同步数据</h2>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Mac</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/笔记//" class="article-tag-list-link color3">笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/05/20/初始化macOS/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-  
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
-    </nav>
-  
 
 
           </div>
@@ -541,10 +248,10 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
+		isHome: false,
 		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: true,
 		toc_hide_index: true,

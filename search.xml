@@ -3,6 +3,31 @@
   
     
     <entry>
+      <title>yilia主题自定义</title>
+      <link href="/2018/09/19/%E4%B8%BB%E9%A2%98%E8%87%AA%E5%AE%9A%E4%B9%89/"/>
+      <url>/2018/09/19/%E4%B8%BB%E9%A2%98%E8%87%AA%E5%AE%9A%E4%B9%89/</url>
+      <content type="html"><![CDATA[<p>持续更新</p><h2 id="修改footer"><a href="#修改footer" class="headerlink" title="修改footer"></a>修改footer</h2><p>yilia/layout/_partial/footer.ejs</p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"footer-info"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"display: inline-block;"</span>&gt;</span></span><br><span class="line">        Stay hunger, stay young!</span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure><h2 id="修改文章显示时间"><a href="#修改文章显示时间" class="headerlink" title="修改文章显示时间"></a>修改文章显示时间</h2><p>yilia/layout/_partial/post/date.ejs</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;%= date(post.date, date_format) %&gt;</span><br></pre></td></tr></table></figure><p>改为</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;%= date(post.date, &apos;YYYY-MM-DD HH:mm:ss&apos;) %&gt;</span><br></pre></td></tr></table></figure><p>代码参考</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># Date / Time format</span><br><span class="line">## Hexo uses Moment.js to parse and display date</span><br><span class="line">## You can customize the date format as defined in</span><br><span class="line">## http://momentjs.com/docs/#/displaying/format/</span><br><span class="line">date_format: YYYY-MM-DD</span><br><span class="line">time_format: HH:mm:ss</span><br></pre></td></tr></table></figure><h2 id="首页文章标题对齐"><a href="#首页文章标题对齐" class="headerlink" title="首页文章标题对齐"></a>首页文章标题对齐</h2><p>yilia/source/main.0cf68a.css</p><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.article-inner</span> <span class="selector-tag">h1</span><span class="selector-class">.article-title</span>, <span class="selector-class">.article-title</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#696969</span>;</span><br><span class="line">  <span class="comment">/* margin-left: 0px; */</span></span><br><span class="line">  <span class="attribute">margin-left</span>: -<span class="number">4px</span>;</span><br><span class="line">  <span class="attribute">font-weight</span>: <span class="number">300</span>;</span><br><span class="line">  <span class="attribute">line-height</span>: <span class="number">35px</span>;</span><br><span class="line">  <span class="attribute">margin-bottom</span>: <span class="number">20px</span>;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="number">26px</span>;</span><br><span class="line">  <span class="attribute">-webkit-transition</span>: color <span class="number">0.3s</span>;</span><br><span class="line">  <span class="attribute">-moz-transition</span>: color <span class="number">0.3s</span>;</span><br><span class="line">  <span class="attribute">-o-transition</span>: color <span class="number">0.3s</span>;</span><br><span class="line">  <span class="attribute">transition</span>: color <span class="number">0.3s</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="标题加入背景色"><a href="#标题加入背景色" class="headerlink" title="标题加入背景色"></a>标题加入背景色</h2><p>yilia/source/main.0cf68a.css</p><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.article-header</span>&#123;<span class="attribute">border-left</span>:<span class="number">5px</span> solid <span class="number">#4d4d4d</span>;<span class="attribute">background-color</span>: <span class="number">#d5d8d9</span>;<span class="attribute">padding</span>:<span class="number">30px</span> <span class="number">0</span> <span class="number">15px</span> <span class="number">25px</span>;<span class="attribute">padding-left</span>:<span class="number">7.6923%</span>&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      
+      <categories>
+          
+          <category> Hexo </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Hexo </tag>
+            
+            <tag> 主题 </tag>
+            
+            <tag> 自定义 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
       <title>正向代理和反向代理</title>
       <link href="/2018/09/19/%E6%AD%A3%E5%90%91%E4%BB%A3%E7%90%86%E5%92%8C%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/"/>
       <url>/2018/09/19/%E6%AD%A3%E5%90%91%E4%BB%A3%E7%90%86%E5%92%8C%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/</url>
@@ -199,6 +224,52 @@
     </entry>
     
     <entry>
+      <title>千里之外-周杰伦</title>
+      <link href="/2018/07/08/%E5%8D%83%E9%87%8C%E4%B9%8B%E5%A4%96-%E5%91%A8%E6%9D%B0%E4%BC%A6/"/>
+      <url>/2018/07/08/%E5%8D%83%E9%87%8C%E4%B9%8B%E5%A4%96-%E5%91%A8%E6%9D%B0%E4%BC%A6/</url>
+      <content type="html"><![CDATA[<h2 id="歌谱"><a href="#歌谱" class="headerlink" title="歌谱"></a>歌谱</h2><p><img src="/img/blog/千里之外/千里之外.jpg" alt=""></p><h2 id="歌词"><a href="#歌词" class="headerlink" title="歌词"></a>歌词</h2><h3 id="A"><a href="#A" class="headerlink" title="A"></a>A</h3><p>屋檐如悬崖 风铃如沧海<br>我等燕归来<br>时间被安排 演一场意外<br>你悄然走开</p><p>故事在城外 浓雾散不开<br>看不清对白<br>你听不出来 风声不存在<br>是我在感慨</p><p>梦醒来 是谁在窗台 把结局打开<br>那薄如蝉|翼的未来<br>经不起谁来拆</p><p>我送你离开 千里之外<br>你无声黑白<br>沉默年代 或许不该<br>太遥远的相爱</p><p>我送你离开 天涯之外<br>你是否还在<br>琴声何来 生死难猜<br>用一生去等待</p><h3 id="B"><a href="#B" class="headerlink" title="B"></a>B</h3><p>一身琉璃白 透明着尘埃<br>你无瑕的爱<br>你从雨中来 诗化了悲哀<br>我淋湿现在</p><p>芙蓉水面采 船行影犹在<br>你却不回来<br>被岁月覆盖 你说的花开<br>过去成空白</p><p>梦醒来 是谁在窗台 把结局打开<br>那薄如蝉|翼的未来<br>经不起谁来拆</p><p>我送你离开 千里之外<br>你无声黑白<br>沉默年代 或许不该<br>太遥远的相爱</p><p>我送你离开 天涯之外<br>你是否还在<br>琴声何来 生死难猜<br>用一生 （没有去等待）</p><h2 id="C"><a href="#C" class="headerlink" title="C"></a>C</h2><p>我送你离开 千里之外<br>你无声黑白<br>沉默年代 或许不该<br>太遥远的相爱</p><p>我送你离开 天涯之外<br>你是否还在<br>琴声何来 生死难猜<br>用一生去等待</p>]]></content>
+      
+      <categories>
+          
+          <category> Music </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 歌词 </tag>
+            
+            <tag> 音乐 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
+      <title>高飞-张杰</title>
+      <link href="/2018/07/08/%E9%AB%98%E9%A3%9E-%E5%BC%A0%E6%9D%B0/"/>
+      <url>/2018/07/08/%E9%AB%98%E9%A3%9E-%E5%BC%A0%E6%9D%B0/</url>
+      <content type="html"><![CDATA[<h2 id="歌词"><a href="#歌词" class="headerlink" title="歌词"></a>歌词</h2><h3 id="A"><a href="#A" class="headerlink" title="A"></a>A</h3><p>奔跑穿越无尽的荒原<br>逐梦的脚步突然停歇<br>无边断崖 横在眼前<br>我懂 我要 蜕变</p><p>偶尔想起温暖的昨天<br>为了梦想不再留恋<br>新的起点就在眼前<br>我已做好准备</p><p>我要高飞 到天空的顶点<br>我要飞到<strong>无人</strong>能及的视界<br>飞得再累 不准自己跌坠<br>直到太阳就在我的指尖</p><p>我要高飞 到世界的边缘<br>我要飞越<strong>没人</strong>到达的绝对<br>不到终点 不准流下眼泪<br>要把最震撼的呐喊留在灿烂瞬间</p><h3 id="B"><a href="#B" class="headerlink" title="B"></a>B</h3><p>偶尔想起温暖的昨天<br>为了梦想不再留恋<br>新的起点就在眼前<br>我已做好准备</p><p>我要高飞 到天空的顶点<br>我要飞到<strong>无人</strong>能及的视界<br>飞得再累 不准自己跌坠<br>直到太阳就在我的指尖</p><p>我要高飞 到世界的边缘<br>我要飞越<strong>没人</strong>到达的绝对<br>不到终点 不准流下眼泪<br>要把最震撼的呐喊留在</p><h3 id="C"><a href="#C" class="headerlink" title="C"></a>C</h3><p>我要高飞 到天空的顶点<br>我要飞到<strong>无人</strong>能及的视界<br>飞得再累 不准自己跌坠<br>直到太阳就在我的指尖</p><p>我要高|飞 到世界的边缘<br>我要飞越<strong>没人</strong>到达的绝对<br>不到终|点 不准流下眼泪<br>要把最震撼的呐喊<br>留在灿烂瞬间</p><p>灿烂瞬间</p>]]></content>
+      
+      <categories>
+          
+          <category> Music </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 歌词 </tag>
+            
+            <tag> 音乐 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
       <title>青花瓷-周杰伦</title>
       <link href="/2018/07/08/%E9%9D%92%E8%8A%B1%E7%93%B7-%E5%91%A8%E6%9D%B0%E4%BC%A6/"/>
       <url>/2018/07/08/%E9%9D%92%E8%8A%B1%E7%93%B7-%E5%91%A8%E6%9D%B0%E4%BC%A6/</url>
@@ -222,10 +293,10 @@
     </entry>
     
     <entry>
-      <title>不朽之罪-双笙</title>
-      <link href="/2018/07/08/%E4%B8%8D%E6%9C%BD%E4%B9%8B%E7%BD%AA-%E5%8F%8C%E7%AC%99/"/>
-      <url>/2018/07/08/%E4%B8%8D%E6%9C%BD%E4%B9%8B%E7%BD%AA-%E5%8F%8C%E7%AC%99/</url>
-      <content type="html"><![CDATA[<h2 id="歌词"><a href="#歌词" class="headerlink" title="歌词"></a>歌词</h2><h3 id="A"><a href="#A" class="headerlink" title="A"></a>A</h3><p>打乱的骨牌 习惯盲目依赖↑<br>以坦然姿态 等风来→<br>鞋跟下青苔 爬满拖地裙摆→<br>神的福音被隔|绝窗外↑</p><p>天平支点倾斜 自尊将我打败<br>不安的窘态 在作怪<br>我熟知的年代还能区分黑白<br>无需卖弄心|机耍赖</p><p>为谁深陷不知往返的迷恋<br>未曾认清这个世界<br>我听到权力之争彻夜不歇<br>街尾血香|愈显浓烈</p><h3 id="B"><a href="#B" class="headerlink" title="B"></a>B</h3><p>空间接应点 于囚笼中调（diao）配<br>密封的花蕊 正枯萎<br>听断线傀儡 晚安留在句尾<br>僵硬的思维筛选错对</p><p>天平支点倾斜 自尊将我打败<br>不安的窘态 在作怪<br>我熟知的年代 还能区分黑白<br>无需卖弄心|机耍赖</p><p>为谁深陷不知往返的迷恋<br>未曾认清这个世界<br>我听到权力之争彻夜不歇<br>街尾血香|愈显浓烈</p><h3 id="C"><a href="#C" class="headerlink" title="C"></a>C</h3><p>甘愿臣服于谁 立忠诚之碑<br>重叠暗夜又一番教诲<br>结局早已无谓<br>明与灭 滞留病态的美</p><h3 id="D"><a href="#D" class="headerlink" title="D"></a>D</h3><p>为谁深陷不知往返的迷恋<br>为谁认清这个世界<br>我听到权力之争彻夜不歇<br>街尾血香|显浓烈</p><p>打乱的骨牌 习惯盲目依赖<br>（为谁深陷不知往返的迷恋）</p><p>以坦然姿态 等风来<br>（未曾认清这个世界）</p><p>让断线傀儡 晚安留在句尾<br>（我听到权力之争彻夜不歇）</p><p>僵硬的思维筛选错对<br>（街尾血香愈显浓烈)</p>]]></content>
+      <title>大唐玄怪来谒-肥皂菌</title>
+      <link href="/2018/07/08/%E5%A4%A7%E5%94%90%E7%8E%84%E6%80%AA%E6%9D%A5%E8%B0%92-%E8%82%A5%E7%9A%82%E8%8F%8C/"/>
+      <url>/2018/07/08/%E5%A4%A7%E5%94%90%E7%8E%84%E6%80%AA%E6%9D%A5%E8%B0%92-%E8%82%A5%E7%9A%82%E8%8F%8C/</url>
+      <content type="html"><![CDATA[<h2 id="歌词"><a href="#歌词" class="headerlink" title="歌词"></a>歌词</h2><h3 id="A"><a href="#A" class="headerlink" title="A"></a>A</h3><p>文翰初议周隋 再话旧唐<br>以尺墨安定狐媚<br>平生偏好奇诡 又易食髓知味<br>秉夜烛 诗邀神鬼<br>听说落魄书生 杜氏子春<br>虎皮上两世长梦 成仙或为人<br>他已识门道九分 偏情字入骨深</p><p>清夜慎持明烛台 它亦吟得词句入怀<br>大唐遍出诗才 待我坐镇云峰台<br>千里紫霞参拜 引鹤来<br>剑指乌妖一当百 身性刚正<br>怎怕污邪侵害<br>只把酒此生付慷慨 喝完<br>披朱衣再去游炎海</p><h3 id="B"><a href="#B" class="headerlink" title="B"></a>B</h3><p>笔触刺骨几分 毫若青锋<br>如凡俗入骨几寸 最难罢品红尘<br>异事易勾瘾症<br>上酒卮 劳君多论<br>时人文章评批 非不靡丽<br>却可惜殊少骨气 不如拂袖去<br>练绝这一手棋技 普世人桔中戏</p><p>当心红鬼鸣鼓钟<br>提柄长剑叩你颈痛<br>方知善恶有终<br>上元广陵景最浓 由我乘驾天虹 彩云中<br>敢凭纸符救白龙<br>并非是我 醉得太过放纵<br>只爱煞一生逞英雄<br>不叹匆匆 真君子不言怪</p><h3 id="C"><a href="#C" class="headerlink" title="C"></a>C</h3><p>自诩假小人尽可谈的开怀<br>因我解下绣龙裳 世间无人敢自称王<br>犯我半分张狂 挑亮烛光点鬼将<br>推杯豪饮琼浆 祭参商<br>扬手呼童请明皇 突觉喉中<br>酒烈吐出金蟒 吞山河胸胆正开张<br>容我 怒书这一卷说盛唐</p>]]></content>
       
       <categories>
           
@@ -314,29 +385,6 @@
     </entry>
     
     <entry>
-      <title>千里之外-周杰伦</title>
-      <link href="/2018/07/08/%E5%8D%83%E9%87%8C%E4%B9%8B%E5%A4%96-%E5%91%A8%E6%9D%B0%E4%BC%A6/"/>
-      <url>/2018/07/08/%E5%8D%83%E9%87%8C%E4%B9%8B%E5%A4%96-%E5%91%A8%E6%9D%B0%E4%BC%A6/</url>
-      <content type="html"><![CDATA[<h2 id="歌谱"><a href="#歌谱" class="headerlink" title="歌谱"></a>歌谱</h2><p><img src="/img/blog/千里之外/千里之外.jpg" alt=""></p><h2 id="歌词"><a href="#歌词" class="headerlink" title="歌词"></a>歌词</h2><h3 id="A"><a href="#A" class="headerlink" title="A"></a>A</h3><p>屋檐如悬崖 风铃如沧海<br>我等燕归来<br>时间被安排 演一场意外<br>你悄然走开</p><p>故事在城外 浓雾散不开<br>看不清对白<br>你听不出来 风声不存在<br>是我在感慨</p><p>梦醒来 是谁在窗台 把结局打开<br>那薄如蝉|翼的未来<br>经不起谁来拆</p><p>我送你离开 千里之外<br>你无声黑白<br>沉默年代 或许不该<br>太遥远的相爱</p><p>我送你离开 天涯之外<br>你是否还在<br>琴声何来 生死难猜<br>用一生去等待</p><h3 id="B"><a href="#B" class="headerlink" title="B"></a>B</h3><p>一身琉璃白 透明着尘埃<br>你无瑕的爱<br>你从雨中来 诗化了悲哀<br>我淋湿现在</p><p>芙蓉水面采 船行影犹在<br>你却不回来<br>被岁月覆盖 你说的花开<br>过去成空白</p><p>梦醒来 是谁在窗台 把结局打开<br>那薄如蝉|翼的未来<br>经不起谁来拆</p><p>我送你离开 千里之外<br>你无声黑白<br>沉默年代 或许不该<br>太遥远的相爱</p><p>我送你离开 天涯之外<br>你是否还在<br>琴声何来 生死难猜<br>用一生 （没有去等待）</p><h2 id="C"><a href="#C" class="headerlink" title="C"></a>C</h2><p>我送你离开 千里之外<br>你无声黑白<br>沉默年代 或许不该<br>太遥远的相爱</p><p>我送你离开 天涯之外<br>你是否还在<br>琴声何来 生死难猜<br>用一生去等待</p>]]></content>
-      
-      <categories>
-          
-          <category> Music </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 歌词 </tag>
-            
-            <tag> 音乐 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    <entry>
       <title>e of s-泽野弘之</title>
       <link href="/2018/07/08/e%20of%20s-%E6%B3%BD%E9%87%8E%E5%BC%98%E4%B9%8B/"/>
       <url>/2018/07/08/e%20of%20s-%E6%B3%BD%E9%87%8E%E5%BC%98%E4%B9%8B/</url>
@@ -360,33 +408,10 @@
     </entry>
     
     <entry>
-      <title>大唐玄怪来谒-肥皂菌</title>
-      <link href="/2018/07/08/%E5%A4%A7%E5%94%90%E7%8E%84%E6%80%AA%E6%9D%A5%E8%B0%92-%E8%82%A5%E7%9A%82%E8%8F%8C/"/>
-      <url>/2018/07/08/%E5%A4%A7%E5%94%90%E7%8E%84%E6%80%AA%E6%9D%A5%E8%B0%92-%E8%82%A5%E7%9A%82%E8%8F%8C/</url>
-      <content type="html"><![CDATA[<h2 id="歌词"><a href="#歌词" class="headerlink" title="歌词"></a>歌词</h2><h3 id="A"><a href="#A" class="headerlink" title="A"></a>A</h3><p>文翰初议周隋 再话旧唐<br>以尺墨安定狐媚<br>平生偏好奇诡 又易食髓知味<br>秉夜烛 诗邀神鬼<br>听说落魄书生 杜氏子春<br>虎皮上两世长梦 成仙或为人<br>他已识门道九分 偏情字入骨深</p><p>清夜慎持明烛台 它亦吟得词句入怀<br>大唐遍出诗才 待我坐镇云峰台<br>千里紫霞参拜 引鹤来<br>剑指乌妖一当百 身性刚正<br>怎怕污邪侵害<br>只把酒此生付慷慨 喝完<br>披朱衣再去游炎海</p><h3 id="B"><a href="#B" class="headerlink" title="B"></a>B</h3><p>笔触刺骨几分 毫若青锋<br>如凡俗入骨几寸 最难罢品红尘<br>异事易勾瘾症<br>上酒卮 劳君多论<br>时人文章评批 非不靡丽<br>却可惜殊少骨气 不如拂袖去<br>练绝这一手棋技 普世人桔中戏</p><p>当心红鬼鸣鼓钟<br>提柄长剑叩你颈痛<br>方知善恶有终<br>上元广陵景最浓 由我乘驾天虹 彩云中<br>敢凭纸符救白龙<br>并非是我 醉得太过放纵<br>只爱煞一生逞英雄<br>不叹匆匆 真君子不言怪</p><h3 id="C"><a href="#C" class="headerlink" title="C"></a>C</h3><p>自诩假小人尽可谈的开怀<br>因我解下绣龙裳 世间无人敢自称王<br>犯我半分张狂 挑亮烛光点鬼将<br>推杯豪饮琼浆 祭参商<br>扬手呼童请明皇 突觉喉中<br>酒烈吐出金蟒 吞山河胸胆正开张<br>容我 怒书这一卷说盛唐</p>]]></content>
-      
-      <categories>
-          
-          <category> Music </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 歌词 </tag>
-            
-            <tag> 音乐 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    <entry>
-      <title>高飞-张杰</title>
-      <link href="/2018/07/08/%E9%AB%98%E9%A3%9E-%E5%BC%A0%E6%9D%B0/"/>
-      <url>/2018/07/08/%E9%AB%98%E9%A3%9E-%E5%BC%A0%E6%9D%B0/</url>
-      <content type="html"><![CDATA[<h2 id="歌词"><a href="#歌词" class="headerlink" title="歌词"></a>歌词</h2><h3 id="A"><a href="#A" class="headerlink" title="A"></a>A</h3><p>奔跑穿越无尽的荒原<br>逐梦的脚步突然停歇<br>无边断崖 横在眼前<br>我懂 我要 蜕变</p><p>偶尔想起温暖的昨天<br>为了梦想不再留恋<br>新的起点就在眼前<br>我已做好准备</p><p>我要高飞 到天空的顶点<br>我要飞到<strong>无人</strong>能及的视界<br>飞得再累 不准自己跌坠<br>直到太阳就在我的指尖</p><p>我要高飞 到世界的边缘<br>我要飞越<strong>没人</strong>到达的绝对<br>不到终点 不准流下眼泪<br>要把最震撼的呐喊留在灿烂瞬间</p><h3 id="B"><a href="#B" class="headerlink" title="B"></a>B</h3><p>偶尔想起温暖的昨天<br>为了梦想不再留恋<br>新的起点就在眼前<br>我已做好准备</p><p>我要高飞 到天空的顶点<br>我要飞到<strong>无人</strong>能及的视界<br>飞得再累 不准自己跌坠<br>直到太阳就在我的指尖</p><p>我要高飞 到世界的边缘<br>我要飞越<strong>没人</strong>到达的绝对<br>不到终点 不准流下眼泪<br>要把最震撼的呐喊留在</p><h3 id="C"><a href="#C" class="headerlink" title="C"></a>C</h3><p>我要高飞 到天空的顶点<br>我要飞到<strong>无人</strong>能及的视界<br>飞得再累 不准自己跌坠<br>直到太阳就在我的指尖</p><p>我要高|飞 到世界的边缘<br>我要飞越<strong>没人</strong>到达的绝对<br>不到终|点 不准流下眼泪<br>要把最震撼的呐喊<br>留在灿烂瞬间</p><p>灿烂瞬间</p>]]></content>
+      <title>不朽之罪-双笙</title>
+      <link href="/2018/07/08/%E4%B8%8D%E6%9C%BD%E4%B9%8B%E7%BD%AA-%E5%8F%8C%E7%AC%99/"/>
+      <url>/2018/07/08/%E4%B8%8D%E6%9C%BD%E4%B9%8B%E7%BD%AA-%E5%8F%8C%E7%AC%99/</url>
+      <content type="html"><![CDATA[<h2 id="歌词"><a href="#歌词" class="headerlink" title="歌词"></a>歌词</h2><h3 id="A"><a href="#A" class="headerlink" title="A"></a>A</h3><p>打乱的骨牌 习惯盲目依赖↑<br>以坦然姿态 等风来→<br>鞋跟下青苔 爬满拖地裙摆→<br>神的福音被隔|绝窗外↑</p><p>天平支点倾斜 自尊将我打败<br>不安的窘态 在作怪<br>我熟知的年代还能区分黑白<br>无需卖弄心|机耍赖</p><p>为谁深陷不知往返的迷恋<br>未曾认清这个世界<br>我听到权力之争彻夜不歇<br>街尾血香|愈显浓烈</p><h3 id="B"><a href="#B" class="headerlink" title="B"></a>B</h3><p>空间接应点 于囚笼中调（diao）配<br>密封的花蕊 正枯萎<br>听断线傀儡 晚安留在句尾<br>僵硬的思维筛选错对</p><p>天平支点倾斜 自尊将我打败<br>不安的窘态 在作怪<br>我熟知的年代 还能区分黑白<br>无需卖弄心|机耍赖</p><p>为谁深陷不知往返的迷恋<br>未曾认清这个世界<br>我听到权力之争彻夜不歇<br>街尾血香|愈显浓烈</p><h3 id="C"><a href="#C" class="headerlink" title="C"></a>C</h3><p>甘愿臣服于谁 立忠诚之碑<br>重叠暗夜又一番教诲<br>结局早已无谓<br>明与灭 滞留病态的美</p><h3 id="D"><a href="#D" class="headerlink" title="D"></a>D</h3><p>为谁深陷不知往返的迷恋<br>为谁认清这个世界<br>我听到权力之争彻夜不歇<br>街尾血香|显浓烈</p><p>打乱的骨牌 习惯盲目依赖<br>（为谁深陷不知往返的迷恋）</p><p>以坦然姿态 等风来<br>（未曾认清这个世界）</p><p>让断线傀儡 晚安留在句尾<br>（我听到权力之争彻夜不歇）</p><p>僵硬的思维筛选错对<br>（街尾血香愈显浓烈)</p>]]></content>
       
       <categories>
           
