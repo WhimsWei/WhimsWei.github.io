@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="魏胡超">
 <meta property="og:description" content="DjangoDjango框架”大而全”。 内置ORM有很多便利操作。由于功能比较全，可以在框架很多地方很便利的使用。 模板也与众不同，都有自己特定的语法。在模板上进行代码操作的空间比较小。 TornadoTornado是一个轻量级框架，”少而精”。 模板、ORM等都只是简单的功能。 注重性能优越，速度快 解决高并发 异步非阻塞 websockets 长连接 内嵌了HTTP服务器 单线程的异步网络程">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-09-18T11:21:19.000Z">
+<meta property="og:updated_time" content="2018-09-19T05:49:06.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python主流web框架对比">
 <meta name="twitter:description" content="DjangoDjango框架”大而全”。 内置ORM有很多便利操作。由于功能比较全，可以在框架很多地方很便利的使用。 模板也与众不同，都有自己特定的语法。在模板上进行代码操作的空间比较小。 TornadoTornado是一个轻量级框架，”少而精”。 模板、ORM等都只是简单的功能。 注重性能优越，速度快 解决高并发 异步非阻塞 websockets 长连接 内嵌了HTTP服务器 单线程的异步网络程">
@@ -181,6 +181,16 @@
 <p>内嵌了HTTP服务器</p>
 <p>单线程的异步网络程序，默认启动时根据CPU数量运行多个实例；利用CPU多核的优势。</p>
 <p>请求处理是基于回调的非阻塞调用，这样能提高并发量。 模板和数据库部分有很多第三方的模块可供选择，这样不利于封装为一个功能模块。</p>
+<h2 id="一些概念"><a href="#一些概念" class="headerlink" title="一些概念"></a>一些概念</h2><p>串行, 顺序执行</p>
+<p>并行, 同时运行</p>
+<p>并发, 时间片切换运行</p>
+<p>同步, 一个进程在执行某个请求的时候, 如果没有返回则会一直等待</p>
+<p>异步, 不管其他进程状态, 继续执行自己之后的内容</p>
+<p>1.apply方法是阻塞的。<br>意思就是等待当前子进程执行完毕后，在执行下一个进程。</p>
+<p>2.apply_async 是异步非阻塞的。<br>意思就是：不用等待当前进程执行完毕，随时根据系统调度来进行进程切换。</p>
+<p>完全没有等待子进程执行完毕，主进程就已经执行完毕，并退出程序。<br>为什么会这样呢？<br>因为进程的切换是操作系统来控制的，抢占式的切换模式。<br>我们首先运行的是主进程，cpu运行很快啊，这短短的几行代码，完全没有给操作系统进程切换的机会，主进程就运行完毕了，整个程序结束。子进程完全没有机会切换到程序就已经结束了。</p>
+<p>apply是阻塞式的。<br>首先主进程开始运行，碰到子进程，操作系统切换到子进程，等待子进程运行结束后，在切换到另外一个子进程，直到所有子进程运行完毕。然后在切换到主进程，运行剩余的部分。</p>
+<p>apply_async是异步非阻塞式的。<br>首先主进程开始运行，碰到子进程后，主进程说：让我先运行个够，等到操作系统进行进程切换的时候，在交给子进程运行。以为我们的程序太短，然而还没等到操作系统进行进程切换，主进程就运行完毕了。</p>
 
       
 
@@ -356,7 +366,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Django"><span class="toc-number">1.</span> <span class="toc-text">Django</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Tornado"><span class="toc-number">2.</span> <span class="toc-text">Tornado</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Django"><span class="toc-number">1.</span> <span class="toc-text">Django</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Tornado"><span class="toc-number">2.</span> <span class="toc-text">Tornado</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#一些概念"><span class="toc-number">3.</span> <span class="toc-text">一些概念</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -476,6 +486,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Work</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Database</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">python</a>
               </li>
              
@@ -492,11 +510,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Work</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Database</a>
+                <a href="javascript:void(0)" class="js-tag color4">解释器</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -505,10 +519,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">音乐</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">解释器</a>
               </li>
              
               <li class="article-tag-list-item">

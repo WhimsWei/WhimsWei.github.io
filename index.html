@@ -397,6 +397,16 @@
 <p>内嵌了HTTP服务器</p>
 <p>单线程的异步网络程序，默认启动时根据CPU数量运行多个实例；利用CPU多核的优势。</p>
 <p>请求处理是基于回调的非阻塞调用，这样能提高并发量。 模板和数据库部分有很多第三方的模块可供选择，这样不利于封装为一个功能模块。</p>
+<h2 id="一些概念"><a href="#一些概念" class="headerlink" title="一些概念"></a>一些概念</h2><p>串行, 顺序执行</p>
+<p>并行, 同时运行</p>
+<p>并发, 时间片切换运行</p>
+<p>同步, 一个进程在执行某个请求的时候, 如果没有返回则会一直等待</p>
+<p>异步, 不管其他进程状态, 继续执行自己之后的内容</p>
+<p>1.apply方法是阻塞的。<br>意思就是等待当前子进程执行完毕后，在执行下一个进程。</p>
+<p>2.apply_async 是异步非阻塞的。<br>意思就是：不用等待当前进程执行完毕，随时根据系统调度来进行进程切换。</p>
+<p>完全没有等待子进程执行完毕，主进程就已经执行完毕，并退出程序。<br>为什么会这样呢？<br>因为进程的切换是操作系统来控制的，抢占式的切换模式。<br>我们首先运行的是主进程，cpu运行很快啊，这短短的几行代码，完全没有给操作系统进程切换的机会，主进程就运行完毕了，整个程序结束。子进程完全没有机会切换到程序就已经结束了。</p>
+<p>apply是阻塞式的。<br>首先主进程开始运行，碰到子进程，操作系统切换到子进程，等待子进程运行结束后，在切换到另外一个子进程，直到所有子进程运行完毕。然后在切换到主进程，运行剩余的部分。</p>
+<p>apply_async是异步非阻塞式的。<br>首先主进程开始运行，碰到子进程后，主进程说：让我先运行个够，等到操作系统进行进程切换的时候，在交给子进程运行。以为我们的程序太短，然而还没等到操作系统进行进程切换，主进程就运行完毕了。</p>
 
       
 
@@ -1188,19 +1198,19 @@
 
 
   
-    <article id="post-高飞-张杰" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-青花瓷-周杰伦" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/08/高飞-张杰/">高飞-张杰</a>
+      <a class="article-title" href="/2018/07/08/青花瓷-周杰伦/">青花瓷-周杰伦</a>
     </h1>
   
 
         
-        <a href="/2018/07/08/高飞-张杰/" class="archive-article-date">
+        <a href="/2018/07/08/青花瓷-周杰伦/" class="archive-article-date">
   	<time datetime="2018-07-07T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-08</time>
 </a>
         
@@ -1208,16 +1218,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="歌词"><a href="#歌词" class="headerlink" title="歌词"></a>歌词</h2><h3 id="A"><a href="#A" class="headerlink" title="A"></a>A</h3><p>奔跑穿越无尽的荒原<br>逐梦的脚步突然停歇<br>无边断崖 横在眼前<br>我懂 我要 蜕变</p>
-<p>偶尔想起温暖的昨天<br>为了梦想不再留恋<br>新的起点就在眼前<br>我已做好准备</p>
-<p>我要高飞 到天空的顶点<br>我要飞到<strong>无人</strong>能及的视界<br>飞得再累 不准自己跌坠<br>直到太阳就在我的指尖</p>
-<p>我要高飞 到世界的边缘<br>我要飞越<strong>没人</strong>到达的绝对<br>不到终点 不准流下眼泪<br>要把最震撼的呐喊留在灿烂瞬间</p>
-<h3 id="B"><a href="#B" class="headerlink" title="B"></a>B</h3><p>偶尔想起温暖的昨天<br>为了梦想不再留恋<br>新的起点就在眼前<br>我已做好准备</p>
-<p>我要高飞 到天空的顶点<br>我要飞到<strong>无人</strong>能及的视界<br>飞得再累 不准自己跌坠<br>直到太阳就在我的指尖</p>
-<p>我要高飞 到世界的边缘<br>我要飞越<strong>没人</strong>到达的绝对<br>不到终点 不准流下眼泪<br>要把最震撼的呐喊留在</p>
-<h3 id="C"><a href="#C" class="headerlink" title="C"></a>C</h3><p>我要高飞 到天空的顶点<br>我要飞到<strong>无人</strong>能及的视界<br>飞得再累 不准自己跌坠<br>直到太阳就在我的指尖</p>
-<p>我要高|飞 到世界的边缘<br>我要飞越<strong>没人</strong>到达的绝对<br>不到终|点 不准流下眼泪<br>要把最震撼的呐喊<br>留在灿烂瞬间</p>
-<p>灿烂瞬间</p>
+        <h2 id="歌谱"><a href="#歌谱" class="headerlink" title="歌谱"></a>歌谱</h2><p><img src="/img/blog/青花瓷/青花瓷.jpg" alt=""></p>
 
       
 
@@ -1256,7 +1257,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/07/08/高飞-张杰/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/07/08/青花瓷-周杰伦/">展开全文 >></a>
         </p>
       
 
@@ -1286,19 +1287,19 @@
 
 
   
-    <article id="post-千里之外-周杰伦" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-不朽之罪-双笙" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/08/千里之外-周杰伦/">千里之外-周杰伦</a>
+      <a class="article-title" href="/2018/07/08/不朽之罪-双笙/">不朽之罪-双笙</a>
     </h1>
   
 
         
-        <a href="/2018/07/08/千里之外-周杰伦/" class="archive-article-date">
+        <a href="/2018/07/08/不朽之罪-双笙/" class="archive-article-date">
   	<time datetime="2018-07-07T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-08</time>
 </a>
         
@@ -1306,19 +1307,18 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="歌谱"><a href="#歌谱" class="headerlink" title="歌谱"></a>歌谱</h2><p><img src="/img/blog/千里之外/千里之外.jpg" alt=""></p>
-<h2 id="歌词"><a href="#歌词" class="headerlink" title="歌词"></a>歌词</h2><h3 id="A"><a href="#A" class="headerlink" title="A"></a>A</h3><p>屋檐如悬崖 风铃如沧海<br>我等燕归来<br>时间被安排 演一场意外<br>你悄然走开</p>
-<p>故事在城外 浓雾散不开<br>看不清对白<br>你听不出来 风声不存在<br>是我在感慨</p>
-<p>梦醒来 是谁在窗台 把结局打开<br>那薄如蝉|翼的未来<br>经不起谁来拆</p>
-<p>我送你离开 千里之外<br>你无声黑白<br>沉默年代 或许不该<br>太遥远的相爱</p>
-<p>我送你离开 天涯之外<br>你是否还在<br>琴声何来 生死难猜<br>用一生去等待</p>
-<h3 id="B"><a href="#B" class="headerlink" title="B"></a>B</h3><p>一身琉璃白 透明着尘埃<br>你无瑕的爱<br>你从雨中来 诗化了悲哀<br>我淋湿现在</p>
-<p>芙蓉水面采 船行影犹在<br>你却不回来<br>被岁月覆盖 你说的花开<br>过去成空白</p>
-<p>梦醒来 是谁在窗台 把结局打开<br>那薄如蝉|翼的未来<br>经不起谁来拆</p>
-<p>我送你离开 千里之外<br>你无声黑白<br>沉默年代 或许不该<br>太遥远的相爱</p>
-<p>我送你离开 天涯之外<br>你是否还在<br>琴声何来 生死难猜<br>用一生 （没有去等待）</p>
-<h2 id="C"><a href="#C" class="headerlink" title="C"></a>C</h2><p>我送你离开 千里之外<br>你无声黑白<br>沉默年代 或许不该<br>太遥远的相爱</p>
-<p>我送你离开 天涯之外<br>你是否还在<br>琴声何来 生死难猜<br>用一生去等待</p>
+        <h2 id="歌词"><a href="#歌词" class="headerlink" title="歌词"></a>歌词</h2><h3 id="A"><a href="#A" class="headerlink" title="A"></a>A</h3><p>打乱的骨牌 习惯盲目依赖↑<br>以坦然姿态 等风来→<br>鞋跟下青苔 爬满拖地裙摆→<br>神的福音被隔|绝窗外↑</p>
+<p>天平支点倾斜 自尊将我打败<br>不安的窘态 在作怪<br>我熟知的年代还能区分黑白<br>无需卖弄心|机耍赖</p>
+<p>为谁深陷不知往返的迷恋<br>未曾认清这个世界<br>我听到权力之争彻夜不歇<br>街尾血香|愈显浓烈</p>
+<h3 id="B"><a href="#B" class="headerlink" title="B"></a>B</h3><p>空间接应点 于囚笼中调（diao）配<br>密封的花蕊 正枯萎<br>听断线傀儡 晚安留在句尾<br>僵硬的思维筛选错对</p>
+<p>天平支点倾斜 自尊将我打败<br>不安的窘态 在作怪<br>我熟知的年代 还能区分黑白<br>无需卖弄心|机耍赖</p>
+<p>为谁深陷不知往返的迷恋<br>未曾认清这个世界<br>我听到权力之争彻夜不歇<br>街尾血香|愈显浓烈</p>
+<h3 id="C"><a href="#C" class="headerlink" title="C"></a>C</h3><p>甘愿臣服于谁 立忠诚之碑<br>重叠暗夜又一番教诲<br>结局早已无谓<br>明与灭 滞留病态的美</p>
+<h3 id="D"><a href="#D" class="headerlink" title="D"></a>D</h3><p>为谁深陷不知往返的迷恋<br>为谁认清这个世界<br>我听到权力之争彻夜不歇<br>街尾血香|显浓烈</p>
+<p>打乱的骨牌 习惯盲目依赖<br>（为谁深陷不知往返的迷恋）</p>
+<p>以坦然姿态 等风来<br>（未曾认清这个世界）</p>
+<p>让断线傀儡 晚安留在句尾<br>（我听到权力之争彻夜不歇）</p>
+<p>僵硬的思维筛选错对<br>（街尾血香愈显浓烈)</p>
 
       
 
@@ -1357,7 +1357,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/07/08/千里之外-周杰伦/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/07/08/不朽之罪-双笙/">展开全文 >></a>
         </p>
       
 
@@ -1492,6 +1492,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Work</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Database</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">python</a>
               </li>
              
@@ -1508,11 +1516,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Work</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Database</a>
+                <a href="javascript:void(0)" class="js-tag color4">解释器</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1521,10 +1525,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">音乐</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">解释器</a>
               </li>
              
               <li class="article-tag-list-item">
