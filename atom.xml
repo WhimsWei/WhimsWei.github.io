@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://weihuchao.top/"/>
-  <updated>2018-09-19T03:07:28.000Z</updated>
+  <updated>2018-09-19T04:33:20.000Z</updated>
   <id>http://weihuchao.top/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="http://weihuchao.top/2018/09/19/%E6%AD%A3%E5%90%91%E4%BB%A3%E7%90%86%E5%92%8C%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/"/>
     <id>http://weihuchao.top/2018/09/19/正向代理和反向代理/</id>
     <published>2018-09-19T03:07:20.000Z</published>
-    <updated>2018-09-19T03:07:28.000Z</updated>
+    <updated>2018-09-19T04:33:20.000Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="正向代理"><a href="#正向代理" class="headerlink" title="正向代理"></a>正向代理</h2><p>客户端和代理处于同一个局域网（也不全是），客户端连接到代理，代理直接访问服务端的情况。</p><h2 id="反向代理"><a href="#反向代理" class="headerlink" title="反向代理"></a>反向代理</h2><p>客户端直接访问代理，该代理对于客户端来说就是访问的目标，然后该代理依据访问的内容等因素，根据配置，选择在身后的合适的服务端，请求服务端，然后将服务端返回的内容返回给客户端。</p><p>一般来说，该代理和服务端处于一个局域网。</p><h2 id="对比"><a href="#对比" class="headerlink" title="对比"></a>对比</h2><p>通过局域网判断：</p><ul><li>正向代理： 客户端和代理处于一个局域网</li><li>反向代理： 服务端和代理处于一个局域网</li></ul><p><img src="https://pic1.zhimg.com/80/480c1c45d2565e2f92fd930d25b73a18_hd.jpg" alt="图1"></p><p>通过对应关系判断：</p><ul><li>正向代理： 客户端-代理-服务端是 N:1:1 的关系</li><li>反向代理： 客户端-代理-服务端是 1:1:N 的关系</li></ul><p><img src="https://pic4.zhimg.com/80/2582ac2a1366e3e12acf274265ea80f3_hd.jpg" alt="图2"></p><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul><li>博客：<a href="https://www.cnblogs.com/Anker/p/6056540.html" target="_blank" rel="noopener">https://www.cnblogs.com/Anker/p/6056540.html</a></li><li>知乎：<a href="https://www.zhihu.com/question/24723688" target="_blank" rel="noopener">https://www.zhihu.com/question/24723688</a></li></ul>]]></content>
+    <content type="html"><![CDATA[<h2 id="正向代理"><a href="#正向代理" class="headerlink" title="正向代理"></a>正向代理</h2><p>客户端和代理处于同一个局域网（也不全是），客户端连接到代理，代理直接访问服务端的情况。</p><h2 id="反向代理"><a href="#反向代理" class="headerlink" title="反向代理"></a>反向代理</h2><p>客户端直接访问代理，该代理对于客户端来说就是访问的目标，然后该代理依据访问的内容等因素，根据配置，选择在身后的合适的服务端，请求服务端，然后将服务端返回的内容返回给客户端。</p><p>一般来说，该代理和服务端处于一个局域网。</p><h2 id="对比"><a href="#对比" class="headerlink" title="对比"></a>对比</h2><p>通过局域网判断：</p><ul><li>正向代理： 客户端和代理处于一个局域网</li><li>反向代理： 服务端和代理处于一个局域网</li></ul><p><img src="http://pic1.zhimg.com/80/480c1c45d2565e2f92fd930d25b73a18_hd.jpg" alt="图1"></p><p>通过对应关系判断：</p><ul><li>正向代理： 客户端-代理-服务端是 N:1:1 的关系</li><li>反向代理： 客户端-代理-服务端是 1:1:N 的关系</li></ul><p><img src="http://pic4.zhimg.com/80/2582ac2a1366e3e12acf274265ea80f3_hd.jpg" alt="图2"></p><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul><li>博客：<a href="https://www.cnblogs.com/Anker/p/6056540.html" target="_blank" rel="noopener">https://www.cnblogs.com/Anker/p/6056540.html</a></li><li>知乎：<a href="https://www.zhihu.com/question/24723688" target="_blank" rel="noopener">https://www.zhihu.com/question/24723688</a></li></ul>]]></content>
     
     <summary type="html">
     
@@ -218,6 +218,61 @@
   </entry>
   
   <entry>
+    <title>千里之外-周杰伦</title>
+    <link href="http://weihuchao.top/2018/07/08/%E5%8D%83%E9%87%8C%E4%B9%8B%E5%A4%96-%E5%91%A8%E6%9D%B0%E4%BC%A6/"/>
+    <id>http://weihuchao.top/2018/07/08/千里之外-周杰伦/</id>
+    <published>2018-07-07T16:00:00.000Z</published>
+    <updated>2018-09-01T03:55:43.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="歌谱"><a href="#歌谱" class="headerlink" title="歌谱"></a>歌谱</h2><p><img src="/img/blog/千里之外/千里之外.jpg" alt=""></p><h2 id="歌词"><a href="#歌词" class="headerlink" title="歌词"></a>歌词</h2><h3 id="A"><a href="#A" class="headerlink" title="A"></a>A</h3><p>屋檐如悬崖 风铃如沧海<br>我等燕归来<br>时间被安排 演一场意外<br>你悄然走开</p><p>故事在城外 浓雾散不开<br>看不清对白<br>你听不出来 风声不存在<br>是我在感慨</p><p>梦醒来 是谁在窗台 把结局打开<br>那薄如蝉|翼的未来<br>经不起谁来拆</p><p>我送你离开 千里之外<br>你无声黑白<br>沉默年代 或许不该<br>太遥远的相爱</p><p>我送你离开 天涯之外<br>你是否还在<br>琴声何来 生死难猜<br>用一生去等待</p><h3 id="B"><a href="#B" class="headerlink" title="B"></a>B</h3><p>一身琉璃白 透明着尘埃<br>你无瑕的爱<br>你从雨中来 诗化了悲哀<br>我淋湿现在</p><p>芙蓉水面采 船行影犹在<br>你却不回来<br>被岁月覆盖 你说的花开<br>过去成空白</p><p>梦醒来 是谁在窗台 把结局打开<br>那薄如蝉|翼的未来<br>经不起谁来拆</p><p>我送你离开 千里之外<br>你无声黑白<br>沉默年代 或许不该<br>太遥远的相爱</p><p>我送你离开 天涯之外<br>你是否还在<br>琴声何来 生死难猜<br>用一生 （没有去等待）</p><h2 id="C"><a href="#C" class="headerlink" title="C"></a>C</h2><p>我送你离开 千里之外<br>你无声黑白<br>沉默年代 或许不该<br>太遥远的相爱</p><p>我送你离开 天涯之外<br>你是否还在<br>琴声何来 生死难猜<br>用一生去等待</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;歌谱&quot;&gt;&lt;a href=&quot;#歌谱&quot; class=&quot;headerlink&quot; title=&quot;歌谱&quot;&gt;&lt;/a&gt;歌谱&lt;/h2&gt;&lt;p&gt;&lt;img src=&quot;/img/blog/千里之外/千里之外.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;歌词&quot;&gt;&lt;a href=&quot;#歌
+      
+    
+    </summary>
+    
+      <category term="Music" scheme="http://weihuchao.top/categories/Music/"/>
+    
+    
+      <category term="歌词" scheme="http://weihuchao.top/tags/%E6%AD%8C%E8%AF%8D/"/>
+    
+      <category term="音乐" scheme="http://weihuchao.top/tags/%E9%9F%B3%E4%B9%90/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>安静-周杰伦</title>
+    <link href="http://weihuchao.top/2018/07/08/%E5%AE%89%E9%9D%99-%E5%91%A8%E6%9D%B0%E4%BC%A6/"/>
+    <id>http://weihuchao.top/2018/07/08/安静-周杰伦/</id>
+    <published>2018-07-07T16:00:00.000Z</published>
+    <updated>2018-07-07T11:55:22.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="歌词"><a href="#歌词" class="headerlink" title="歌词"></a>歌词</h2><h3 id="A"><a href="#A" class="headerlink" title="A"></a>A</h3><p>只剩下钢琴陪我谈了一天<br>睡著的大提琴 安静的旧旧的<br>我想你已表现的非常明白<br>我懂我也知道 你没有舍不得</p><p>你说你也会难过我不相信<br>牵著你陪著我 也只是曾经<br>希望他是真的比我还要爱你<br>我才会逼自己离开</p><h3 id="B"><a href="#B" class="headerlink" title="B"></a>B</h3><p>你要我说多难堪 我根本不想分开<br>为什么还要我用微笑来带过<br>我没有这种天份 包容你也接受他<br>不用担心的太多 我会一直好好过</p><p>你已经远远离开 我也会慢慢走开<br>为什么我连分开都迁就著你<br>我真的没有天份 安（B3两个音）静的没这么快<br>我会学著放弃你 是因为我太爱你</p><h3 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h3><p>AB AB B</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;歌词&quot;&gt;&lt;a href=&quot;#歌词&quot; class=&quot;headerlink&quot; title=&quot;歌词&quot;&gt;&lt;/a&gt;歌词&lt;/h2&gt;&lt;h3 id=&quot;A&quot;&gt;&lt;a href=&quot;#A&quot; class=&quot;headerlink&quot; title=&quot;A&quot;&gt;&lt;/a&gt;A&lt;/h3&gt;&lt;p&gt;只剩下钢琴陪我
+      
+    
+    </summary>
+    
+      <category term="Music" scheme="http://weihuchao.top/categories/Music/"/>
+    
+    
+      <category term="歌词" scheme="http://weihuchao.top/tags/%E6%AD%8C%E8%AF%8D/"/>
+    
+      <category term="音乐" scheme="http://weihuchao.top/tags/%E9%9F%B3%E4%B9%90/"/>
+    
+  </entry>
+  
+  <entry>
     <title>大唐玄怪来谒-肥皂菌</title>
     <link href="http://weihuchao.top/2018/07/08/%E5%A4%A7%E5%94%90%E7%8E%84%E6%80%AA%E6%9D%A5%E8%B0%92-%E8%82%A5%E7%9A%82%E8%8F%8C/"/>
     <id>http://weihuchao.top/2018/07/08/大唐玄怪来谒-肥皂菌/</id>
@@ -272,34 +327,6 @@
   </entry>
   
   <entry>
-    <title>千里之外-周杰伦</title>
-    <link href="http://weihuchao.top/2018/07/08/%E5%8D%83%E9%87%8C%E4%B9%8B%E5%A4%96-%E5%91%A8%E6%9D%B0%E4%BC%A6/"/>
-    <id>http://weihuchao.top/2018/07/08/千里之外-周杰伦/</id>
-    <published>2018-07-07T16:00:00.000Z</published>
-    <updated>2018-09-01T03:55:43.000Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="歌谱"><a href="#歌谱" class="headerlink" title="歌谱"></a>歌谱</h2><p><img src="/img/blog/千里之外/千里之外.jpg" alt=""></p><h2 id="歌词"><a href="#歌词" class="headerlink" title="歌词"></a>歌词</h2><h3 id="A"><a href="#A" class="headerlink" title="A"></a>A</h3><p>屋檐如悬崖 风铃如沧海<br>我等燕归来<br>时间被安排 演一场意外<br>你悄然走开</p><p>故事在城外 浓雾散不开<br>看不清对白<br>你听不出来 风声不存在<br>是我在感慨</p><p>梦醒来 是谁在窗台 把结局打开<br>那薄如蝉|翼的未来<br>经不起谁来拆</p><p>我送你离开 千里之外<br>你无声黑白<br>沉默年代 或许不该<br>太遥远的相爱</p><p>我送你离开 天涯之外<br>你是否还在<br>琴声何来 生死难猜<br>用一生去等待</p><h3 id="B"><a href="#B" class="headerlink" title="B"></a>B</h3><p>一身琉璃白 透明着尘埃<br>你无瑕的爱<br>你从雨中来 诗化了悲哀<br>我淋湿现在</p><p>芙蓉水面采 船行影犹在<br>你却不回来<br>被岁月覆盖 你说的花开<br>过去成空白</p><p>梦醒来 是谁在窗台 把结局打开<br>那薄如蝉|翼的未来<br>经不起谁来拆</p><p>我送你离开 千里之外<br>你无声黑白<br>沉默年代 或许不该<br>太遥远的相爱</p><p>我送你离开 天涯之外<br>你是否还在<br>琴声何来 生死难猜<br>用一生 （没有去等待）</p><h2 id="C"><a href="#C" class="headerlink" title="C"></a>C</h2><p>我送你离开 千里之外<br>你无声黑白<br>沉默年代 或许不该<br>太遥远的相爱</p><p>我送你离开 天涯之外<br>你是否还在<br>琴声何来 生死难猜<br>用一生去等待</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;歌谱&quot;&gt;&lt;a href=&quot;#歌谱&quot; class=&quot;headerlink&quot; title=&quot;歌谱&quot;&gt;&lt;/a&gt;歌谱&lt;/h2&gt;&lt;p&gt;&lt;img src=&quot;/img/blog/千里之外/千里之外.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;h2 id=&quot;歌词&quot;&gt;&lt;a href=&quot;#歌
-      
-    
-    </summary>
-    
-      <category term="Music" scheme="http://weihuchao.top/categories/Music/"/>
-    
-    
-      <category term="歌词" scheme="http://weihuchao.top/tags/%E6%AD%8C%E8%AF%8D/"/>
-    
-      <category term="音乐" scheme="http://weihuchao.top/tags/%E9%9F%B3%E4%B9%90/"/>
-    
-  </entry>
-  
-  <entry>
     <title>e of s-泽野弘之</title>
     <link href="http://weihuchao.top/2018/07/08/e%20of%20s-%E6%B3%BD%E9%87%8E%E5%BC%98%E4%B9%8B/"/>
     <id>http://weihuchao.top/2018/07/08/e of s-泽野弘之/</id>
@@ -328,47 +355,19 @@
   </entry>
   
   <entry>
-    <title>不朽之罪-双笙</title>
-    <link href="http://weihuchao.top/2018/07/08/%E4%B8%8D%E6%9C%BD%E4%B9%8B%E7%BD%AA-%E5%8F%8C%E7%AC%99/"/>
-    <id>http://weihuchao.top/2018/07/08/不朽之罪-双笙/</id>
+    <title>七里香-周杰伦</title>
+    <link href="http://weihuchao.top/2018/07/08/%E4%B8%83%E9%87%8C%E9%A6%99-%E5%91%A8%E6%9D%B0%E4%BC%A6/"/>
+    <id>http://weihuchao.top/2018/07/08/七里香-周杰伦/</id>
     <published>2018-07-07T16:00:00.000Z</published>
-    <updated>2018-07-07T13:13:08.000Z</updated>
+    <updated>2018-07-07T13:27:31.000Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="歌词"><a href="#歌词" class="headerlink" title="歌词"></a>歌词</h2><h3 id="A"><a href="#A" class="headerlink" title="A"></a>A</h3><p>打乱的骨牌 习惯盲目依赖↑<br>以坦然姿态 等风来→<br>鞋跟下青苔 爬满拖地裙摆→<br>神的福音被隔|绝窗外↑</p><p>天平支点倾斜 自尊将我打败<br>不安的窘态 在作怪<br>我熟知的年代还能区分黑白<br>无需卖弄心|机耍赖</p><p>为谁深陷不知往返的迷恋<br>未曾认清这个世界<br>我听到权力之争彻夜不歇<br>街尾血香|愈显浓烈</p><h3 id="B"><a href="#B" class="headerlink" title="B"></a>B</h3><p>空间接应点 于囚笼中调（diao）配<br>密封的花蕊 正枯萎<br>听断线傀儡 晚安留在句尾<br>僵硬的思维筛选错对</p><p>天平支点倾斜 自尊将我打败<br>不安的窘态 在作怪<br>我熟知的年代 还能区分黑白<br>无需卖弄心|机耍赖</p><p>为谁深陷不知往返的迷恋<br>未曾认清这个世界<br>我听到权力之争彻夜不歇<br>街尾血香|愈显浓烈</p><h3 id="C"><a href="#C" class="headerlink" title="C"></a>C</h3><p>甘愿臣服于谁 立忠诚之碑<br>重叠暗夜又一番教诲<br>结局早已无谓<br>明与灭 滞留病态的美</p><h3 id="D"><a href="#D" class="headerlink" title="D"></a>D</h3><p>为谁深陷不知往返的迷恋<br>为谁认清这个世界<br>我听到权力之争彻夜不歇<br>街尾血香|显浓烈</p><p>打乱的骨牌 习惯盲目依赖<br>（为谁深陷不知往返的迷恋）</p><p>以坦然姿态 等风来<br>（未曾认清这个世界）</p><p>让断线傀儡 晚安留在句尾<br>（我听到权力之争彻夜不歇）</p><p>僵硬的思维筛选错对<br>（街尾血香愈显浓烈)</p>]]></content>
+    <content type="html"><![CDATA[<h2 id="歌词"><a href="#歌词" class="headerlink" title="歌词"></a>歌词</h2><h3 id="A"><a href="#A" class="headerlink" title="A"></a>A</h3><p>窗外的麻雀 在电线杆上多嘴<br>你说这一句 很有夏↓天的感觉<br>手中的铅笔 在纸上来来回回<br>我|用几行字 形容你是我的谁</p><p>秋刀鱼的滋味 猫跟你都想了解<br>初恋的香味 就这样被我^们寻回<br>那温暖的阳光 像刚摘的鲜艳草莓<br>你说你舍不得吃掉 这一种感觉</p><p>雨下整夜 我的爱溢出就像雨水<br>院子落叶 跟我的思念厚厚一叠<br>几句是非 也无法将我的热情冷却<br>你出现在我诗的每一页</p><p>雨下整夜 我的爱溢出就像雨水<br>窗台蝴蝶 像诗里纷飞的美丽章节<br>我接着写 把永远爱你<br>写进诗的结尾<br>你是我唯一想要的了解</p><h3 id="B"><a href="#B" class="headerlink" title="B"></a>B</h3><p>雨下整夜 我的爱溢出就像雨水<br>院子落叶 跟我的思念厚厚一叠<br>几句是非 也无法将我的热情冷却<br>你出现在我诗的每一页</p><p>那饱满的稻穗 幸福了~这个季节<br>而你的脸颊 像田里熟透的蕃茄<br>你突然|对我说 七里香的|名字很美<br>我此刻却只想亲吻你倔强的嘴</p><h3 id="C"><a href="#C" class="headerlink" title="C"></a>C</h3><p>雨下整夜 我的爱溢出就像雨水<br>院子落叶 跟我的思念厚厚一叠<br>几句是非 也无法将我的热情冷却<br>你出现在我诗的每一页</p><p>整夜<br>我的爱溢出就像雨水<br>窗台蝴蝶 像诗里↑纷飞的美丽~章节<br>我接着写 把永远爱你<br>写进诗的结尾<br>你是我唯一想要的了解</p><h2 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h2><p>A（麻雀）<br>B（秋刀鱼）<br>C（院子落叶）<br>C（窗台蝴蝶）</p><p>C（院子落叶）<br>B（稻穗）</p><p>C（院子落叶）<br>C（窗台蝴蝶）</p>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;h2 id=&quot;歌词&quot;&gt;&lt;a href=&quot;#歌词&quot; class=&quot;headerlink&quot; title=&quot;歌词&quot;&gt;&lt;/a&gt;歌词&lt;/h2&gt;&lt;h3 id=&quot;A&quot;&gt;&lt;a href=&quot;#A&quot; class=&quot;headerlink&quot; title=&quot;A&quot;&gt;&lt;/a&gt;A&lt;/h3&gt;&lt;p&gt;打乱的骨牌 习
-      
-    
-    </summary>
-    
-      <category term="Music" scheme="http://weihuchao.top/categories/Music/"/>
-    
-    
-      <category term="歌词" scheme="http://weihuchao.top/tags/%E6%AD%8C%E8%AF%8D/"/>
-    
-      <category term="音乐" scheme="http://weihuchao.top/tags/%E9%9F%B3%E4%B9%90/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>青花瓷-周杰伦</title>
-    <link href="http://weihuchao.top/2018/07/08/%E9%9D%92%E8%8A%B1%E7%93%B7-%E5%91%A8%E6%9D%B0%E4%BC%A6/"/>
-    <id>http://weihuchao.top/2018/07/08/青花瓷-周杰伦/</id>
-    <published>2018-07-07T16:00:00.000Z</published>
-    <updated>2018-09-01T03:55:43.000Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="歌谱"><a href="#歌谱" class="headerlink" title="歌谱"></a>歌谱</h2><p><img src="/img/blog/青花瓷/青花瓷.jpg" alt=""></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;歌谱&quot;&gt;&lt;a href=&quot;#歌谱&quot; class=&quot;headerlink&quot; title=&quot;歌谱&quot;&gt;&lt;/a&gt;歌谱&lt;/h2&gt;&lt;p&gt;&lt;img src=&quot;/img/blog/青花瓷/青花瓷.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-
+        &lt;h2 id=&quot;歌词&quot;&gt;&lt;a href=&quot;#歌词&quot; class=&quot;headerlink&quot; title=&quot;歌词&quot;&gt;&lt;/a&gt;歌词&lt;/h2&gt;&lt;h3 id=&quot;A&quot;&gt;&lt;a href=&quot;#A&quot; class=&quot;headerlink&quot; title=&quot;A&quot;&gt;&lt;/a&gt;A&lt;/h3&gt;&lt;p&gt;窗外的麻雀 在
       
     
     </summary>
@@ -411,19 +410,20 @@
   </entry>
   
   <entry>
-    <title>安静-周杰伦</title>
-    <link href="http://weihuchao.top/2018/07/08/%E5%AE%89%E9%9D%99-%E5%91%A8%E6%9D%B0%E4%BC%A6/"/>
-    <id>http://weihuchao.top/2018/07/08/安静-周杰伦/</id>
+    <title>青花瓷-周杰伦</title>
+    <link href="http://weihuchao.top/2018/07/08/%E9%9D%92%E8%8A%B1%E7%93%B7-%E5%91%A8%E6%9D%B0%E4%BC%A6/"/>
+    <id>http://weihuchao.top/2018/07/08/青花瓷-周杰伦/</id>
     <published>2018-07-07T16:00:00.000Z</published>
-    <updated>2018-07-07T11:55:22.000Z</updated>
+    <updated>2018-09-01T03:55:43.000Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="歌词"><a href="#歌词" class="headerlink" title="歌词"></a>歌词</h2><h3 id="A"><a href="#A" class="headerlink" title="A"></a>A</h3><p>只剩下钢琴陪我谈了一天<br>睡著的大提琴 安静的旧旧的<br>我想你已表现的非常明白<br>我懂我也知道 你没有舍不得</p><p>你说你也会难过我不相信<br>牵著你陪著我 也只是曾经<br>希望他是真的比我还要爱你<br>我才会逼自己离开</p><h3 id="B"><a href="#B" class="headerlink" title="B"></a>B</h3><p>你要我说多难堪 我根本不想分开<br>为什么还要我用微笑来带过<br>我没有这种天份 包容你也接受他<br>不用担心的太多 我会一直好好过</p><p>你已经远远离开 我也会慢慢走开<br>为什么我连分开都迁就著你<br>我真的没有天份 安（B3两个音）静的没这么快<br>我会学著放弃你 是因为我太爱你</p><h3 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h3><p>AB AB B</p>]]></content>
+    <content type="html"><![CDATA[<h2 id="歌谱"><a href="#歌谱" class="headerlink" title="歌谱"></a>歌谱</h2><p><img src="/img/blog/青花瓷/青花瓷.jpg" alt=""></p>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;h2 id=&quot;歌词&quot;&gt;&lt;a href=&quot;#歌词&quot; class=&quot;headerlink&quot; title=&quot;歌词&quot;&gt;&lt;/a&gt;歌词&lt;/h2&gt;&lt;h3 id=&quot;A&quot;&gt;&lt;a href=&quot;#A&quot; class=&quot;headerlink&quot; title=&quot;A&quot;&gt;&lt;/a&gt;A&lt;/h3&gt;&lt;p&gt;只剩下钢琴陪我
+        &lt;h2 id=&quot;歌谱&quot;&gt;&lt;a href=&quot;#歌谱&quot; class=&quot;headerlink&quot; title=&quot;歌谱&quot;&gt;&lt;/a&gt;歌谱&lt;/h2&gt;&lt;p&gt;&lt;img src=&quot;/img/blog/青花瓷/青花瓷.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+
       
     
     </summary>
@@ -438,19 +438,19 @@
   </entry>
   
   <entry>
-    <title>七里香-周杰伦</title>
-    <link href="http://weihuchao.top/2018/07/08/%E4%B8%83%E9%87%8C%E9%A6%99-%E5%91%A8%E6%9D%B0%E4%BC%A6/"/>
-    <id>http://weihuchao.top/2018/07/08/七里香-周杰伦/</id>
+    <title>不朽之罪-双笙</title>
+    <link href="http://weihuchao.top/2018/07/08/%E4%B8%8D%E6%9C%BD%E4%B9%8B%E7%BD%AA-%E5%8F%8C%E7%AC%99/"/>
+    <id>http://weihuchao.top/2018/07/08/不朽之罪-双笙/</id>
     <published>2018-07-07T16:00:00.000Z</published>
-    <updated>2018-07-07T13:27:31.000Z</updated>
+    <updated>2018-07-07T13:13:08.000Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="歌词"><a href="#歌词" class="headerlink" title="歌词"></a>歌词</h2><h3 id="A"><a href="#A" class="headerlink" title="A"></a>A</h3><p>窗外的麻雀 在电线杆上多嘴<br>你说这一句 很有夏↓天的感觉<br>手中的铅笔 在纸上来来回回<br>我|用几行字 形容你是我的谁</p><p>秋刀鱼的滋味 猫跟你都想了解<br>初恋的香味 就这样被我^们寻回<br>那温暖的阳光 像刚摘的鲜艳草莓<br>你说你舍不得吃掉 这一种感觉</p><p>雨下整夜 我的爱溢出就像雨水<br>院子落叶 跟我的思念厚厚一叠<br>几句是非 也无法将我的热情冷却<br>你出现在我诗的每一页</p><p>雨下整夜 我的爱溢出就像雨水<br>窗台蝴蝶 像诗里纷飞的美丽章节<br>我接着写 把永远爱你<br>写进诗的结尾<br>你是我唯一想要的了解</p><h3 id="B"><a href="#B" class="headerlink" title="B"></a>B</h3><p>雨下整夜 我的爱溢出就像雨水<br>院子落叶 跟我的思念厚厚一叠<br>几句是非 也无法将我的热情冷却<br>你出现在我诗的每一页</p><p>那饱满的稻穗 幸福了~这个季节<br>而你的脸颊 像田里熟透的蕃茄<br>你突然|对我说 七里香的|名字很美<br>我此刻却只想亲吻你倔强的嘴</p><h3 id="C"><a href="#C" class="headerlink" title="C"></a>C</h3><p>雨下整夜 我的爱溢出就像雨水<br>院子落叶 跟我的思念厚厚一叠<br>几句是非 也无法将我的热情冷却<br>你出现在我诗的每一页</p><p>整夜<br>我的爱溢出就像雨水<br>窗台蝴蝶 像诗里↑纷飞的美丽~章节<br>我接着写 把永远爱你<br>写进诗的结尾<br>你是我唯一想要的了解</p><h2 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h2><p>A（麻雀）<br>B（秋刀鱼）<br>C（院子落叶）<br>C（窗台蝴蝶）</p><p>C（院子落叶）<br>B（稻穗）</p><p>C（院子落叶）<br>C（窗台蝴蝶）</p>]]></content>
+    <content type="html"><![CDATA[<h2 id="歌词"><a href="#歌词" class="headerlink" title="歌词"></a>歌词</h2><h3 id="A"><a href="#A" class="headerlink" title="A"></a>A</h3><p>打乱的骨牌 习惯盲目依赖↑<br>以坦然姿态 等风来→<br>鞋跟下青苔 爬满拖地裙摆→<br>神的福音被隔|绝窗外↑</p><p>天平支点倾斜 自尊将我打败<br>不安的窘态 在作怪<br>我熟知的年代还能区分黑白<br>无需卖弄心|机耍赖</p><p>为谁深陷不知往返的迷恋<br>未曾认清这个世界<br>我听到权力之争彻夜不歇<br>街尾血香|愈显浓烈</p><h3 id="B"><a href="#B" class="headerlink" title="B"></a>B</h3><p>空间接应点 于囚笼中调（diao）配<br>密封的花蕊 正枯萎<br>听断线傀儡 晚安留在句尾<br>僵硬的思维筛选错对</p><p>天平支点倾斜 自尊将我打败<br>不安的窘态 在作怪<br>我熟知的年代 还能区分黑白<br>无需卖弄心|机耍赖</p><p>为谁深陷不知往返的迷恋<br>未曾认清这个世界<br>我听到权力之争彻夜不歇<br>街尾血香|愈显浓烈</p><h3 id="C"><a href="#C" class="headerlink" title="C"></a>C</h3><p>甘愿臣服于谁 立忠诚之碑<br>重叠暗夜又一番教诲<br>结局早已无谓<br>明与灭 滞留病态的美</p><h3 id="D"><a href="#D" class="headerlink" title="D"></a>D</h3><p>为谁深陷不知往返的迷恋<br>为谁认清这个世界<br>我听到权力之争彻夜不歇<br>街尾血香|显浓烈</p><p>打乱的骨牌 习惯盲目依赖<br>（为谁深陷不知往返的迷恋）</p><p>以坦然姿态 等风来<br>（未曾认清这个世界）</p><p>让断线傀儡 晚安留在句尾<br>（我听到权力之争彻夜不歇）</p><p>僵硬的思维筛选错对<br>（街尾血香愈显浓烈)</p>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;h2 id=&quot;歌词&quot;&gt;&lt;a href=&quot;#歌词&quot; class=&quot;headerlink&quot; title=&quot;歌词&quot;&gt;&lt;/a&gt;歌词&lt;/h2&gt;&lt;h3 id=&quot;A&quot;&gt;&lt;a href=&quot;#A&quot; class=&quot;headerlink&quot; title=&quot;A&quot;&gt;&lt;/a&gt;A&lt;/h3&gt;&lt;p&gt;窗外的麻雀 在
+        &lt;h2 id=&quot;歌词&quot;&gt;&lt;a href=&quot;#歌词&quot; class=&quot;headerlink&quot; title=&quot;歌词&quot;&gt;&lt;/a&gt;歌词&lt;/h2&gt;&lt;h3 id=&quot;A&quot;&gt;&lt;a href=&quot;#A&quot; class=&quot;headerlink&quot; title=&quot;A&quot;&gt;&lt;/a&gt;A&lt;/h3&gt;&lt;p&gt;打乱的骨牌 习
       
     
     </summary>
