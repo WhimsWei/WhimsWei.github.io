@@ -20,7 +20,7 @@
     <link rel="alternative" href="/atom.xml" title="魏胡超" type="application/atom+xml">
   
   
-    <link rel="icon" href="/favicon.png">
+    <link rel="icon" href="/favicon.jpg">
   
   <link rel="stylesheet" type="text/css" href="/./main.0cf68a.css">
   <style type="text/css">
@@ -598,120 +598,6 @@
 
 
   
-    <article id="post-python解释器" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/09/01/python解释器/">python解释器</a>
-    </h1>
-  
-
-        
-        <a href="/2018/09/01/python解释器/" class="archive-article-date">
-  	<time datetime="2018-08-31T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-01</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="1-Python的常用解释器"><a href="#1-Python的常用解释器" class="headerlink" title="1 Python的常用解释器"></a>1 Python的常用解释器</h2><h3 id="CPython"><a href="#CPython" class="headerlink" title="CPython"></a>CPython</h3><p>官方版本的解释器：CPython。</p>
-<p>这个解释器是用C语言开发的，所以叫CPython。</p>
-<p>默认在命令行下运行python就是启动CPython解释器。</p>
-<p>CPython是使用最广的Python解释器</p>
-<h3 id="IPython"><a href="#IPython" class="headerlink" title="IPython"></a>IPython</h3><p>IPython是基于CPython之上的一个交互式解释器，只是在交互方式上有所增强。</p>
-<p>CPython用<strong>&gt;&gt;&gt;</strong>作为提示符，而IPython用<strong>In [序号]:</strong>作为提示符。</p>
-<h3 id="PyPy"><a href="#PyPy" class="headerlink" title="PyPy"></a>PyPy</h3><p>PyPy是另一个Python解释器，它的目标是执行速度。</p>
-<p>PyPy采用<strong>JIT技术</strong>，对Python代码进行<strong>动态编译</strong>（注意不是解释），所以可以<strong>显著提高Python代码的执行速度</strong>。</p>
-<p>绝大部分Python代码都可以在PyPy下运行，但是PyPy和CPython有一些是不同的，这就导致相同的Python代码在两种解释器下执行可能会有不同的结果。</p>
-<h3 id="Jython"><a href="#Jython" class="headerlink" title="Jython"></a>Jython</h3><p>Jython是运行在Java平台上的Python解释器，可以直接把Python代码编译成Java字节码执行。</p>
-<h3 id="IronPython"><a href="#IronPython" class="headerlink" title="IronPython"></a>IronPython</h3><p>IronPython和Jython类似，只不过IronPython是运行在微软.Net平台上的Python解释器，可以直接把Python代码编译成.Net的字节码。</p>
-<h2 id="2-解释-提前编译-实时编译"><a href="#2-解释-提前编译-实时编译" class="headerlink" title="2 解释 提前编译 实时编译"></a>2 解释 提前编译 实时编译</h2><h3 id="提前（AOT）编译"><a href="#提前（AOT）编译" class="headerlink" title="提前（AOT）编译"></a>提前（AOT）编译</h3><p>编译高级编程语言为对应的机器代码， 以便生成的二进制文件可以本机执行。</p>
-<h3 id="解释"><a href="#解释" class="headerlink" title="解释"></a>解释</h3><p>解释是<strong>直接执行脚本语言</strong>， 而不需要事先将它们编译成机器语言。</p>
-<p>解释器的主要缺点是解释程序通常比编译时运行得<strong>慢</strong>。</p>
-<p>解释器通常使用以下策略之一来执行程序：</p>
-<ul>
-<li>解析的源代码，并直接执行其行为;</li>
-<li>将源代码转换为一些有效的<strong>中间表示</strong>并立即执行此操作;</li>
-<li>显式执行由编译器生成的存储的预编译代码，编译器是解释器系统的一部分。</li>
-</ul>
-<p>术语“ <strong>解释语言</strong> ”或“ <strong>编译语言</strong> ”表示该语言的规范实现分别是<strong>解释器</strong>或<strong>编译器</strong>。</p>
-<h3 id="实时（JIT）编译"><a href="#实时（JIT）编译" class="headerlink" title="实时（JIT）编译"></a>实时（JIT）编译</h3><p>涉及程序执行期间的编译。</p>
-<p>实时编译系统通常的做法是，连续地分析正在执行的代码，并识别代码的一部分，从而得到加速。且编译或重新编译获得的加速比将超过编译该代码的开销。</p>
-<p>JIT编译结合了编译代码的速度和解释的灵活性，以及​解释器的开销和编译的额外开销（而不仅仅是解释）。</p>
-<p>理论上，JIT编译可以比静态编译产生更快的执行速度。</p>
-<h2 id="3-CPython和PyPy之间的差异"><a href="#3-CPython和PyPy之间的差异" class="headerlink" title="3 CPython和PyPy之间的差异"></a>3 CPython和PyPy之间的差异</h2><p><a href="https://pypy.readthedocs.io/en/latest/cpython_differences.html" target="_blank" rel="noopener">点我查看详细</a></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">解释器</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/python//" class="article-tag-list-link color2">python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/09/01/python解释器/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
     <article id="post-python拾遗" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -981,6 +867,120 @@
 
 
   
+    <article id="post-python解释器" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/09/01/python解释器/">python解释器</a>
+    </h1>
+  
+
+        
+        <a href="/2018/09/01/python解释器/" class="archive-article-date">
+  	<time datetime="2018-08-31T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-01</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="1-Python的常用解释器"><a href="#1-Python的常用解释器" class="headerlink" title="1 Python的常用解释器"></a>1 Python的常用解释器</h2><h3 id="CPython"><a href="#CPython" class="headerlink" title="CPython"></a>CPython</h3><p>官方版本的解释器：CPython。</p>
+<p>这个解释器是用C语言开发的，所以叫CPython。</p>
+<p>默认在命令行下运行python就是启动CPython解释器。</p>
+<p>CPython是使用最广的Python解释器</p>
+<h3 id="IPython"><a href="#IPython" class="headerlink" title="IPython"></a>IPython</h3><p>IPython是基于CPython之上的一个交互式解释器，只是在交互方式上有所增强。</p>
+<p>CPython用<strong>&gt;&gt;&gt;</strong>作为提示符，而IPython用<strong>In [序号]:</strong>作为提示符。</p>
+<h3 id="PyPy"><a href="#PyPy" class="headerlink" title="PyPy"></a>PyPy</h3><p>PyPy是另一个Python解释器，它的目标是执行速度。</p>
+<p>PyPy采用<strong>JIT技术</strong>，对Python代码进行<strong>动态编译</strong>（注意不是解释），所以可以<strong>显著提高Python代码的执行速度</strong>。</p>
+<p>绝大部分Python代码都可以在PyPy下运行，但是PyPy和CPython有一些是不同的，这就导致相同的Python代码在两种解释器下执行可能会有不同的结果。</p>
+<h3 id="Jython"><a href="#Jython" class="headerlink" title="Jython"></a>Jython</h3><p>Jython是运行在Java平台上的Python解释器，可以直接把Python代码编译成Java字节码执行。</p>
+<h3 id="IronPython"><a href="#IronPython" class="headerlink" title="IronPython"></a>IronPython</h3><p>IronPython和Jython类似，只不过IronPython是运行在微软.Net平台上的Python解释器，可以直接把Python代码编译成.Net的字节码。</p>
+<h2 id="2-解释-提前编译-实时编译"><a href="#2-解释-提前编译-实时编译" class="headerlink" title="2 解释 提前编译 实时编译"></a>2 解释 提前编译 实时编译</h2><h3 id="提前（AOT）编译"><a href="#提前（AOT）编译" class="headerlink" title="提前（AOT）编译"></a>提前（AOT）编译</h3><p>编译高级编程语言为对应的机器代码， 以便生成的二进制文件可以本机执行。</p>
+<h3 id="解释"><a href="#解释" class="headerlink" title="解释"></a>解释</h3><p>解释是<strong>直接执行脚本语言</strong>， 而不需要事先将它们编译成机器语言。</p>
+<p>解释器的主要缺点是解释程序通常比编译时运行得<strong>慢</strong>。</p>
+<p>解释器通常使用以下策略之一来执行程序：</p>
+<ul>
+<li>解析的源代码，并直接执行其行为;</li>
+<li>将源代码转换为一些有效的<strong>中间表示</strong>并立即执行此操作;</li>
+<li>显式执行由编译器生成的存储的预编译代码，编译器是解释器系统的一部分。</li>
+</ul>
+<p>术语“ <strong>解释语言</strong> ”或“ <strong>编译语言</strong> ”表示该语言的规范实现分别是<strong>解释器</strong>或<strong>编译器</strong>。</p>
+<h3 id="实时（JIT）编译"><a href="#实时（JIT）编译" class="headerlink" title="实时（JIT）编译"></a>实时（JIT）编译</h3><p>涉及程序执行期间的编译。</p>
+<p>实时编译系统通常的做法是，连续地分析正在执行的代码，并识别代码的一部分，从而得到加速。且编译或重新编译获得的加速比将超过编译该代码的开销。</p>
+<p>JIT编译结合了编译代码的速度和解释的灵活性，以及​解释器的开销和编译的额外开销（而不仅仅是解释）。</p>
+<p>理论上，JIT编译可以比静态编译产生更快的执行速度。</p>
+<h2 id="3-CPython和PyPy之间的差异"><a href="#3-CPython和PyPy之间的差异" class="headerlink" title="3 CPython和PyPy之间的差异"></a>3 CPython和PyPy之间的差异</h2><p><a href="https://pypy.readthedocs.io/en/latest/cpython_differences.html" target="_blank" rel="noopener">点我查看详细</a></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">解释器</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/python//" class="article-tag-list-link color2">python</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/09/01/python解释器/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-夏之幻-Garnet Crow" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1051,6 +1051,197 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2018/08/21/夏之幻-Garnet Crow/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-大唐玄怪来谒-肥皂菌" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/08/大唐玄怪来谒-肥皂菌/">大唐玄怪来谒-肥皂菌</a>
+    </h1>
+  
+
+        
+        <a href="/2018/07/08/大唐玄怪来谒-肥皂菌/" class="archive-article-date">
+  	<time datetime="2018-07-07T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-08</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="歌词"><a href="#歌词" class="headerlink" title="歌词"></a>歌词</h2><h3 id="A"><a href="#A" class="headerlink" title="A"></a>A</h3><p>文翰初议周隋 再话旧唐<br>以尺墨安定狐媚<br>平生偏好奇诡 又易食髓知味<br>秉夜烛 诗邀神鬼<br>听说落魄书生 杜氏子春<br>虎皮上两世长梦 成仙或为人<br>他已识门道九分 偏情字入骨深</p>
+<p>清夜慎持明烛台 它亦吟得词句入怀<br>大唐遍出诗才 待我坐镇云峰台<br>千里紫霞参拜 引鹤来<br>剑指乌妖一当百 身性刚正<br>怎怕污邪侵害<br>只把酒此生付慷慨 喝完<br>披朱衣再去游炎海</p>
+<h3 id="B"><a href="#B" class="headerlink" title="B"></a>B</h3><p>笔触刺骨几分 毫若青锋<br>如凡俗入骨几寸 最难罢品红尘<br>异事易勾瘾症<br>上酒卮 劳君多论<br>时人文章评批 非不靡丽<br>却可惜殊少骨气 不如拂袖去<br>练绝这一手棋技 普世人桔中戏</p>
+<p>当心红鬼鸣鼓钟<br>提柄长剑叩你颈痛<br>方知善恶有终<br>上元广陵景最浓 由我乘驾天虹 彩云中<br>敢凭纸符救白龙<br>并非是我 醉得太过放纵<br>只爱煞一生逞英雄<br>不叹匆匆 真君子不言怪</p>
+<h3 id="C"><a href="#C" class="headerlink" title="C"></a>C</h3><p>自诩假小人尽可谈的开怀<br>因我解下绣龙裳 世间无人敢自称王<br>犯我半分张狂 挑亮烛光点鬼将<br>推杯豪饮琼浆 祭参商<br>扬手呼童请明皇 突觉喉中<br>酒烈吐出金蟒 吞山河胸胆正开张<br>容我 怒书这一卷说盛唐</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">歌词</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">音乐</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Music//" class="article-tag-list-link color1">Music</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/07/08/大唐玄怪来谒-肥皂菌/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-高飞-张杰" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/08/高飞-张杰/">高飞-张杰</a>
+    </h1>
+  
+
+        
+        <a href="/2018/07/08/高飞-张杰/" class="archive-article-date">
+  	<time datetime="2018-07-07T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-08</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="歌词"><a href="#歌词" class="headerlink" title="歌词"></a>歌词</h2><h3 id="A"><a href="#A" class="headerlink" title="A"></a>A</h3><p>奔跑穿越无尽的荒原<br>逐梦的脚步突然停歇<br>无边断崖 横在眼前<br>我懂 我要 蜕变</p>
+<p>偶尔想起温暖的昨天<br>为了梦想不再留恋<br>新的起点就在眼前<br>我已做好准备</p>
+<p>我要高飞 到天空的顶点<br>我要飞到<strong>无人</strong>能及的视界<br>飞得再累 不准自己跌坠<br>直到太阳就在我的指尖</p>
+<p>我要高飞 到世界的边缘<br>我要飞越<strong>没人</strong>到达的绝对<br>不到终点 不准流下眼泪<br>要把最震撼的呐喊留在灿烂瞬间</p>
+<h3 id="B"><a href="#B" class="headerlink" title="B"></a>B</h3><p>偶尔想起温暖的昨天<br>为了梦想不再留恋<br>新的起点就在眼前<br>我已做好准备</p>
+<p>我要高飞 到天空的顶点<br>我要飞到<strong>无人</strong>能及的视界<br>飞得再累 不准自己跌坠<br>直到太阳就在我的指尖</p>
+<p>我要高飞 到世界的边缘<br>我要飞越<strong>没人</strong>到达的绝对<br>不到终点 不准流下眼泪<br>要把最震撼的呐喊留在</p>
+<h3 id="C"><a href="#C" class="headerlink" title="C"></a>C</h3><p>我要高飞 到天空的顶点<br>我要飞到<strong>无人</strong>能及的视界<br>飞得再累 不准自己跌坠<br>直到太阳就在我的指尖</p>
+<p>我要高|飞 到世界的边缘<br>我要飞越<strong>没人</strong>到达的绝对<br>不到终|点 不准流下眼泪<br>要把最震撼的呐喊<br>留在灿烂瞬间</p>
+<p>灿烂瞬间</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">歌词</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">音乐</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Music//" class="article-tag-list-link color1">Music</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/07/08/高飞-张杰/">展开全文 >></a>
         </p>
       
 
@@ -1181,192 +1372,6 @@
 
 
   
-    <article id="post-安静-周杰伦" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/08/安静-周杰伦/">安静-周杰伦</a>
-    </h1>
-  
-
-        
-        <a href="/2018/07/08/安静-周杰伦/" class="archive-article-date">
-  	<time datetime="2018-07-07T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-08</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="歌词"><a href="#歌词" class="headerlink" title="歌词"></a>歌词</h2><h3 id="A"><a href="#A" class="headerlink" title="A"></a>A</h3><p>只剩下钢琴陪我谈了一天<br>睡著的大提琴 安静的旧旧的<br>我想你已表现的非常明白<br>我懂我也知道 你没有舍不得</p>
-<p>你说你也会难过我不相信<br>牵著你陪著我 也只是曾经<br>希望他是真的比我还要爱你<br>我才会逼自己离开</p>
-<h3 id="B"><a href="#B" class="headerlink" title="B"></a>B</h3><p>你要我说多难堪 我根本不想分开<br>为什么还要我用微笑来带过<br>我没有这种天份 包容你也接受他<br>不用担心的太多 我会一直好好过</p>
-<p>你已经远远离开 我也会慢慢走开<br>为什么我连分开都迁就著你<br>我真的没有天份 安（B3两个音）静的没这么快<br>我会学著放弃你 是因为我太爱你</p>
-<h3 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h3><p>AB AB B</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">歌词</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">音乐</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Music//" class="article-tag-list-link color1">Music</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/07/08/安静-周杰伦/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-大唐玄怪来谒-肥皂菌" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/08/大唐玄怪来谒-肥皂菌/">大唐玄怪来谒-肥皂菌</a>
-    </h1>
-  
-
-        
-        <a href="/2018/07/08/大唐玄怪来谒-肥皂菌/" class="archive-article-date">
-  	<time datetime="2018-07-07T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-08</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="歌词"><a href="#歌词" class="headerlink" title="歌词"></a>歌词</h2><h3 id="A"><a href="#A" class="headerlink" title="A"></a>A</h3><p>文翰初议周隋 再话旧唐<br>以尺墨安定狐媚<br>平生偏好奇诡 又易食髓知味<br>秉夜烛 诗邀神鬼<br>听说落魄书生 杜氏子春<br>虎皮上两世长梦 成仙或为人<br>他已识门道九分 偏情字入骨深</p>
-<p>清夜慎持明烛台 它亦吟得词句入怀<br>大唐遍出诗才 待我坐镇云峰台<br>千里紫霞参拜 引鹤来<br>剑指乌妖一当百 身性刚正<br>怎怕污邪侵害<br>只把酒此生付慷慨 喝完<br>披朱衣再去游炎海</p>
-<h3 id="B"><a href="#B" class="headerlink" title="B"></a>B</h3><p>笔触刺骨几分 毫若青锋<br>如凡俗入骨几寸 最难罢品红尘<br>异事易勾瘾症<br>上酒卮 劳君多论<br>时人文章评批 非不靡丽<br>却可惜殊少骨气 不如拂袖去<br>练绝这一手棋技 普世人桔中戏</p>
-<p>当心红鬼鸣鼓钟<br>提柄长剑叩你颈痛<br>方知善恶有终<br>上元广陵景最浓 由我乘驾天虹 彩云中<br>敢凭纸符救白龙<br>并非是我 醉得太过放纵<br>只爱煞一生逞英雄<br>不叹匆匆 真君子不言怪</p>
-<h3 id="C"><a href="#C" class="headerlink" title="C"></a>C</h3><p>自诩假小人尽可谈的开怀<br>因我解下绣龙裳 世间无人敢自称王<br>犯我半分张狂 挑亮烛光点鬼将<br>推杯豪饮琼浆 祭参商<br>扬手呼童请明皇 突觉喉中<br>酒烈吐出金蟒 吞山河胸胆正开张<br>容我 怒书这一卷说盛唐</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">歌词</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">音乐</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Music//" class="article-tag-list-link color1">Music</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/07/08/大唐玄怪来谒-肥皂菌/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1468,7 +1473,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+                <a href="javascript:void(0)" class="js-tag color5">Work</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Database</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1480,19 +1489,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">python</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">解释器</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Work</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Database</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1520,10 +1525,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">server</a>
               </li>
              
@@ -1533,6 +1534,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">反向代理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">基础</a>
               </li>
             
             <div class="clearfix"></div>
