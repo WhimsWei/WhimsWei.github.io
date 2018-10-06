@@ -3,6 +3,267 @@
   
     
     <entry>
+      <title>同步和异步</title>
+      <link href="/2018/10/06/%E5%90%8C%E6%AD%A5%E5%92%8C%E5%BC%82%E6%AD%A5/"/>
+      <url>/2018/10/06/%E5%90%8C%E6%AD%A5%E5%92%8C%E5%BC%82%E6%AD%A5/</url>
+      <content type="html"><![CDATA[<h2 id="1-同步模型"><a href="#1-同步模型" class="headerlink" title="1 同步模型"></a>1 同步模型</h2><p>这是最简单的编程方式。</p><p>在一个时刻，只能有一个任务在执行，并且前一个任务结束后一个任务才能开始。</p><p><img src="http://likebeta.gitbooks.io/twisted-intro-cn/content/zh/_static/p01_sync.png" alt="同步模型示意图"></p><h2 id="2-线程模型"><a href="#2-线程模型" class="headerlink" title="2 线程模型"></a>2 线程模型</h2><h3 id="2-1-进程和线程"><a href="#2-1-进程和线程" class="headerlink" title="2.1 进程和线程"></a>2.1 进程和线程</h3><p>进程是一个资源单位，现成是CPU调度单位。</p><p>程之间不共享资源，但是同一个进程下的线程是可以共享资源的。</p><h3 id="2-2-线程模型"><a href="#2-2-线程模型" class="headerlink" title="2.2 线程模型"></a>2.2 线程模型</h3><p>在这个模型中，每个任务都在单独的线程中完成。</p><p><img src="http://likebeta.gitbooks.io/twisted-intro-cn/content/zh/_static/p01_threaded.png" alt="线程模型"></p><p>这些线程都是由操作系统来管理。</p><p>若在多处理机、多核处理机的系统中可能会相互独立的运行；</p><p>若在单处理机上，则会交错运行。一个核执行一个单独的线程。</p><p>关键点在于，在线程模式中，具体哪个任务执行由操作系统来处理。</p><h2 id="3-异步编程模型"><a href="#3-异步编程模型" class="headerlink" title="3 异步编程模型"></a>3 异步编程模型</h2><h3 id="3-1-概述"><a href="#3-1-概述" class="headerlink" title="3.1 概述"></a>3.1 概述</h3><p>在这个模型中，任务是交错完成。</p><p>值得注意的是：这是在单线程的控制下。</p><p>这要比多线程模型简单多了，因为编程人员总可以认为只有一个任务在执行，而其它的在停止状态。</p><h3 id="3-2-和线程模型的区别"><a href="#3-2-和线程模型的区别" class="headerlink" title="3.2 和线程模型的区别"></a>3.2 和线程模型的区别</h3><p>典型的现成模型是各个任务并行运行，但是对于单核CPU的时候，执行方式就和异步模型类似了。</p><p>此时的区别是：</p><ul><li>线程模式中任务的切换是由操作系统决定的。</li><li>在异步模型中，任务的切换需要手动编写代码来切换任务。</li></ul><h2 id="4-阻塞"><a href="#4-阻塞" class="headerlink" title="4 阻塞"></a>4 阻塞</h2><p>如果任务都是CPU计算之类的内容， 那么实际上异步模型和同步模型消耗的时间是一样的。</p><p>但是如果任务中有阻塞（IO等操作）， 在任务阻塞的时候执行别的任务， 这样就有利于节省时间。</p><p><img src="http://likebeta.gitbooks.io/twisted-intro-cn/content/zh/_static/p01_block.png" alt="同步模型下出现阻塞"></p><p>所以异步模型至少有两个优点：</p><ul><li>针对有阻塞的任务可以加快任务完成；</li><li>针对服务来说，由于异步模型会来回切换，客户端就能够更快的接收到服务端的响应，从而减少客户端的等待时间。</li></ul>]]></content>
+      
+      <categories>
+          
+          <category> 笔记 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 笔记 </tag>
+            
+            <tag> 同步 </tag>
+            
+            <tag> 异步 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
+      <title>前后端分离思想概述</title>
+      <link href="/2018/10/06/%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB/"/>
+      <url>/2018/10/06/%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB/</url>
+      <content type="html"><![CDATA[<h2 id="1-MVC模型"><a href="#1-MVC模型" class="headerlink" title="1 MVC模型"></a>1 MVC模型</h2><p>全名为Model-View-Controller，即模型-视图-控制器。</p><p><img src="http://static.zybuluo.com/Rico123/et4q5o2ok4ryi6dniwifvcx0/MVC.jpg" alt="mvc模型"></p><p>不足：</p><ul><li>过程复杂。每次请求必须经过“控制器-&gt;模型-&gt;视图”这个流程，用户才能看到最终的展现的界面；</li><li>过于依赖模型。实际上视图是依赖于模型的，换句话说，如果没有模型，视图也无法呈现出最终的效果；</li><li>页面性能较差。渲染视图的过程是在服务端来完成的，最终呈现给浏览器的是带有模型的视图页面，性能无法得到很好的优化。</li></ul><h2 id="2-REST"><a href="#2-REST" class="headerlink" title="2 REST"></a>2 REST</h2><p>为了进一步改进MVC模型， 做了如下改进。</p><p>页面View全程ajax请求Controller，通过与Model交互完成json数据并且返回。</p><p><img src="http://static.zybuluo.com/Rico123/yxk2m9upgn5kzi2027d4v4z5/MVC+%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB.jpg" alt="REST"></p><p>REST全称是Representational State Transfer（表述性状态转移）。</p><p>逐渐实现概念，前后端分离。</p><p><img src="http://static.zybuluo.com/Rico123/v98uooq7qquiems7jvhdxm0c/%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB.jpg" alt="前后端分离"></p>]]></content>
+      
+      <categories>
+          
+          <category> 笔记 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 笔记 </tag>
+            
+            <tag> 前后端分离 </tag>
+            
+            <tag> MVC </tag>
+            
+            <tag> REST </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
+      <title>python创建虚拟环境</title>
+      <link href="/2018/10/06/%E5%88%9B%E5%BB%BA%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83/"/>
+      <url>/2018/10/06/%E5%88%9B%E5%BB%BA%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83/</url>
+      <content type="html"><![CDATA[<h2 id="1-安装虚拟环境"><a href="#1-安装虚拟环境" class="headerlink" title="1 安装虚拟环境"></a>1 安装虚拟环境</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pip install virtualenv</span><br><span class="line">virtualenv --no-site-packages venv</span><br></pre></td></tr></table></figure><h2 id="2-进入虚拟环境"><a href="#2-进入虚拟环境" class="headerlink" title="2 进入虚拟环境"></a>2 进入虚拟环境</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> venv/bin/activate</span><br></pre></td></tr></table></figure><h2 id="3-安装包"><a href="#3-安装包" class="headerlink" title="3 安装包"></a>3 安装包</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install -r requirements.txt</span><br></pre></td></tr></table></figure><h2 id="4-生成需求包"><a href="#4-生成需求包" class="headerlink" title="4 生成需求包"></a>4 生成需求包</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip freeze &gt; requirements.txt</span><br></pre></td></tr></table></figure><h2 id="5-删除虚拟环境"><a href="#5-删除虚拟环境" class="headerlink" title="5 删除虚拟环境"></a>5 删除虚拟环境</h2><p>直接删除文件夹</p>]]></content>
+      
+      <categories>
+          
+          <category> 笔记 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 笔记 </tag>
+            
+            <tag> 虚拟环境 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
+      <title>Rector模式概述</title>
+      <link href="/2018/10/06/reactor%E6%A8%A1%E5%BC%8F/"/>
+      <url>/2018/10/06/reactor%E6%A8%A1%E5%BC%8F/</url>
+      <content type="html"><![CDATA[<h2 id="1-异步请求的客户端"><a href="#1-异步请求的客户端" class="headerlink" title="1 异步请求的客户端"></a>1 异步请求的客户端</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_poetry</span><span class="params">(sockets)</span>:</span></span><br><span class="line">    <span class="string">"""Download poety from all the given sockets."""</span></span><br><span class="line"></span><br><span class="line">    poems = dict.fromkeys(sockets, <span class="string">''</span>) <span class="comment"># socket -&gt; accumulated poem</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># socket -&gt; task numbers</span></span><br><span class="line">    sock2task = dict([(s, i + <span class="number">1</span>) <span class="keyword">for</span> i, s <span class="keyword">in</span> enumerate(sockets)])</span><br><span class="line"></span><br><span class="line">    sockets = list(sockets) <span class="comment"># make a copy</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># we go around this loop until we've gotten all the poetry</span></span><br><span class="line">    <span class="comment"># from all the sockets. This is the 'reactor loop'.</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> sockets:</span><br><span class="line">        <span class="comment"># this select call blocks until one or more of the</span></span><br><span class="line">        <span class="comment"># sockets is ready for read I/O</span></span><br><span class="line">        rlist, _, _ = select.select(sockets, [], [])</span><br><span class="line"></span><br><span class="line">        <span class="comment"># rlist is the list of sockets with data ready to read</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> sock <span class="keyword">in</span> rlist:</span><br><span class="line">            data = <span class="string">''</span></span><br><span class="line"></span><br><span class="line">            <span class="keyword">while</span> <span class="keyword">True</span>:</span><br><span class="line">                <span class="keyword">try</span>:</span><br><span class="line">                    new_data = sock.recv(<span class="number">1024</span>)</span><br><span class="line">                <span class="keyword">except</span> socket.error, e:</span><br><span class="line">                    <span class="keyword">if</span> e.args[<span class="number">0</span>] == errno.EWOULDBLOCK:</span><br><span class="line">                        <span class="comment"># this error code means we would have</span></span><br><span class="line">                        <span class="comment"># blocked if the socket was blocking.</span></span><br><span class="line">                        <span class="comment"># instead we skip to the next socket</span></span><br><span class="line">                        <span class="keyword">break</span></span><br><span class="line">                    <span class="keyword">raise</span></span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    <span class="keyword">if</span> <span class="keyword">not</span> new_data:</span><br><span class="line">                        <span class="keyword">break</span></span><br><span class="line">                    <span class="keyword">else</span>:</span><br><span class="line">                        data += new_data</span><br><span class="line"></span><br><span class="line">            <span class="comment"># Each execution of this inner loop corresponds to</span></span><br><span class="line">            <span class="comment"># working on one asynchronous task in Figure 3 here:</span></span><br><span class="line">            <span class="comment"># http://krondo.com/?p=1209#figure3</span></span><br><span class="line"></span><br><span class="line">            task_num = sock2task[sock]</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">not</span> data:</span><br><span class="line">                sockets.remove(sock)</span><br><span class="line">                sock.close()</span><br><span class="line">                <span class="keyword">print</span> <span class="string">'Task %d finished'</span> % task_num</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                addr_fmt = format_address(sock.getpeername())</span><br><span class="line">                msg = <span class="string">'Task %d: got %d bytes of poetry from %s'</span></span><br><span class="line">                <span class="keyword">print</span>  msg % (task_num, len(data), addr_fmt)</span><br><span class="line"></span><br><span class="line">            poems[sock] += data</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> poems</span><br></pre></td></tr></table></figure><ol><li>异步模式客户端一次性与全部服务器完成连接，而不像同步模式那样一次只连接一个。</li><li>用来进行通信的Socket方法是非阻塞模的，这是通过调用setblocking(0)来实现的。</li><li>select模块中的select方法是用来识别其监视的socket是否有完成数据接收的，如果没有它就处于阻塞状态。</li><li>使用select函数等待所有Socket，直到至少有一个socket有数据到来。</li><li>对每个有数据需要读取的socket，从中读取数据。但仅仅只是读取有效数据，不能为了等待还没来到的数据而发生阻塞。</li><li>由于不断发送， 有可能</li></ol><h2 id="2-reactor模式"><a href="#2-reactor模式" class="headerlink" title="2 reactor模式"></a>2 reactor模式</h2><p>这种，等待事件到来，然后对事件进行处理，处理完毕之后又继续等待事件到来的模型， 就被故写成了reactor模式。</p>]]></content>
+      
+      <categories>
+          
+          <category> 笔记 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 笔记 </tag>
+            
+            <tag> Rector </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
+      <title>gitlab的基本配置</title>
+      <link href="/2018/10/06/gitlab/"/>
+      <url>/2018/10/06/gitlab/</url>
+      <content type="html"><![CDATA[<h2 id="1-设置账户和邮件"><a href="#1-设置账户和邮件" class="headerlink" title="1 设置账户和邮件"></a>1 设置账户和邮件</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name weihuchao</span><br><span class="line">git config --global user.email weihuchao@xuetangx.com</span><br></pre></td></tr></table></figure><p>设置存储<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --global credential.helper store</span><br></pre></td></tr></table></figure></p><h2 id="2-配置ssh-key"><a href="#2-配置ssh-key" class="headerlink" title="2 配置ssh-key"></a>2 配置ssh-key</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &apos;weihuchao@xuetangx.com&apos;</span><br></pre></td></tr></table></figure><p>生成的文件在<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim ~/.ssh/id_rsa</span><br></pre></td></tr></table></figure></p><p>将内容复制到SSH keys里</p>]]></content>
+      
+      <categories>
+          
+          <category> 笔记 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 笔记 </tag>
+            
+            <tag> gitlab </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
+      <title>git进阶之git-flow</title>
+      <link href="/2018/10/06/git-flow/"/>
+      <url>/2018/10/06/git-flow/</url>
+      <content type="html"><![CDATA[<h2 id="1-git-flow"><a href="#1-git-flow" class="headerlink" title="1 git flow"></a>1 git flow</h2><p>Git flow script是基于git flow概念的一个帮助我们快速使用该思想的脚本。</p><h2 id="2-安装"><a href="#2-安装" class="headerlink" title="2 安装"></a>2 安装</h2><p>OS X<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install git-flow</span><br></pre></td></tr></table></figure></p><p>Linux<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get install git-flow</span><br></pre></td></tr></table></figure></p><p>Windows<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget -q -O - --no-check-certificate https://github.com/nvie/gitflow/raw/develop/contrib/gitflow-installer.sh | bash</span><br></pre></td></tr></table></figure></p><h2 id="3-使用"><a href="#3-使用" class="headerlink" title="3 使用"></a>3 使用</h2><p>初始化: git flow init</p><p>开始新Feature: git flow feature start MYFEATURE</p><p>Publish一个Feature(也就是push到远程): git flow feature publish MYFEATURE</p><p>获取Publish的Feature: git flow feature pull origin MYFEATURE</p><p>完成一个Feature: git flow feature finish MYFEATURE</p><p>开始一个Release: git flow release start RELEASE [BASE]</p><p>Publish一个Release: git flow release publish RELEASE<br>发布Release: git flow release finish RELEASE<br>别忘了git push –tags</p><p>开始一个Hotfix: git flow hotfix start VERSION [BASENAME]</p><p>发布一个Hotfix: git flow hotfix finish VERSION</p><h2 id="4-关于init"><a href="#4-关于init" class="headerlink" title="4 关于init"></a>4 关于init</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">git flow init -h </span><br><span class="line">   </span><br><span class="line">USAGE: git flow init [flags] args</span><br><span class="line">flags:</span><br><span class="line">  -h  show this <span class="built_in">help</span> (default: <span class="literal">false</span>)</span><br><span class="line">  -f  force setting of gitflow branches, even <span class="keyword">if</span> already configured</span><br><span class="line">      (default: <span class="literal">false</span>)</span><br><span class="line">  -d  use default branch naming conventions (default: <span class="literal">false</span>)</span><br></pre></td></tr></table></figure><p>深入了解: </p><p>该配置写入到了 .git/cnfig 文件中, 如果发现该配置不正确, 可以直接进行编辑</p><h2 id="5-参考"><a href="#5-参考" class="headerlink" title="5 参考"></a>5 参考</h2><ul><li><a href="https://www.cnblogs.com/cnblogsfans/p/5075073.html" target="_blank" rel="noopener">https://www.cnblogs.com/cnblogsfans/p/5075073.html</a></li></ul>]]></content>
+      
+      <categories>
+          
+          <category> 笔记 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 笔记 </tag>
+            
+            <tag> git </tag>
+            
+            <tag> git-flow </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
+      <title>python脚本传入参数解析之optparse</title>
+      <link href="/2018/10/06/optparse%E7%9A%84%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/"/>
+      <url>/2018/10/06/optparse%E7%9A%84%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/</url>
+      <content type="html"><![CDATA[<h2 id="1-引入"><a href="#1-引入" class="headerlink" title="1 引入"></a>1 引入</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> optparse</span><br></pre></td></tr></table></figure><h2 id="2-创建使用说明"><a href="#2-创建使用说明" class="headerlink" title="2 创建使用说明"></a>2 创建使用说明</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">usage = <span class="string">"""</span></span><br><span class="line"><span class="string">This is usage</span></span><br><span class="line"><span class="string">"""</span></span><br><span class="line"></span><br><span class="line">parser = optparse.OptionParser(usage)</span><br></pre></td></tr></table></figure><h2 id="3-创建指定参数"><a href="#3-创建指定参数" class="headerlink" title="3 创建指定参数"></a>3 创建指定参数</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">help = <span class="string">"The interface to listen on. Default is localhost."</span></span><br><span class="line">parser.add_option(<span class="string">'--iface'</span>, help=help, default=<span class="string">'localhost'</span>)</span><br></pre></td></tr></table></figure><p>关于add_option函数， 第一个参数需要是<code>--name</code>，name用于之后调用的名字， 也是命令输入需要输入的名字。</p><p>可以设置帮助信息（help）和默认值（default）。</p><h2 id="4-解析输入"><a href="#4-解析输入" class="headerlink" title="4 解析输入"></a>4 解析输入</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">options, args = parser.parse_args()</span><br></pre></td></tr></table></figure><p><code>parse_args()</code>函数有两个返回值，一个是指定的可选参数，一个是正常输入的所有参数。</p><p>其中可选参数可以通过<code>options.name</code>的方式调用得到该值。</p><h2 id="5-出错退出程序"><a href="#5-出错退出程序" class="headerlink" title="5 出错退出程序"></a>5 出错退出程序</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line">parser.exit()</span><br><span class="line">``` </span><br><span class="line"></span><br><span class="line">可以传入参数`msg`来输出错误信息。执行该句之后程序退出。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">## 6 范例</span></span><br><span class="line"></span><br><span class="line">```python</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">parse_args</span><span class="params">()</span>:</span></span><br><span class="line">    usage = <span class="string">"""usage: %prog [options] poetry-file</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">This is the Slow Poetry Server, blocking edition.</span></span><br><span class="line"><span class="string">Run it like this:</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">  python slowpoetry.py &lt;path-to-poetry-file&gt;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">If you are in the base directory of the twisted-intro package,</span></span><br><span class="line"><span class="string">you could run it like this:</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">  python blocking-server/slowpoetry.py poetry/ecstasy.txt</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">to serve up John Donne's Ecstasy, which I know you want to do.</span></span><br><span class="line"><span class="string">"""</span></span><br><span class="line"></span><br><span class="line">    parser = optparse.OptionParser(usage)</span><br><span class="line"></span><br><span class="line">    help = <span class="string">"The port to listen on. Default to a random available port."</span></span><br><span class="line">    parser.add_option(<span class="string">'--port'</span>, type=<span class="string">'int'</span>, help=help)</span><br><span class="line"></span><br><span class="line">    help = <span class="string">"The interface to listen on. Default is localhost."</span></span><br><span class="line">    parser.add_option(<span class="string">'--iface'</span>, help=help, default=<span class="string">'localhost'</span>)</span><br><span class="line"></span><br><span class="line">    help = <span class="string">"The number of seconds between sending bytes."</span></span><br><span class="line">    parser.add_option(<span class="string">'--delay'</span>, type=<span class="string">'float'</span>, help=help, default=<span class="number">.7</span>)</span><br><span class="line"></span><br><span class="line">    help = <span class="string">"The number of bytes to send at a time."</span></span><br><span class="line">    parser.add_option(<span class="string">'--num-bytes'</span>, type=<span class="string">'int'</span>, help=help, default=<span class="number">10</span>)</span><br><span class="line"></span><br><span class="line">    options, args = parser.parse_args()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> len(args) != <span class="number">1</span>:</span><br><span class="line">        parser.error(<span class="string">'Provide exactly one poetry file.'</span>)</span><br><span class="line"></span><br><span class="line">    poetry_file = args[<span class="number">0</span>]</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> os.path.exists(args[<span class="number">0</span>]):</span><br><span class="line">        parser.error(<span class="string">'No such file: %s'</span> % poetry_file)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> options, poetry_file</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">()</span>:</span></span><br><span class="line">    options, poetry_file= parse_args()</span><br><span class="line"></span><br><span class="line">    sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)</span><br><span class="line">    sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, <span class="number">1</span>)</span><br><span class="line">    sock.bind((options.iface, options.port <span class="keyword">or</span> <span class="number">0</span>))</span><br><span class="line"></span><br><span class="line">    sock.listen(<span class="number">5</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">print</span> <span class="string">'Serving %s on port %s.'</span> % (poetry_file, sock.getsockname()[<span class="number">1</span>])</span><br><span class="line"></span><br><span class="line">    serve(sock, poetry_file, options.num_bytes, options.delay)</span><br></pre></td></tr></table></figure>]]></content>
+      
+      <categories>
+          
+          <category> 笔记 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 笔记 </tag>
+            
+            <tag> optparse </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
+      <title>docker学习笔记</title>
+      <link href="/2018/10/06/docker%E7%AC%94%E8%AE%B0/"/>
+      <url>/2018/10/06/docker%E7%AC%94%E8%AE%B0/</url>
+      <content type="html"><![CDATA[<h2 id="1-安装"><a href="#1-安装" class="headerlink" title="1 安装"></a>1 安装</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install docker</span><br></pre></td></tr></table></figure><p>需要下载安装</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://store.docker.com/editions/community/docker-ce-desktop-mac</span><br></pre></td></tr></table></figure><h2 id="2-使用"><a href="#2-使用" class="headerlink" title="2 使用"></a>2 使用</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">$ docker --version</span><br><span class="line">Docker version 18.03, build c97c6d6</span><br><span class="line"></span><br><span class="line">$ docker-compose --version</span><br><span class="line">docker-compose version 1.22.0, build 8dd22a9</span><br><span class="line"></span><br><span class="line">$ docker-machine --version</span><br><span class="line">docker-machine version 0.14.0, build 9ba6da9</span><br><span class="line"></span><br><span class="line">$ docker run hello-world</span><br><span class="line"></span><br><span class="line">$ docker run -d -p 80:80 --name webserver nginx</span><br><span class="line"># 80:80 前面是docker外面环境使用的端口 后面是docker内部使用的端口</span><br><span class="line"># 需要使用-p来指定端口</span><br><span class="line"></span><br><span class="line">$ docker container ls</span><br><span class="line">$ docker container stop webserver</span><br><span class="line">$ docker container ls -a</span><br><span class="line">$ docker container rm webserver</span><br><span class="line">$ docker image ls</span><br><span class="line">$ docker image rm nginx</span><br></pre></td></tr></table></figure><h3 id="2-1-创建一个Container"><a href="#2-1-创建一个Container" class="headerlink" title="2.1 创建一个Container"></a>2.1 创建一个Container</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mkdir docker_file</span><br><span class="line"><span class="built_in">cd</span> docker_file</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">vim Dockerfile</span><br><span class="line"></span><br><span class="line"># Use an official Python runtime as a parent image</span><br><span class="line">FROM python:2.7-slim</span><br><span class="line"></span><br><span class="line"># Set the working directory to /app</span><br><span class="line">WORKDIR /app</span><br><span class="line"></span><br><span class="line"># Copy the current directory contents into the container at /app</span><br><span class="line">COPY . /app</span><br><span class="line"></span><br><span class="line"># Install any needed packages specified in requirements.txt</span><br><span class="line">RUN pip install --trusted-host pypi.python.org -r requirements.txt</span><br><span class="line"></span><br><span class="line"># Make port 80 available to the world outside this container</span><br><span class="line">EXPOSE 80</span><br><span class="line"></span><br><span class="line"># Define environment variable</span><br><span class="line">ENV NAME World</span><br><span class="line"></span><br><span class="line"># Run app.py when the container launches</span><br><span class="line">CMD [&quot;python&quot;, &quot;app.py&quot;]</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">vim requirements.txt</span><br><span class="line"></span><br><span class="line">Flask</span><br><span class="line">Redis</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">vim app.py</span><br><span class="line"></span><br><span class="line">from flask import Flask</span><br><span class="line">from redis import Redis, RedisError</span><br><span class="line">import os</span><br><span class="line">import socket</span><br><span class="line"></span><br><span class="line"># Connect to Redis</span><br><span class="line">redis = Redis(host=&quot;redis&quot;, db=0, socket_connect_timeout=2, socket_timeout=2)</span><br><span class="line"></span><br><span class="line">app = Flask(__name__)</span><br><span class="line"></span><br><span class="line">@app.route(&quot;/&quot;)</span><br><span class="line">def hello():</span><br><span class="line">    try:</span><br><span class="line">        visits = redis.incr(&quot;counter&quot;)</span><br><span class="line">    except RedisError:</span><br><span class="line">        visits = &quot;&lt;i&gt;cannot connect to Redis, counter disabled&lt;/i&gt;&quot;</span><br><span class="line"></span><br><span class="line">    html = &quot;&lt;h3&gt;Hello &#123;name&#125;!&lt;/h3&gt;&quot; \</span><br><span class="line">           &quot;&lt;b&gt;Hostname:&lt;/b&gt; &#123;hostname&#125;&lt;br/&gt;&quot; \</span><br><span class="line">           &quot;&lt;b&gt;Visits:&lt;/b&gt; &#123;visits&#125;&quot;</span><br><span class="line">    return html.format(name=os.getenv(&quot;NAME&quot;, &quot;world&quot;), hostname=socket.gethostname(), visits=visits)</span><br><span class="line"></span><br><span class="line">if __name__ == &quot;__main__&quot;:</span><br><span class="line">    app.run(host=&apos;0.0.0.0&apos;, port=80)</span><br></pre></td></tr></table></figure><p>创建container</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker build -t friendlyhello .</span><br></pre></td></tr></table></figure><p>运行app</p><p>其中-p用于绑定端口，4000:80 前面是docker外面环境使用的端口，后面是docker内部使用的端口。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -p 4000:80 friendlyhello</span><br></pre></td></tr></table></figure><p>后台运行app</p><p>使用-d， 可以合在一起写<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -d -p 4000:80 friendlyhello</span><br></pre></td></tr></table></figure></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">➜  docker_file docker run -dp 4000:80 friendlyhello</span><br><span class="line">bfc28faf20c23567d7a83667f2040c1469d6adae00ffe45257f494c72e778efe</span><br><span class="line">➜  docker_file docker container ls</span><br><span class="line">CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS                  NAMES</span><br><span class="line">bfc28faf20c2        friendlyhello       &quot;python app.py&quot;     48 seconds ago      Up 46 seconds       0.0.0.0:4000-&gt;80/tcp   xenodochial_jackson</span><br><span class="line">➜  docker_file docker container stop bfc28faf20c2</span><br><span class="line">bfc28faf20c2</span><br></pre></td></tr></table></figure><p>发布到远程并且使用</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">➜  docker_file docker login</span><br><span class="line">Authenticating with existing credentials...</span><br><span class="line">Login Succeeded</span><br><span class="line">➜  docker_file docker tag friendlyhello weihuchao/get-started:part1</span><br><span class="line">➜  docker_file docker image ls</span><br><span class="line">REPOSITORY              TAG                 IMAGE ID            CREATED             SIZE</span><br><span class="line">friendlyhello           latest              13f8513def89        28 minutes ago      132MB</span><br><span class="line">weihuchao/get-started   part1               13f8513def89        28 minutes ago      132MB</span><br><span class="line">nginx                   latest              bc26f1ed35cf        4 days ago          109MB</span><br><span class="line">hello-world             latest              4ab4c602aa5e        3 weeks ago         1.84kB</span><br><span class="line">ubuntu                  latest              cd6d8154f1e1        3 weeks ago         84.1MB</span><br><span class="line">python                  2.7-slim            c9cde4658340        3 weeks ago         120MB</span><br><span class="line">➜  docker_file docker push weihuchao/get-started:part1</span><br><span class="line">The push refers to repository [docker.io/weihuchao/get-started]</span><br><span class="line">07c6549b588a: Pushed</span><br><span class="line">033e409ef04e: Pushed</span><br><span class="line">3e9874f94f33: Pushed</span><br><span class="line">d509372bacf0: Mounted from library/python</span><br><span class="line">18cc3d97f405: Mounted from library/python</span><br><span class="line">80db77e224a0: Mounted from library/python</span><br><span class="line">8b15606a9e3e: Mounted from library/python</span><br><span class="line">part1: digest: sha256:7c038d51ed3bee7f6bce70489f996a0a53ac050e112eff348a6419cc61beacd4 size: 1787</span><br><span class="line">➜  docker_file docker run -p 4000:80 weihuchao/get-started:part1</span><br><span class="line"> * Serving Flask app &quot;app&quot; (lazy loading)</span><br><span class="line"> * Environment: production</span><br><span class="line">   WARNING: Do not use the development server in a production environment.</span><br><span class="line">   Use a production WSGI server instead.</span><br><span class="line"> * Debug mode: off</span><br><span class="line"> * Running on http://0.0.0.0:80/ (Press CTRL+C to quit)</span><br></pre></td></tr></table></figure><p>用到的命令总结</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">docker build -t friendlyhello .  # Create image using this directory&apos;s Dockerfile</span><br><span class="line">docker run -p 4000:80 friendlyhello  # Run &quot;friendlyname&quot; mapping port 4000 to 80</span><br><span class="line">docker run -d -p 4000:80 friendlyhello         # Same thing, but in detached mode</span><br><span class="line">docker container ls                                # List all running containers</span><br><span class="line">docker container ls -a             # List all containers, even those not running</span><br><span class="line">docker container stop &lt;hash&gt;           # Gracefully stop the specified container</span><br><span class="line">docker container kill &lt;hash&gt;         # Force shutdown of the specified container</span><br><span class="line">docker container rm &lt;hash&gt;        # Remove specified container from this machine</span><br><span class="line">docker container rm $(docker container ls -a -q)         # Remove all containers</span><br><span class="line">docker image ls -a                             # List all images on this machine</span><br><span class="line">docker image rm &lt;image id&gt;            # Remove specified image from this machine</span><br><span class="line">docker image rm $(docker image ls -a -q)   # Remove all images from this machine</span><br><span class="line">docker login             # Log in this CLI session using your Docker credentials</span><br><span class="line">docker tag &lt;image&gt; username/repository:tag  # Tag &lt;image&gt; for upload to registry</span><br><span class="line">docker push username/repository:tag            # Upload tagged image to registry</span><br><span class="line">docker run username/repository:tag                   # Run image from a registry</span><br></pre></td></tr></table></figure><h3 id="2-2-服务"><a href="#2-2-服务" class="headerlink" title="2.2 服务"></a>2.2 服务</h3><p>对于分布式程序， 每个分片就是一个服务。</p><p>创建一个compose文件</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">➜  docker_file vim docker-compose.yml</span><br><span class="line">➜  docker_file cat docker-compose.yml</span><br><span class="line">version: &quot;3&quot;</span><br><span class="line">services:</span><br><span class="line">  web:</span><br><span class="line">    # replace username/repo:tag with your name and image details</span><br><span class="line">    image: weihuchao/get-started:part1</span><br><span class="line">    deploy:</span><br><span class="line">      replicas: 5</span><br><span class="line">      resources:</span><br><span class="line">        limits:</span><br><span class="line">          cpus: &quot;0.1&quot;</span><br><span class="line">          memory: 50M</span><br><span class="line">      restart_policy:</span><br><span class="line">        condition: on-failure</span><br><span class="line">    ports:</span><br><span class="line">      - &quot;4000:80&quot;</span><br><span class="line">    networks:</span><br><span class="line">      - webnet</span><br><span class="line">networks:</span><br><span class="line">  webnet:</span><br></pre></td></tr></table></figure><ul><li>创建一个名为web的服务，运行5个实例。</li><li>一旦失败就重启</li><li>端口配置和之前的一致</li><li>通过名为webnet的负载均衡来进行负载均衡</li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">➜  docker_file docker swarm init</span><br><span class="line">Swarm initialized: current node (u3dqg55kw2zuznsl8mkkoj0y4) is now a manager.</span><br><span class="line"></span><br><span class="line">To add a worker to this swarm, run the following command:</span><br><span class="line"></span><br><span class="line">    docker swarm join --token SWMTKN-1-1y7qkerfds031krhu1xry1jrxdiz5k7h2pxh6n9ue0xv9ccnta-70p3h13q9kje8ipbw4hd65wcg 192.168.65.3:2377</span><br><span class="line"></span><br><span class="line">To add a manager to this swarm, run &apos;docker swarm join-token manager&apos; and follow the instructions.</span><br><span class="line"></span><br><span class="line">➜  docker_file docker stack deploy -c docker-compose.yml getstartedlab</span><br><span class="line">Creating network getstartedlab_webnet</span><br><span class="line">Creating service getstartedlab_web</span><br><span class="line">➜  docker_file docker ps</span><br><span class="line">CONTAINER ID        IMAGE                         COMMAND             CREATED             STATUS              PORTS               NAMES</span><br><span class="line">d877cae608ad        weihuchao/get-started:part1   &quot;python app.py&quot;     8 seconds ago       Up 5 seconds        80/tcp              getstartedlab_web.2.ptnydvr11qh3pf6sojrp3w4c3</span><br><span class="line">1f5ec4db337b        weihuchao/get-started:part1   &quot;python app.py&quot;     8 seconds ago       Up 5 seconds        80/tcp              getstartedlab_web.5.clqmpbuxb3eara40eoj9uvkzi</span><br><span class="line">afdc3314b63b        weihuchao/get-started:part1   &quot;python app.py&quot;     8 seconds ago       Up 5 seconds        80/tcp              getstartedlab_web.4.tvhwox2d1r5zjds985mety0oj</span><br><span class="line">d4ca340faa6a        weihuchao/get-started:part1   &quot;python app.py&quot;     8 seconds ago       Up 5 seconds        80/tcp              getstartedlab_web.1.wd6dr71vlg84cxpla1g3l7vgh</span><br><span class="line">976e5e62ef00        weihuchao/get-started:part1   &quot;python app.py&quot;     8 seconds ago       Up 6 seconds        80/tcp              getstartedlab_web.3.2085k2dvw7q4lgyf5opjn5vqf</span><br><span class="line">➜  docker_file docker service ls</span><br><span class="line">ID                  NAME                MODE                REPLICAS            IMAGE                         PORTS</span><br><span class="line">xfmdeis99zj7        getstartedlab_web   replicated          5/5                 weihuchao/get-started:part1   *:4000-&gt;80/tcp</span><br><span class="line">➜  docker_file docker service ps getstartedlab_web</span><br><span class="line">ID                  NAME                  IMAGE                         NODE                    DESIRED STATE       CURRENT STATE           ERROR               PORTS</span><br><span class="line">wd6dr71vlg84        getstartedlab_web.1   weihuchao/get-started:part1   linuxkit-025000000001   Running             Running 2 minutes ago</span><br><span class="line">ptnydvr11qh3        getstartedlab_web.2   weihuchao/get-started:part1   linuxkit-025000000001   Running             Running 2 minutes ago</span><br><span class="line">2085k2dvw7q4        getstartedlab_web.3   weihuchao/get-started:part1   linuxkit-025000000001   Running             Running 2 minutes ago</span><br><span class="line">tvhwox2d1r5z        getstartedlab_web.4   weihuchao/get-started:part1   linuxkit-025000000001   Running             Running 2 minutes ago</span><br><span class="line">clqmpbuxb3ea        getstartedlab_web.5   weihuchao/get-started:part1   linuxkit-025000000001   Running             Running 2 minutes ago</span><br><span class="line">➜  docker_file docker container ls -q</span><br><span class="line">d877cae608ad</span><br><span class="line">1f5ec4db337b</span><br><span class="line">afdc3314b63b</span><br><span class="line">d4ca340faa6a</span><br><span class="line">976e5e62ef00</span><br><span class="line">➜  docker_file docker stack rm getstartedlab</span><br><span class="line">Removing service getstartedlab_web</span><br><span class="line">Removing network getstartedlab_webnet</span><br><span class="line">➜  docker_file docker swarm leave --force</span><br><span class="line">Node left the swarm.</span><br></pre></td></tr></table></figure><p>需要先创建swarm， 在deploy。</p><p>通过负载均衡来访问集群中的不同的服务，不断访问主页可以看到有可能每次访问得到的hostname都是不同的。</p><p>用到的命令集合</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">docker stack ls                                            # List stacks or apps</span><br><span class="line">docker stack deploy -c &lt;composefile&gt; &lt;appname&gt;  # Run the specified Compose file</span><br><span class="line">docker service ls                 # List running services associated with an app</span><br><span class="line">docker service ps &lt;service&gt;                  # List tasks associated with an app</span><br><span class="line">docker inspect &lt;task or container&gt;                   # Inspect task or container</span><br><span class="line">docker container ls -q                                      # List container IDs</span><br><span class="line">docker stack rm &lt;appname&gt;                             # Tear down an application</span><br><span class="line">docker swarm leave --force      # Take down a single node swarm from the manager</span><br></pre></td></tr></table></figure>]]></content>
+      
+      <categories>
+          
+          <category> 笔记 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 笔记 </tag>
+            
+            <tag> docker </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
+      <title>SSH的一般配置</title>
+      <link href="/2018/10/06/ssh%E9%85%8D%E7%BD%AE/"/>
+      <url>/2018/10/06/ssh%E9%85%8D%E7%BD%AE/</url>
+      <content type="html"><![CDATA[<h2 id="config配置"><a href="#config配置" class="headerlink" title="config配置"></a>config配置</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Host fd-git</span><br><span class="line">    Hostname git.finger.dance</span><br><span class="line">    User git</span><br><span class="line">    IdentityFile ~/.ssh/weihc</span><br></pre></td></tr></table></figure>]]></content>
+      
+      <categories>
+          
+          <category> 笔记 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 笔记 </tag>
+            
+            <tag> SSH </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
+      <title>设置Mac</title>
+      <link href="/2018/10/06/%E8%AE%BE%E7%BD%AEmac/"/>
+      <url>/2018/10/06/%E8%AE%BE%E7%BD%AEmac/</url>
+      <content type="html"><![CDATA[<h2 id="1-设置launchpad的展示方式"><a href="#1-设置launchpad的展示方式" class="headerlink" title="1 设置launchpad的展示方式"></a>1 设置launchpad的展示方式</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">defaults write com.apple.dock springboard-columns -int 12</span><br><span class="line">defaults write com.apple.dock springboard-rows -int 8</span><br><span class="line">defaults write com.apple.dock ResetLaunchPad -bool TRUE</span><br><span class="line">killall Dock</span><br></pre></td></tr></table></figure>]]></content>
+      
+      <categories>
+          
+          <category> 笔记 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 笔记 </tag>
+            
+            <tag> Mac </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
+      <title>amazing trees-泽野弘之</title>
+      <link href="/2018/09/19/amazing%20trees%20-%20%E6%B3%BD%E9%87%8E%E5%BC%98%E4%B9%8B/"/>
+      <url>/2018/09/19/amazing%20trees%20-%20%E6%B3%BD%E9%87%8E%E5%BC%98%E4%B9%8B/</url>
+      <content type="html"><![CDATA[<h2 id="平假名歌词"><a href="#平假名歌词" class="headerlink" title="平假名歌词"></a>平假名歌词</h2><p>僕はホコリだけの答えを見つけた顔しながら<br>ぼくは ホコリ(hokori)だけ のこたえを みつけ たかおしながら</p><p>外で本当の言葉を置き忘れていたんだ<br>そとでほんとうのことばを おき わすれてい たんだ</p><p>裏返しの過去に明かりを照らしてても<br>(う)らがえしのかこに　あかり をてらし てても</p><p>誤魔化したこれまでの声が横で目を覚ます<br>ごまかした これま(で)のこえが　よこでめを さます</p><p>走り出すのが 当たり前だったと うろ覚えなふりを<br>(は)しりたすのが　あたりまえだったと　うろおぼえな　ふりを</p><p>時に濡れた道の砂が靴の底に詰まる<br>ときに　ぬれた　みちの　すなが　くつの　そこに　つまる</p><p>振り落とせば出れる路地<br>ふりおとせば　でれ(る)ろじ</p><p>Getting me all upset I just wanna be free<br>I couldn’t!<br>Truth that I have been hiding, it’s so hard to see<br>You’ve been getting me all upset I have fallen too far!<br>I couldn’t grow the way I’ve been wanting<br>You know who you are!<br>We’re all amazing trees reaching up to the stars<br>Though we’re no longer children they sing in our hearts<br>We know the time that’s passing is not everlasting<br>Stop telling yourself the lies<br>I wanna change</p><p>それはずれた祈りをかわしまた後ろに近づく<br>それはずれたいのりを かわし またうしろにちかづく</p><p>あの日出逢った喜びを無邪気に掲げながら<br>あのひ であったよろこびを　むじゃきにかかげながら</p><p>迷路に似たような怖さと期待の影<br>めいろににたような　こわさ ときたい のかげ</p><p>これが最後みたいな風通るのは街のせいじゃない<br>これがさいご(み)たいなかぜとお(る)のは　まちのせいじゃない</p><p>泣き出した日が 立つ未来選んだ スローペースと向き合う<br>なきだしたひが　たつみらいえらんだ　スローペースと むきあう</p><p>焦る月が惑わす空で通り雨に打たれる<br>あせる　つきが　まどわ(す) そらで　とおり　あめに　うたれる</p><p>幼い日々が 直線を歌う<br>おさないびが　ちょくせんをうたう</p><p>Getting me all upset I just wanna be free<br>I couldn’t!<br>Truth that I have been hiding, it’s so hard to see<br>You’ve been getting me all upset I have fallen too far!<br>I couldn’t grow the way I’ve been wanting<br>You know who you are!<br>We’re all amazing trees reaching up to the stars<br>Though we’re no longer children they sing in our hearts<br>We know the time that’s passing is not everlasting<br>Stop telling yourself the lies<br>I wanna change<br>Amazing trees, amazing trees</p><p>空側に眺めた色は<br>そながわに　ながめたいろは</p><p>影さえ消えた雑じり気ないold &amp; new<br>かげさえ きえた　まじりげない　old &amp; new　</p><p>Getting me all upset I just wanna be free<br>I couldn’t!<br>Truth that I have been hiding, it’s so hard to see<br>You’ve been getting me all upset I have fallen too far!<br>I couldn’t grow the way I’ve been wanting<br>You know who you are!<br>We’re all amazing trees reaching up to the stars<br>Though we’re no longer children they sing in our hearts<br>We know the time that’s passing is not everlasting<br>Stop telling yourself the lies<br>I wanna change</p><h2 id="参考内容"><a href="#参考内容" class="headerlink" title="参考内容"></a>参考内容</h2><ul><li>歌词来源： <a href="http://j-lyric.net/artist/a05b956/l042861.html" target="_blank" rel="noopener">http://j-lyric.net/artist/a05b956/l042861.html</a></li><li>汉字翻译： <a href="https://kanji.jitenon.jp/" target="_blank" rel="noopener">https://kanji.jitenon.jp/</a></li><li>翻译： <a href="https://dictionary.goo.ne.jp/jn/" target="_blank" rel="noopener">https://dictionary.goo.ne.jp/jn/</a></li></ul>]]></content>
+      
+      <categories>
+          
+          <category> Music </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 歌词 </tag>
+            
+            <tag> 音乐 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
       <title>yilia主题自定义</title>
       <link href="/2018/09/19/%E4%B8%BB%E9%A2%98%E8%87%AA%E5%AE%9A%E4%B9%89/"/>
       <url>/2018/09/19/%E4%B8%BB%E9%A2%98%E8%87%AA%E5%AE%9A%E4%B9%89/</url>
@@ -97,29 +358,6 @@
             <tag> Django </tag>
             
             <tag> Tornado </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    <entry>
-      <title>amazing trees-泽野弘之</title>
-      <link href="/2018/09/17/amazing%20trees%20-%20%E6%B3%BD%E9%87%8E%E5%BC%98%E4%B9%8B/"/>
-      <url>/2018/09/17/amazing%20trees%20-%20%E6%B3%BD%E9%87%8E%E5%BC%98%E4%B9%8B/</url>
-      <content type="html"><![CDATA[<h2 id="平假名歌词"><a href="#平假名歌词" class="headerlink" title="平假名歌词"></a>平假名歌词</h2><p>僕はホコリだけの答えを見つけた顔しながら<br>ぼくはホコリ(hokori)だけのこたえを みつけたかおしながら</p><p>外で本当の言葉を置き忘れていたんだ<br>そとでほんとうのことばを おきわすれていたんだ</p><p>裏返しの過去に明かりを照らしてても<br>うらがえしのかこに　あかりをしょうらしてても</p><p>誤魔化したこれまでの声が横で目を覚ます<br>ごまかしたこれまでのこえが　おうでめをさます</p><p>走り出すのが 当たり前だったと うろ覚えなふりを<br>はしりたすのが　あたりまえだったと　うろおぼえなふりを</p><p>時に濡れた道の砂が靴の底に詰まる<br>ときに　ぬれた　みちの　すなが　くつの　そこに　つまる</p><p>振り落とせば出れる路地<br>ふりおとせば　でれるろじ</p><p>Getting me all upset I just wanna be free<br>I couldn’t!<br>Truth that I have been hiding, it’s so hard to see<br>You’ve been getting me all upset I have fallen too far!<br>I couldn’t grow the way I’ve been wanting<br>You know who you are!<br>We’re all amazing trees reaching up to the stars<br>Though we’re no longer children they sing in our hearts<br>We know the time that’s passing is not everlasting<br>Stop telling yourself the lies<br>I wanna change</p><p>それはずれた祈りをかわしまた後ろに近づく<br>それはずれたいのりをかわし またうしろにちかづく</p><p>あの日出逢った喜びを無邪気に掲げながら<br>あのひであったよろこびを　むじゃきにかかけながら</p><p>迷路に似たような怖さと期待の影<br>めいろににたような　こわさときたいのかげ</p><p>これが最後みたいな風通るのは街のせいじゃない<br>これがさいごみたいなかぜとおるのは　まちのせいじゃない</p><p>泣き出した日が 立つ未来選んだ スローペースと向き合う<br>なきだしたひが　たちつみらいえらんだ　スローペースとむきあう</p><p>焦る月が惑わす空で通り雨に打たれる<br>あせる　つきが　まどわす　そらで　とおり　あめに　うたれる</p><p>幼い日々が 直線を歌う<br>おさないひが　ちょくせんをうたう</p><p>Getting me all upset I just wanna be free<br>I couldn’t!<br>Truth that I have been hiding, it’s so hard to see<br>You’ve been getting me all upset I have fallen too far!<br>I couldn’t grow the way I’ve been wanting<br>You know who you are!<br>We’re all amazing trees reaching up to the stars<br>Though we’re no longer children they sing in our hearts<br>We know the time that’s passing is not everlasting<br>Stop telling yourself the lies<br>I wanna change<br>Amazing trees, amazing trees</p><p>空側に眺めた色は<br>そながわに　ながめたいろは</p><p>影さえ消えた雑じり気ないold &amp; new<br>かげさえきえた　まじりき(え?)ない　old &amp; new　</p><p>Getting me all upset I just wanna be free<br>I couldn’t!<br>Truth that I have been hiding, it’s so hard to see<br>You’ve been getting me all upset I have fallen too far!<br>I couldn’t grow the way I’ve been wanting<br>You know who you are!<br>We’re all amazing trees reaching up to the stars<br>Though we’re no longer children they sing in our hearts<br>We know the time that’s passing is not everlasting<br>Stop telling yourself the lies<br>I wanna change</p><h2 id="参考内容"><a href="#参考内容" class="headerlink" title="参考内容"></a>参考内容</h2><ul><li>歌词来源： <a href="http://j-lyric.net/artist/a05b956/l042861.html" target="_blank" rel="noopener">http://j-lyric.net/artist/a05b956/l042861.html</a></li><li>汉字翻译： <a href="https://kanji.jitenon.jp/" target="_blank" rel="noopener">https://kanji.jitenon.jp/</a></li><li>翻译： <a href="https://dictionary.goo.ne.jp/jn/" target="_blank" rel="noopener">https://dictionary.goo.ne.jp/jn/</a></li></ul>]]></content>
-      
-      <categories>
-          
-          <category> Music </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 歌词 </tag>
-            
-            <tag> 音乐 </tag>
             
         </tags>
       
@@ -224,29 +462,6 @@
     </entry>
     
     <entry>
-      <title>千里之外-周杰伦</title>
-      <link href="/2018/07/08/%E5%8D%83%E9%87%8C%E4%B9%8B%E5%A4%96-%E5%91%A8%E6%9D%B0%E4%BC%A6/"/>
-      <url>/2018/07/08/%E5%8D%83%E9%87%8C%E4%B9%8B%E5%A4%96-%E5%91%A8%E6%9D%B0%E4%BC%A6/</url>
-      <content type="html"><![CDATA[<h2 id="歌谱"><a href="#歌谱" class="headerlink" title="歌谱"></a>歌谱</h2><p><img src="/img/blog/千里之外/千里之外.jpg" alt=""></p><h2 id="歌词"><a href="#歌词" class="headerlink" title="歌词"></a>歌词</h2><h3 id="A"><a href="#A" class="headerlink" title="A"></a>A</h3><p>屋檐如悬崖 风铃如沧海<br>我等燕归来<br>时间被安排 演一场意外<br>你悄然走开</p><p>故事在城外 浓雾散不开<br>看不清对白<br>你听不出来 风声不存在<br>是我在感慨</p><p>梦醒来 是谁在窗台 把结局打开<br>那薄如蝉|翼的未来<br>经不起谁来拆</p><p>我送你离开 千里之外<br>你无声黑白<br>沉默年代 或许不该<br>太遥远的相爱</p><p>我送你离开 天涯之外<br>你是否还在<br>琴声何来 生死难猜<br>用一生去等待</p><h3 id="B"><a href="#B" class="headerlink" title="B"></a>B</h3><p>一身琉璃白 透明着尘埃<br>你无瑕的爱<br>你从雨中来 诗化了悲哀<br>我淋湿现在</p><p>芙蓉水面采 船行影犹在<br>你却不回来<br>被岁月覆盖 你说的花开<br>过去成空白</p><p>梦醒来 是谁在窗台 把结局打开<br>那薄如蝉|翼的未来<br>经不起谁来拆</p><p>我送你离开 千里之外<br>你无声黑白<br>沉默年代 或许不该<br>太遥远的相爱</p><p>我送你离开 天涯之外<br>你是否还在<br>琴声何来 生死难猜<br>用一生 （没有去等待）</p><h2 id="C"><a href="#C" class="headerlink" title="C"></a>C</h2><p>我送你离开 千里之外<br>你无声黑白<br>沉默年代 或许不该<br>太遥远的相爱</p><p>我送你离开 天涯之外<br>你是否还在<br>琴声何来 生死难猜<br>用一生去等待</p>]]></content>
-      
-      <categories>
-          
-          <category> Music </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 歌词 </tag>
-            
-            <tag> 音乐 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    <entry>
       <title>高飞-张杰</title>
       <link href="/2018/07/08/%E9%AB%98%E9%A3%9E-%E5%BC%A0%E6%9D%B0/"/>
       <url>/2018/07/08/%E9%AB%98%E9%A3%9E-%E5%BC%A0%E6%9D%B0/</url>
@@ -270,10 +485,10 @@
     </entry>
     
     <entry>
-      <title>青花瓷-周杰伦</title>
-      <link href="/2018/07/08/%E9%9D%92%E8%8A%B1%E7%93%B7-%E5%91%A8%E6%9D%B0%E4%BC%A6/"/>
-      <url>/2018/07/08/%E9%9D%92%E8%8A%B1%E7%93%B7-%E5%91%A8%E6%9D%B0%E4%BC%A6/</url>
-      <content type="html"><![CDATA[<h2 id="歌谱"><a href="#歌谱" class="headerlink" title="歌谱"></a>歌谱</h2><p><img src="/img/blog/青花瓷/青花瓷.jpg" alt=""></p>]]></content>
+      <title>大唐玄怪来谒-肥皂菌</title>
+      <link href="/2018/07/08/%E5%A4%A7%E5%94%90%E7%8E%84%E6%80%AA%E6%9D%A5%E8%B0%92-%E8%82%A5%E7%9A%82%E8%8F%8C/"/>
+      <url>/2018/07/08/%E5%A4%A7%E5%94%90%E7%8E%84%E6%80%AA%E6%9D%A5%E8%B0%92-%E8%82%A5%E7%9A%82%E8%8F%8C/</url>
+      <content type="html"><![CDATA[<h2 id="歌词"><a href="#歌词" class="headerlink" title="歌词"></a>歌词</h2><h3 id="A"><a href="#A" class="headerlink" title="A"></a>A</h3><p>文翰初议周隋 再话旧唐<br>以尺墨安定狐媚<br>平生偏好奇诡 又易食髓知味<br>秉夜烛 诗邀神鬼<br>听说落魄书生 杜氏子春<br>虎皮上两世长梦 成仙或为人<br>他已识门道九分 偏情字入骨深</p><p>清夜慎持明烛台 它亦吟得词句入怀<br>大唐遍出诗才 待我坐镇云峰台<br>千里紫霞参拜 引鹤来<br>剑指乌妖一当百 身性刚正<br>怎怕污邪侵害<br>只把酒此生付慷慨 喝完<br>披朱衣再去游炎海</p><h3 id="B"><a href="#B" class="headerlink" title="B"></a>B</h3><p>笔触刺骨几分 毫若青锋<br>如凡俗入骨几寸 最难罢品红尘<br>异事易勾瘾症<br>上酒卮 劳君多论<br>时人文章评批 非不靡丽<br>却可惜殊少骨气 不如拂袖去<br>练绝这一手棋技 普世人桔中戏</p><p>当心红鬼鸣鼓钟<br>提柄长剑叩你颈痛<br>方知善恶有终<br>上元广陵景最浓 由我乘驾天虹 彩云中<br>敢凭纸符救白龙<br>并非是我 醉得太过放纵<br>只爱煞一生逞英雄<br>不叹匆匆 真君子不言怪</p><h3 id="C"><a href="#C" class="headerlink" title="C"></a>C</h3><p>自诩假小人尽可谈的开怀<br>因我解下绣龙裳 世间无人敢自称王<br>犯我半分张狂 挑亮烛光点鬼将<br>推杯豪饮琼浆 祭参商<br>扬手呼童请明皇 突觉喉中<br>酒烈吐出金蟒 吞山河胸胆正开张<br>容我 怒书这一卷说盛唐</p>]]></content>
       
       <categories>
           
@@ -293,10 +508,10 @@
     </entry>
     
     <entry>
-      <title>大唐玄怪来谒-肥皂菌</title>
-      <link href="/2018/07/08/%E5%A4%A7%E5%94%90%E7%8E%84%E6%80%AA%E6%9D%A5%E8%B0%92-%E8%82%A5%E7%9A%82%E8%8F%8C/"/>
-      <url>/2018/07/08/%E5%A4%A7%E5%94%90%E7%8E%84%E6%80%AA%E6%9D%A5%E8%B0%92-%E8%82%A5%E7%9A%82%E8%8F%8C/</url>
-      <content type="html"><![CDATA[<h2 id="歌词"><a href="#歌词" class="headerlink" title="歌词"></a>歌词</h2><h3 id="A"><a href="#A" class="headerlink" title="A"></a>A</h3><p>文翰初议周隋 再话旧唐<br>以尺墨安定狐媚<br>平生偏好奇诡 又易食髓知味<br>秉夜烛 诗邀神鬼<br>听说落魄书生 杜氏子春<br>虎皮上两世长梦 成仙或为人<br>他已识门道九分 偏情字入骨深</p><p>清夜慎持明烛台 它亦吟得词句入怀<br>大唐遍出诗才 待我坐镇云峰台<br>千里紫霞参拜 引鹤来<br>剑指乌妖一当百 身性刚正<br>怎怕污邪侵害<br>只把酒此生付慷慨 喝完<br>披朱衣再去游炎海</p><h3 id="B"><a href="#B" class="headerlink" title="B"></a>B</h3><p>笔触刺骨几分 毫若青锋<br>如凡俗入骨几寸 最难罢品红尘<br>异事易勾瘾症<br>上酒卮 劳君多论<br>时人文章评批 非不靡丽<br>却可惜殊少骨气 不如拂袖去<br>练绝这一手棋技 普世人桔中戏</p><p>当心红鬼鸣鼓钟<br>提柄长剑叩你颈痛<br>方知善恶有终<br>上元广陵景最浓 由我乘驾天虹 彩云中<br>敢凭纸符救白龙<br>并非是我 醉得太过放纵<br>只爱煞一生逞英雄<br>不叹匆匆 真君子不言怪</p><h3 id="C"><a href="#C" class="headerlink" title="C"></a>C</h3><p>自诩假小人尽可谈的开怀<br>因我解下绣龙裳 世间无人敢自称王<br>犯我半分张狂 挑亮烛光点鬼将<br>推杯豪饮琼浆 祭参商<br>扬手呼童请明皇 突觉喉中<br>酒烈吐出金蟒 吞山河胸胆正开张<br>容我 怒书这一卷说盛唐</p>]]></content>
+      <title>千里之外-周杰伦</title>
+      <link href="/2018/07/08/%E5%8D%83%E9%87%8C%E4%B9%8B%E5%A4%96-%E5%91%A8%E6%9D%B0%E4%BC%A6/"/>
+      <url>/2018/07/08/%E5%8D%83%E9%87%8C%E4%B9%8B%E5%A4%96-%E5%91%A8%E6%9D%B0%E4%BC%A6/</url>
+      <content type="html"><![CDATA[<h2 id="歌谱"><a href="#歌谱" class="headerlink" title="歌谱"></a>歌谱</h2><p><img src="/img/blog/千里之外/千里之外.jpg" alt=""></p><h2 id="歌词"><a href="#歌词" class="headerlink" title="歌词"></a>歌词</h2><h3 id="A"><a href="#A" class="headerlink" title="A"></a>A</h3><p>屋檐如悬崖 风铃如沧海<br>我等燕归来<br>时间被安排 演一场意外<br>你悄然走开</p><p>故事在城外 浓雾散不开<br>看不清对白<br>你听不出来 风声不存在<br>是我在感慨</p><p>梦醒来 是谁在窗台 把结局打开<br>那薄如蝉|翼的未来<br>经不起谁来拆</p><p>我送你离开 千里之外<br>你无声黑白<br>沉默年代 或许不该<br>太遥远的相爱</p><p>我送你离开 天涯之外<br>你是否还在<br>琴声何来 生死难猜<br>用一生去等待</p><h3 id="B"><a href="#B" class="headerlink" title="B"></a>B</h3><p>一身琉璃白 透明着尘埃<br>你无瑕的爱<br>你从雨中来 诗化了悲哀<br>我淋湿现在</p><p>芙蓉水面采 船行影犹在<br>你却不回来<br>被岁月覆盖 你说的花开<br>过去成空白</p><p>梦醒来 是谁在窗台 把结局打开<br>那薄如蝉|翼的未来<br>经不起谁来拆</p><p>我送你离开 千里之外<br>你无声黑白<br>沉默年代 或许不该<br>太遥远的相爱</p><p>我送你离开 天涯之外<br>你是否还在<br>琴声何来 生死难猜<br>用一生 （没有去等待）</p><h2 id="C"><a href="#C" class="headerlink" title="C"></a>C</h2><p>我送你离开 千里之外<br>你无声黑白<br>沉默年代 或许不该<br>太遥远的相爱</p><p>我送你离开 天涯之外<br>你是否还在<br>琴声何来 生死难猜<br>用一生去等待</p>]]></content>
       
       <categories>
           
@@ -385,10 +600,10 @@
     </entry>
     
     <entry>
-      <title>e of s-泽野弘之</title>
-      <link href="/2018/07/08/e%20of%20s-%E6%B3%BD%E9%87%8E%E5%BC%98%E4%B9%8B/"/>
-      <url>/2018/07/08/e%20of%20s-%E6%B3%BD%E9%87%8E%E5%BC%98%E4%B9%8B/</url>
-      <content type="html"><![CDATA[<p>各个平台的歌词都不一样，泽野大大的歌词一向生僻，google到的歌词和听到的总有差异。<br>因此给出两个版本的歌词:<br>一个是我慢放歌一遍一遍听出来的歌词， 纯平假名。<br>一个是我在lyrical-nonsense.com看到的歌词。</p><h2 id="纯平假名听出来的歌词"><a href="#纯平假名听出来的歌词" class="headerlink" title="纯平假名听出来的歌词"></a>纯平假名听出来的歌词</h2><h3 id="A"><a href="#A" class="headerlink" title="A"></a>A</h3><p>ぼくおけしてえ　たつみの　がれのお<br>あらす　ほど　ちのねに　おびえる<br>こだわりのないきばで<br>どこお　とがめても<br>てすりも　つかめやしない<br>いばしょおよ　けいも　とめる<br>さけも　end of sound</p><p>だれもいない<br>さわいだ　げんそに　こたえた　りてのわるど<br>むげんのSTAGEと　いかりだけ<br>ごみかせない　らせんのご　めざめたていこ</p><h3 id="B"><a href="#B" class="headerlink" title="B"></a>B</h3><p>さめたまちの　あかりがと　もしても<br>きずの　いろ　いた　みわ　わからない<br>りくつなぎお　かかげ　ばせいおふらしても<br>あしもと　みず　だらけ<br>ことばの　せいで　きまる<br>こたえない　いない</p><p>だれもいない<br>かわいた　かんじょで　ぎせいなった　ちじょのtears<br>くだいた　そらえ　さけんでも<br>たたかえない　むりょなえ　すなになえいこ</p><h3 id="C"><a href="#C" class="headerlink" title="C"></a>C</h3><p>そこにだれもいない<br>さわいだ　げんそすで　きえてった　りていくのわるど<br>むげんのSTAGEと　いかりだけ<br>ごみかせない　らせんのご　めざめたていこ</p><h2 id="网上的歌词"><a href="#网上的歌词" class="headerlink" title="网上的歌词"></a>网上的歌词</h2><p>「僕」を消して得た「罪逃れの王」<br>荒らすほど地の音に怯える<br>拘りの無い牙で　どこを咎めても<br>手すりも掴めやしない<br>居場所を余計求める<br>叫ぶも　end of sound<br>“boku” o keshite eta “tsumi nogare no ou”<br>arasu hodo chi no oto ni obieru<br>kodawari no nai kiba de doko o togametemo<br>tesuri mo tsukame ya shinai<br>ibasho o yokei motomeru<br>sakebu mo end of sound</p><p>誰もいない<br>騒いだ幻想に答えて得たリテイクのワールド<br>無限のSTAGEと怒りだけ<br>誤魔化せない螺旋の業　目覚めた抵抗<br>daremo inai<br>sawaida gensou ni kotaete eta riteiku no waarudo<br>mugen no STAGE to ikari dake<br>gomakasenai rasen no gou mezameta teikou</p><p>覚めた街の明かりが灯しても<br>傷の色・痛みは解らない<br>理屈な義を掲げ罵声を降らしても<br>足元水だらけ<br>sameta machi no akari ga tomoshitemo<br>kizu no iro ・ itami wa wakaranai<br>rikutsu na gi o kakage basei o furashitemo<br>ashimoto mizu darake</p><p>言葉の精度で決まる<br>答えなどいらない<br>kotoba no seido de kimaru<br>kotae nado iranai</p><p>誰もいない<br>乾いた感情で犠牲になった地上のtears<br>砕いた空へ叫んでも<br>戦えない無力なエゴ　砂になる栄光<br>daremo inai<br>kawaita kanjou de gisei ni natta chijou no tears<br>kudaita sora e sakendemo<br>tatakaenai muryoku na ego suna ni naru eikou</p><p>誰もいない<br>騒いだ幻想を捨て消えてったリテイクのワールド<br>無限のSTAGEと怒りだけ<br>誤魔化せない螺旋の業　目覚めた抵抗<br>daremo inai<br>sawaida gensou o sute kietetta riteiku no waarudo<br>mugen no STAGE to ikari dake<br>gomakasenai rasen no gou mezameta teikou</p>]]></content>
+      <title>不朽之罪-双笙</title>
+      <link href="/2018/07/08/%E4%B8%8D%E6%9C%BD%E4%B9%8B%E7%BD%AA-%E5%8F%8C%E7%AC%99/"/>
+      <url>/2018/07/08/%E4%B8%8D%E6%9C%BD%E4%B9%8B%E7%BD%AA-%E5%8F%8C%E7%AC%99/</url>
+      <content type="html"><![CDATA[<h2 id="歌词"><a href="#歌词" class="headerlink" title="歌词"></a>歌词</h2><h3 id="A"><a href="#A" class="headerlink" title="A"></a>A</h3><p>打乱的骨牌 习惯盲目依赖↑<br>以坦然姿态 等风来→<br>鞋跟下青苔 爬满拖地裙摆→<br>神的福音被隔|绝窗外↑</p><p>天平支点倾斜 自尊将我打败<br>不安的窘态 在作怪<br>我熟知的年代还能区分黑白<br>无需卖弄心|机耍赖</p><p>为谁深陷不知往返的迷恋<br>未曾认清这个世界<br>我听到权力之争彻夜不歇<br>街尾血香|愈显浓烈</p><h3 id="B"><a href="#B" class="headerlink" title="B"></a>B</h3><p>空间接应点 于囚笼中调（diao）配<br>密封的花蕊 正枯萎<br>听断线傀儡 晚安留在句尾<br>僵硬的思维筛选错对</p><p>天平支点倾斜 自尊将我打败<br>不安的窘态 在作怪<br>我熟知的年代 还能区分黑白<br>无需卖弄心|机耍赖</p><p>为谁深陷不知往返的迷恋<br>未曾认清这个世界<br>我听到权力之争彻夜不歇<br>街尾血香|愈显浓烈</p><h3 id="C"><a href="#C" class="headerlink" title="C"></a>C</h3><p>甘愿臣服于谁 立忠诚之碑<br>重叠暗夜又一番教诲<br>结局早已无谓<br>明与灭 滞留病态的美</p><h3 id="D"><a href="#D" class="headerlink" title="D"></a>D</h3><p>为谁深陷不知往返的迷恋<br>为谁认清这个世界<br>我听到权力之争彻夜不歇<br>街尾血香|显浓烈</p><p>打乱的骨牌 习惯盲目依赖<br>（为谁深陷不知往返的迷恋）</p><p>以坦然姿态 等风来<br>（未曾认清这个世界）</p><p>让断线傀儡 晚安留在句尾<br>（我听到权力之争彻夜不歇）</p><p>僵硬的思维筛选错对<br>（街尾血香愈显浓烈)</p>]]></content>
       
       <categories>
           
@@ -408,10 +623,33 @@
     </entry>
     
     <entry>
-      <title>不朽之罪-双笙</title>
-      <link href="/2018/07/08/%E4%B8%8D%E6%9C%BD%E4%B9%8B%E7%BD%AA-%E5%8F%8C%E7%AC%99/"/>
-      <url>/2018/07/08/%E4%B8%8D%E6%9C%BD%E4%B9%8B%E7%BD%AA-%E5%8F%8C%E7%AC%99/</url>
-      <content type="html"><![CDATA[<h2 id="歌词"><a href="#歌词" class="headerlink" title="歌词"></a>歌词</h2><h3 id="A"><a href="#A" class="headerlink" title="A"></a>A</h3><p>打乱的骨牌 习惯盲目依赖↑<br>以坦然姿态 等风来→<br>鞋跟下青苔 爬满拖地裙摆→<br>神的福音被隔|绝窗外↑</p><p>天平支点倾斜 自尊将我打败<br>不安的窘态 在作怪<br>我熟知的年代还能区分黑白<br>无需卖弄心|机耍赖</p><p>为谁深陷不知往返的迷恋<br>未曾认清这个世界<br>我听到权力之争彻夜不歇<br>街尾血香|愈显浓烈</p><h3 id="B"><a href="#B" class="headerlink" title="B"></a>B</h3><p>空间接应点 于囚笼中调（diao）配<br>密封的花蕊 正枯萎<br>听断线傀儡 晚安留在句尾<br>僵硬的思维筛选错对</p><p>天平支点倾斜 自尊将我打败<br>不安的窘态 在作怪<br>我熟知的年代 还能区分黑白<br>无需卖弄心|机耍赖</p><p>为谁深陷不知往返的迷恋<br>未曾认清这个世界<br>我听到权力之争彻夜不歇<br>街尾血香|愈显浓烈</p><h3 id="C"><a href="#C" class="headerlink" title="C"></a>C</h3><p>甘愿臣服于谁 立忠诚之碑<br>重叠暗夜又一番教诲<br>结局早已无谓<br>明与灭 滞留病态的美</p><h3 id="D"><a href="#D" class="headerlink" title="D"></a>D</h3><p>为谁深陷不知往返的迷恋<br>为谁认清这个世界<br>我听到权力之争彻夜不歇<br>街尾血香|显浓烈</p><p>打乱的骨牌 习惯盲目依赖<br>（为谁深陷不知往返的迷恋）</p><p>以坦然姿态 等风来<br>（未曾认清这个世界）</p><p>让断线傀儡 晚安留在句尾<br>（我听到权力之争彻夜不歇）</p><p>僵硬的思维筛选错对<br>（街尾血香愈显浓烈)</p>]]></content>
+      <title>青花瓷-周杰伦</title>
+      <link href="/2018/07/08/%E9%9D%92%E8%8A%B1%E7%93%B7-%E5%91%A8%E6%9D%B0%E4%BC%A6/"/>
+      <url>/2018/07/08/%E9%9D%92%E8%8A%B1%E7%93%B7-%E5%91%A8%E6%9D%B0%E4%BC%A6/</url>
+      <content type="html"><![CDATA[<h2 id="歌谱"><a href="#歌谱" class="headerlink" title="歌谱"></a>歌谱</h2><p><img src="/img/blog/青花瓷/青花瓷.jpg" alt=""></p>]]></content>
+      
+      <categories>
+          
+          <category> Music </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 歌词 </tag>
+            
+            <tag> 音乐 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
+      <title>e of s-泽野弘之</title>
+      <link href="/2018/07/08/e%20of%20s-%E6%B3%BD%E9%87%8E%E5%BC%98%E4%B9%8B/"/>
+      <url>/2018/07/08/e%20of%20s-%E6%B3%BD%E9%87%8E%E5%BC%98%E4%B9%8B/</url>
+      <content type="html"><![CDATA[<p>各个平台的歌词都不一样，泽野大大的歌词一向生僻，google到的歌词和听到的总有差异。<br>因此给出两个版本的歌词:<br>一个是我慢放歌一遍一遍听出来的歌词， 纯平假名。<br>一个是我在lyrical-nonsense.com看到的歌词。</p><h2 id="纯平假名听出来的歌词"><a href="#纯平假名听出来的歌词" class="headerlink" title="纯平假名听出来的歌词"></a>纯平假名听出来的歌词</h2><h3 id="A"><a href="#A" class="headerlink" title="A"></a>A</h3><p>ぼくおけしてえ　たつみの　がれのお<br>あらす　ほど　ちのねに　おびえる<br>こだわりのないきばで<br>どこお　とがめても<br>てすりも　つかめやしない<br>いばしょおよ　けいも　とめる<br>さけも　end of sound</p><p>だれもいない<br>さわいだ　げんそに　こたえた　りてのわるど<br>むげんのSTAGEと　いかりだけ<br>ごみかせない　らせんのご　めざめたていこ</p><h3 id="B"><a href="#B" class="headerlink" title="B"></a>B</h3><p>さめたまちの　あかりがと　もしても<br>きずの　いろ　いた　みわ　わからない<br>りくつなぎお　かかげ　ばせいおふらしても<br>あしもと　みず　だらけ<br>ことばの　せいで　きまる<br>こたえない　いない</p><p>だれもいない<br>かわいた　かんじょで　ぎせいなった　ちじょのtears<br>くだいた　そらえ　さけんでも<br>たたかえない　むりょなえ　すなになえいこ</p><h3 id="C"><a href="#C" class="headerlink" title="C"></a>C</h3><p>そこにだれもいない<br>さわいだ　げんそすで　きえてった　りていくのわるど<br>むげんのSTAGEと　いかりだけ<br>ごみかせない　らせんのご　めざめたていこ</p><h2 id="网上的歌词"><a href="#网上的歌词" class="headerlink" title="网上的歌词"></a>网上的歌词</h2><p>「僕」を消して得た「罪逃れの王」<br>荒らすほど地の音に怯える<br>拘りの無い牙で　どこを咎めても<br>手すりも掴めやしない<br>居場所を余計求める<br>叫ぶも　end of sound<br>“boku” o keshite eta “tsumi nogare no ou”<br>arasu hodo chi no oto ni obieru<br>kodawari no nai kiba de doko o togametemo<br>tesuri mo tsukame ya shinai<br>ibasho o yokei motomeru<br>sakebu mo end of sound</p><p>誰もいない<br>騒いだ幻想に答えて得たリテイクのワールド<br>無限のSTAGEと怒りだけ<br>誤魔化せない螺旋の業　目覚めた抵抗<br>daremo inai<br>sawaida gensou ni kotaete eta riteiku no waarudo<br>mugen no STAGE to ikari dake<br>gomakasenai rasen no gou mezameta teikou</p><p>覚めた街の明かりが灯しても<br>傷の色・痛みは解らない<br>理屈な義を掲げ罵声を降らしても<br>足元水だらけ<br>sameta machi no akari ga tomoshitemo<br>kizu no iro ・ itami wa wakaranai<br>rikutsu na gi o kakage basei o furashitemo<br>ashimoto mizu darake</p><p>言葉の精度で決まる<br>答えなどいらない<br>kotoba no seido de kimaru<br>kotae nado iranai</p><p>誰もいない<br>乾いた感情で犠牲になった地上のtears<br>砕いた空へ叫んでも<br>戦えない無力なエゴ　砂になる栄光<br>daremo inai<br>kawaita kanjou de gisei ni natta chijou no tears<br>kudaita sora e sakendemo<br>tatakaenai muryoku na ego suna ni naru eikou</p><p>誰もいない<br>騒いだ幻想を捨て消えてったリテイクのワールド<br>無限のSTAGEと怒りだけ<br>誤魔化せない螺旋の業　目覚めた抵抗<br>daremo inai<br>sawaida gensou o sute kietetta riteiku no waarudo<br>mugen no STAGE to ikari dake<br>gomakasenai rasen no gou mezameta teikou</p>]]></content>
       
       <categories>
           
