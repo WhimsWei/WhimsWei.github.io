@@ -147,6 +147,117 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-面试进程线程协程两三语" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/09/18/面试进程线程协程两三语/">面试进程线程协程两三语</a>
+    </h1>
+  
+
+        
+        <a href="/2018/09/18/面试进程线程协程两三语/" class="archive-article-date">
+  	<time datetime="2018-09-18T12:25:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-18 20:25:53</time>
+</a>
+
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="1-协程"><a href="#1-协程" class="headerlink" title="1 协程"></a>1 协程</h2><h3 id="1-1-协程是什么"><a href="#1-1-协程是什么" class="headerlink" title="1.1 协程是什么"></a>1.1 协程是什么</h3><p>协程是在线程之上由“用户”构建的并发单元，操作系统不感知协程，协程的切换由用户自己管理和调度。</p>
+<h3 id="1-2-协程的好处"><a href="#1-2-协程的好处" class="headerlink" title="1.2 协程的好处"></a>1.2 协程的好处</h3><ol>
+<li><p>协程极大的优化了程序员的编程体验，同步编程风格能快速构建模块，并易于复用，而且有异步的性能(这个看具体库的实现)，也不用陷入callback hell的深坑。</p>
+</li>
+<li><p>第二点也是我最近一直在纠结的一点，协程到底有没有性能提升？</p>
+</li>
+</ol>
+<p>1)从多线程同步模型切到协程来看，首先很明确的性能提升点在于同步到异步的切换，libco中把阻塞的点全部放到了epoll线程中，而协程线程并不会发生阻塞。<br>其次是协程的成本比线程小，线程受栈空间限制，而协程的栈空间由用户控制，而且实现协程需要的辅助数据结构很少，占用的内存少，那么就会有更大的容量，比如可以轻松开10w个协程，但是很难说开10w个线程。<br>另外一个问题是很多人拿线程上下文切换比协程上下文切换开销大来推出协程模型比多线程并发模型性能优这点，这个问题我纠结了很久。<br>对于这个问题，我先做一个简单的具体抽象：在不考虑阻塞的情况下，假设8核的cpu，不考虑抢占中断优先级等因素，100个任务并发执行，100个线程并发和10个线程每个线程10个协程并发对比两者都可以把cpu资源利用起来，<br>对OS来说，前者100个线程参与cpu调度，后者10个线程参与cpu调度，后者还有额外的协程切换调度，先考虑线程切换的上下文，根据Linux内核调度器CFS的算法，每个线程拿到的时间片是动态的，<br>进程数在分配的时间片在可变区间的情况下会直接影响到线程时间片的长短，所以100个线程每个线程的时间片在一定条件下会要比10个线程情况下的要短，也就意味着在相同时间里，前者的上下文切换次数是比后者要多的，</p>
+<p>所以可以得出一个结论：协程并发模型比多线程同步模型在一定条件下会减少线程切换次数（时间片有固定的范围，如果超出这个范围的边界则线程的时间片无差异），增加了协程切换次数，由于协程的切换是由程序员自己调度的，<br>所以很难说协程切换的代价比省去的线程切换代价小，合理的方式应该是通过测试工具在具体的业务场景得出一个最好的平衡点。</p>
+<p>2)从异步回调模型切到协程模型来看，从一些已有协程库的实现来看，协程的同步写法却有异步性能其实还是异步回调在支撑这个事情，所以我认为协程模型是在异步模型之上的东西，<br>考虑到本身协程上下文切换的开销（其实很小）和数据结构调用的一些开销，理论上协程是比异步回调的性能要稍微差一点，但是可以处于几乎持平的性能，因为协程实现的代价非常小。</p>
+<p>3)从一些异步驱动库的角度来看协程的话，因为异步框架把代码封装到很多个小类里面，然后串起来，这中间会涉及相当多的内存分配，而数据大都在离散的堆内存里面，而协程风格的代码，<br>可以简单理解为一个简洁的连续空间的栈内存池，辅助数据结构也很少，所以协程可能会比厚重的封装性能会更好一些，但是这里的前提是，协程库能实现异步驱动库所需要的功能，并把它封装到同步调用里。</p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
+<li>协程的理解 <a href="https://www.cnblogs.com/laiy/p/coroutine.html" target="_blank" rel="noopener">https://www.cnblogs.com/laiy/p/coroutine.html</a></li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">线程</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">进程</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">协程</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/python//" class="article-tag-list-link color2">python</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/09/18/面试进程线程协程两三语/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-安装mysql依赖" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -595,6 +706,122 @@
 
 
   
+    <article id="post-python解释器" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/09/01/python解释器/">python解释器</a>
+    </h1>
+  
+
+        
+        <a href="/2018/09/01/python解释器/" class="archive-article-date">
+  	<time datetime="2018-08-31T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-01 00:00:00</time>
+</a>
+
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="1-Python的常用解释器"><a href="#1-Python的常用解释器" class="headerlink" title="1 Python的常用解释器"></a>1 Python的常用解释器</h2><h3 id="CPython"><a href="#CPython" class="headerlink" title="CPython"></a>CPython</h3><p>官方版本的解释器：CPython。</p>
+<p>这个解释器是用C语言开发的，所以叫CPython。</p>
+<p>默认在命令行下运行python就是启动CPython解释器。</p>
+<p>CPython是使用最广的Python解释器</p>
+<h3 id="IPython"><a href="#IPython" class="headerlink" title="IPython"></a>IPython</h3><p>IPython是基于CPython之上的一个交互式解释器，只是在交互方式上有所增强。</p>
+<p>CPython用<strong>&gt;&gt;&gt;</strong>作为提示符，而IPython用<strong>In [序号]:</strong>作为提示符。</p>
+<h3 id="PyPy"><a href="#PyPy" class="headerlink" title="PyPy"></a>PyPy</h3><p>PyPy是另一个Python解释器，它的目标是执行速度。</p>
+<p>PyPy采用<strong>JIT技术</strong>，对Python代码进行<strong>动态编译</strong>（注意不是解释），所以可以<strong>显著提高Python代码的执行速度</strong>。</p>
+<p>绝大部分Python代码都可以在PyPy下运行，但是PyPy和CPython有一些是不同的，这就导致相同的Python代码在两种解释器下执行可能会有不同的结果。</p>
+<h3 id="Jython"><a href="#Jython" class="headerlink" title="Jython"></a>Jython</h3><p>Jython是运行在Java平台上的Python解释器，可以直接把Python代码编译成Java字节码执行。</p>
+<h3 id="IronPython"><a href="#IronPython" class="headerlink" title="IronPython"></a>IronPython</h3><p>IronPython和Jython类似，只不过IronPython是运行在微软.Net平台上的Python解释器，可以直接把Python代码编译成.Net的字节码。</p>
+<h2 id="2-解释-提前编译-实时编译"><a href="#2-解释-提前编译-实时编译" class="headerlink" title="2 解释 提前编译 实时编译"></a>2 解释 提前编译 实时编译</h2><h3 id="提前（AOT）编译"><a href="#提前（AOT）编译" class="headerlink" title="提前（AOT）编译"></a>提前（AOT）编译</h3><p>编译高级编程语言为对应的机器代码， 以便生成的二进制文件可以本机执行。</p>
+<h3 id="解释"><a href="#解释" class="headerlink" title="解释"></a>解释</h3><p>解释是<strong>直接执行脚本语言</strong>， 而不需要事先将它们编译成机器语言。</p>
+<p>解释器的主要缺点是解释程序通常比编译时运行得<strong>慢</strong>。</p>
+<p>解释器通常使用以下策略之一来执行程序：</p>
+<ul>
+<li>解析的源代码，并直接执行其行为;</li>
+<li>将源代码转换为一些有效的<strong>中间表示</strong>并立即执行此操作;</li>
+<li>显式执行由编译器生成的存储的预编译代码，编译器是解释器系统的一部分。</li>
+</ul>
+<p>术语“ <strong>解释语言</strong> ”或“ <strong>编译语言</strong> ”表示该语言的规范实现分别是<strong>解释器</strong>或<strong>编译器</strong>。</p>
+<h3 id="实时（JIT）编译"><a href="#实时（JIT）编译" class="headerlink" title="实时（JIT）编译"></a>实时（JIT）编译</h3><p>涉及程序执行期间的编译。</p>
+<p>实时编译系统通常的做法是，连续地分析正在执行的代码，并识别代码的一部分，从而得到加速。且编译或重新编译获得的加速比将超过编译该代码的开销。</p>
+<p>JIT编译结合了编译代码的速度和解释的灵活性，以及​解释器的开销和编译的额外开销（而不仅仅是解释）。</p>
+<p>理论上，JIT编译可以比静态编译产生更快的执行速度。</p>
+<h2 id="3-CPython和PyPy之间的差异"><a href="#3-CPython和PyPy之间的差异" class="headerlink" title="3 CPython和PyPy之间的差异"></a>3 CPython和PyPy之间的差异</h2><p><a href="https://pypy.readthedocs.io/en/latest/cpython_differences.html" target="_blank" rel="noopener">点我查看详细</a></p>
+<p>‰</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">解释器</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/python//" class="article-tag-list-link color2">python</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/09/01/python解释器/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-python拾遗" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -878,122 +1105,6 @@
 
 
   
-    <article id="post-python解释器" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/09/01/python解释器/">python解释器</a>
-    </h1>
-  
-
-        
-        <a href="/2018/09/01/python解释器/" class="archive-article-date">
-  	<time datetime="2018-08-31T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-01 00:00:00</time>
-</a>
-
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="1-Python的常用解释器"><a href="#1-Python的常用解释器" class="headerlink" title="1 Python的常用解释器"></a>1 Python的常用解释器</h2><h3 id="CPython"><a href="#CPython" class="headerlink" title="CPython"></a>CPython</h3><p>官方版本的解释器：CPython。</p>
-<p>这个解释器是用C语言开发的，所以叫CPython。</p>
-<p>默认在命令行下运行python就是启动CPython解释器。</p>
-<p>CPython是使用最广的Python解释器</p>
-<h3 id="IPython"><a href="#IPython" class="headerlink" title="IPython"></a>IPython</h3><p>IPython是基于CPython之上的一个交互式解释器，只是在交互方式上有所增强。</p>
-<p>CPython用<strong>&gt;&gt;&gt;</strong>作为提示符，而IPython用<strong>In [序号]:</strong>作为提示符。</p>
-<h3 id="PyPy"><a href="#PyPy" class="headerlink" title="PyPy"></a>PyPy</h3><p>PyPy是另一个Python解释器，它的目标是执行速度。</p>
-<p>PyPy采用<strong>JIT技术</strong>，对Python代码进行<strong>动态编译</strong>（注意不是解释），所以可以<strong>显著提高Python代码的执行速度</strong>。</p>
-<p>绝大部分Python代码都可以在PyPy下运行，但是PyPy和CPython有一些是不同的，这就导致相同的Python代码在两种解释器下执行可能会有不同的结果。</p>
-<h3 id="Jython"><a href="#Jython" class="headerlink" title="Jython"></a>Jython</h3><p>Jython是运行在Java平台上的Python解释器，可以直接把Python代码编译成Java字节码执行。</p>
-<h3 id="IronPython"><a href="#IronPython" class="headerlink" title="IronPython"></a>IronPython</h3><p>IronPython和Jython类似，只不过IronPython是运行在微软.Net平台上的Python解释器，可以直接把Python代码编译成.Net的字节码。</p>
-<h2 id="2-解释-提前编译-实时编译"><a href="#2-解释-提前编译-实时编译" class="headerlink" title="2 解释 提前编译 实时编译"></a>2 解释 提前编译 实时编译</h2><h3 id="提前（AOT）编译"><a href="#提前（AOT）编译" class="headerlink" title="提前（AOT）编译"></a>提前（AOT）编译</h3><p>编译高级编程语言为对应的机器代码， 以便生成的二进制文件可以本机执行。</p>
-<h3 id="解释"><a href="#解释" class="headerlink" title="解释"></a>解释</h3><p>解释是<strong>直接执行脚本语言</strong>， 而不需要事先将它们编译成机器语言。</p>
-<p>解释器的主要缺点是解释程序通常比编译时运行得<strong>慢</strong>。</p>
-<p>解释器通常使用以下策略之一来执行程序：</p>
-<ul>
-<li>解析的源代码，并直接执行其行为;</li>
-<li>将源代码转换为一些有效的<strong>中间表示</strong>并立即执行此操作;</li>
-<li>显式执行由编译器生成的存储的预编译代码，编译器是解释器系统的一部分。</li>
-</ul>
-<p>术语“ <strong>解释语言</strong> ”或“ <strong>编译语言</strong> ”表示该语言的规范实现分别是<strong>解释器</strong>或<strong>编译器</strong>。</p>
-<h3 id="实时（JIT）编译"><a href="#实时（JIT）编译" class="headerlink" title="实时（JIT）编译"></a>实时（JIT）编译</h3><p>涉及程序执行期间的编译。</p>
-<p>实时编译系统通常的做法是，连续地分析正在执行的代码，并识别代码的一部分，从而得到加速。且编译或重新编译获得的加速比将超过编译该代码的开销。</p>
-<p>JIT编译结合了编译代码的速度和解释的灵活性，以及​解释器的开销和编译的额外开销（而不仅仅是解释）。</p>
-<p>理论上，JIT编译可以比静态编译产生更快的执行速度。</p>
-<h2 id="3-CPython和PyPy之间的差异"><a href="#3-CPython和PyPy之间的差异" class="headerlink" title="3 CPython和PyPy之间的差异"></a>3 CPython和PyPy之间的差异</h2><p><a href="https://pypy.readthedocs.io/en/latest/cpython_differences.html" target="_blank" rel="noopener">点我查看详细</a></p>
-<p>‰</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">解释器</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/python//" class="article-tag-list-link color2">python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/09/01/python解释器/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
     <article id="post-夏之幻-Garnet Crow" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1195,19 +1306,19 @@
 
 
   
-    <article id="post-高飞-张杰" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-e of s-泽野弘之" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/08/高飞-张杰/">高飞-张杰</a>
+      <a class="article-title" href="/2018/07/08/e of s-泽野弘之/">e of s-泽野弘之</a>
     </h1>
   
 
         
-        <a href="/2018/07/08/高飞-张杰/" class="archive-article-date">
+        <a href="/2018/07/08/e of s-泽野弘之/" class="archive-article-date">
   	<time datetime="2018-07-07T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-08 00:00:00</time>
 </a>
 
@@ -1216,16 +1327,18 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="歌词"><a href="#歌词" class="headerlink" title="歌词"></a>歌词</h2><h3 id="A"><a href="#A" class="headerlink" title="A"></a>A</h3><p>奔跑穿越无尽的荒原<br>逐梦的脚步突然停歇<br>无边断崖 横在眼前<br>我懂 我要 蜕变</p>
-<p>偶尔想起温暖的昨天<br>为了梦想不再留恋<br>新的起点就在眼前<br>我已做好准备</p>
-<p>我要高飞 到天空的顶点<br>我要飞到<strong>无人</strong>能及的视界<br>飞得再累 不准自己跌坠<br>直到太阳就在我的指尖</p>
-<p>我要高飞 到世界的边缘<br>我要飞越<strong>没人</strong>到达的绝对<br>不到终点 不准流下眼泪<br>要把最震撼的呐喊留在灿烂瞬间</p>
-<h3 id="B"><a href="#B" class="headerlink" title="B"></a>B</h3><p>偶尔想起温暖的昨天<br>为了梦想不再留恋<br>新的起点就在眼前<br>我已做好准备</p>
-<p>我要高飞 到天空的顶点<br>我要飞到<strong>无人</strong>能及的视界<br>飞得再累 不准自己跌坠<br>直到太阳就在我的指尖</p>
-<p>我要高飞 到世界的边缘<br>我要飞越<strong>没人</strong>到达的绝对<br>不到终点 不准流下眼泪<br>要把最震撼的呐喊留在</p>
-<h3 id="C"><a href="#C" class="headerlink" title="C"></a>C</h3><p>我要高飞 到天空的顶点<br>我要飞到<strong>无人</strong>能及的视界<br>飞得再累 不准自己跌坠<br>直到太阳就在我的指尖</p>
-<p>我要高|飞 到世界的边缘<br>我要飞越<strong>没人</strong>到达的绝对<br>不到终|点 不准流下眼泪<br>要把最震撼的呐喊<br>留在灿烂瞬间</p>
-<p>灿烂瞬间</p>
+        <p>各个平台的歌词都不一样，泽野大大的歌词一向生僻，google到的歌词和听到的总有差异。<br>因此给出两个版本的歌词:<br>一个是我慢放歌一遍一遍听出来的歌词， 纯平假名。<br>一个是我在lyrical-nonsense.com看到的歌词。</p>
+<h2 id="纯平假名听出来的歌词"><a href="#纯平假名听出来的歌词" class="headerlink" title="纯平假名听出来的歌词"></a>纯平假名听出来的歌词</h2><h3 id="A"><a href="#A" class="headerlink" title="A"></a>A</h3><p>ぼくおけしてえ　たつみの　がれのお<br>あらす　ほど　ちのねに　おびえる<br>こだわりのないきばで<br>どこお　とがめても<br>てすりも　つかめや  しない<br>いばしょおよ　けいも　とめる<br>さけも　end of sound</p>
+<p>だれもいない<br>さわいだ　げんそに　こたえた　りてのわるど<br>むげんのSTAGEと　いかりだけ<br>ごみかせない　らせんのご　めざめた  ていこ</p>
+<h3 id="B"><a href="#B" class="headerlink" title="B"></a>B</h3><p>さめたまちの　あかりがと　もしても<br>きずの　いろ　いた　みわ　わからない<br>りくつなぎお　かかげ　ばせいおふらしても<br>あしもと　みずだ ら  け<br>ことばの　せいで　きまる<br>こたえない　いない</p>
+<p>だれもいない<br>かわいた　かんじょで　ぎせいなった　ちじょのtears<br>くだいた　そらえ　さけんでも<br>たたかえない　むりょなえ　すなにな  えいこ</p>
+<h3 id="C"><a href="#C" class="headerlink" title="C"></a>C</h3><p>そこにだれもいない<br>さわいだ　げんそすで　きえてった　りていくのわるど<br>むげんのSTAGEと　いかりだけ<br>ごみかせない　らせんのご　めざめた   ていこ</p>
+<h2 id="网上的歌词"><a href="#网上的歌词" class="headerlink" title="网上的歌词"></a>网上的歌词</h2><p>「僕」を消して得た「罪逃れの王」<br>荒らすほど地の音に怯える<br>拘りの無い牙で　どこを咎めても<br>手すりも掴めやしない<br>居場所を余計求める<br>叫ぶも　end of sound<br>“boku” o keshite eta “tsumi nogare no ou”<br>arasu hodo chi no oto ni obieru<br>kodawari no nai kiba de doko o togametemo<br>tesuri mo tsukame ya shinai<br>ibasho o yokei motomeru<br>sakebu mo end of sound</p>
+<p>誰もいない<br>騒いだ幻想に答えて得たリテイクのワールド<br>無限のSTAGEと怒りだけ<br>誤魔化せない螺旋の業　目覚めた抵抗<br>daremo inai<br>sawaida gensou ni kotaete eta riteiku no waarudo<br>mugen no STAGE to ikari dake<br>gomakasenai rasen no gou mezameta teikou</p>
+<p>覚めた街の明かりが灯しても<br>傷の色・痛みは解らない<br>理屈な義を掲げ罵声を降らしても<br>足元水だらけ<br>sameta machi no akari ga tomoshitemo<br>kizu no iro ・ itami wa wakaranai<br>rikutsu na gi o kakage basei o furashitemo<br>ashimoto mizu darake</p>
+<p>言葉の精度で決まる<br>答えなどいらない<br>kotoba no seido de kimaru<br>kotae nado iranai</p>
+<p>誰もいない<br>乾いた感情で犠牲になった地上のtears<br>砕いた空へ叫んでも<br>戦えない無力なエゴ　砂になる栄光<br>daremo inai<br>kawaita kanjou de gisei ni natta chijou no tears<br>kudaita sora e sakendemo<br>tatakaenai muryoku na ego suna ni naru eikou</p>
+<p>誰もいない<br>騒いだ幻想を捨て消えてったリテイクのワールド<br>無限のSTAGEと怒りだけ<br>誤魔化せない螺旋の業　目覚めた抵抗<br>daremo inai<br>sawaida gensou o sute kietetta riteiku no waarudo<br>mugen no STAGE to ikari dake<br>gomakasenai rasen no gou mezameta teikou</p>
 
       
 
@@ -1264,101 +1377,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/07/08/高飞-张杰/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-安静-周杰伦" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/08/安静-周杰伦/">安静-周杰伦</a>
-    </h1>
-  
-
-        
-        <a href="/2018/07/08/安静-周杰伦/" class="archive-article-date">
-  	<time datetime="2018-07-07T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-08 00:00:00</time>
-</a>
-
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="歌词"><a href="#歌词" class="headerlink" title="歌词"></a>歌词</h2><h3 id="A"><a href="#A" class="headerlink" title="A"></a>A</h3><p>只剩下钢琴陪我谈了一天<br>睡著的大提琴 安静的旧旧的<br>我想你已表现的非常明白<br>我懂我也知道 你没有舍不得</p>
-<p>你说你也会难过我不相信<br>牵著你陪著我 也只是曾经<br>希望他是真的比我还要爱你<br>我才会逼自己离开</p>
-<h3 id="B"><a href="#B" class="headerlink" title="B"></a>B</h3><p>你要我说多难堪 我根本不想分开<br>为什么还要我用微笑来带过<br>我没有这种天份 包容你也接受他<br>不用担心的太多 我会一直好好过</p>
-<p>你已经远远离开 我也会慢慢走开<br>为什么我连分开都迁就著你<br>我真的没有天份 安（B3两个音）静的没这么快<br>我会学著放弃你 是因为我太爱你</p>
-<h3 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h3><p>AB AB B</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">歌词</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">音乐</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Music//" class="article-tag-list-link color1">Music</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/07/08/安静-周杰伦/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/07/08/e of s-泽野弘之/">展开全文 >></a>
         </p>
       
 
@@ -1489,6 +1508,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">博客</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">笔记</a>
               </li>
              
@@ -1498,14 +1525,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Database</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">博客</a>
               </li>
              
               <li class="article-tag-list-item">

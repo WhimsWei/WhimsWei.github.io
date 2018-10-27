@@ -359,129 +359,6 @@
 
 
   
-    <article id="post-docker笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/10/27/docker笔记/">docker学习笔记</a>
-    </h1>
-  
-
-        
-        <a href="/2018/10/27/docker笔记/" class="archive-article-date">
-  	<time datetime="2018-10-27T11:37:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-27 19:37:39</time>
-</a>
-
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="1-安装"><a href="#1-安装" class="headerlink" title="1 安装"></a>1 安装</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install docker</span><br></pre></td></tr></table></figure>
-<p>需要下载安装</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://store.docker.com/editions/community/docker-ce-desktop-mac</span><br></pre></td></tr></table></figure>
-<h2 id="2-使用"><a href="#2-使用" class="headerlink" title="2 使用"></a>2 使用</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">$ docker --version</span><br><span class="line">Docker version 18.03, build c97c6d6</span><br><span class="line"></span><br><span class="line">$ docker-compose --version</span><br><span class="line">docker-compose version 1.22.0, build 8dd22a9</span><br><span class="line"></span><br><span class="line">$ docker-machine --version</span><br><span class="line">docker-machine version 0.14.0, build 9ba6da9</span><br><span class="line"></span><br><span class="line">$ docker run hello-world</span><br><span class="line"></span><br><span class="line">$ docker run -d -p 80:80 --name webserver nginx</span><br><span class="line"># 80:80 前面是docker外面环境使用的端口 后面是docker内部使用的端口</span><br><span class="line"># 需要使用-p来指定端口</span><br><span class="line"></span><br><span class="line">$ docker container ls</span><br><span class="line">$ docker container stop webserver</span><br><span class="line">$ docker container ls -a</span><br><span class="line">$ docker container rm webserver</span><br><span class="line">$ docker image ls</span><br><span class="line">$ docker image rm nginx</span><br></pre></td></tr></table></figure>
-<h3 id="2-1-创建一个Container"><a href="#2-1-创建一个Container" class="headerlink" title="2.1 创建一个Container"></a>2.1 创建一个Container</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mkdir docker_file</span><br><span class="line"><span class="built_in">cd</span> docker_file</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">vim Dockerfile</span><br><span class="line"></span><br><span class="line"># Use an official Python runtime as a parent image</span><br><span class="line">FROM python:2.7-slim</span><br><span class="line"></span><br><span class="line"># Set the working directory to /app</span><br><span class="line">WORKDIR /app</span><br><span class="line"></span><br><span class="line"># Copy the current directory contents into the container at /app</span><br><span class="line">COPY . /app</span><br><span class="line"></span><br><span class="line"># Install any needed packages specified in requirements.txt</span><br><span class="line">RUN pip install --trusted-host pypi.python.org -r requirements.txt</span><br><span class="line"></span><br><span class="line"># Make port 80 available to the world outside this container</span><br><span class="line">EXPOSE 80</span><br><span class="line"></span><br><span class="line"># Define environment variable</span><br><span class="line">ENV NAME World</span><br><span class="line"></span><br><span class="line"># Run app.py when the container launches</span><br><span class="line">CMD [&quot;python&quot;, &quot;app.py&quot;]</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">vim requirements.txt</span><br><span class="line"></span><br><span class="line">Flask</span><br><span class="line">Redis</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">vim app.py</span><br><span class="line"></span><br><span class="line">from flask import Flask</span><br><span class="line">from redis import Redis, RedisError</span><br><span class="line">import os</span><br><span class="line">import socket</span><br><span class="line"></span><br><span class="line"># Connect to Redis</span><br><span class="line">redis = Redis(host=&quot;redis&quot;, db=0, socket_connect_timeout=2, socket_timeout=2)</span><br><span class="line"></span><br><span class="line">app = Flask(__name__)</span><br><span class="line"></span><br><span class="line">@app.route(&quot;/&quot;)</span><br><span class="line">def hello():</span><br><span class="line">    try:</span><br><span class="line">        visits = redis.incr(&quot;counter&quot;)</span><br><span class="line">    except RedisError:</span><br><span class="line">        visits = &quot;&lt;i&gt;cannot connect to Redis, counter disabled&lt;/i&gt;&quot;</span><br><span class="line"></span><br><span class="line">    html = &quot;&lt;h3&gt;Hello &#123;name&#125;!&lt;/h3&gt;&quot; \</span><br><span class="line">           &quot;&lt;b&gt;Hostname:&lt;/b&gt; &#123;hostname&#125;&lt;br/&gt;&quot; \</span><br><span class="line">           &quot;&lt;b&gt;Visits:&lt;/b&gt; &#123;visits&#125;&quot;</span><br><span class="line">    return html.format(name=os.getenv(&quot;NAME&quot;, &quot;world&quot;), hostname=socket.gethostname(), visits=visits)</span><br><span class="line"></span><br><span class="line">if __name__ == &quot;__main__&quot;:</span><br><span class="line">    app.run(host=&apos;0.0.0.0&apos;, port=80)</span><br></pre></td></tr></table></figure>
-<p>创建container</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker build -t friendlyhello .</span><br></pre></td></tr></table></figure>
-<p>运行app</p>
-<p>其中-p用于绑定端口，4000:80 前面是docker外面环境使用的端口，后面是docker内部使用的端口。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -p 4000:80 friendlyhello</span><br></pre></td></tr></table></figure>
-<p>后台运行app</p>
-<p>使用-d， 可以合在一起写<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -d -p 4000:80 friendlyhello</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">➜  docker_file docker run -dp 4000:80 friendlyhello</span><br><span class="line">bfc28faf20c23567d7a83667f2040c1469d6adae00ffe45257f494c72e778efe</span><br><span class="line">➜  docker_file docker container ls</span><br><span class="line">CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS                  NAMES</span><br><span class="line">bfc28faf20c2        friendlyhello       &quot;python app.py&quot;     48 seconds ago      Up 46 seconds       0.0.0.0:4000-&gt;80/tcp   xenodochial_jackson</span><br><span class="line">➜  docker_file docker container stop bfc28faf20c2</span><br><span class="line">bfc28faf20c2</span><br></pre></td></tr></table></figure>
-<p>发布到远程并且使用</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">➜  docker_file docker login</span><br><span class="line">Authenticating with existing credentials...</span><br><span class="line">Login Succeeded</span><br><span class="line">➜  docker_file docker tag friendlyhello weihuchao/get-started:part1</span><br><span class="line">➜  docker_file docker image ls</span><br><span class="line">REPOSITORY              TAG                 IMAGE ID            CREATED             SIZE</span><br><span class="line">friendlyhello           latest              13f8513def89        28 minutes ago      132MB</span><br><span class="line">weihuchao/get-started   part1               13f8513def89        28 minutes ago      132MB</span><br><span class="line">nginx                   latest              bc26f1ed35cf        4 days ago          109MB</span><br><span class="line">hello-world             latest              4ab4c602aa5e        3 weeks ago         1.84kB</span><br><span class="line">ubuntu                  latest              cd6d8154f1e1        3 weeks ago         84.1MB</span><br><span class="line">python                  2.7-slim            c9cde4658340        3 weeks ago         120MB</span><br><span class="line">➜  docker_file docker push weihuchao/get-started:part1</span><br><span class="line">The push refers to repository [docker.io/weihuchao/get-started]</span><br><span class="line">07c6549b588a: Pushed</span><br><span class="line">033e409ef04e: Pushed</span><br><span class="line">3e9874f94f33: Pushed</span><br><span class="line">d509372bacf0: Mounted from library/python</span><br><span class="line">18cc3d97f405: Mounted from library/python</span><br><span class="line">80db77e224a0: Mounted from library/python</span><br><span class="line">8b15606a9e3e: Mounted from library/python</span><br><span class="line">part1: digest: sha256:7c038d51ed3bee7f6bce70489f996a0a53ac050e112eff348a6419cc61beacd4 size: 1787</span><br><span class="line">➜  docker_file docker run -p 4000:80 weihuchao/get-started:part1</span><br><span class="line"> * Serving Flask app &quot;app&quot; (lazy loading)</span><br><span class="line"> * Environment: production</span><br><span class="line">   WARNING: Do not use the development server in a production environment.</span><br><span class="line">   Use a production WSGI server instead.</span><br><span class="line"> * Debug mode: off</span><br><span class="line"> * Running on http://0.0.0.0:80/ (Press CTRL+C to quit)</span><br></pre></td></tr></table></figure>
-<p>用到的命令总结</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">docker build -t friendlyhello .  # Create image using this directory&apos;s Dockerfile</span><br><span class="line">docker run -p 4000:80 friendlyhello  # Run &quot;friendlyname&quot; mapping port 4000 to 80</span><br><span class="line">docker run -d -p 4000:80 friendlyhello         # Same thing, but in detached mode</span><br><span class="line">docker container ls                                # List all running containers</span><br><span class="line">docker container ls -a             # List all containers, even those not running</span><br><span class="line">docker container stop &lt;hash&gt;           # Gracefully stop the specified container</span><br><span class="line">docker container kill &lt;hash&gt;         # Force shutdown of the specified container</span><br><span class="line">docker container rm &lt;hash&gt;        # Remove specified container from this machine</span><br><span class="line">docker container rm $(docker container ls -a -q)         # Remove all containers</span><br><span class="line">docker image ls -a                             # List all images on this machine</span><br><span class="line">docker image rm &lt;image id&gt;            # Remove specified image from this machine</span><br><span class="line">docker image rm $(docker image ls -a -q)   # Remove all images from this machine</span><br><span class="line">docker login             # Log in this CLI session using your Docker credentials</span><br><span class="line">docker tag &lt;image&gt; username/repository:tag  # Tag &lt;image&gt; for upload to registry</span><br><span class="line">docker push username/repository:tag            # Upload tagged image to registry</span><br><span class="line">docker run username/repository:tag                   # Run image from a registry</span><br></pre></td></tr></table></figure>
-<h3 id="2-2-服务"><a href="#2-2-服务" class="headerlink" title="2.2 服务"></a>2.2 服务</h3><p>对于分布式程序， 每个分片就是一个服务。</p>
-<p>创建一个compose文件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">➜  docker_file vim docker-compose.yml</span><br><span class="line">➜  docker_file cat docker-compose.yml</span><br><span class="line">version: &quot;3&quot;</span><br><span class="line">services:</span><br><span class="line">  web:</span><br><span class="line">    # replace username/repo:tag with your name and image details</span><br><span class="line">    image: weihuchao/get-started:part1</span><br><span class="line">    deploy:</span><br><span class="line">      replicas: 5</span><br><span class="line">      resources:</span><br><span class="line">        limits:</span><br><span class="line">          cpus: &quot;0.1&quot;</span><br><span class="line">          memory: 50M</span><br><span class="line">      restart_policy:</span><br><span class="line">        condition: on-failure</span><br><span class="line">    ports:</span><br><span class="line">      - &quot;4000:80&quot;</span><br><span class="line">    networks:</span><br><span class="line">      - webnet</span><br><span class="line">networks:</span><br><span class="line">  webnet:</span><br></pre></td></tr></table></figure>
-<ul>
-<li>创建一个名为web的服务，运行5个实例。</li>
-<li>一旦失败就重启</li>
-<li>端口配置和之前的一致</li>
-<li>通过名为webnet的负载均衡来进行负载均衡</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">➜  docker_file docker swarm init</span><br><span class="line">Swarm initialized: current node (u3dqg55kw2zuznsl8mkkoj0y4) is now a manager.</span><br><span class="line"></span><br><span class="line">To add a worker to this swarm, run the following command:</span><br><span class="line"></span><br><span class="line">    docker swarm join --token SWMTKN-1-1y7qkerfds031krhu1xry1jrxdiz5k7h2pxh6n9ue0xv9ccnta-70p3h13q9kje8ipbw4hd65wcg 192.168.65.3:2377</span><br><span class="line"></span><br><span class="line">To add a manager to this swarm, run &apos;docker swarm join-token manager&apos; and follow the instructions.</span><br><span class="line"></span><br><span class="line">➜  docker_file docker stack deploy -c docker-compose.yml getstartedlab</span><br><span class="line">Creating network getstartedlab_webnet</span><br><span class="line">Creating service getstartedlab_web</span><br><span class="line">➜  docker_file docker ps</span><br><span class="line">CONTAINER ID        IMAGE                         COMMAND             CREATED             STATUS              PORTS               NAMES</span><br><span class="line">d877cae608ad        weihuchao/get-started:part1   &quot;python app.py&quot;     8 seconds ago       Up 5 seconds        80/tcp              getstartedlab_web.2.ptnydvr11qh3pf6sojrp3w4c3</span><br><span class="line">1f5ec4db337b        weihuchao/get-started:part1   &quot;python app.py&quot;     8 seconds ago       Up 5 seconds        80/tcp              getstartedlab_web.5.clqmpbuxb3eara40eoj9uvkzi</span><br><span class="line">afdc3314b63b        weihuchao/get-started:part1   &quot;python app.py&quot;     8 seconds ago       Up 5 seconds        80/tcp              getstartedlab_web.4.tvhwox2d1r5zjds985mety0oj</span><br><span class="line">d4ca340faa6a        weihuchao/get-started:part1   &quot;python app.py&quot;     8 seconds ago       Up 5 seconds        80/tcp              getstartedlab_web.1.wd6dr71vlg84cxpla1g3l7vgh</span><br><span class="line">976e5e62ef00        weihuchao/get-started:part1   &quot;python app.py&quot;     8 seconds ago       Up 6 seconds        80/tcp              getstartedlab_web.3.2085k2dvw7q4lgyf5opjn5vqf</span><br><span class="line">➜  docker_file docker service ls</span><br><span class="line">ID                  NAME                MODE                REPLICAS            IMAGE                         PORTS</span><br><span class="line">xfmdeis99zj7        getstartedlab_web   replicated          5/5                 weihuchao/get-started:part1   *:4000-&gt;80/tcp</span><br><span class="line">➜  docker_file docker service ps getstartedlab_web</span><br><span class="line">ID                  NAME                  IMAGE                         NODE                    DESIRED STATE       CURRENT STATE           ERROR               PORTS</span><br><span class="line">wd6dr71vlg84        getstartedlab_web.1   weihuchao/get-started:part1   linuxkit-025000000001   Running             Running 2 minutes ago</span><br><span class="line">ptnydvr11qh3        getstartedlab_web.2   weihuchao/get-started:part1   linuxkit-025000000001   Running             Running 2 minutes ago</span><br><span class="line">2085k2dvw7q4        getstartedlab_web.3   weihuchao/get-started:part1   linuxkit-025000000001   Running             Running 2 minutes ago</span><br><span class="line">tvhwox2d1r5z        getstartedlab_web.4   weihuchao/get-started:part1   linuxkit-025000000001   Running             Running 2 minutes ago</span><br><span class="line">clqmpbuxb3ea        getstartedlab_web.5   weihuchao/get-started:part1   linuxkit-025000000001   Running             Running 2 minutes ago</span><br><span class="line">➜  docker_file docker container ls -q</span><br><span class="line">d877cae608ad</span><br><span class="line">1f5ec4db337b</span><br><span class="line">afdc3314b63b</span><br><span class="line">d4ca340faa6a</span><br><span class="line">976e5e62ef00</span><br><span class="line">➜  docker_file docker stack rm getstartedlab</span><br><span class="line">Removing service getstartedlab_web</span><br><span class="line">Removing network getstartedlab_webnet</span><br><span class="line">➜  docker_file docker swarm leave --force</span><br><span class="line">Node left the swarm.</span><br></pre></td></tr></table></figure>
-<p>需要先创建swarm， 在deploy。</p>
-<p>通过负载均衡来访问集群中的不同的服务，不断访问主页可以看到有可能每次访问得到的hostname都是不同的。</p>
-<p>用到的命令集合</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">docker stack ls                                            # List stacks or apps</span><br><span class="line">docker stack deploy -c &lt;composefile&gt; &lt;appname&gt;  # Run the specified Compose file</span><br><span class="line">docker service ls                 # List running services associated with an app</span><br><span class="line">docker service ps &lt;service&gt;                  # List tasks associated with an app</span><br><span class="line">docker inspect &lt;task or container&gt;                   # Inspect task or container</span><br><span class="line">docker container ls -q                                      # List container IDs</span><br><span class="line">docker stack rm &lt;appname&gt;                             # Tear down an application</span><br><span class="line">docker swarm leave --force      # Take down a single node swarm from the manager</span><br></pre></td></tr></table></figure>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">docker</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/笔记//" class="article-tag-list-link color3">笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/10/27/docker笔记/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
     <article id="post-Helloworld" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -556,105 +433,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2018/10/27/Helloworld/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-reactor模式" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/10/27/reactor模式/">Rector模式概述</a>
-    </h1>
-  
-
-        
-        <a href="/2018/10/27/reactor模式/" class="archive-article-date">
-  	<time datetime="2018-10-27T11:37:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-27 19:37:39</time>
-</a>
-
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="1-异步请求的客户端"><a href="#1-异步请求的客户端" class="headerlink" title="1 异步请求的客户端"></a>1 异步请求的客户端</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_poetry</span><span class="params">(sockets)</span>:</span></span><br><span class="line">    <span class="string">"""Download poety from all the given sockets."""</span></span><br><span class="line"></span><br><span class="line">    poems = dict.fromkeys(sockets, <span class="string">''</span>) <span class="comment"># socket -&gt; accumulated poem</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># socket -&gt; task numbers</span></span><br><span class="line">    sock2task = dict([(s, i + <span class="number">1</span>) <span class="keyword">for</span> i, s <span class="keyword">in</span> enumerate(sockets)])</span><br><span class="line"></span><br><span class="line">    sockets = list(sockets) <span class="comment"># make a copy</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># we go around this loop until we've gotten all the poetry</span></span><br><span class="line">    <span class="comment"># from all the sockets. This is the 'reactor loop'.</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> sockets:</span><br><span class="line">        <span class="comment"># this select call blocks until one or more of the</span></span><br><span class="line">        <span class="comment"># sockets is ready for read I/O</span></span><br><span class="line">        rlist, _, _ = select.select(sockets, [], [])</span><br><span class="line"></span><br><span class="line">        <span class="comment"># rlist is the list of sockets with data ready to read</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> sock <span class="keyword">in</span> rlist:</span><br><span class="line">            data = <span class="string">''</span></span><br><span class="line"></span><br><span class="line">            <span class="keyword">while</span> <span class="keyword">True</span>:</span><br><span class="line">                <span class="keyword">try</span>:</span><br><span class="line">                    new_data = sock.recv(<span class="number">1024</span>)</span><br><span class="line">                <span class="keyword">except</span> socket.error, e:</span><br><span class="line">                    <span class="keyword">if</span> e.args[<span class="number">0</span>] == errno.EWOULDBLOCK:</span><br><span class="line">                        <span class="comment"># this error code means we would have</span></span><br><span class="line">                        <span class="comment"># blocked if the socket was blocking.</span></span><br><span class="line">                        <span class="comment"># instead we skip to the next socket</span></span><br><span class="line">                        <span class="keyword">break</span></span><br><span class="line">                    <span class="keyword">raise</span></span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    <span class="keyword">if</span> <span class="keyword">not</span> new_data:</span><br><span class="line">                        <span class="keyword">break</span></span><br><span class="line">                    <span class="keyword">else</span>:</span><br><span class="line">                        data += new_data</span><br><span class="line"></span><br><span class="line">            <span class="comment"># Each execution of this inner loop corresponds to</span></span><br><span class="line">            <span class="comment"># working on one asynchronous task in Figure 3 here:</span></span><br><span class="line">            <span class="comment"># http://krondo.com/?p=1209#figure3</span></span><br><span class="line"></span><br><span class="line">            task_num = sock2task[sock]</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">not</span> data:</span><br><span class="line">                sockets.remove(sock)</span><br><span class="line">                sock.close()</span><br><span class="line">                <span class="keyword">print</span> <span class="string">'Task %d finished'</span> % task_num</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                addr_fmt = format_address(sock.getpeername())</span><br><span class="line">                msg = <span class="string">'Task %d: got %d bytes of poetry from %s'</span></span><br><span class="line">                <span class="keyword">print</span>  msg % (task_num, len(data), addr_fmt)</span><br><span class="line"></span><br><span class="line">            poems[sock] += data</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> poems</span><br></pre></td></tr></table></figure>
-<ol>
-<li>异步模式客户端一次性与全部服务器完成连接，而不像同步模式那样一次只连接一个。</li>
-<li>用来进行通信的Socket方法是非阻塞模的，这是通过调用setblocking(0)来实现的。</li>
-<li>select模块中的select方法是用来识别其监视的socket是否有完成数据接收的，如果没有它就处于阻塞状态。</li>
-<li>使用select函数等待所有Socket，直到至少有一个socket有数据到来。</li>
-<li>对每个有数据需要读取的socket，从中读取数据。但仅仅只是读取有效数据，不能为了等待还没来到的数据而发生阻塞。</li>
-<li>由于不断发送， 有可能</li>
-</ol>
-<h2 id="2-reactor模式"><a href="#2-reactor模式" class="headerlink" title="2 reactor模式"></a>2 reactor模式</h2><p>这种，等待事件到来，然后对事件进行处理，处理完毕之后又继续等待事件到来的模型， 就被故写成了reactor模式。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Rector</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/笔记//" class="article-tag-list-link color3">笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/10/27/reactor模式/">展开全文 >></a>
         </p>
       
 
@@ -852,15 +630,15 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Hexo</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">博客</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
         		</li>
       		
 		</ul>
@@ -882,6 +660,228 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2018/10/27/Hexo博客的构建/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-reactor模式" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/10/27/reactor模式/">Rector模式概述</a>
+    </h1>
+  
+
+        
+        <a href="/2018/10/27/reactor模式/" class="archive-article-date">
+  	<time datetime="2018-10-27T11:37:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-27 19:37:39</time>
+</a>
+
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="1-异步请求的客户端"><a href="#1-异步请求的客户端" class="headerlink" title="1 异步请求的客户端"></a>1 异步请求的客户端</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_poetry</span><span class="params">(sockets)</span>:</span></span><br><span class="line">    <span class="string">"""Download poety from all the given sockets."""</span></span><br><span class="line"></span><br><span class="line">    poems = dict.fromkeys(sockets, <span class="string">''</span>) <span class="comment"># socket -&gt; accumulated poem</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># socket -&gt; task numbers</span></span><br><span class="line">    sock2task = dict([(s, i + <span class="number">1</span>) <span class="keyword">for</span> i, s <span class="keyword">in</span> enumerate(sockets)])</span><br><span class="line"></span><br><span class="line">    sockets = list(sockets) <span class="comment"># make a copy</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># we go around this loop until we've gotten all the poetry</span></span><br><span class="line">    <span class="comment"># from all the sockets. This is the 'reactor loop'.</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> sockets:</span><br><span class="line">        <span class="comment"># this select call blocks until one or more of the</span></span><br><span class="line">        <span class="comment"># sockets is ready for read I/O</span></span><br><span class="line">        rlist, _, _ = select.select(sockets, [], [])</span><br><span class="line"></span><br><span class="line">        <span class="comment"># rlist is the list of sockets with data ready to read</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> sock <span class="keyword">in</span> rlist:</span><br><span class="line">            data = <span class="string">''</span></span><br><span class="line"></span><br><span class="line">            <span class="keyword">while</span> <span class="keyword">True</span>:</span><br><span class="line">                <span class="keyword">try</span>:</span><br><span class="line">                    new_data = sock.recv(<span class="number">1024</span>)</span><br><span class="line">                <span class="keyword">except</span> socket.error, e:</span><br><span class="line">                    <span class="keyword">if</span> e.args[<span class="number">0</span>] == errno.EWOULDBLOCK:</span><br><span class="line">                        <span class="comment"># this error code means we would have</span></span><br><span class="line">                        <span class="comment"># blocked if the socket was blocking.</span></span><br><span class="line">                        <span class="comment"># instead we skip to the next socket</span></span><br><span class="line">                        <span class="keyword">break</span></span><br><span class="line">                    <span class="keyword">raise</span></span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    <span class="keyword">if</span> <span class="keyword">not</span> new_data:</span><br><span class="line">                        <span class="keyword">break</span></span><br><span class="line">                    <span class="keyword">else</span>:</span><br><span class="line">                        data += new_data</span><br><span class="line"></span><br><span class="line">            <span class="comment"># Each execution of this inner loop corresponds to</span></span><br><span class="line">            <span class="comment"># working on one asynchronous task in Figure 3 here:</span></span><br><span class="line">            <span class="comment"># http://krondo.com/?p=1209#figure3</span></span><br><span class="line"></span><br><span class="line">            task_num = sock2task[sock]</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">not</span> data:</span><br><span class="line">                sockets.remove(sock)</span><br><span class="line">                sock.close()</span><br><span class="line">                <span class="keyword">print</span> <span class="string">'Task %d finished'</span> % task_num</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                addr_fmt = format_address(sock.getpeername())</span><br><span class="line">                msg = <span class="string">'Task %d: got %d bytes of poetry from %s'</span></span><br><span class="line">                <span class="keyword">print</span>  msg % (task_num, len(data), addr_fmt)</span><br><span class="line"></span><br><span class="line">            poems[sock] += data</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> poems</span><br></pre></td></tr></table></figure>
+<ol>
+<li>异步模式客户端一次性与全部服务器完成连接，而不像同步模式那样一次只连接一个。</li>
+<li>用来进行通信的Socket方法是非阻塞模的，这是通过调用setblocking(0)来实现的。</li>
+<li>select模块中的select方法是用来识别其监视的socket是否有完成数据接收的，如果没有它就处于阻塞状态。</li>
+<li>使用select函数等待所有Socket，直到至少有一个socket有数据到来。</li>
+<li>对每个有数据需要读取的socket，从中读取数据。但仅仅只是读取有效数据，不能为了等待还没来到的数据而发生阻塞。</li>
+<li>由于不断发送， 有可能</li>
+</ol>
+<h2 id="2-reactor模式"><a href="#2-reactor模式" class="headerlink" title="2 reactor模式"></a>2 reactor模式</h2><p>这种，等待事件到来，然后对事件进行处理，处理完毕之后又继续等待事件到来的模型， 就被故写成了reactor模式。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Rector</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/笔记//" class="article-tag-list-link color3">笔记</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/10/27/reactor模式/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-docker笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/10/27/docker笔记/">docker学习笔记</a>
+    </h1>
+  
+
+        
+        <a href="/2018/10/27/docker笔记/" class="archive-article-date">
+  	<time datetime="2018-10-27T11:37:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-27 19:37:39</time>
+</a>
+
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="1-安装"><a href="#1-安装" class="headerlink" title="1 安装"></a>1 安装</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install docker</span><br></pre></td></tr></table></figure>
+<p>需要下载安装</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://store.docker.com/editions/community/docker-ce-desktop-mac</span><br></pre></td></tr></table></figure>
+<h2 id="2-使用"><a href="#2-使用" class="headerlink" title="2 使用"></a>2 使用</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">$ docker --version</span><br><span class="line">Docker version 18.03, build c97c6d6</span><br><span class="line"></span><br><span class="line">$ docker-compose --version</span><br><span class="line">docker-compose version 1.22.0, build 8dd22a9</span><br><span class="line"></span><br><span class="line">$ docker-machine --version</span><br><span class="line">docker-machine version 0.14.0, build 9ba6da9</span><br><span class="line"></span><br><span class="line">$ docker run hello-world</span><br><span class="line"></span><br><span class="line">$ docker run -d -p 80:80 --name webserver nginx</span><br><span class="line"># 80:80 前面是docker外面环境使用的端口 后面是docker内部使用的端口</span><br><span class="line"># 需要使用-p来指定端口</span><br><span class="line"></span><br><span class="line">$ docker container ls</span><br><span class="line">$ docker container stop webserver</span><br><span class="line">$ docker container ls -a</span><br><span class="line">$ docker container rm webserver</span><br><span class="line">$ docker image ls</span><br><span class="line">$ docker image rm nginx</span><br></pre></td></tr></table></figure>
+<h3 id="2-1-创建一个Container"><a href="#2-1-创建一个Container" class="headerlink" title="2.1 创建一个Container"></a>2.1 创建一个Container</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mkdir docker_file</span><br><span class="line"><span class="built_in">cd</span> docker_file</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">vim Dockerfile</span><br><span class="line"></span><br><span class="line"># Use an official Python runtime as a parent image</span><br><span class="line">FROM python:2.7-slim</span><br><span class="line"></span><br><span class="line"># Set the working directory to /app</span><br><span class="line">WORKDIR /app</span><br><span class="line"></span><br><span class="line"># Copy the current directory contents into the container at /app</span><br><span class="line">COPY . /app</span><br><span class="line"></span><br><span class="line"># Install any needed packages specified in requirements.txt</span><br><span class="line">RUN pip install --trusted-host pypi.python.org -r requirements.txt</span><br><span class="line"></span><br><span class="line"># Make port 80 available to the world outside this container</span><br><span class="line">EXPOSE 80</span><br><span class="line"></span><br><span class="line"># Define environment variable</span><br><span class="line">ENV NAME World</span><br><span class="line"></span><br><span class="line"># Run app.py when the container launches</span><br><span class="line">CMD [&quot;python&quot;, &quot;app.py&quot;]</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">vim requirements.txt</span><br><span class="line"></span><br><span class="line">Flask</span><br><span class="line">Redis</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">vim app.py</span><br><span class="line"></span><br><span class="line">from flask import Flask</span><br><span class="line">from redis import Redis, RedisError</span><br><span class="line">import os</span><br><span class="line">import socket</span><br><span class="line"></span><br><span class="line"># Connect to Redis</span><br><span class="line">redis = Redis(host=&quot;redis&quot;, db=0, socket_connect_timeout=2, socket_timeout=2)</span><br><span class="line"></span><br><span class="line">app = Flask(__name__)</span><br><span class="line"></span><br><span class="line">@app.route(&quot;/&quot;)</span><br><span class="line">def hello():</span><br><span class="line">    try:</span><br><span class="line">        visits = redis.incr(&quot;counter&quot;)</span><br><span class="line">    except RedisError:</span><br><span class="line">        visits = &quot;&lt;i&gt;cannot connect to Redis, counter disabled&lt;/i&gt;&quot;</span><br><span class="line"></span><br><span class="line">    html = &quot;&lt;h3&gt;Hello &#123;name&#125;!&lt;/h3&gt;&quot; \</span><br><span class="line">           &quot;&lt;b&gt;Hostname:&lt;/b&gt; &#123;hostname&#125;&lt;br/&gt;&quot; \</span><br><span class="line">           &quot;&lt;b&gt;Visits:&lt;/b&gt; &#123;visits&#125;&quot;</span><br><span class="line">    return html.format(name=os.getenv(&quot;NAME&quot;, &quot;world&quot;), hostname=socket.gethostname(), visits=visits)</span><br><span class="line"></span><br><span class="line">if __name__ == &quot;__main__&quot;:</span><br><span class="line">    app.run(host=&apos;0.0.0.0&apos;, port=80)</span><br></pre></td></tr></table></figure>
+<p>创建container</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker build -t friendlyhello .</span><br></pre></td></tr></table></figure>
+<p>运行app</p>
+<p>其中-p用于绑定端口，4000:80 前面是docker外面环境使用的端口，后面是docker内部使用的端口。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -p 4000:80 friendlyhello</span><br></pre></td></tr></table></figure>
+<p>后台运行app</p>
+<p>使用-d， 可以合在一起写<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -d -p 4000:80 friendlyhello</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">➜  docker_file docker run -dp 4000:80 friendlyhello</span><br><span class="line">bfc28faf20c23567d7a83667f2040c1469d6adae00ffe45257f494c72e778efe</span><br><span class="line">➜  docker_file docker container ls</span><br><span class="line">CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS                  NAMES</span><br><span class="line">bfc28faf20c2        friendlyhello       &quot;python app.py&quot;     48 seconds ago      Up 46 seconds       0.0.0.0:4000-&gt;80/tcp   xenodochial_jackson</span><br><span class="line">➜  docker_file docker container stop bfc28faf20c2</span><br><span class="line">bfc28faf20c2</span><br></pre></td></tr></table></figure>
+<p>发布到远程并且使用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">➜  docker_file docker login</span><br><span class="line">Authenticating with existing credentials...</span><br><span class="line">Login Succeeded</span><br><span class="line">➜  docker_file docker tag friendlyhello weihuchao/get-started:part1</span><br><span class="line">➜  docker_file docker image ls</span><br><span class="line">REPOSITORY              TAG                 IMAGE ID            CREATED             SIZE</span><br><span class="line">friendlyhello           latest              13f8513def89        28 minutes ago      132MB</span><br><span class="line">weihuchao/get-started   part1               13f8513def89        28 minutes ago      132MB</span><br><span class="line">nginx                   latest              bc26f1ed35cf        4 days ago          109MB</span><br><span class="line">hello-world             latest              4ab4c602aa5e        3 weeks ago         1.84kB</span><br><span class="line">ubuntu                  latest              cd6d8154f1e1        3 weeks ago         84.1MB</span><br><span class="line">python                  2.7-slim            c9cde4658340        3 weeks ago         120MB</span><br><span class="line">➜  docker_file docker push weihuchao/get-started:part1</span><br><span class="line">The push refers to repository [docker.io/weihuchao/get-started]</span><br><span class="line">07c6549b588a: Pushed</span><br><span class="line">033e409ef04e: Pushed</span><br><span class="line">3e9874f94f33: Pushed</span><br><span class="line">d509372bacf0: Mounted from library/python</span><br><span class="line">18cc3d97f405: Mounted from library/python</span><br><span class="line">80db77e224a0: Mounted from library/python</span><br><span class="line">8b15606a9e3e: Mounted from library/python</span><br><span class="line">part1: digest: sha256:7c038d51ed3bee7f6bce70489f996a0a53ac050e112eff348a6419cc61beacd4 size: 1787</span><br><span class="line">➜  docker_file docker run -p 4000:80 weihuchao/get-started:part1</span><br><span class="line"> * Serving Flask app &quot;app&quot; (lazy loading)</span><br><span class="line"> * Environment: production</span><br><span class="line">   WARNING: Do not use the development server in a production environment.</span><br><span class="line">   Use a production WSGI server instead.</span><br><span class="line"> * Debug mode: off</span><br><span class="line"> * Running on http://0.0.0.0:80/ (Press CTRL+C to quit)</span><br></pre></td></tr></table></figure>
+<p>用到的命令总结</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">docker build -t friendlyhello .  # Create image using this directory&apos;s Dockerfile</span><br><span class="line">docker run -p 4000:80 friendlyhello  # Run &quot;friendlyname&quot; mapping port 4000 to 80</span><br><span class="line">docker run -d -p 4000:80 friendlyhello         # Same thing, but in detached mode</span><br><span class="line">docker container ls                                # List all running containers</span><br><span class="line">docker container ls -a             # List all containers, even those not running</span><br><span class="line">docker container stop &lt;hash&gt;           # Gracefully stop the specified container</span><br><span class="line">docker container kill &lt;hash&gt;         # Force shutdown of the specified container</span><br><span class="line">docker container rm &lt;hash&gt;        # Remove specified container from this machine</span><br><span class="line">docker container rm $(docker container ls -a -q)         # Remove all containers</span><br><span class="line">docker image ls -a                             # List all images on this machine</span><br><span class="line">docker image rm &lt;image id&gt;            # Remove specified image from this machine</span><br><span class="line">docker image rm $(docker image ls -a -q)   # Remove all images from this machine</span><br><span class="line">docker login             # Log in this CLI session using your Docker credentials</span><br><span class="line">docker tag &lt;image&gt; username/repository:tag  # Tag &lt;image&gt; for upload to registry</span><br><span class="line">docker push username/repository:tag            # Upload tagged image to registry</span><br><span class="line">docker run username/repository:tag                   # Run image from a registry</span><br></pre></td></tr></table></figure>
+<h3 id="2-2-服务"><a href="#2-2-服务" class="headerlink" title="2.2 服务"></a>2.2 服务</h3><p>对于分布式程序， 每个分片就是一个服务。</p>
+<p>创建一个compose文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">➜  docker_file vim docker-compose.yml</span><br><span class="line">➜  docker_file cat docker-compose.yml</span><br><span class="line">version: &quot;3&quot;</span><br><span class="line">services:</span><br><span class="line">  web:</span><br><span class="line">    # replace username/repo:tag with your name and image details</span><br><span class="line">    image: weihuchao/get-started:part1</span><br><span class="line">    deploy:</span><br><span class="line">      replicas: 5</span><br><span class="line">      resources:</span><br><span class="line">        limits:</span><br><span class="line">          cpus: &quot;0.1&quot;</span><br><span class="line">          memory: 50M</span><br><span class="line">      restart_policy:</span><br><span class="line">        condition: on-failure</span><br><span class="line">    ports:</span><br><span class="line">      - &quot;4000:80&quot;</span><br><span class="line">    networks:</span><br><span class="line">      - webnet</span><br><span class="line">networks:</span><br><span class="line">  webnet:</span><br></pre></td></tr></table></figure>
+<ul>
+<li>创建一个名为web的服务，运行5个实例。</li>
+<li>一旦失败就重启</li>
+<li>端口配置和之前的一致</li>
+<li>通过名为webnet的负载均衡来进行负载均衡</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">➜  docker_file docker swarm init</span><br><span class="line">Swarm initialized: current node (u3dqg55kw2zuznsl8mkkoj0y4) is now a manager.</span><br><span class="line"></span><br><span class="line">To add a worker to this swarm, run the following command:</span><br><span class="line"></span><br><span class="line">    docker swarm join --token SWMTKN-1-1y7qkerfds031krhu1xry1jrxdiz5k7h2pxh6n9ue0xv9ccnta-70p3h13q9kje8ipbw4hd65wcg 192.168.65.3:2377</span><br><span class="line"></span><br><span class="line">To add a manager to this swarm, run &apos;docker swarm join-token manager&apos; and follow the instructions.</span><br><span class="line"></span><br><span class="line">➜  docker_file docker stack deploy -c docker-compose.yml getstartedlab</span><br><span class="line">Creating network getstartedlab_webnet</span><br><span class="line">Creating service getstartedlab_web</span><br><span class="line">➜  docker_file docker ps</span><br><span class="line">CONTAINER ID        IMAGE                         COMMAND             CREATED             STATUS              PORTS               NAMES</span><br><span class="line">d877cae608ad        weihuchao/get-started:part1   &quot;python app.py&quot;     8 seconds ago       Up 5 seconds        80/tcp              getstartedlab_web.2.ptnydvr11qh3pf6sojrp3w4c3</span><br><span class="line">1f5ec4db337b        weihuchao/get-started:part1   &quot;python app.py&quot;     8 seconds ago       Up 5 seconds        80/tcp              getstartedlab_web.5.clqmpbuxb3eara40eoj9uvkzi</span><br><span class="line">afdc3314b63b        weihuchao/get-started:part1   &quot;python app.py&quot;     8 seconds ago       Up 5 seconds        80/tcp              getstartedlab_web.4.tvhwox2d1r5zjds985mety0oj</span><br><span class="line">d4ca340faa6a        weihuchao/get-started:part1   &quot;python app.py&quot;     8 seconds ago       Up 5 seconds        80/tcp              getstartedlab_web.1.wd6dr71vlg84cxpla1g3l7vgh</span><br><span class="line">976e5e62ef00        weihuchao/get-started:part1   &quot;python app.py&quot;     8 seconds ago       Up 6 seconds        80/tcp              getstartedlab_web.3.2085k2dvw7q4lgyf5opjn5vqf</span><br><span class="line">➜  docker_file docker service ls</span><br><span class="line">ID                  NAME                MODE                REPLICAS            IMAGE                         PORTS</span><br><span class="line">xfmdeis99zj7        getstartedlab_web   replicated          5/5                 weihuchao/get-started:part1   *:4000-&gt;80/tcp</span><br><span class="line">➜  docker_file docker service ps getstartedlab_web</span><br><span class="line">ID                  NAME                  IMAGE                         NODE                    DESIRED STATE       CURRENT STATE           ERROR               PORTS</span><br><span class="line">wd6dr71vlg84        getstartedlab_web.1   weihuchao/get-started:part1   linuxkit-025000000001   Running             Running 2 minutes ago</span><br><span class="line">ptnydvr11qh3        getstartedlab_web.2   weihuchao/get-started:part1   linuxkit-025000000001   Running             Running 2 minutes ago</span><br><span class="line">2085k2dvw7q4        getstartedlab_web.3   weihuchao/get-started:part1   linuxkit-025000000001   Running             Running 2 minutes ago</span><br><span class="line">tvhwox2d1r5z        getstartedlab_web.4   weihuchao/get-started:part1   linuxkit-025000000001   Running             Running 2 minutes ago</span><br><span class="line">clqmpbuxb3ea        getstartedlab_web.5   weihuchao/get-started:part1   linuxkit-025000000001   Running             Running 2 minutes ago</span><br><span class="line">➜  docker_file docker container ls -q</span><br><span class="line">d877cae608ad</span><br><span class="line">1f5ec4db337b</span><br><span class="line">afdc3314b63b</span><br><span class="line">d4ca340faa6a</span><br><span class="line">976e5e62ef00</span><br><span class="line">➜  docker_file docker stack rm getstartedlab</span><br><span class="line">Removing service getstartedlab_web</span><br><span class="line">Removing network getstartedlab_webnet</span><br><span class="line">➜  docker_file docker swarm leave --force</span><br><span class="line">Node left the swarm.</span><br></pre></td></tr></table></figure>
+<p>需要先创建swarm， 在deploy。</p>
+<p>通过负载均衡来访问集群中的不同的服务，不断访问主页可以看到有可能每次访问得到的hostname都是不同的。</p>
+<p>用到的命令集合</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">docker stack ls                                            # List stacks or apps</span><br><span class="line">docker stack deploy -c &lt;composefile&gt; &lt;appname&gt;  # Run the specified Compose file</span><br><span class="line">docker service ls                 # List running services associated with an app</span><br><span class="line">docker service ps &lt;service&gt;                  # List tasks associated with an app</span><br><span class="line">docker inspect &lt;task or container&gt;                   # Inspect task or container</span><br><span class="line">docker container ls -q                                      # List container IDs</span><br><span class="line">docker stack rm &lt;appname&gt;                             # Tear down an application</span><br><span class="line">docker swarm leave --force      # Take down a single node swarm from the manager</span><br></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">docker</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/笔记//" class="article-tag-list-link color3">笔记</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/10/27/docker笔记/">展开全文 >></a>
         </p>
       
 
@@ -972,6 +972,203 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2018/10/27/ssh配置/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-主题自定义" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/10/27/主题自定义/">yilia主题自定义</a>
+    </h1>
+  
+
+        
+        <a href="/2018/10/27/主题自定义/" class="archive-article-date">
+  	<time datetime="2018-10-27T11:37:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-27 19:37:39</time>
+</a>
+
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>持续更新</p>
+<h2 id="修改footer"><a href="#修改footer" class="headerlink" title="修改footer"></a>修改footer</h2><p>yilia/layout/_partial/footer.ejs</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"footer-info"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"display: inline-block;"</span>&gt;</span></span><br><span class="line">        Stay hunger, stay young!</span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="修改文章显示时间"><a href="#修改文章显示时间" class="headerlink" title="修改文章显示时间"></a>修改文章显示时间</h2><p>yilia/layout/_partial/post/date.ejs</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;%= date(post.date, date_format) %&gt;</span><br></pre></td></tr></table></figure>
+<p>改为</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;%= date(post.date, &apos;YYYY-MM-DD HH:mm:ss&apos;) %&gt;</span><br></pre></td></tr></table></figure>
+<p>代码参考</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># Date / Time format</span><br><span class="line">## Hexo uses Moment.js to parse and display date</span><br><span class="line">## You can customize the date format as defined in</span><br><span class="line">## http://momentjs.com/docs/#/displaying/format/</span><br><span class="line">date_format: YYYY-MM-DD</span><br><span class="line">time_format: HH:mm:ss</span><br></pre></td></tr></table></figure>
+<h2 id="首页文章标题对齐"><a href="#首页文章标题对齐" class="headerlink" title="首页文章标题对齐"></a>首页文章标题对齐</h2><p>yilia/source/main.0cf68a.css</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.article-inner</span> <span class="selector-tag">h1</span><span class="selector-class">.article-title</span>, <span class="selector-class">.article-title</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#696969</span>;</span><br><span class="line">  <span class="comment">/* margin-left: 0px; */</span></span><br><span class="line">  <span class="attribute">margin-left</span>: -<span class="number">4px</span>;</span><br><span class="line">  <span class="attribute">font-weight</span>: <span class="number">300</span>;</span><br><span class="line">  <span class="attribute">line-height</span>: <span class="number">35px</span>;</span><br><span class="line">  <span class="attribute">margin-bottom</span>: <span class="number">20px</span>;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="number">26px</span>;</span><br><span class="line">  <span class="attribute">-webkit-transition</span>: color <span class="number">0.3s</span>;</span><br><span class="line">  <span class="attribute">-moz-transition</span>: color <span class="number">0.3s</span>;</span><br><span class="line">  <span class="attribute">-o-transition</span>: color <span class="number">0.3s</span>;</span><br><span class="line">  <span class="attribute">transition</span>: color <span class="number">0.3s</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="标题加入背景色"><a href="#标题加入背景色" class="headerlink" title="标题加入背景色"></a>标题加入背景色</h2><p>yilia/source/main.0cf68a.css</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.article-header</span>&#123;<span class="attribute">border-left</span>:<span class="number">5px</span> solid <span class="number">#4d4d4d</span>;<span class="attribute">background-color</span>: <span class="number">#d5d8d9</span>;<span class="attribute">padding</span>:<span class="number">30px</span> <span class="number">0</span> <span class="number">15px</span> <span class="number">25px</span>;<span class="attribute">padding-left</span>:<span class="number">7.6923%</span>&#125;</span><br></pre></td></tr></table></figure>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Hexo</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">主题</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">自定义</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Hexo//" class="article-tag-list-link color5">Hexo</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/10/27/主题自定义/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-docker" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/09/19/docker/">docker初步了解和使用</a>
+    </h1>
+  
+
+        
+        <a href="/2018/09/19/docker/" class="archive-article-date">
+  	<time datetime="2018-09-19T03:07:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-19 11:07:20</time>
+</a>
+
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>是一个开源的应用容器引擎。</p>
+<p>打包应用以及依赖包到一个轻量级、可移植的容器中，然后发布到任何流行的 Linux 机器上，也可以实现虚拟化。</p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wget -qO- https://get.docker.com/ | sh</span><br><span class="line"># 改地址下载的是一个shell脚本，可以将其管道给shell让其直接执行</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install linux-image-extra-$(uname -r) linux-image-extra-virtual</span><br><span class="line"># 注意这个$(uname -r)， 事实上uname -r是一个命令， 会返回系统内核版本，$包裹表示取得这个值放在这使用， 类似于eval。</span><br></pre></td></tr></table></figure>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">server</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">docker</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/server//" class="article-tag-list-link color2">server</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/09/19/docker/">展开全文 >></a>
         </p>
       
 
@@ -1113,209 +1310,6 @@
 
 
   
-    <article id="post-docker" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/09/19/docker/">docker初步了解和使用</a>
-    </h1>
-  
-
-        
-        <a href="/2018/09/19/docker/" class="archive-article-date">
-  	<time datetime="2018-09-19T03:07:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-19 11:07:20</time>
-</a>
-
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>是一个开源的应用容器引擎。</p>
-<p>打包应用以及依赖包到一个轻量级、可移植的容器中，然后发布到任何流行的 Linux 机器上，也可以实现虚拟化。</p>
-<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wget -qO- https://get.docker.com/ | sh</span><br><span class="line"># 改地址下载的是一个shell脚本，可以将其管道给shell让其直接执行</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install linux-image-extra-$(uname -r) linux-image-extra-virtual</span><br><span class="line"># 注意这个$(uname -r)， 事实上uname -r是一个命令， 会返回系统内核版本，$包裹表示取得这个值放在这使用， 类似于eval。</span><br></pre></td></tr></table></figure>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">server</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">docker</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/server//" class="article-tag-list-link color2">server</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/09/19/docker/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-面试进程线程协程两三语" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/09/18/面试进程线程协程两三语/">面试进程线程协程两三语</a>
-    </h1>
-  
-
-        
-        <a href="/2018/09/18/面试进程线程协程两三语/" class="archive-article-date">
-  	<time datetime="2018-09-18T12:25:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-18 20:25:53</time>
-</a>
-
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="1-协程"><a href="#1-协程" class="headerlink" title="1 协程"></a>1 协程</h2><h3 id="1-1-协程是什么"><a href="#1-1-协程是什么" class="headerlink" title="1.1 协程是什么"></a>1.1 协程是什么</h3><p>协程是在线程之上由“用户”构建的并发单元，操作系统不感知协程，协程的切换由用户自己管理和调度。</p>
-<h3 id="1-2-协程的好处"><a href="#1-2-协程的好处" class="headerlink" title="1.2 协程的好处"></a>1.2 协程的好处</h3><ol>
-<li><p>协程极大的优化了程序员的编程体验，同步编程风格能快速构建模块，并易于复用，而且有异步的性能(这个看具体库的实现)，也不用陷入callback hell的深坑。</p>
-</li>
-<li><p>第二点也是我最近一直在纠结的一点，协程到底有没有性能提升？</p>
-</li>
-</ol>
-<p>1)从多线程同步模型切到协程来看，首先很明确的性能提升点在于同步到异步的切换，libco中把阻塞的点全部放到了epoll线程中，而协程线程并不会发生阻塞。<br>其次是协程的成本比线程小，线程受栈空间限制，而协程的栈空间由用户控制，而且实现协程需要的辅助数据结构很少，占用的内存少，那么就会有更大的容量，比如可以轻松开10w个协程，但是很难说开10w个线程。<br>另外一个问题是很多人拿线程上下文切换比协程上下文切换开销大来推出协程模型比多线程并发模型性能优这点，这个问题我纠结了很久。<br>对于这个问题，我先做一个简单的具体抽象：在不考虑阻塞的情况下，假设8核的cpu，不考虑抢占中断优先级等因素，100个任务并发执行，100个线程并发和10个线程每个线程10个协程并发对比两者都可以把cpu资源利用起来，<br>对OS来说，前者100个线程参与cpu调度，后者10个线程参与cpu调度，后者还有额外的协程切换调度，先考虑线程切换的上下文，根据Linux内核调度器CFS的算法，每个线程拿到的时间片是动态的，<br>进程数在分配的时间片在可变区间的情况下会直接影响到线程时间片的长短，所以100个线程每个线程的时间片在一定条件下会要比10个线程情况下的要短，也就意味着在相同时间里，前者的上下文切换次数是比后者要多的，</p>
-<p>所以可以得出一个结论：协程并发模型比多线程同步模型在一定条件下会减少线程切换次数（时间片有固定的范围，如果超出这个范围的边界则线程的时间片无差异），增加了协程切换次数，由于协程的切换是由程序员自己调度的，<br>所以很难说协程切换的代价比省去的线程切换代价小，合理的方式应该是通过测试工具在具体的业务场景得出一个最好的平衡点。</p>
-<p>2)从异步回调模型切到协程模型来看，从一些已有协程库的实现来看，协程的同步写法却有异步性能其实还是异步回调在支撑这个事情，所以我认为协程模型是在异步模型之上的东西，<br>考虑到本身协程上下文切换的开销（其实很小）和数据结构调用的一些开销，理论上协程是比异步回调的性能要稍微差一点，但是可以处于几乎持平的性能，因为协程实现的代价非常小。</p>
-<p>3)从一些异步驱动库的角度来看协程的话，因为异步框架把代码封装到很多个小类里面，然后串起来，这中间会涉及相当多的内存分配，而数据大都在离散的堆内存里面，而协程风格的代码，<br>可以简单理解为一个简洁的连续空间的栈内存池，辅助数据结构也很少，所以协程可能会比厚重的封装性能会更好一些，但是这里的前提是，协程库能实现异步驱动库所需要的功能，并把它封装到同步调用里。</p>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
-<li>协程的理解 <a href="https://www.cnblogs.com/laiy/p/coroutine.html" target="_blank" rel="noopener">https://www.cnblogs.com/laiy/p/coroutine.html</a></li>
-</ul>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">线程</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">进程</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">协程</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/python//" class="article-tag-list-link color2">python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/09/18/面试进程线程协程两三语/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
@@ -1417,6 +1411,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">博客</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">笔记</a>
               </li>
              
@@ -1426,14 +1428,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Database</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">博客</a>
               </li>
              
               <li class="article-tag-list-item">
