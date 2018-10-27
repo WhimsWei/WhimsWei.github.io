@@ -477,6 +477,33 @@
   </entry>
   
   <entry>
+    <title>python解释器</title>
+    <link href="http://weihuchao.top/2018/09/01/python%E8%A7%A3%E9%87%8A%E5%99%A8/"/>
+    <id>http://weihuchao.top/2018/09/01/python解释器/</id>
+    <published>2018-08-31T16:00:00.000Z</published>
+    <updated>2018-09-06T11:57:04.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="1-Python的常用解释器"><a href="#1-Python的常用解释器" class="headerlink" title="1 Python的常用解释器"></a>1 Python的常用解释器</h2><h3 id="CPython"><a href="#CPython" class="headerlink" title="CPython"></a>CPython</h3><p>官方版本的解释器：CPython。</p><p>这个解释器是用C语言开发的，所以叫CPython。</p><p>默认在命令行下运行python就是启动CPython解释器。</p><p>CPython是使用最广的Python解释器</p><h3 id="IPython"><a href="#IPython" class="headerlink" title="IPython"></a>IPython</h3><p>IPython是基于CPython之上的一个交互式解释器，只是在交互方式上有所增强。</p><p>CPython用<strong>&gt;&gt;&gt;</strong>作为提示符，而IPython用<strong>In [序号]:</strong>作为提示符。</p><h3 id="PyPy"><a href="#PyPy" class="headerlink" title="PyPy"></a>PyPy</h3><p>PyPy是另一个Python解释器，它的目标是执行速度。</p><p>PyPy采用<strong>JIT技术</strong>，对Python代码进行<strong>动态编译</strong>（注意不是解释），所以可以<strong>显著提高Python代码的执行速度</strong>。</p><p>绝大部分Python代码都可以在PyPy下运行，但是PyPy和CPython有一些是不同的，这就导致相同的Python代码在两种解释器下执行可能会有不同的结果。</p><h3 id="Jython"><a href="#Jython" class="headerlink" title="Jython"></a>Jython</h3><p>Jython是运行在Java平台上的Python解释器，可以直接把Python代码编译成Java字节码执行。</p><h3 id="IronPython"><a href="#IronPython" class="headerlink" title="IronPython"></a>IronPython</h3><p>IronPython和Jython类似，只不过IronPython是运行在微软.Net平台上的Python解释器，可以直接把Python代码编译成.Net的字节码。</p><h2 id="2-解释-提前编译-实时编译"><a href="#2-解释-提前编译-实时编译" class="headerlink" title="2 解释 提前编译 实时编译"></a>2 解释 提前编译 实时编译</h2><h3 id="提前（AOT）编译"><a href="#提前（AOT）编译" class="headerlink" title="提前（AOT）编译"></a>提前（AOT）编译</h3><p>编译高级编程语言为对应的机器代码， 以便生成的二进制文件可以本机执行。</p><h3 id="解释"><a href="#解释" class="headerlink" title="解释"></a>解释</h3><p>解释是<strong>直接执行脚本语言</strong>， 而不需要事先将它们编译成机器语言。</p><p>解释器的主要缺点是解释程序通常比编译时运行得<strong>慢</strong>。</p><p>解释器通常使用以下策略之一来执行程序：</p><ul><li>解析的源代码，并直接执行其行为;</li><li>将源代码转换为一些有效的<strong>中间表示</strong>并立即执行此操作;</li><li>显式执行由编译器生成的存储的预编译代码，编译器是解释器系统的一部分。</li></ul><p>术语“ <strong>解释语言</strong> ”或“ <strong>编译语言</strong> ”表示该语言的规范实现分别是<strong>解释器</strong>或<strong>编译器</strong>。</p><h3 id="实时（JIT）编译"><a href="#实时（JIT）编译" class="headerlink" title="实时（JIT）编译"></a>实时（JIT）编译</h3><p>涉及程序执行期间的编译。</p><p>实时编译系统通常的做法是，连续地分析正在执行的代码，并识别代码的一部分，从而得到加速。且编译或重新编译获得的加速比将超过编译该代码的开销。</p><p>JIT编译结合了编译代码的速度和解释的灵活性，以及​解释器的开销和编译的额外开销（而不仅仅是解释）。</p><p>理论上，JIT编译可以比静态编译产生更快的执行速度。</p><h2 id="3-CPython和PyPy之间的差异"><a href="#3-CPython和PyPy之间的差异" class="headerlink" title="3 CPython和PyPy之间的差异"></a>3 CPython和PyPy之间的差异</h2><p><a href="https://pypy.readthedocs.io/en/latest/cpython_differences.html" target="_blank" rel="noopener">点我查看详细</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;1-Python的常用解释器&quot;&gt;&lt;a href=&quot;#1-Python的常用解释器&quot; class=&quot;headerlink&quot; title=&quot;1 Python的常用解释器&quot;&gt;&lt;/a&gt;1 Python的常用解释器&lt;/h2&gt;&lt;h3 id=&quot;CPython&quot;&gt;&lt;a href=
+      
+    
+    </summary>
+    
+      <category term="python" scheme="http://weihuchao.top/categories/python/"/>
+    
+    
+      <category term="python" scheme="http://weihuchao.top/tags/python/"/>
+    
+      <category term="解释器" scheme="http://weihuchao.top/tags/%E8%A7%A3%E9%87%8A%E5%99%A8/"/>
+    
+  </entry>
+  
+  <entry>
     <title>python拾遗</title>
     <link href="http://weihuchao.top/2018/09/01/python%E6%8B%BE%E9%81%97/"/>
     <id>http://weihuchao.top/2018/09/01/python拾遗/</id>
@@ -501,33 +528,6 @@
       <category term="python" scheme="http://weihuchao.top/tags/python/"/>
     
       <category term="基础" scheme="http://weihuchao.top/tags/%E5%9F%BA%E7%A1%80/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>python解释器</title>
-    <link href="http://weihuchao.top/2018/09/01/python%E8%A7%A3%E9%87%8A%E5%99%A8/"/>
-    <id>http://weihuchao.top/2018/09/01/python解释器/</id>
-    <published>2018-08-31T16:00:00.000Z</published>
-    <updated>2018-09-06T11:57:04.000Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="1-Python的常用解释器"><a href="#1-Python的常用解释器" class="headerlink" title="1 Python的常用解释器"></a>1 Python的常用解释器</h2><h3 id="CPython"><a href="#CPython" class="headerlink" title="CPython"></a>CPython</h3><p>官方版本的解释器：CPython。</p><p>这个解释器是用C语言开发的，所以叫CPython。</p><p>默认在命令行下运行python就是启动CPython解释器。</p><p>CPython是使用最广的Python解释器</p><h3 id="IPython"><a href="#IPython" class="headerlink" title="IPython"></a>IPython</h3><p>IPython是基于CPython之上的一个交互式解释器，只是在交互方式上有所增强。</p><p>CPython用<strong>&gt;&gt;&gt;</strong>作为提示符，而IPython用<strong>In [序号]:</strong>作为提示符。</p><h3 id="PyPy"><a href="#PyPy" class="headerlink" title="PyPy"></a>PyPy</h3><p>PyPy是另一个Python解释器，它的目标是执行速度。</p><p>PyPy采用<strong>JIT技术</strong>，对Python代码进行<strong>动态编译</strong>（注意不是解释），所以可以<strong>显著提高Python代码的执行速度</strong>。</p><p>绝大部分Python代码都可以在PyPy下运行，但是PyPy和CPython有一些是不同的，这就导致相同的Python代码在两种解释器下执行可能会有不同的结果。</p><h3 id="Jython"><a href="#Jython" class="headerlink" title="Jython"></a>Jython</h3><p>Jython是运行在Java平台上的Python解释器，可以直接把Python代码编译成Java字节码执行。</p><h3 id="IronPython"><a href="#IronPython" class="headerlink" title="IronPython"></a>IronPython</h3><p>IronPython和Jython类似，只不过IronPython是运行在微软.Net平台上的Python解释器，可以直接把Python代码编译成.Net的字节码。</p><h2 id="2-解释-提前编译-实时编译"><a href="#2-解释-提前编译-实时编译" class="headerlink" title="2 解释 提前编译 实时编译"></a>2 解释 提前编译 实时编译</h2><h3 id="提前（AOT）编译"><a href="#提前（AOT）编译" class="headerlink" title="提前（AOT）编译"></a>提前（AOT）编译</h3><p>编译高级编程语言为对应的机器代码， 以便生成的二进制文件可以本机执行。</p><h3 id="解释"><a href="#解释" class="headerlink" title="解释"></a>解释</h3><p>解释是<strong>直接执行脚本语言</strong>， 而不需要事先将它们编译成机器语言。</p><p>解释器的主要缺点是解释程序通常比编译时运行得<strong>慢</strong>。</p><p>解释器通常使用以下策略之一来执行程序：</p><ul><li>解析的源代码，并直接执行其行为;</li><li>将源代码转换为一些有效的<strong>中间表示</strong>并立即执行此操作;</li><li>显式执行由编译器生成的存储的预编译代码，编译器是解释器系统的一部分。</li></ul><p>术语“ <strong>解释语言</strong> ”或“ <strong>编译语言</strong> ”表示该语言的规范实现分别是<strong>解释器</strong>或<strong>编译器</strong>。</p><h3 id="实时（JIT）编译"><a href="#实时（JIT）编译" class="headerlink" title="实时（JIT）编译"></a>实时（JIT）编译</h3><p>涉及程序执行期间的编译。</p><p>实时编译系统通常的做法是，连续地分析正在执行的代码，并识别代码的一部分，从而得到加速。且编译或重新编译获得的加速比将超过编译该代码的开销。</p><p>JIT编译结合了编译代码的速度和解释的灵活性，以及​解释器的开销和编译的额外开销（而不仅仅是解释）。</p><p>理论上，JIT编译可以比静态编译产生更快的执行速度。</p><h2 id="3-CPython和PyPy之间的差异"><a href="#3-CPython和PyPy之间的差异" class="headerlink" title="3 CPython和PyPy之间的差异"></a>3 CPython和PyPy之间的差异</h2><p><a href="https://pypy.readthedocs.io/en/latest/cpython_differences.html" target="_blank" rel="noopener">点我查看详细</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;1-Python的常用解释器&quot;&gt;&lt;a href=&quot;#1-Python的常用解释器&quot; class=&quot;headerlink&quot; title=&quot;1 Python的常用解释器&quot;&gt;&lt;/a&gt;1 Python的常用解释器&lt;/h2&gt;&lt;h3 id=&quot;CPython&quot;&gt;&lt;a href=
-      
-    
-    </summary>
-    
-      <category term="python" scheme="http://weihuchao.top/categories/python/"/>
-    
-    
-      <category term="python" scheme="http://weihuchao.top/tags/python/"/>
-    
-      <category term="解释器" scheme="http://weihuchao.top/tags/%E8%A7%A3%E9%87%8A%E5%99%A8/"/>
     
   </entry>
   
@@ -560,20 +560,19 @@
   </entry>
   
   <entry>
-    <title>父亲-筷子兄弟</title>
-    <link href="http://weihuchao.top/2018/07/08/%E7%88%B6%E4%BA%B2-%E7%AD%B7%E5%AD%90%E5%85%84%E5%BC%9F/"/>
-    <id>http://weihuchao.top/2018/07/08/父亲-筷子兄弟/</id>
+    <title>不朽之罪-双笙</title>
+    <link href="http://weihuchao.top/2018/07/08/%E4%B8%8D%E6%9C%BD%E4%B9%8B%E7%BD%AA-%E5%8F%8C%E7%AC%99/"/>
+    <id>http://weihuchao.top/2018/07/08/不朽之罪-双笙/</id>
     <published>2018-07-07T16:00:00.000Z</published>
-    <updated>2018-09-01T03:55:43.000Z</updated>
+    <updated>2018-07-07T13:13:08.000Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="歌谱"><a href="#歌谱" class="headerlink" title="歌谱"></a>歌谱</h2><p><img src="/img/blog/父亲/父亲.jpg" alt=""></p><h2 id="歌词"><a href="#歌词" class="headerlink" title="歌词"></a>歌词</h2><h3 id="A"><a href="#A" class="headerlink" title="A"></a>A</h3><p>总是向你索取 却不曾说谢谢你<br>直到长大以后 才懂得你不容易<br>每次离开总是 装作轻松的样子<br>微笑着说回去吧 转身泪湿眼底</p><p>多想和从前一样 牵你温暖手掌<br>可是你不在我身旁 托清风捎去安康</p><p>时光时光慢些吧 不要再让你变老了<br>我愿用我一切 换你岁月长留<br>一生要强的爸爸 我能为你做些什么<br>微不足道的关心 收下吧</p><p>谢谢你做的一切 双手撑起我们的家<br>总是竭尽所有 把最好的给我<br>我是你的骄傲吗 还在为我而担心吗<br>你牵挂的孩子啊 长大啦</p><h3 id="B"><a href="#B" class="headerlink" title="B"></a>B</h3><p>多想和从前一样 牵你温暖手掌<br>可是你不在我身旁 托清风捎去安康</p><p>时光时光慢些吧 不要再让你变老了<br>我愿用我一切 换你岁月长留<br>一生要强的爸爸 我能为你做些什么<br>微不足道的关心 收下吧</p><p>谢谢你做的一切 双手撑起我们的家<br>总是竭尽所有 把最好的给我<br>我是你的骄傲吗 还在为我而担心吗<br>你牵挂的孩子啊 长大啦</p><h3 id="C"><a href="#C" class="headerlink" title="C"></a>C</h3><p>时光时光慢些吧 不要再让你变老啦<br>我愿用我一切 换你岁月长留<br>我是你的骄傲吗 还在为我而担心吗<br>你牵挂的孩子啊 长大啦</p><p>感谢一路上有你</p>]]></content>
+    <content type="html"><![CDATA[<h2 id="歌词"><a href="#歌词" class="headerlink" title="歌词"></a>歌词</h2><h3 id="A"><a href="#A" class="headerlink" title="A"></a>A</h3><p>打乱的骨牌 习惯盲目依赖↑<br>以坦然姿态 等风来→<br>鞋跟下青苔 爬满拖地裙摆→<br>神的福音被隔|绝窗外↑</p><p>天平支点倾斜 自尊将我打败<br>不安的窘态 在作怪<br>我熟知的年代还能区分黑白<br>无需卖弄心|机耍赖</p><p>为谁深陷不知往返的迷恋<br>未曾认清这个世界<br>我听到权力之争彻夜不歇<br>街尾血香|愈显浓烈</p><h3 id="B"><a href="#B" class="headerlink" title="B"></a>B</h3><p>空间接应点 于囚笼中调（diao）配<br>密封的花蕊 正枯萎<br>听断线傀儡 晚安留在句尾<br>僵硬的思维筛选错对</p><p>天平支点倾斜 自尊将我打败<br>不安的窘态 在作怪<br>我熟知的年代 还能区分黑白<br>无需卖弄心|机耍赖</p><p>为谁深陷不知往返的迷恋<br>未曾认清这个世界<br>我听到权力之争彻夜不歇<br>街尾血香|愈显浓烈</p><h3 id="C"><a href="#C" class="headerlink" title="C"></a>C</h3><p>甘愿臣服于谁 立忠诚之碑<br>重叠暗夜又一番教诲<br>结局早已无谓<br>明与灭 滞留病态的美</p><h3 id="D"><a href="#D" class="headerlink" title="D"></a>D</h3><p>为谁深陷不知往返的迷恋<br>为谁认清这个世界<br>我听到权力之争彻夜不歇<br>街尾血香|显浓烈</p><p>打乱的骨牌 习惯盲目依赖<br>（为谁深陷不知往返的迷恋）</p><p>以坦然姿态 等风来<br>（未曾认清这个世界）</p><p>让断线傀儡 晚安留在句尾<br>（我听到权力之争彻夜不歇）</p><p>僵硬的思维筛选错对<br>（街尾血香愈显浓烈)</p>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;h2 id=&quot;歌谱&quot;&gt;&lt;a href=&quot;#歌谱&quot; class=&quot;headerlink&quot; title=&quot;歌谱&quot;&gt;&lt;/a&gt;歌谱&lt;/h2&gt;&lt;p&gt;&lt;img src=&quot;/img/blog/父亲/父亲.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;h2 id=&quot;歌词&quot;&gt;&lt;a href=&quot;#歌词&quot; c
+        &lt;h2 id=&quot;歌词&quot;&gt;&lt;a href=&quot;#歌词&quot; class=&quot;headerlink&quot; title=&quot;歌词&quot;&gt;&lt;/a&gt;歌词&lt;/h2&gt;&lt;h3 id=&quot;A&quot;&gt;&lt;a href=&quot;#A&quot; class=&quot;headerlink&quot; title=&quot;A&quot;&gt;&lt;/a&gt;A&lt;/h3&gt;&lt;p&gt;打乱的骨牌 习
       
     
     </summary>

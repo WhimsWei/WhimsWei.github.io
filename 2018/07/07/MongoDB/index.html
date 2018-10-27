@@ -172,9 +172,9 @@
       
         <h2 id="1-官方文档及相关文档"><a href="#1-官方文档及相关文档" class="headerlink" title="1 官方文档及相关文档"></a>1 官方文档及相关文档</h2><p><a href="https://docs.mongodb.com/" target="_blank" rel="noopener">官方文档</a></p>
 <h2 id="2-部署相关"><a href="#2-部署相关" class="headerlink" title="2 部署相关"></a>2 部署相关</h2><h3 id="1-安装"><a href="#1-安装" class="headerlink" title="1) 安装"></a>1) 安装</h3><p><a href="https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/" target="_blank" rel="noopener">ubuntu安装</a></p>
-<h3 id="2-命令"><a href="#2-命令" class="headerlink" title="2) 命令"></a>2) 命令</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 启动</span></span><br><span class="line">sudo service mongod stop</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 重启</span></span><br><span class="line">sudo service mongod restart</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 关闭</span></span><br><span class="line">sudo service mongod stop</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 移除</span></span><br><span class="line">sudo apt-get purge mongodb-org*</span><br></pre></td></tr></table></figure>
-<h2 id="3-常用使用"><a href="#3-常用使用" class="headerlink" title="3 常用使用"></a>3 常用使用</h2><h3 id="1）基础使用"><a href="#1）基础使用" class="headerlink" title="1）基础使用"></a>1）基础使用</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 连接数据库</span></span><br><span class="line">mongo --host 192.168.199.9</span><br><span class="line">mongo --host 127.0.0.1:27017</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 查看当前数据库</span></span><br><span class="line">db</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 查看所有数据库</span></span><br><span class="line">show dbs</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 使用数据库</span></span><br><span class="line">use weihc</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 查看所有文档</span></span><br><span class="line">show collections</span><br></pre></td></tr></table></figure>
-<h3 id="2）-查询"><a href="#2）-查询" class="headerlink" title="2） 查询"></a>2） 查询</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 基础查询(美化显示)</span></span><br><span class="line">db.player.find()</span><br><span class="line">db.player.find().pretty()</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 如果collection的名字特殊</span></span><br><span class="line">db.getCollection("3 test").find()</span><br><span class="line">db.getCollection("3-test").find()</span><br><span class="line">db.getCollection("stats").find()</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 过滤查询</span></span><br><span class="line">db.player.find(&#123;"_id": 1&#125;).pretty()</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 查询并过滤结果</span></span><br><span class="line">db.player.find(&#123;"_id": 1&#125;, &#123;"nickname": 1&#125;).pretty()</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 加上判断条件</span></span><br><span class="line">db.player.find(&#123;"_id": 1, "log_time": &#123;$gt: 1530894156&#125;&#125;, &#123;"nickname": 1&#125;).pretty()</span><br></pre></td></tr></table></figure>
+<h3 id="2-命令"><a href="#2-命令" class="headerlink" title="2) 命令"></a>2) 命令</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 启动</span><br><span class="line">sudo service mongod stop</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 重启</span><br><span class="line">sudo service mongod restart</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 关闭</span><br><span class="line">sudo service mongod stop</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 移除</span><br><span class="line">sudo apt-get purge mongodb-org*</span><br></pre></td></tr></table></figure>
+<h2 id="3-常用使用"><a href="#3-常用使用" class="headerlink" title="3 常用使用"></a>3 常用使用</h2><h3 id="1）基础使用"><a href="#1）基础使用" class="headerlink" title="1）基础使用"></a>1）基础使用</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 连接数据库</span><br><span class="line">mongo --host 192.168.199.9</span><br><span class="line">mongo --host 127.0.0.1:27017</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 查看当前数据库</span><br><span class="line">db</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 查看所有数据库</span><br><span class="line">show dbs</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 使用数据库</span><br><span class="line">use weihc</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 查看所有文档</span><br><span class="line">show collections</span><br></pre></td></tr></table></figure>
+<h3 id="2）-查询"><a href="#2）-查询" class="headerlink" title="2） 查询"></a>2） 查询</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 基础查询(美化显示)</span><br><span class="line">db.player.find()</span><br><span class="line">db.player.find().pretty()</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 如果collection的名字特殊</span><br><span class="line">db.getCollection("3 test").find()</span><br><span class="line">db.getCollection("3-test").find()</span><br><span class="line">db.getCollection("stats").find()</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 过滤查询</span><br><span class="line">db.player.find(&#123;"_id": 1&#125;).pretty()</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 查询并过滤结果</span><br><span class="line">db.player.find(&#123;"_id": 1&#125;, &#123;"nickname": 1&#125;).pretty()</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 加上判断条件</span><br><span class="line">db.player.find(&#123;"_id": 1, "log_time": &#123;$gt: 1530894156&#125;&#125;, &#123;"nickname": 1&#125;).pretty()</span><br></pre></td></tr></table></figure>
 
       
 
@@ -308,11 +308,11 @@
   
 <nav id="article-nav">
   
-    <a href="/2018/07/08/千里之外-周杰伦/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2018/07/08/高飞-张杰/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          千里之外-周杰伦
+          高飞-张杰
         
       </div>
     </a>
@@ -474,6 +474,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Work</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Database</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">歌词</a>
               </li>
              
@@ -490,23 +498,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">gitlab</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">optparse</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Work</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Database</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">python</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">解释器</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -522,7 +522,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">SSH</a>
+                <a href="javascript:void(0)" class="js-tag color4">解释器</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -530,7 +530,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">gitlab</a>
+                <a href="javascript:void(0)" class="js-tag color4">SSH</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">主题</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">自定义</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -554,15 +562,27 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">主题</a>
+                <a href="javascript:void(0)" class="js-tag color3">同步</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">自定义</a>
+                <a href="javascript:void(0)" class="js-tag color3">异步</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">环境</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">server</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">代理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">反向代理</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -582,31 +602,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">server</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">代理</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">反向代理</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">docker</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">同步</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">异步</a>
               </li>
             
             <div class="clearfix"></div>
