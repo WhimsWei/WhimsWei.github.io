@@ -147,6 +147,105 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-optparse的使用方法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/10/27/optparse的使用方法/">python脚本传入参数解析之optparse</a>
+    </h1>
+  
+
+        
+        <a href="/2018/10/27/optparse的使用方法/" class="archive-article-date">
+  	<time datetime="2018-10-27T11:37:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-27 19:37:39</time>
+</a>
+
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="1-引入"><a href="#1-引入" class="headerlink" title="1 引入"></a>1 引入</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> optparse</span><br></pre></td></tr></table></figure>
+<h2 id="2-创建使用说明"><a href="#2-创建使用说明" class="headerlink" title="2 创建使用说明"></a>2 创建使用说明</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">usage = <span class="string">"""</span></span><br><span class="line"><span class="string">This is usage</span></span><br><span class="line"><span class="string">"""</span></span><br><span class="line"></span><br><span class="line">parser = optparse.OptionParser(usage)</span><br></pre></td></tr></table></figure>
+<h2 id="3-创建指定参数"><a href="#3-创建指定参数" class="headerlink" title="3 创建指定参数"></a>3 创建指定参数</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">help = <span class="string">"The interface to listen on. Default is localhost."</span></span><br><span class="line">parser.add_option(<span class="string">'--iface'</span>, help=help, default=<span class="string">'localhost'</span>)</span><br></pre></td></tr></table></figure>
+<p>关于add_option函数， 第一个参数需要是<code>--name</code>，name用于之后调用的名字， 也是命令输入需要输入的名字。</p>
+<p>可以设置帮助信息（help）和默认值（default）。</p>
+<h2 id="4-解析输入"><a href="#4-解析输入" class="headerlink" title="4 解析输入"></a>4 解析输入</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">options, args = parser.parse_args()</span><br></pre></td></tr></table></figure>
+<p><code>parse_args()</code>函数有两个返回值，一个是指定的可选参数，一个是正常输入的所有参数。</p>
+<p>其中可选参数可以通过<code>options.name</code>的方式调用得到该值。</p>
+<h2 id="5-出错退出程序"><a href="#5-出错退出程序" class="headerlink" title="5 出错退出程序"></a>5 出错退出程序</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">parser.exit()</span><br></pre></td></tr></table></figure>
+<p>可以传入参数<code>msg</code>来输出错误信息。执行该句之后程序退出。</p>
+<h2 id="6-范例"><a href="#6-范例" class="headerlink" title="6 范例"></a>6 范例</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">parse_args</span><span class="params">()</span>:</span></span><br><span class="line">    usage = <span class="string">"""usage: %prog [options] poetry-file</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">This is the Slow Poetry Server, blocking edition.</span></span><br><span class="line"><span class="string">Run it like this:</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">  python slowpoetry.py &lt;path-to-poetry-file&gt;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">If you are in the base directory of the twisted-intro package,</span></span><br><span class="line"><span class="string">you could run it like this:</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">  python blocking-server/slowpoetry.py poetry/ecstasy.txt</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">to serve up John Donne's Ecstasy, which I know you want to do.</span></span><br><span class="line"><span class="string">"""</span></span><br><span class="line"></span><br><span class="line">    parser = optparse.OptionParser(usage)</span><br><span class="line"></span><br><span class="line">    help = <span class="string">"The port to listen on. Default to a random available port."</span></span><br><span class="line">    parser.add_option(<span class="string">'--port'</span>, type=<span class="string">'int'</span>, help=help)</span><br><span class="line"></span><br><span class="line">    help = <span class="string">"The interface to listen on. Default is localhost."</span></span><br><span class="line">    parser.add_option(<span class="string">'--iface'</span>, help=help, default=<span class="string">'localhost'</span>)</span><br><span class="line"></span><br><span class="line">    help = <span class="string">"The number of seconds between sending bytes."</span></span><br><span class="line">    parser.add_option(<span class="string">'--delay'</span>, type=<span class="string">'float'</span>, help=help, default=<span class="number">.7</span>)</span><br><span class="line"></span><br><span class="line">    help = <span class="string">"The number of bytes to send at a time."</span></span><br><span class="line">    parser.add_option(<span class="string">'--num-bytes'</span>, type=<span class="string">'int'</span>, help=help, default=<span class="number">10</span>)</span><br><span class="line"></span><br><span class="line">    options, args = parser.parse_args()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> len(args) != <span class="number">1</span>:</span><br><span class="line">        parser.error(<span class="string">'Provide exactly one poetry file.'</span>)</span><br><span class="line"></span><br><span class="line">    poetry_file = args[<span class="number">0</span>]</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> os.path.exists(args[<span class="number">0</span>]):</span><br><span class="line">        parser.error(<span class="string">'No such file: %s'</span> % poetry_file)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> options, poetry_file</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">()</span>:</span></span><br><span class="line">    options, poetry_file= parse_args()</span><br><span class="line"></span><br><span class="line">    sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)</span><br><span class="line">    sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, <span class="number">1</span>)</span><br><span class="line">    sock.bind((options.iface, options.port <span class="keyword">or</span> <span class="number">0</span>))</span><br><span class="line"></span><br><span class="line">    sock.listen(<span class="number">5</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">print</span> <span class="string">'Serving %s on port %s.'</span> % (poetry_file, sock.getsockname()[<span class="number">1</span>])</span><br><span class="line"></span><br><span class="line">    serve(sock, poetry_file, options.num_bytes, options.delay)</span><br></pre></td></tr></table></figure>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">optparse</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/笔记//" class="article-tag-list-link color3">笔记</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/10/27/optparse的使用方法/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-amazing trees - 泽野弘之" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -260,105 +359,6 @@
 
 
   
-    <article id="post-optparse的使用方法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/10/27/optparse的使用方法/">python脚本传入参数解析之optparse</a>
-    </h1>
-  
-
-        
-        <a href="/2018/10/27/optparse的使用方法/" class="archive-article-date">
-  	<time datetime="2018-10-27T11:37:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-27 19:37:39</time>
-</a>
-
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="1-引入"><a href="#1-引入" class="headerlink" title="1 引入"></a>1 引入</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> optparse</span><br></pre></td></tr></table></figure>
-<h2 id="2-创建使用说明"><a href="#2-创建使用说明" class="headerlink" title="2 创建使用说明"></a>2 创建使用说明</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">usage = <span class="string">"""</span></span><br><span class="line"><span class="string">This is usage</span></span><br><span class="line"><span class="string">"""</span></span><br><span class="line"></span><br><span class="line">parser = optparse.OptionParser(usage)</span><br></pre></td></tr></table></figure>
-<h2 id="3-创建指定参数"><a href="#3-创建指定参数" class="headerlink" title="3 创建指定参数"></a>3 创建指定参数</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">help = <span class="string">"The interface to listen on. Default is localhost."</span></span><br><span class="line">parser.add_option(<span class="string">'--iface'</span>, help=help, default=<span class="string">'localhost'</span>)</span><br></pre></td></tr></table></figure>
-<p>关于add_option函数， 第一个参数需要是<code>--name</code>，name用于之后调用的名字， 也是命令输入需要输入的名字。</p>
-<p>可以设置帮助信息（help）和默认值（default）。</p>
-<h2 id="4-解析输入"><a href="#4-解析输入" class="headerlink" title="4 解析输入"></a>4 解析输入</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">options, args = parser.parse_args()</span><br></pre></td></tr></table></figure>
-<p><code>parse_args()</code>函数有两个返回值，一个是指定的可选参数，一个是正常输入的所有参数。</p>
-<p>其中可选参数可以通过<code>options.name</code>的方式调用得到该值。</p>
-<h2 id="5-出错退出程序"><a href="#5-出错退出程序" class="headerlink" title="5 出错退出程序"></a>5 出错退出程序</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">parser.exit()</span><br></pre></td></tr></table></figure>
-<p>可以传入参数<code>msg</code>来输出错误信息。执行该句之后程序退出。</p>
-<h2 id="6-范例"><a href="#6-范例" class="headerlink" title="6 范例"></a>6 范例</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">parse_args</span><span class="params">()</span>:</span></span><br><span class="line">    usage = <span class="string">"""usage: %prog [options] poetry-file</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">This is the Slow Poetry Server, blocking edition.</span></span><br><span class="line"><span class="string">Run it like this:</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">  python slowpoetry.py &lt;path-to-poetry-file&gt;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">If you are in the base directory of the twisted-intro package,</span></span><br><span class="line"><span class="string">you could run it like this:</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">  python blocking-server/slowpoetry.py poetry/ecstasy.txt</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">to serve up John Donne's Ecstasy, which I know you want to do.</span></span><br><span class="line"><span class="string">"""</span></span><br><span class="line"></span><br><span class="line">    parser = optparse.OptionParser(usage)</span><br><span class="line"></span><br><span class="line">    help = <span class="string">"The port to listen on. Default to a random available port."</span></span><br><span class="line">    parser.add_option(<span class="string">'--port'</span>, type=<span class="string">'int'</span>, help=help)</span><br><span class="line"></span><br><span class="line">    help = <span class="string">"The interface to listen on. Default is localhost."</span></span><br><span class="line">    parser.add_option(<span class="string">'--iface'</span>, help=help, default=<span class="string">'localhost'</span>)</span><br><span class="line"></span><br><span class="line">    help = <span class="string">"The number of seconds between sending bytes."</span></span><br><span class="line">    parser.add_option(<span class="string">'--delay'</span>, type=<span class="string">'float'</span>, help=help, default=<span class="number">.7</span>)</span><br><span class="line"></span><br><span class="line">    help = <span class="string">"The number of bytes to send at a time."</span></span><br><span class="line">    parser.add_option(<span class="string">'--num-bytes'</span>, type=<span class="string">'int'</span>, help=help, default=<span class="number">10</span>)</span><br><span class="line"></span><br><span class="line">    options, args = parser.parse_args()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> len(args) != <span class="number">1</span>:</span><br><span class="line">        parser.error(<span class="string">'Provide exactly one poetry file.'</span>)</span><br><span class="line"></span><br><span class="line">    poetry_file = args[<span class="number">0</span>]</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> os.path.exists(args[<span class="number">0</span>]):</span><br><span class="line">        parser.error(<span class="string">'No such file: %s'</span> % poetry_file)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> options, poetry_file</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">()</span>:</span></span><br><span class="line">    options, poetry_file= parse_args()</span><br><span class="line"></span><br><span class="line">    sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)</span><br><span class="line">    sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, <span class="number">1</span>)</span><br><span class="line">    sock.bind((options.iface, options.port <span class="keyword">or</span> <span class="number">0</span>))</span><br><span class="line"></span><br><span class="line">    sock.listen(<span class="number">5</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">print</span> <span class="string">'Serving %s on port %s.'</span> % (poetry_file, sock.getsockname()[<span class="number">1</span>])</span><br><span class="line"></span><br><span class="line">    serve(sock, poetry_file, options.num_bytes, options.delay)</span><br></pre></td></tr></table></figure>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">optparse</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/笔记//" class="article-tag-list-link color3">笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/10/27/optparse的使用方法/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
     <article id="post-Helloworld" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -433,6 +433,459 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2018/10/27/Helloworld/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-git-flow" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/10/27/git-flow/">git进阶之git-flow</a>
+    </h1>
+  
+
+        
+        <a href="/2018/10/27/git-flow/" class="archive-article-date">
+  	<time datetime="2018-10-27T11:37:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-27 19:37:39</time>
+</a>
+
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="1-git-flow"><a href="#1-git-flow" class="headerlink" title="1 git flow"></a>1 git flow</h2><p>Git flow script是基于git flow概念的一个帮助我们快速使用该思想的脚本。</p>
+<h2 id="2-安装"><a href="#2-安装" class="headerlink" title="2 安装"></a>2 安装</h2><p>OS X<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install git-flow</span><br></pre></td></tr></table></figure></p>
+<p>Linux<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get install git-flow</span><br></pre></td></tr></table></figure></p>
+<p>Windows<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget -q -O - --no-check-certificate https://github.com/nvie/gitflow/raw/develop/contrib/gitflow-installer.sh | bash</span><br></pre></td></tr></table></figure></p>
+<h2 id="3-使用"><a href="#3-使用" class="headerlink" title="3 使用"></a>3 使用</h2><p>初始化: git flow init</p>
+<p>开始新Feature: git flow feature start MYFEATURE</p>
+<p>Publish一个Feature(也就是push到远程): git flow feature publish MYFEATURE</p>
+<p>获取Publish的Feature: git flow feature pull origin MYFEATURE</p>
+<p>完成一个Feature: git flow feature finish MYFEATURE</p>
+<p>开始一个Release: git flow release start RELEASE [BASE]</p>
+<p>Publish一个Release: git flow release publish RELEASE<br>发布Release: git flow release finish RELEASE<br>别忘了git push –tags</p>
+<p>开始一个Hotfix: git flow hotfix start VERSION [BASENAME]</p>
+<p>发布一个Hotfix: git flow hotfix finish VERSION</p>
+<h2 id="4-关于init"><a href="#4-关于init" class="headerlink" title="4 关于init"></a>4 关于init</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">git flow init -h</span><br><span class="line"></span><br><span class="line">USAGE: git flow init [flags] args</span><br><span class="line">flags:</span><br><span class="line">  -h  show this <span class="built_in">help</span> (default: <span class="literal">false</span>)</span><br><span class="line">  -f  force setting of gitflow branches, even <span class="keyword">if</span> already configured</span><br><span class="line">      (default: <span class="literal">false</span>)</span><br><span class="line">  -d  use default branch naming conventions (default: <span class="literal">false</span>)</span><br></pre></td></tr></table></figure>
+<p>深入了解:</p>
+<p>该配置写入到了 .git/cnfig 文件中, 如果发现该配置不正确, 可以直接进行编辑</p>
+<h2 id="5-参考"><a href="#5-参考" class="headerlink" title="5 参考"></a>5 参考</h2><ul>
+<li><a href="https://www.cnblogs.com/cnblogsfans/p/5075073.html" target="_blank" rel="noopener">https://www.cnblogs.com/cnblogsfans/p/5075073.html</a></li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">git</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">git-flow</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/笔记//" class="article-tag-list-link color3">笔记</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/10/27/git-flow/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-ssh配置" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/10/27/ssh配置/">SSH的一般配置</a>
+    </h1>
+  
+
+        
+        <a href="/2018/10/27/ssh配置/" class="archive-article-date">
+  	<time datetime="2018-10-27T11:37:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-27 19:37:39</time>
+</a>
+
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="config配置"><a href="#config配置" class="headerlink" title="config配置"></a>config配置</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Host fd-git</span><br><span class="line">    Hostname git.finger.dance</span><br><span class="line">    User git</span><br><span class="line">    IdentityFile ~/.ssh/weihc</span><br></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">SSH</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/笔记//" class="article-tag-list-link color3">笔记</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/10/27/ssh配置/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-主题自定义" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/10/27/主题自定义/">yilia主题自定义</a>
+    </h1>
+  
+
+        
+        <a href="/2018/10/27/主题自定义/" class="archive-article-date">
+  	<time datetime="2018-10-27T11:37:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-27 19:37:39</time>
+</a>
+
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>持续更新</p>
+<h2 id="修改footer"><a href="#修改footer" class="headerlink" title="修改footer"></a>修改footer</h2><p>yilia/layout/_partial/footer.ejs</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"footer-info"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"display: inline-block;"</span>&gt;</span></span><br><span class="line">        Stay hunger, stay young!</span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="修改文章显示时间"><a href="#修改文章显示时间" class="headerlink" title="修改文章显示时间"></a>修改文章显示时间</h2><p>yilia/layout/_partial/post/date.ejs</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;%= date(post.date, date_format) %&gt;</span><br></pre></td></tr></table></figure>
+<p>改为</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;%= date(post.date, &apos;YYYY-MM-DD HH:mm:ss&apos;) %&gt;</span><br></pre></td></tr></table></figure>
+<p>代码参考</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># Date / Time format</span><br><span class="line">## Hexo uses Moment.js to parse and display date</span><br><span class="line">## You can customize the date format as defined in</span><br><span class="line">## http://momentjs.com/docs/#/displaying/format/</span><br><span class="line">date_format: YYYY-MM-DD</span><br><span class="line">time_format: HH:mm:ss</span><br></pre></td></tr></table></figure>
+<h2 id="首页文章标题对齐"><a href="#首页文章标题对齐" class="headerlink" title="首页文章标题对齐"></a>首页文章标题对齐</h2><p>yilia/source/main.0cf68a.css</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.article-inner</span> <span class="selector-tag">h1</span><span class="selector-class">.article-title</span>, <span class="selector-class">.article-title</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#696969</span>;</span><br><span class="line">  <span class="comment">/* margin-left: 0px; */</span></span><br><span class="line">  <span class="attribute">margin-left</span>: -<span class="number">4px</span>;</span><br><span class="line">  <span class="attribute">font-weight</span>: <span class="number">300</span>;</span><br><span class="line">  <span class="attribute">line-height</span>: <span class="number">35px</span>;</span><br><span class="line">  <span class="attribute">margin-bottom</span>: <span class="number">20px</span>;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="number">26px</span>;</span><br><span class="line">  <span class="attribute">-webkit-transition</span>: color <span class="number">0.3s</span>;</span><br><span class="line">  <span class="attribute">-moz-transition</span>: color <span class="number">0.3s</span>;</span><br><span class="line">  <span class="attribute">-o-transition</span>: color <span class="number">0.3s</span>;</span><br><span class="line">  <span class="attribute">transition</span>: color <span class="number">0.3s</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="标题加入背景色"><a href="#标题加入背景色" class="headerlink" title="标题加入背景色"></a>标题加入背景色</h2><p>yilia/source/main.0cf68a.css</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.article-header</span>&#123;<span class="attribute">border-left</span>:<span class="number">5px</span> solid <span class="number">#4d4d4d</span>;<span class="attribute">background-color</span>: <span class="number">#d5d8d9</span>;<span class="attribute">padding</span>:<span class="number">30px</span> <span class="number">0</span> <span class="number">15px</span> <span class="number">25px</span>;<span class="attribute">padding-left</span>:<span class="number">7.6923%</span>&#125;</span><br></pre></td></tr></table></figure>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Hexo</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">主题</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">自定义</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Hexo//" class="article-tag-list-link color5">Hexo</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/10/27/主题自定义/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-gitlab" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/10/27/gitlab/">gitlab的基本配置</a>
+    </h1>
+  
+
+        
+        <a href="/2018/10/27/gitlab/" class="archive-article-date">
+  	<time datetime="2018-10-27T11:37:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-27 19:37:39</time>
+</a>
+
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="1-设置账户和邮件"><a href="#1-设置账户和邮件" class="headerlink" title="1 设置账户和邮件"></a>1 设置账户和邮件</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name weihuchao</span><br><span class="line">git config --global user.email weihuchao@xuetangx.com</span><br></pre></td></tr></table></figure>
+<p>设置存储<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --global credential.helper store</span><br></pre></td></tr></table></figure></p>
+<h2 id="2-配置ssh-key"><a href="#2-配置ssh-key" class="headerlink" title="2 配置ssh-key"></a>2 配置ssh-key</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &apos;weihuchao@xuetangx.com&apos;</span><br></pre></td></tr></table></figure>
+<p>生成的文件在<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim ~/.ssh/id_rsa</span><br></pre></td></tr></table></figure></p>
+<p>将内容复制到SSH keys里</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">gitlab</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/笔记//" class="article-tag-list-link color3">笔记</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/10/27/gitlab/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-git和github和gitlab的区别" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="git"><a href="#git" class="headerlink" title="git"></a>git</h2><p>git 是一种开源的版本控制系统，可以高效的管理项目版本。同时也是一个版本控制软件。</p>
+<h2 id="GitHub"><a href="#GitHub" class="headerlink" title="GitHub"></a>GitHub</h2><p>GitHub 是一个面向开源及私有软件项目的托管平台。GitHub可以托管各种Git库，并提供web界面。</p>
+<p>也就是说大众可以使用的, 且企业可以定制的。</p>
+<h2 id="GitLab"><a href="#GitLab" class="headerlink" title="GitLab"></a>GitLab</h2><p>GitLab 是一个用于仓库管理系统的开源项目，使用git进行代码管理工具，可以自己搭建GitLab仓库服务器</p>
+<p>企业自己搭建的一个git仓库使用的技术。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/10/27/git和github和gitlab的区别/">展开全文 >></a>
         </p>
       
 
@@ -689,423 +1142,6 @@
 
 
   
-    <article id="post-reactor模式" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/10/27/reactor模式/">Rector模式概述</a>
-    </h1>
-  
-
-        
-        <a href="/2018/10/27/reactor模式/" class="archive-article-date">
-  	<time datetime="2018-10-27T11:37:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-27 19:37:39</time>
-</a>
-
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="1-异步请求的客户端"><a href="#1-异步请求的客户端" class="headerlink" title="1 异步请求的客户端"></a>1 异步请求的客户端</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_poetry</span><span class="params">(sockets)</span>:</span></span><br><span class="line">    <span class="string">"""Download poety from all the given sockets."""</span></span><br><span class="line"></span><br><span class="line">    poems = dict.fromkeys(sockets, <span class="string">''</span>) <span class="comment"># socket -&gt; accumulated poem</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># socket -&gt; task numbers</span></span><br><span class="line">    sock2task = dict([(s, i + <span class="number">1</span>) <span class="keyword">for</span> i, s <span class="keyword">in</span> enumerate(sockets)])</span><br><span class="line"></span><br><span class="line">    sockets = list(sockets) <span class="comment"># make a copy</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># we go around this loop until we've gotten all the poetry</span></span><br><span class="line">    <span class="comment"># from all the sockets. This is the 'reactor loop'.</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> sockets:</span><br><span class="line">        <span class="comment"># this select call blocks until one or more of the</span></span><br><span class="line">        <span class="comment"># sockets is ready for read I/O</span></span><br><span class="line">        rlist, _, _ = select.select(sockets, [], [])</span><br><span class="line"></span><br><span class="line">        <span class="comment"># rlist is the list of sockets with data ready to read</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> sock <span class="keyword">in</span> rlist:</span><br><span class="line">            data = <span class="string">''</span></span><br><span class="line"></span><br><span class="line">            <span class="keyword">while</span> <span class="keyword">True</span>:</span><br><span class="line">                <span class="keyword">try</span>:</span><br><span class="line">                    new_data = sock.recv(<span class="number">1024</span>)</span><br><span class="line">                <span class="keyword">except</span> socket.error, e:</span><br><span class="line">                    <span class="keyword">if</span> e.args[<span class="number">0</span>] == errno.EWOULDBLOCK:</span><br><span class="line">                        <span class="comment"># this error code means we would have</span></span><br><span class="line">                        <span class="comment"># blocked if the socket was blocking.</span></span><br><span class="line">                        <span class="comment"># instead we skip to the next socket</span></span><br><span class="line">                        <span class="keyword">break</span></span><br><span class="line">                    <span class="keyword">raise</span></span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    <span class="keyword">if</span> <span class="keyword">not</span> new_data:</span><br><span class="line">                        <span class="keyword">break</span></span><br><span class="line">                    <span class="keyword">else</span>:</span><br><span class="line">                        data += new_data</span><br><span class="line"></span><br><span class="line">            <span class="comment"># Each execution of this inner loop corresponds to</span></span><br><span class="line">            <span class="comment"># working on one asynchronous task in Figure 3 here:</span></span><br><span class="line">            <span class="comment"># http://krondo.com/?p=1209#figure3</span></span><br><span class="line"></span><br><span class="line">            task_num = sock2task[sock]</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">not</span> data:</span><br><span class="line">                sockets.remove(sock)</span><br><span class="line">                sock.close()</span><br><span class="line">                <span class="keyword">print</span> <span class="string">'Task %d finished'</span> % task_num</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                addr_fmt = format_address(sock.getpeername())</span><br><span class="line">                msg = <span class="string">'Task %d: got %d bytes of poetry from %s'</span></span><br><span class="line">                <span class="keyword">print</span>  msg % (task_num, len(data), addr_fmt)</span><br><span class="line"></span><br><span class="line">            poems[sock] += data</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> poems</span><br></pre></td></tr></table></figure>
-<ol>
-<li>异步模式客户端一次性与全部服务器完成连接，而不像同步模式那样一次只连接一个。</li>
-<li>用来进行通信的Socket方法是非阻塞模的，这是通过调用setblocking(0)来实现的。</li>
-<li>select模块中的select方法是用来识别其监视的socket是否有完成数据接收的，如果没有它就处于阻塞状态。</li>
-<li>使用select函数等待所有Socket，直到至少有一个socket有数据到来。</li>
-<li>对每个有数据需要读取的socket，从中读取数据。但仅仅只是读取有效数据，不能为了等待还没来到的数据而发生阻塞。</li>
-<li>由于不断发送， 有可能</li>
-</ol>
-<h2 id="2-reactor模式"><a href="#2-reactor模式" class="headerlink" title="2 reactor模式"></a>2 reactor模式</h2><p>这种，等待事件到来，然后对事件进行处理，处理完毕之后又继续等待事件到来的模型， 就被故写成了reactor模式。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Rector</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/笔记//" class="article-tag-list-link color3">笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/10/27/reactor模式/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-docker笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/10/27/docker笔记/">docker学习笔记</a>
-    </h1>
-  
-
-        
-        <a href="/2018/10/27/docker笔记/" class="archive-article-date">
-  	<time datetime="2018-10-27T11:37:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-27 19:37:39</time>
-</a>
-
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="1-安装"><a href="#1-安装" class="headerlink" title="1 安装"></a>1 安装</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install docker</span><br></pre></td></tr></table></figure>
-<p>需要下载安装</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://store.docker.com/editions/community/docker-ce-desktop-mac</span><br></pre></td></tr></table></figure>
-<h2 id="2-使用"><a href="#2-使用" class="headerlink" title="2 使用"></a>2 使用</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">$ docker --version</span><br><span class="line">Docker version 18.03, build c97c6d6</span><br><span class="line"></span><br><span class="line">$ docker-compose --version</span><br><span class="line">docker-compose version 1.22.0, build 8dd22a9</span><br><span class="line"></span><br><span class="line">$ docker-machine --version</span><br><span class="line">docker-machine version 0.14.0, build 9ba6da9</span><br><span class="line"></span><br><span class="line">$ docker run hello-world</span><br><span class="line"></span><br><span class="line">$ docker run -d -p 80:80 --name webserver nginx</span><br><span class="line"># 80:80 前面是docker外面环境使用的端口 后面是docker内部使用的端口</span><br><span class="line"># 需要使用-p来指定端口</span><br><span class="line"></span><br><span class="line">$ docker container ls</span><br><span class="line">$ docker container stop webserver</span><br><span class="line">$ docker container ls -a</span><br><span class="line">$ docker container rm webserver</span><br><span class="line">$ docker image ls</span><br><span class="line">$ docker image rm nginx</span><br></pre></td></tr></table></figure>
-<h3 id="2-1-创建一个Container"><a href="#2-1-创建一个Container" class="headerlink" title="2.1 创建一个Container"></a>2.1 创建一个Container</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mkdir docker_file</span><br><span class="line"><span class="built_in">cd</span> docker_file</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">vim Dockerfile</span><br><span class="line"></span><br><span class="line"># Use an official Python runtime as a parent image</span><br><span class="line">FROM python:2.7-slim</span><br><span class="line"></span><br><span class="line"># Set the working directory to /app</span><br><span class="line">WORKDIR /app</span><br><span class="line"></span><br><span class="line"># Copy the current directory contents into the container at /app</span><br><span class="line">COPY . /app</span><br><span class="line"></span><br><span class="line"># Install any needed packages specified in requirements.txt</span><br><span class="line">RUN pip install --trusted-host pypi.python.org -r requirements.txt</span><br><span class="line"></span><br><span class="line"># Make port 80 available to the world outside this container</span><br><span class="line">EXPOSE 80</span><br><span class="line"></span><br><span class="line"># Define environment variable</span><br><span class="line">ENV NAME World</span><br><span class="line"></span><br><span class="line"># Run app.py when the container launches</span><br><span class="line">CMD [&quot;python&quot;, &quot;app.py&quot;]</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">vim requirements.txt</span><br><span class="line"></span><br><span class="line">Flask</span><br><span class="line">Redis</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">vim app.py</span><br><span class="line"></span><br><span class="line">from flask import Flask</span><br><span class="line">from redis import Redis, RedisError</span><br><span class="line">import os</span><br><span class="line">import socket</span><br><span class="line"></span><br><span class="line"># Connect to Redis</span><br><span class="line">redis = Redis(host=&quot;redis&quot;, db=0, socket_connect_timeout=2, socket_timeout=2)</span><br><span class="line"></span><br><span class="line">app = Flask(__name__)</span><br><span class="line"></span><br><span class="line">@app.route(&quot;/&quot;)</span><br><span class="line">def hello():</span><br><span class="line">    try:</span><br><span class="line">        visits = redis.incr(&quot;counter&quot;)</span><br><span class="line">    except RedisError:</span><br><span class="line">        visits = &quot;&lt;i&gt;cannot connect to Redis, counter disabled&lt;/i&gt;&quot;</span><br><span class="line"></span><br><span class="line">    html = &quot;&lt;h3&gt;Hello &#123;name&#125;!&lt;/h3&gt;&quot; \</span><br><span class="line">           &quot;&lt;b&gt;Hostname:&lt;/b&gt; &#123;hostname&#125;&lt;br/&gt;&quot; \</span><br><span class="line">           &quot;&lt;b&gt;Visits:&lt;/b&gt; &#123;visits&#125;&quot;</span><br><span class="line">    return html.format(name=os.getenv(&quot;NAME&quot;, &quot;world&quot;), hostname=socket.gethostname(), visits=visits)</span><br><span class="line"></span><br><span class="line">if __name__ == &quot;__main__&quot;:</span><br><span class="line">    app.run(host=&apos;0.0.0.0&apos;, port=80)</span><br></pre></td></tr></table></figure>
-<p>创建container</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker build -t friendlyhello .</span><br></pre></td></tr></table></figure>
-<p>运行app</p>
-<p>其中-p用于绑定端口，4000:80 前面是docker外面环境使用的端口，后面是docker内部使用的端口。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -p 4000:80 friendlyhello</span><br></pre></td></tr></table></figure>
-<p>后台运行app</p>
-<p>使用-d， 可以合在一起写<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -d -p 4000:80 friendlyhello</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">➜  docker_file docker run -dp 4000:80 friendlyhello</span><br><span class="line">bfc28faf20c23567d7a83667f2040c1469d6adae00ffe45257f494c72e778efe</span><br><span class="line">➜  docker_file docker container ls</span><br><span class="line">CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS                  NAMES</span><br><span class="line">bfc28faf20c2        friendlyhello       &quot;python app.py&quot;     48 seconds ago      Up 46 seconds       0.0.0.0:4000-&gt;80/tcp   xenodochial_jackson</span><br><span class="line">➜  docker_file docker container stop bfc28faf20c2</span><br><span class="line">bfc28faf20c2</span><br></pre></td></tr></table></figure>
-<p>发布到远程并且使用</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">➜  docker_file docker login</span><br><span class="line">Authenticating with existing credentials...</span><br><span class="line">Login Succeeded</span><br><span class="line">➜  docker_file docker tag friendlyhello weihuchao/get-started:part1</span><br><span class="line">➜  docker_file docker image ls</span><br><span class="line">REPOSITORY              TAG                 IMAGE ID            CREATED             SIZE</span><br><span class="line">friendlyhello           latest              13f8513def89        28 minutes ago      132MB</span><br><span class="line">weihuchao/get-started   part1               13f8513def89        28 minutes ago      132MB</span><br><span class="line">nginx                   latest              bc26f1ed35cf        4 days ago          109MB</span><br><span class="line">hello-world             latest              4ab4c602aa5e        3 weeks ago         1.84kB</span><br><span class="line">ubuntu                  latest              cd6d8154f1e1        3 weeks ago         84.1MB</span><br><span class="line">python                  2.7-slim            c9cde4658340        3 weeks ago         120MB</span><br><span class="line">➜  docker_file docker push weihuchao/get-started:part1</span><br><span class="line">The push refers to repository [docker.io/weihuchao/get-started]</span><br><span class="line">07c6549b588a: Pushed</span><br><span class="line">033e409ef04e: Pushed</span><br><span class="line">3e9874f94f33: Pushed</span><br><span class="line">d509372bacf0: Mounted from library/python</span><br><span class="line">18cc3d97f405: Mounted from library/python</span><br><span class="line">80db77e224a0: Mounted from library/python</span><br><span class="line">8b15606a9e3e: Mounted from library/python</span><br><span class="line">part1: digest: sha256:7c038d51ed3bee7f6bce70489f996a0a53ac050e112eff348a6419cc61beacd4 size: 1787</span><br><span class="line">➜  docker_file docker run -p 4000:80 weihuchao/get-started:part1</span><br><span class="line"> * Serving Flask app &quot;app&quot; (lazy loading)</span><br><span class="line"> * Environment: production</span><br><span class="line">   WARNING: Do not use the development server in a production environment.</span><br><span class="line">   Use a production WSGI server instead.</span><br><span class="line"> * Debug mode: off</span><br><span class="line"> * Running on http://0.0.0.0:80/ (Press CTRL+C to quit)</span><br></pre></td></tr></table></figure>
-<p>用到的命令总结</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">docker build -t friendlyhello .  # Create image using this directory&apos;s Dockerfile</span><br><span class="line">docker run -p 4000:80 friendlyhello  # Run &quot;friendlyname&quot; mapping port 4000 to 80</span><br><span class="line">docker run -d -p 4000:80 friendlyhello         # Same thing, but in detached mode</span><br><span class="line">docker container ls                                # List all running containers</span><br><span class="line">docker container ls -a             # List all containers, even those not running</span><br><span class="line">docker container stop &lt;hash&gt;           # Gracefully stop the specified container</span><br><span class="line">docker container kill &lt;hash&gt;         # Force shutdown of the specified container</span><br><span class="line">docker container rm &lt;hash&gt;        # Remove specified container from this machine</span><br><span class="line">docker container rm $(docker container ls -a -q)         # Remove all containers</span><br><span class="line">docker image ls -a                             # List all images on this machine</span><br><span class="line">docker image rm &lt;image id&gt;            # Remove specified image from this machine</span><br><span class="line">docker image rm $(docker image ls -a -q)   # Remove all images from this machine</span><br><span class="line">docker login             # Log in this CLI session using your Docker credentials</span><br><span class="line">docker tag &lt;image&gt; username/repository:tag  # Tag &lt;image&gt; for upload to registry</span><br><span class="line">docker push username/repository:tag            # Upload tagged image to registry</span><br><span class="line">docker run username/repository:tag                   # Run image from a registry</span><br></pre></td></tr></table></figure>
-<h3 id="2-2-服务"><a href="#2-2-服务" class="headerlink" title="2.2 服务"></a>2.2 服务</h3><p>对于分布式程序， 每个分片就是一个服务。</p>
-<p>创建一个compose文件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">➜  docker_file vim docker-compose.yml</span><br><span class="line">➜  docker_file cat docker-compose.yml</span><br><span class="line">version: &quot;3&quot;</span><br><span class="line">services:</span><br><span class="line">  web:</span><br><span class="line">    # replace username/repo:tag with your name and image details</span><br><span class="line">    image: weihuchao/get-started:part1</span><br><span class="line">    deploy:</span><br><span class="line">      replicas: 5</span><br><span class="line">      resources:</span><br><span class="line">        limits:</span><br><span class="line">          cpus: &quot;0.1&quot;</span><br><span class="line">          memory: 50M</span><br><span class="line">      restart_policy:</span><br><span class="line">        condition: on-failure</span><br><span class="line">    ports:</span><br><span class="line">      - &quot;4000:80&quot;</span><br><span class="line">    networks:</span><br><span class="line">      - webnet</span><br><span class="line">networks:</span><br><span class="line">  webnet:</span><br></pre></td></tr></table></figure>
-<ul>
-<li>创建一个名为web的服务，运行5个实例。</li>
-<li>一旦失败就重启</li>
-<li>端口配置和之前的一致</li>
-<li>通过名为webnet的负载均衡来进行负载均衡</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">➜  docker_file docker swarm init</span><br><span class="line">Swarm initialized: current node (u3dqg55kw2zuznsl8mkkoj0y4) is now a manager.</span><br><span class="line"></span><br><span class="line">To add a worker to this swarm, run the following command:</span><br><span class="line"></span><br><span class="line">    docker swarm join --token SWMTKN-1-1y7qkerfds031krhu1xry1jrxdiz5k7h2pxh6n9ue0xv9ccnta-70p3h13q9kje8ipbw4hd65wcg 192.168.65.3:2377</span><br><span class="line"></span><br><span class="line">To add a manager to this swarm, run &apos;docker swarm join-token manager&apos; and follow the instructions.</span><br><span class="line"></span><br><span class="line">➜  docker_file docker stack deploy -c docker-compose.yml getstartedlab</span><br><span class="line">Creating network getstartedlab_webnet</span><br><span class="line">Creating service getstartedlab_web</span><br><span class="line">➜  docker_file docker ps</span><br><span class="line">CONTAINER ID        IMAGE                         COMMAND             CREATED             STATUS              PORTS               NAMES</span><br><span class="line">d877cae608ad        weihuchao/get-started:part1   &quot;python app.py&quot;     8 seconds ago       Up 5 seconds        80/tcp              getstartedlab_web.2.ptnydvr11qh3pf6sojrp3w4c3</span><br><span class="line">1f5ec4db337b        weihuchao/get-started:part1   &quot;python app.py&quot;     8 seconds ago       Up 5 seconds        80/tcp              getstartedlab_web.5.clqmpbuxb3eara40eoj9uvkzi</span><br><span class="line">afdc3314b63b        weihuchao/get-started:part1   &quot;python app.py&quot;     8 seconds ago       Up 5 seconds        80/tcp              getstartedlab_web.4.tvhwox2d1r5zjds985mety0oj</span><br><span class="line">d4ca340faa6a        weihuchao/get-started:part1   &quot;python app.py&quot;     8 seconds ago       Up 5 seconds        80/tcp              getstartedlab_web.1.wd6dr71vlg84cxpla1g3l7vgh</span><br><span class="line">976e5e62ef00        weihuchao/get-started:part1   &quot;python app.py&quot;     8 seconds ago       Up 6 seconds        80/tcp              getstartedlab_web.3.2085k2dvw7q4lgyf5opjn5vqf</span><br><span class="line">➜  docker_file docker service ls</span><br><span class="line">ID                  NAME                MODE                REPLICAS            IMAGE                         PORTS</span><br><span class="line">xfmdeis99zj7        getstartedlab_web   replicated          5/5                 weihuchao/get-started:part1   *:4000-&gt;80/tcp</span><br><span class="line">➜  docker_file docker service ps getstartedlab_web</span><br><span class="line">ID                  NAME                  IMAGE                         NODE                    DESIRED STATE       CURRENT STATE           ERROR               PORTS</span><br><span class="line">wd6dr71vlg84        getstartedlab_web.1   weihuchao/get-started:part1   linuxkit-025000000001   Running             Running 2 minutes ago</span><br><span class="line">ptnydvr11qh3        getstartedlab_web.2   weihuchao/get-started:part1   linuxkit-025000000001   Running             Running 2 minutes ago</span><br><span class="line">2085k2dvw7q4        getstartedlab_web.3   weihuchao/get-started:part1   linuxkit-025000000001   Running             Running 2 minutes ago</span><br><span class="line">tvhwox2d1r5z        getstartedlab_web.4   weihuchao/get-started:part1   linuxkit-025000000001   Running             Running 2 minutes ago</span><br><span class="line">clqmpbuxb3ea        getstartedlab_web.5   weihuchao/get-started:part1   linuxkit-025000000001   Running             Running 2 minutes ago</span><br><span class="line">➜  docker_file docker container ls -q</span><br><span class="line">d877cae608ad</span><br><span class="line">1f5ec4db337b</span><br><span class="line">afdc3314b63b</span><br><span class="line">d4ca340faa6a</span><br><span class="line">976e5e62ef00</span><br><span class="line">➜  docker_file docker stack rm getstartedlab</span><br><span class="line">Removing service getstartedlab_web</span><br><span class="line">Removing network getstartedlab_webnet</span><br><span class="line">➜  docker_file docker swarm leave --force</span><br><span class="line">Node left the swarm.</span><br></pre></td></tr></table></figure>
-<p>需要先创建swarm， 在deploy。</p>
-<p>通过负载均衡来访问集群中的不同的服务，不断访问主页可以看到有可能每次访问得到的hostname都是不同的。</p>
-<p>用到的命令集合</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">docker stack ls                                            # List stacks or apps</span><br><span class="line">docker stack deploy -c &lt;composefile&gt; &lt;appname&gt;  # Run the specified Compose file</span><br><span class="line">docker service ls                 # List running services associated with an app</span><br><span class="line">docker service ps &lt;service&gt;                  # List tasks associated with an app</span><br><span class="line">docker inspect &lt;task or container&gt;                   # Inspect task or container</span><br><span class="line">docker container ls -q                                      # List container IDs</span><br><span class="line">docker stack rm &lt;appname&gt;                             # Tear down an application</span><br><span class="line">docker swarm leave --force      # Take down a single node swarm from the manager</span><br></pre></td></tr></table></figure>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">docker</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/笔记//" class="article-tag-list-link color3">笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/10/27/docker笔记/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-ssh配置" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/10/27/ssh配置/">SSH的一般配置</a>
-    </h1>
-  
-
-        
-        <a href="/2018/10/27/ssh配置/" class="archive-article-date">
-  	<time datetime="2018-10-27T11:37:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-27 19:37:39</time>
-</a>
-
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="config配置"><a href="#config配置" class="headerlink" title="config配置"></a>config配置</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Host fd-git</span><br><span class="line">    Hostname git.finger.dance</span><br><span class="line">    User git</span><br><span class="line">    IdentityFile ~/.ssh/weihc</span><br></pre></td></tr></table></figure>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">SSH</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/笔记//" class="article-tag-list-link color3">笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/10/27/ssh配置/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-主题自定义" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/10/27/主题自定义/">yilia主题自定义</a>
-    </h1>
-  
-
-        
-        <a href="/2018/10/27/主题自定义/" class="archive-article-date">
-  	<time datetime="2018-10-27T11:37:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-27 19:37:39</time>
-</a>
-
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>持续更新</p>
-<h2 id="修改footer"><a href="#修改footer" class="headerlink" title="修改footer"></a>修改footer</h2><p>yilia/layout/_partial/footer.ejs</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"footer-info"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"display: inline-block;"</span>&gt;</span></span><br><span class="line">        Stay hunger, stay young!</span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h2 id="修改文章显示时间"><a href="#修改文章显示时间" class="headerlink" title="修改文章显示时间"></a>修改文章显示时间</h2><p>yilia/layout/_partial/post/date.ejs</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;%= date(post.date, date_format) %&gt;</span><br></pre></td></tr></table></figure>
-<p>改为</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;%= date(post.date, &apos;YYYY-MM-DD HH:mm:ss&apos;) %&gt;</span><br></pre></td></tr></table></figure>
-<p>代码参考</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># Date / Time format</span><br><span class="line">## Hexo uses Moment.js to parse and display date</span><br><span class="line">## You can customize the date format as defined in</span><br><span class="line">## http://momentjs.com/docs/#/displaying/format/</span><br><span class="line">date_format: YYYY-MM-DD</span><br><span class="line">time_format: HH:mm:ss</span><br></pre></td></tr></table></figure>
-<h2 id="首页文章标题对齐"><a href="#首页文章标题对齐" class="headerlink" title="首页文章标题对齐"></a>首页文章标题对齐</h2><p>yilia/source/main.0cf68a.css</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.article-inner</span> <span class="selector-tag">h1</span><span class="selector-class">.article-title</span>, <span class="selector-class">.article-title</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#696969</span>;</span><br><span class="line">  <span class="comment">/* margin-left: 0px; */</span></span><br><span class="line">  <span class="attribute">margin-left</span>: -<span class="number">4px</span>;</span><br><span class="line">  <span class="attribute">font-weight</span>: <span class="number">300</span>;</span><br><span class="line">  <span class="attribute">line-height</span>: <span class="number">35px</span>;</span><br><span class="line">  <span class="attribute">margin-bottom</span>: <span class="number">20px</span>;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="number">26px</span>;</span><br><span class="line">  <span class="attribute">-webkit-transition</span>: color <span class="number">0.3s</span>;</span><br><span class="line">  <span class="attribute">-moz-transition</span>: color <span class="number">0.3s</span>;</span><br><span class="line">  <span class="attribute">-o-transition</span>: color <span class="number">0.3s</span>;</span><br><span class="line">  <span class="attribute">transition</span>: color <span class="number">0.3s</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="标题加入背景色"><a href="#标题加入背景色" class="headerlink" title="标题加入背景色"></a>标题加入背景色</h2><p>yilia/source/main.0cf68a.css</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.article-header</span>&#123;<span class="attribute">border-left</span>:<span class="number">5px</span> solid <span class="number">#4d4d4d</span>;<span class="attribute">background-color</span>: <span class="number">#d5d8d9</span>;<span class="attribute">padding</span>:<span class="number">30px</span> <span class="number">0</span> <span class="number">15px</span> <span class="number">25px</span>;<span class="attribute">padding-left</span>:<span class="number">7.6923%</span>&#125;</span><br></pre></td></tr></table></figure>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Hexo</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">主题</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">自定义</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Hexo//" class="article-tag-list-link color5">Hexo</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/10/27/主题自定义/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
     <article id="post-docker" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1169,118 +1205,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2018/09/19/docker/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-正向代理和反向代理" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/09/19/正向代理和反向代理/">正向代理和反向代理</a>
-    </h1>
-  
-
-        
-        <a href="/2018/09/19/正向代理和反向代理/" class="archive-article-date">
-  	<time datetime="2018-09-19T03:07:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-19 11:07:20</time>
-</a>
-
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="正向代理"><a href="#正向代理" class="headerlink" title="正向代理"></a>正向代理</h2><p>客户端和代理处于同一个局域网（也不全是），客户端连接到代理，代理直接访问服务端的情况。</p>
-<h2 id="反向代理"><a href="#反向代理" class="headerlink" title="反向代理"></a>反向代理</h2><p>客户端直接访问代理，该代理对于客户端来说就是访问的目标，然后该代理依据访问的内容等因素，根据配置，选择在身后的合适的服务端，请求服务端，然后将服务端返回的内容返回给客户端。</p>
-<p>一般来说，该代理和服务端处于一个局域网。</p>
-<h2 id="对比"><a href="#对比" class="headerlink" title="对比"></a>对比</h2><p>通过局域网判断：</p>
-<ul>
-<li>正向代理： 客户端和代理处于一个局域网</li>
-<li>反向代理： 服务端和代理处于一个局域网</li>
-</ul>
-<p><img src="http://pic1.zhimg.com/80/480c1c45d2565e2f92fd930d25b73a18_hd.jpg" alt="图1"></p>
-<p>通过对应关系判断：</p>
-<ul>
-<li>正向代理： 客户端-代理-服务端是 N:1:1 的关系</li>
-<li>反向代理： 客户端-代理-服务端是 1:1:N 的关系</li>
-</ul>
-<p><img src="http://pic4.zhimg.com/80/2582ac2a1366e3e12acf274265ea80f3_hd.jpg" alt="图2"></p>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
-<li>博客：<a href="https://www.cnblogs.com/Anker/p/6056540.html" target="_blank" rel="noopener">https://www.cnblogs.com/Anker/p/6056540.html</a></li>
-<li>知乎：<a href="https://www.zhihu.com/question/24723688" target="_blank" rel="noopener">https://www.zhihu.com/question/24723688</a></li>
-</ul>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">server</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">代理</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">反向代理</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/server//" class="article-tag-list-link color2">server</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/09/19/正向代理和反向代理/">展开全文 >></a>
         </p>
       
 
@@ -1423,6 +1347,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">server</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">docker</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Work</a>
               </li>
              
@@ -1439,14 +1371,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">server</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">docker</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
              
@@ -1459,7 +1383,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Mac</a>
+                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">解释器</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1467,7 +1399,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">python</a>
+                <a href="javascript:void(0)" class="js-tag color2">sentry</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1483,15 +1415,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">解释器</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Rector</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">sentry</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1508,6 +1432,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">虚拟环境</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Mac</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1528,10 +1456,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">异步</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">环境</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1556,6 +1480,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">套接字</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">环境</a>
               </li>
              
               <li class="article-tag-list-item">
