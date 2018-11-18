@@ -818,6 +818,122 @@
 
 
   
+    <article id="post-python解释器" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/09/01/python解释器/">python解释器</a>
+    </h1>
+  
+
+        
+        <a href="/2018/09/01/python解释器/" class="archive-article-date">
+  	<time datetime="2018-08-31T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-01 00:00:00</time>
+</a>
+
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="1-Python的常用解释器"><a href="#1-Python的常用解释器" class="headerlink" title="1 Python的常用解释器"></a>1 Python的常用解释器</h2><h3 id="CPython"><a href="#CPython" class="headerlink" title="CPython"></a>CPython</h3><p>官方版本的解释器：CPython。</p>
+<p>这个解释器是用C语言开发的，所以叫CPython。</p>
+<p>默认在命令行下运行python就是启动CPython解释器。</p>
+<p>CPython是使用最广的Python解释器</p>
+<h3 id="IPython"><a href="#IPython" class="headerlink" title="IPython"></a>IPython</h3><p>IPython是基于CPython之上的一个交互式解释器，只是在交互方式上有所增强。</p>
+<p>CPython用<strong>&gt;&gt;&gt;</strong>作为提示符，而IPython用<strong>In [序号]:</strong>作为提示符。</p>
+<h3 id="PyPy"><a href="#PyPy" class="headerlink" title="PyPy"></a>PyPy</h3><p>PyPy是另一个Python解释器，它的目标是执行速度。</p>
+<p>PyPy采用<strong>JIT技术</strong>，对Python代码进行<strong>动态编译</strong>（注意不是解释），所以可以<strong>显著提高Python代码的执行速度</strong>。</p>
+<p>绝大部分Python代码都可以在PyPy下运行，但是PyPy和CPython有一些是不同的，这就导致相同的Python代码在两种解释器下执行可能会有不同的结果。</p>
+<h3 id="Jython"><a href="#Jython" class="headerlink" title="Jython"></a>Jython</h3><p>Jython是运行在Java平台上的Python解释器，可以直接把Python代码编译成Java字节码执行。</p>
+<h3 id="IronPython"><a href="#IronPython" class="headerlink" title="IronPython"></a>IronPython</h3><p>IronPython和Jython类似，只不过IronPython是运行在微软.Net平台上的Python解释器，可以直接把Python代码编译成.Net的字节码。</p>
+<h2 id="2-解释-提前编译-实时编译"><a href="#2-解释-提前编译-实时编译" class="headerlink" title="2 解释 提前编译 实时编译"></a>2 解释 提前编译 实时编译</h2><h3 id="提前（AOT）编译"><a href="#提前（AOT）编译" class="headerlink" title="提前（AOT）编译"></a>提前（AOT）编译</h3><p>编译高级编程语言为对应的机器代码， 以便生成的二进制文件可以本机执行。</p>
+<h3 id="解释"><a href="#解释" class="headerlink" title="解释"></a>解释</h3><p>解释是<strong>直接执行脚本语言</strong>， 而不需要事先将它们编译成机器语言。</p>
+<p>解释器的主要缺点是解释程序通常比编译时运行得<strong>慢</strong>。</p>
+<p>解释器通常使用以下策略之一来执行程序：</p>
+<ul>
+<li>解析的源代码，并直接执行其行为;</li>
+<li>将源代码转换为一些有效的<strong>中间表示</strong>并立即执行此操作;</li>
+<li>显式执行由编译器生成的存储的预编译代码，编译器是解释器系统的一部分。</li>
+</ul>
+<p>术语“ <strong>解释语言</strong> ”或“ <strong>编译语言</strong> ”表示该语言的规范实现分别是<strong>解释器</strong>或<strong>编译器</strong>。</p>
+<h3 id="实时（JIT）编译"><a href="#实时（JIT）编译" class="headerlink" title="实时（JIT）编译"></a>实时（JIT）编译</h3><p>涉及程序执行期间的编译。</p>
+<p>实时编译系统通常的做法是，连续地分析正在执行的代码，并识别代码的一部分，从而得到加速。且编译或重新编译获得的加速比将超过编译该代码的开销。</p>
+<p>JIT编译结合了编译代码的速度和解释的灵活性，以及​解释器的开销和编译的额外开销（而不仅仅是解释）。</p>
+<p>理论上，JIT编译可以比静态编译产生更快的执行速度。</p>
+<h2 id="3-CPython和PyPy之间的差异"><a href="#3-CPython和PyPy之间的差异" class="headerlink" title="3 CPython和PyPy之间的差异"></a>3 CPython和PyPy之间的差异</h2><p><a href="https://pypy.readthedocs.io/en/latest/cpython_differences.html" target="_blank" rel="noopener">点我查看详细</a></p>
+<p>‰</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">解释器</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/python//" class="article-tag-list-link color2">python</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/09/01/python解释器/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-python拾遗" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1101,122 +1217,6 @@
 
 
   
-    <article id="post-python解释器" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/09/01/python解释器/">python解释器</a>
-    </h1>
-  
-
-        
-        <a href="/2018/09/01/python解释器/" class="archive-article-date">
-  	<time datetime="2018-08-31T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-01 00:00:00</time>
-</a>
-
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="1-Python的常用解释器"><a href="#1-Python的常用解释器" class="headerlink" title="1 Python的常用解释器"></a>1 Python的常用解释器</h2><h3 id="CPython"><a href="#CPython" class="headerlink" title="CPython"></a>CPython</h3><p>官方版本的解释器：CPython。</p>
-<p>这个解释器是用C语言开发的，所以叫CPython。</p>
-<p>默认在命令行下运行python就是启动CPython解释器。</p>
-<p>CPython是使用最广的Python解释器</p>
-<h3 id="IPython"><a href="#IPython" class="headerlink" title="IPython"></a>IPython</h3><p>IPython是基于CPython之上的一个交互式解释器，只是在交互方式上有所增强。</p>
-<p>CPython用<strong>&gt;&gt;&gt;</strong>作为提示符，而IPython用<strong>In [序号]:</strong>作为提示符。</p>
-<h3 id="PyPy"><a href="#PyPy" class="headerlink" title="PyPy"></a>PyPy</h3><p>PyPy是另一个Python解释器，它的目标是执行速度。</p>
-<p>PyPy采用<strong>JIT技术</strong>，对Python代码进行<strong>动态编译</strong>（注意不是解释），所以可以<strong>显著提高Python代码的执行速度</strong>。</p>
-<p>绝大部分Python代码都可以在PyPy下运行，但是PyPy和CPython有一些是不同的，这就导致相同的Python代码在两种解释器下执行可能会有不同的结果。</p>
-<h3 id="Jython"><a href="#Jython" class="headerlink" title="Jython"></a>Jython</h3><p>Jython是运行在Java平台上的Python解释器，可以直接把Python代码编译成Java字节码执行。</p>
-<h3 id="IronPython"><a href="#IronPython" class="headerlink" title="IronPython"></a>IronPython</h3><p>IronPython和Jython类似，只不过IronPython是运行在微软.Net平台上的Python解释器，可以直接把Python代码编译成.Net的字节码。</p>
-<h2 id="2-解释-提前编译-实时编译"><a href="#2-解释-提前编译-实时编译" class="headerlink" title="2 解释 提前编译 实时编译"></a>2 解释 提前编译 实时编译</h2><h3 id="提前（AOT）编译"><a href="#提前（AOT）编译" class="headerlink" title="提前（AOT）编译"></a>提前（AOT）编译</h3><p>编译高级编程语言为对应的机器代码， 以便生成的二进制文件可以本机执行。</p>
-<h3 id="解释"><a href="#解释" class="headerlink" title="解释"></a>解释</h3><p>解释是<strong>直接执行脚本语言</strong>， 而不需要事先将它们编译成机器语言。</p>
-<p>解释器的主要缺点是解释程序通常比编译时运行得<strong>慢</strong>。</p>
-<p>解释器通常使用以下策略之一来执行程序：</p>
-<ul>
-<li>解析的源代码，并直接执行其行为;</li>
-<li>将源代码转换为一些有效的<strong>中间表示</strong>并立即执行此操作;</li>
-<li>显式执行由编译器生成的存储的预编译代码，编译器是解释器系统的一部分。</li>
-</ul>
-<p>术语“ <strong>解释语言</strong> ”或“ <strong>编译语言</strong> ”表示该语言的规范实现分别是<strong>解释器</strong>或<strong>编译器</strong>。</p>
-<h3 id="实时（JIT）编译"><a href="#实时（JIT）编译" class="headerlink" title="实时（JIT）编译"></a>实时（JIT）编译</h3><p>涉及程序执行期间的编译。</p>
-<p>实时编译系统通常的做法是，连续地分析正在执行的代码，并识别代码的一部分，从而得到加速。且编译或重新编译获得的加速比将超过编译该代码的开销。</p>
-<p>JIT编译结合了编译代码的速度和解释的灵活性，以及​解释器的开销和编译的额外开销（而不仅仅是解释）。</p>
-<p>理论上，JIT编译可以比静态编译产生更快的执行速度。</p>
-<h2 id="3-CPython和PyPy之间的差异"><a href="#3-CPython和PyPy之间的差异" class="headerlink" title="3 CPython和PyPy之间的差异"></a>3 CPython和PyPy之间的差异</h2><p><a href="https://pypy.readthedocs.io/en/latest/cpython_differences.html" target="_blank" rel="noopener">点我查看详细</a></p>
-<p>‰</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">解释器</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/python//" class="article-tag-list-link color2">python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/09/01/python解释器/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
     <article id="post-夏之幻-Garnet Crow" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1317,19 +1317,19 @@
 
 
   
-    <article id="post-青花瓷-周杰伦" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-不朽之罪-双笙" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/08/青花瓷-周杰伦/">青花瓷-周杰伦</a>
+      <a class="article-title" href="/2018/07/08/不朽之罪-双笙/">不朽之罪-双笙</a>
     </h1>
   
 
         
-        <a href="/2018/07/08/青花瓷-周杰伦/" class="archive-article-date">
+        <a href="/2018/07/08/不朽之罪-双笙/" class="archive-article-date">
   	<time datetime="2018-07-07T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-08 00:00:00</time>
 </a>
 
@@ -1338,7 +1338,18 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="歌谱"><a href="#歌谱" class="headerlink" title="歌谱"></a>歌谱</h2><p><img src="/Users/weihuchao/Work/HexoBlog/public/img/blog/青花瓷-周杰伦/青花瓷.jpg" alt="青花瓷"></p>
+        <h2 id="歌词"><a href="#歌词" class="headerlink" title="歌词"></a>歌词</h2><h3 id="A"><a href="#A" class="headerlink" title="A"></a>A</h3><p>打乱的骨牌 习惯盲目依赖↑<br>以坦然姿态 等风来→<br>鞋跟下青苔 爬满拖地裙摆→<br>神的福音被隔|绝窗外↑</p>
+<p>天平支点倾斜 自尊将我打败<br>不安的窘态 在作怪<br>我熟知的年代还能区分黑白<br>无需卖弄心|机耍赖</p>
+<p>为谁深陷不知往返的迷恋<br>未曾认清这个世界<br>我听到权力之争彻夜不歇<br>街尾血香|愈显浓烈</p>
+<h3 id="B"><a href="#B" class="headerlink" title="B"></a>B</h3><p>空间接应点 于囚笼中调（diao）配<br>密封的花蕊 正枯萎<br>听断线傀儡 晚安留在句尾<br>僵硬的思维筛选错对</p>
+<p>天平支点倾斜 自尊将我打败<br>不安的窘态 在作怪<br>我熟知的年代 还能区分黑白<br>无需卖弄心|机耍赖</p>
+<p>为谁深陷不知往返的迷恋<br>未曾认清这个世界<br>我听到权力之争彻夜不歇<br>街尾血香|愈显浓烈</p>
+<h3 id="C"><a href="#C" class="headerlink" title="C"></a>C</h3><p>甘愿臣服于谁 立忠诚之碑<br>重叠暗夜又一番教诲<br>结局早已无谓<br>明与灭 滞留病态的美</p>
+<h3 id="D"><a href="#D" class="headerlink" title="D"></a>D</h3><p>为谁深陷不知往返的迷恋<br>为谁认清这个世界<br>我听到权力之争彻夜不歇<br>街尾血香|显浓烈</p>
+<p>打乱的骨牌 习惯盲目依赖<br>（为谁深陷不知往返的迷恋）</p>
+<p>以坦然姿态 等风来<br>（未曾认清这个世界）</p>
+<p>让断线傀儡 晚安留在句尾<br>（我听到权力之争彻夜不歇）</p>
+<p>僵硬的思维筛选错对<br>（街尾血香愈显浓烈)</p>
 
       
 
@@ -1377,7 +1388,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/07/08/青花瓷-周杰伦/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/07/08/不朽之罪-双笙/">展开全文 >></a>
         </p>
       
 
@@ -1504,6 +1515,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">笔记</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Work</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Database</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
@@ -1516,23 +1539,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">笔记</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">server</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">docker</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Work</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Database</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1556,23 +1567,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">python</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">解释器</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">optparse</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">sentry</a>
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1588,11 +1587,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">解释器</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">sentry</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Rector</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">SSH</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Mac</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1604,11 +1615,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">虚拟环境</a>
+                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Mac</a>
+                <a href="javascript:void(0)" class="js-tag color5">虚拟环境</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1629,6 +1640,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">异步</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">环境</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1653,10 +1668,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">套接字</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">环境</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1725,6 +1736,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           
             <li class="search-li">
               <a href="https://www.cnblogs.com/weihuchao" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>我的博客园</a>
+            </li>
+          
+            <li class="search-li">
+              <a href="https://bwh8.net/clientarea.php" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>搬瓦工</a>
             </li>
           
         </ul>
